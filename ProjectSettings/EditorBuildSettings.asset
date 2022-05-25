@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/Main.unity
     guid: c3865ed5f4671264fb88d5bc7051bca5
+  - enabled: 1
+    path: Assets/0_Scenes/APP/ARTGame.unity
+    guid: 33d9cf1859401ed4c96362af6805f957
+  - enabled: 1
+    path: Assets/0_Scenes/APP/PEGame.unity
+    guid: f57501053c3f1b84499c7cea30a284a7
+  - enabled: 1
+    path: Assets/0_Scenes/APP/STUDYGame.unity
+    guid: 66f7c3cbe2b7e544c911123cca3af6a2
+  - enabled: 1
+    path: Assets/0_Scenes/APP/CHARMGame.unity
+    guid: 1ac44bfdea22e574b9dc055e2a285b00
   m_configObjects: {}
