@@ -80,7 +80,7 @@ public class SwitchOffGame : MonoBehaviour
 
     private void MinusTime()
     {
-        iTime -= 10f;
+        iTime -= 1f;
         if (iTime <= 0) EndGame();
     }
 
@@ -111,7 +111,6 @@ public class SwitchOffGame : MonoBehaviour
 
     void ResetGame()
     {
-        Debug.Log(iTime);
         score = 0;
         iTime = maxTime;
         UpdateScore();

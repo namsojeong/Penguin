@@ -16,17 +16,18 @@ public class SwitchButtonScripts : MonoBehaviour
     float cancelTime;
     float startTime;
 
-    private bool isOn;
+    private bool isOn = false;
 
     private void OnEnable()
     {
+        SwitchReset();
         SwitchOffGame.Instance().UpdateScore();
         StartSwitch();
     }
 
     void StartSwitch()
     {
-        startTime = Random.Range(0f, startMaxTime);
+        startTime = Random.Range(1f, startMaxTime);
         Invoke("SwitchOn", startTime);
     }
 
@@ -34,13 +35,13 @@ public class SwitchButtonScripts : MonoBehaviour
     {
         isOn = true;
         switchImage.sprite = SwitchOffGame.Instance().onImage;
-        cancelTime = Random.Range(0f, cancelMaxTime);
+        cancelTime = Random.Range(1f, cancelMaxTime);
         Invoke("SwitchOff", cancelTime);
     }
 
     void SwitchOff()
     {
-        CancelInvoke("SwitchOff");
+        CancelInvoke("SwitchOn");
         switchImage.sprite = SwitchOffGame.Instance().offImage;
         StartSwitch();
         isOn = false;
@@ -48,14 +49,23 @@ public class SwitchButtonScripts : MonoBehaviour
 
     public void IsClick()
     {
+        Debug.Log(isOn);
         if(isOn)
         {
             SwitchOffGame.Instance().ScoreUp(10);
         }
         else
         {
-            SwitchOffGame.Instance().TimeDown(10);
+            SwitchOffGame.Instance().TimeDown(1);
         }
         SwitchOff();
+    }
+
+    void SwitchReset()
+    {
+        isOn = false;
+        CancelInvoke("SwitchOff");
+        CancelInvoke("SwitchOn");
+        switchImage.sprite = SwitchOffGame.Instance().offImage;
     }
 }
