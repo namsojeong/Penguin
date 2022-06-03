@@ -4,42 +4,44 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     // 능력
-    int art;
-    int pe;
-    int study;
-    int charm;
+    public int art;
+    public int pe;
+    public int study;
+    public int charm;
+
+    // 영양소
+    public float hungry = 100;
+    public float fun = 100;
+    public float clean = 100;
+    public float sleep = 100;
+
+    public int coin;
+
+    public bool isLamp = true;
 
     private void Awake()
     {
-
-        // 능력치 데이터 가져오기
-        art = PlayerPrefs.GetInt("ART", 0);
-        pe = PlayerPrefs.GetInt("PE", 0);
-        study = PlayerPrefs.GetInt("STUDY", 0);
-        charm = PlayerPrefs.GetInt("CHARM", 0);
+        instance = this;
     }
 
-    // 능력치 올리기
     public void UpAbility(AbilityE ability, int v)
     {
         switch(ability)
         {
             case AbilityE.ART:
                 art += v;
-                PlayerPrefs.SetInt("ART", art);
                 break;
             case AbilityE.PE:
                 pe += v;
-                PlayerPrefs.SetInt("PE", pe);
                 break;
             case AbilityE.STUDY:
                 study += v;
-                PlayerPrefs.SetInt("STUDY", study);
                 break;
             case AbilityE.CHARM:
                 charm += v;
-                PlayerPrefs.SetInt("CHARM", charm);
                 break;
         }
 
