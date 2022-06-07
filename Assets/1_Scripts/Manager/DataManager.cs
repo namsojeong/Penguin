@@ -38,6 +38,7 @@ public class DataManager : MonoBehaviour
     {
         path = Path.Combine(Application.dataPath + "/Data/", "database.json");
         JsonLoad();
+        //안드로이드
         // path = Path.Combine(Application.persistentDataPath, "database.json");
     }
 

@@ -10,6 +10,8 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
     EventParam eventParam = new EventParam();
 
+    [SerializeField]
+    string itemName;
 
     void Start()
     {
@@ -37,6 +39,8 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
         if (Mathf.Abs(mousePos.x) <= 1.1f && Mathf.Abs(mousePos.y) <= 1.1f)
         {
+            eventParam.stringParam = itemName;
+            EventManager.TriggerEvent("USEFOOD", eventParam);
             eventParam.nutParam = NutrientE.HUNGRY;
             eventParam.intParam = 10;
             EventManager.TriggerEvent("FEED", eventParam);
