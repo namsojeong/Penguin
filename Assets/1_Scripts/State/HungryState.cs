@@ -21,6 +21,8 @@ public class HungryState : MonoBehaviour
     int nowFood = 0;
     int nowKindFood;
 
+    bool[] isHave = {false, };
+
     EventParam eventParam = new EventParam();
 
     private void Awake()
@@ -52,10 +54,10 @@ public class HungryState : MonoBehaviour
     }
     public void UpdateCount(EventParam eventParam)
     {
-        if (nowFood - 1 < 0) nextFoodButton[0].gameObject.SetActive(false);
-        else nextFoodButton[0].gameObject.SetActive(true);
-        if (nowFood + 1 >= nowKindFood) nextFoodButton[1].gameObject.SetActive(false);
-        else nextFoodButton[1].gameObject.SetActive(true);
+        //if (nowFood - 1 < 0) nextFoodButton[0].gameObject.SetActive(false);
+        //else nextFoodButton[0].gameObject.SetActive(true);
+        //if (nowFood + 1 >= nowKindFood) nextFoodButton[1].gameObject.SetActive(false);
+        //else nextFoodButton[1].gameObject.SetActive(true);
 
         countText[0].text = string.Format($"{shrimpCount}");
         countText[1].text = string.Format($"{squidCount}");
@@ -68,14 +70,15 @@ public class HungryState : MonoBehaviour
         food[nowFood].SetActive(false);
         if (dir == "LEFT")
         {
-            food[nowFood - 1].SetActive(true);
             nowFood--;
+            if (nowFood < 0) nowFood = 0;
         }
         else
         {
-            food[nowFood + 1].SetActive(true);
             nowFood++;
+            if (nowFood > 2) nowFood = 2;
         }
+        food[nowFood].SetActive(true);
     }
     private void MinusFood(EventParam eventParam)
     {
@@ -85,8 +88,8 @@ public class HungryState : MonoBehaviour
             shrimpCount--;
             if (shrimpCount < 1)
             {
-                food[0].SetActive(false);
                 nowKindFood--;
+                isHave[(int)FoodE.SHRIMP] = false;
             }
         }
         else if (eventParam.stringParam == "SQUID")
@@ -95,8 +98,8 @@ public class HungryState : MonoBehaviour
             squidCount--;
             if (squidCount < 1)
             {
-                food[1].SetActive(false);
                 nowKindFood--;
+                isHave[(int)FoodE.SQUID] = false;
             }
 
         }
@@ -106,8 +109,8 @@ public class HungryState : MonoBehaviour
             fishCount--;
             if (fishCount < 1)
             {
-                food[2].SetActive(false);
                 nowKindFood--;
+                isHave[(int)FoodE.FISH] = false;
             }
         }
     }
@@ -115,17 +118,29 @@ public class HungryState : MonoBehaviour
     {
         if (eventParam.stringParam == "SHRIMP")
         {
-            if (shrimpCount < 1) nowKindFood++;
+            if (shrimpCount < 1)
+            {
+                nowKindFood++;
+                isHave[(int)FoodE.SHRIMP] = true;
+            }
             shrimpCount++;
         }
         else if (eventParam.stringParam == "SQUID")
         {
-            if (squidCount < 1) nowKindFood++;
+            if (squidCount < 1)
+            {
+                nowKindFood++;
+                isHave[(int)FoodE.SQUID] = true;
+            }
             squidCount++;
         }
         else if (eventParam.stringParam == "FISH")
         {
-            if (fishCount < 1) nowKindFood++;
+            if (fishCount < 1)
+            {
+                nowKindFood++;
+                isHave[(int)FoodE.FISH] = true;
+            }
             fishCount++;
         }
     }

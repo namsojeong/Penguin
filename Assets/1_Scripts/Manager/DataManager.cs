@@ -31,15 +31,16 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
+        Screen.SetResolution(1440, 2560, true);
         instance = this;
     }
 
     void Start()
     {
-        path = Path.Combine(Application.dataPath + "/Data/", "database.json");
-        JsonLoad();
+        //path = Path.Combine(Application.dataPath + "/Data/", "database.json");
         //안드로이드
-        // path = Path.Combine(Application.persistentDataPath, "database.json");
+        path = Path.Combine(Application.persistentDataPath, "database.json");
+        JsonLoad();
     }
 
     public void JsonLoad()

@@ -23,4 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/APP/CHARMGame.unity
     guid: 1ac44bfdea22e574b9dc055e2a285b00
-  m_configObjects: {}
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 87fd64a373440f441a21e626a581fcdf, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b211003390e85f94584f4eb21fad2a8e, type: 2}
