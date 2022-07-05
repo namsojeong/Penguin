@@ -21,7 +21,7 @@ public class HungryState : MonoBehaviour
     int nowFood = 0;
     int nowKindFood;
 
-    bool[] isHave = {false, };
+    bool[] isHave = { false, false, false };
 
     EventParam eventParam = new EventParam();
 
@@ -40,6 +40,14 @@ public class HungryState : MonoBehaviour
     {
         UpdateCount(eventParam);
     }
+
+    void GetCnt()
+    {
+        squidCount = GameManager.instance.squidCount;
+        shrimpCount = GameManager.instance.shrimpCount;
+        fishCount = GameManager.instance.fishCount;
+    }
+
     public void OnClickHungry()
     {
         if (shrimpCount == 0 && squidCount == 0 && fishCount == 0)
@@ -48,7 +56,14 @@ public class HungryState : MonoBehaviour
         }
         else
         {
-            expText.text = string.Format("음식을 드래그하여 먹이세요!");
+            if (GameManager.instance.hungry >= 100)
+            {
+                expText.text = string.Format("배가 고프지 않아요!");
+            }
+            else
+            {
+                expText.text = string.Format("음식을 드래그하여 먹이세요!");
+            }
         }
         UpdateCount(eventParam);
     }
@@ -58,7 +73,7 @@ public class HungryState : MonoBehaviour
         //else nextFoodButton[0].gameObject.SetActive(true);
         //if (nowFood + 1 >= nowKindFood) nextFoodButton[1].gameObject.SetActive(false);
         //else nextFoodButton[1].gameObject.SetActive(true);
-
+        GetCnt();
         countText[0].text = string.Format($"{shrimpCount}");
         countText[1].text = string.Format($"{squidCount}");
         countText[2].text = string.Format($"{fishCount}");
@@ -82,66 +97,68 @@ public class HungryState : MonoBehaviour
     }
     private void MinusFood(EventParam eventParam)
     {
+        GetCnt();
         if (eventParam.stringParam == "SHRIMP")
         {
             if (shrimpCount < 1) return;
-            shrimpCount--;
+            GameManager.instance.shrimpCount--;
             if (shrimpCount < 1)
             {
                 nowKindFood--;
-                isHave[(int)FoodE.SHRIMP] = false;
+                isHave[(int)FoodE.SHRIMP - 1] = false;
             }
         }
         else if (eventParam.stringParam == "SQUID")
         {
             if (squidCount < 1) return;
-            squidCount--;
+            GameManager.instance.squidCount--;
             if (squidCount < 1)
             {
                 nowKindFood--;
-                isHave[(int)FoodE.SQUID] = false;
+                isHave[(int)FoodE.SQUID - 1] = false;
             }
 
         }
         else if (eventParam.stringParam == "FISH")
         {
             if (fishCount < 1) return;
-            fishCount--;
+            GameManager.instance.fishCount--;
             if (fishCount < 1)
             {
                 nowKindFood--;
-                isHave[(int)FoodE.FISH] = false;
+                isHave[(int)FoodE.FISH - 1] = false;
             }
         }
     }
     private void PlusFood(EventParam eventParam)
     {
+        GetCnt();
         if (eventParam.stringParam == "SHRIMP")
         {
             if (shrimpCount < 1)
             {
                 nowKindFood++;
-                isHave[(int)FoodE.SHRIMP] = true;
+                isHave[(int)FoodE.SHRIMP - 1] = true;
             }
-            shrimpCount++;
+           GameManager.instance.shrimpCount++;
         }
         else if (eventParam.stringParam == "SQUID")
         {
             if (squidCount < 1)
             {
                 nowKindFood++;
-                isHave[(int)FoodE.SQUID] = true;
+                isHave[(int)FoodE.SQUID - 1] = true;
             }
-            squidCount++;
+            GameManager.instance.squidCount++;
         }
         else if (eventParam.stringParam == "FISH")
         {
             if (fishCount < 1)
             {
                 nowKindFood++;
-                isHave[(int)FoodE.FISH] = true;
+                isHave[(int)FoodE.FISH - 1] = true;
             }
-            fishCount++;
+            GameManager.instance.fishCount++;
         }
     }
     private void OnDestroy()

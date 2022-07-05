@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public float fun = 100;
     public float clean = 100;
     public float sleep = 100;
+    public int shrimpCount;
+    public int squidCount;
+    public int fishCount;
 
     public int coin;
 

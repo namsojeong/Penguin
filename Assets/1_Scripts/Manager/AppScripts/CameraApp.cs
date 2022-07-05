@@ -43,7 +43,7 @@ public class CameraApp : MonoBehaviour
         imgBytes = texture.EncodeToJPG();
 
         File.WriteAllBytes(path, imgBytes);
-        //RefreshAndroidGallery();
+        RefreshAndroidGallery();
         Debug.Log("Ä¸ÃÄ");
     }
     
