@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip callbell;
+    [SerializeField]
+    private AudioClip callok;
+    [SerializeField]
+    private AudioClip callno;
+
     void Start()
     {
-        
+       
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+       
+      
     }
+
+    public void CallBell()
+    {
+        audioSource.PlayOneShot(callbell);
+    }
+
+
+    public void CallOK()
+    {
+        audioSource.PlayOneShot(callok);
+    }
+
+    public void CallNO()
+    {
+        audioSource.PlayOneShot(callno);
+    }
+
+
 }
