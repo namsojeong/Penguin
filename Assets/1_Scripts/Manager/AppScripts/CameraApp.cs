@@ -17,10 +17,6 @@ public class CameraApp : MonoBehaviour
     public string fileName = "MyScreenShot";
     public string extName = "png";
 
-    bool isCheck = false;
-
-    private Texture2D _imageTexture;
-
     private string RootPath
     {
         get
@@ -70,7 +66,7 @@ public class CameraApp : MonoBehaviour
         {
             PermissionCallbacks pCallbacks = new PermissionCallbacks();
             pCallbacks.PermissionGranted += str => Debug.Log($"{str} 승인");
-            pCallbacks.PermissionGranted += _ => CaptureScreenAndSave(); // 승인 시 기능 실행
+            pCallbacks.PermissionGranted += _ => StartCoroutine(TakeScreenShotRoutine()); // 승인 시 기능 실행
 
             pCallbacks.PermissionDenied += str => Debug.Log($"{str} 거절");
 
@@ -80,15 +76,22 @@ public class CameraApp : MonoBehaviour
         }
         else
         {
-            CaptureScreenAndSave(); // 바로 기능 실행
+            StartCoroutine(TakeScreenShotRoutine()); // 바로 기능 실행
         }
     }
+
+    private IEnumerator TakeScreenShotRoutine()
+    {
+        yield return new WaitForEndOfFrame();
+        CaptureScreenAndSave();
+    }
+
     private void CaptureScreenAndSave()
     {
         string totalPath = TotalPath; // 프로퍼티 참조 시 시간에 따라 이름이 결정되므로 캐싱
 
         Texture2D screenTex = new Texture2D(1440, 1440, TextureFormat.RGB24, false);
-        Rect area = new Rect(0f, 0f, 1440f, 1440f);
+        Rect area = new Rect(0f, 900f, 1440, 1440);
 
         // 현재 스크린으로부터 지정 영역의 픽셀들을 텍스쳐에 저장
         screenTex.ReadPixels(area, 0, 0);
