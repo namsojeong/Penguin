@@ -21,7 +21,6 @@ public class CharacterLove : MonoBehaviour
     private void Loving()
     {
         if (isLoving) return;
-        Debug.Log("¡¡æ∆!!");
         isLoving = true;
         heartEffect.transform.position = transform.position;
         heartEffect.SetActive(true);

@@ -1,15 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 using System.IO;
+using UnityEngine.Android;
 
 public class CameraApp : MonoBehaviour
 {
     [SerializeField]
     GameObject[] cameraAppObj;
 
-    //string path = Path.Combine(Application.persistentDataPath, "database.json");
-    string path = @"C:\Github\Pen\ScreenShot\test.png";
+    //string path = @"C:\Github\Pen\ScreenShot\test.png";
+
+    public string folderName = "ScreenShots";
+    public string fileName = "MyScreenShot";
+    public string extName = "png";
+
+    bool isCheck = false;
+
+    private Texture2D _imageTexture;
+
+    private string RootPath
+    {
+        get
+        {
+#if UNITY_EDITOR || UNITY_STANDALONE
+            return Application.dataPath;
+#elif UNITY_ANDROID
+            return $"/storage/emulated/0/DCIM/{Application.productName}/";
+            //return Application.persistentDataPath;
+#endif
+        }
+    }
+
+    private string FolderPath => $"{RootPath}/{folderName}";
+    private string TotalPath => $"{FolderPath}/{fileName}_{DateTime.Now.ToString("MMdd_HHmmss")}.{extName}";
+
+    private string lastSavedPath;
+
 
     public void OnCamera()
     {
@@ -17,6 +46,8 @@ public class CameraApp : MonoBehaviour
         cameraAppObj[1].SetActive(true);
         cameraAppObj[2].SetActive(false);
         cameraAppObj[3].SetActive(false);
+        cameraAppObj[4].SetActive(false);
+        cameraAppObj[5].SetActive(false);
     }
     public void OnDownCamera()
     {
@@ -24,38 +55,88 @@ public class CameraApp : MonoBehaviour
         cameraAppObj[1].SetActive(false);
         cameraAppObj[2].SetActive(true);
         cameraAppObj[3].SetActive(true);
+        cameraAppObj[4].SetActive(true);
+        cameraAppObj[5].SetActive(true);
     }
 
     public void TakePicture()
     {
-        StartCoroutine("Rendering");
+            CheckAndroidPermissionAndDo(Permission.ExternalStorageRead);
     }
-    IEnumerator Rendering()
+    private void CheckAndroidPermissionAndDo(string permission)
     {
-       yield return new WaitForEndOfFrame();
+        // 안드로이드 : 저장소 권한 확인하고 요청하기
+        if (Permission.HasUserAuthorizedPermission(permission) == false)
+        {
+            PermissionCallbacks pCallbacks = new PermissionCallbacks();
+            pCallbacks.PermissionGranted += str => Debug.Log($"{str} 승인");
+            pCallbacks.PermissionGranted += _ => CaptureScreenAndSave(); // 승인 시 기능 실행
 
-        byte[] imgBytes;
+            pCallbacks.PermissionDenied += str => Debug.Log($"{str} 거절");
 
-        Texture2D texture = new Texture2D(1400, 1400, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(0, 900, 1400,1400), 0, 0, false);
+            pCallbacks.PermissionDeniedAndDontAskAgain += str => Debug.Log($"{str} 거절 및 다시는 보기 싫음");
 
-        texture.Apply();
-        imgBytes = texture.EncodeToJPG();
-
-        File.WriteAllBytes(path, imgBytes);
-        RefreshAndroidGallery();
-        Debug.Log("캡쳐");
+            Permission.RequestUserPermission(permission, pCallbacks);
+        }
+        else
+        {
+            CaptureScreenAndSave(); // 바로 기능 실행
+        }
     }
-    
-    // 캡쳐 후 이 함수 실행 시 갤러리에 저장
+    private void CaptureScreenAndSave()
+    {
+        string totalPath = TotalPath; // 프로퍼티 참조 시 시간에 따라 이름이 결정되므로 캐싱
+
+        Texture2D screenTex = new Texture2D(1440, 1440, TextureFormat.RGB24, false);
+        Rect area = new Rect(0f, 0f, 1440f, 1440f);
+
+        // 현재 스크린으로부터 지정 영역의 픽셀들을 텍스쳐에 저장
+        screenTex.ReadPixels(area, 0, 0);
+
+        bool succeeded = true;
+        try
+        {
+            // 폴더가 존재하지 않으면 새로 생성
+            if (Directory.Exists(FolderPath) == false)
+            {
+                Directory.CreateDirectory(FolderPath);
+            }
+
+            // 스크린샷 저장
+            File.WriteAllBytes(totalPath, screenTex.EncodeToPNG());
+        }
+        catch (Exception e)
+        {
+            succeeded = false;
+            Debug.LogWarning($"Screen Shot Save Failed : {totalPath}");
+            Debug.LogWarning(e);
+        }
+
+        // 마무리 작업
+        Destroy(screenTex);
+
+        if (succeeded)
+        {
+            Debug.Log($"Screen Shot Saved : {totalPath}");
+            lastSavedPath = totalPath; // 최근 경로에 저장
+        }
+
+        // 갤러리 갱신
+        RefreshAndroidGallery(totalPath);
+    }
+
     [System.Diagnostics.Conditional("UNITY_ANDROID")]
-    private void RefreshAndroidGallery()
+    private void RefreshAndroidGallery(string imageFilePath)
     {
+#if !UNITY_EDITOR
         AndroidJavaClass classPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject objActivity = classPlayer.GetStatic<AndroidJavaObject>("currentActivity");
         AndroidJavaClass classUri = new AndroidJavaClass("android.net.Uri");
         AndroidJavaObject objIntent = new AndroidJavaObject("android.content.Intent", new object[2]
-        { "android.intent.action.MEDIA_MOUNTED", classUri.CallStatic<AndroidJavaObject>("parse", "file://" + path) });
+        { "android.intent.action.MEDIA_SCANNER_SCAN_FILE", classUri.CallStatic<AndroidJavaObject>("parse", "file://" + imageFilePath) });
         objActivity.Call("sendBroadcast", objIntent);
+#endif
     }
+
+
 }
