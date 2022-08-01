@@ -30,11 +30,14 @@ public class RythmOn : MonoBehaviour
             if (str == "LEFT")
             {
                 leftImage.gameObject.SetActive(true);
+                Debug.Log("왼쪽");
             }
             else if (str == "RIGHT")
             {
 
                 rightImage.gameObject.SetActive(true);
+                Debug.Log("오른쪽");
+
             }
         }
     }
