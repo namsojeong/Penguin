@@ -51,8 +51,10 @@ public class EventManager: MonoBehaviour
 public struct EventParam
 {
     public string stringParam;
+    public bool boolParam;
     public int intParam;
     public float floatParam;
+    public Color colorParam;
     public NutrientE nutParam;
 }
 
