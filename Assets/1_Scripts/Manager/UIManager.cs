@@ -6,7 +6,15 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     
-
+    public void TimeOff()
+    {
+        Time.timeScale = 0.0f;
+    }
+    
+    public void TimeOn()
+    {
+        Time.timeScale = 1.0f;
+    }
     public void OpenUI(GameObject ui)
     {
         ui.SetActive(true);
