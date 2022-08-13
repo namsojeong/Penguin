@@ -10,6 +10,8 @@ public class PhoneUI : MonoBehaviour
     private Text timeText;
     [SerializeField]
     private Text batteryText;
+    [SerializeField]
+    private Text dayText;
 
     private void Update()
     {
@@ -21,5 +23,6 @@ public class PhoneUI : MonoBehaviour
     {
         timeText.text = string.Format(DateTime.Now.ToString("t"));
         batteryText.text = string.Format($"{(int)SystemInfo.batteryLevel} %");
+        dayText.text = string.Format($"Day {GameManager.instance.day}");
     }
 }

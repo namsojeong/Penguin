@@ -11,22 +11,14 @@ public class Nutrient : MonoBehaviour
     [SerializeField, Header("영양소2")]
     private Image[] _nutrientBars;
     
-    [SerializeField, Header("Sleep lamp On/Off")]
-    private GameObject lampOffImage;
-
-    [SerializeField, Header("미니게임 시 줄어들 영양소 양")]
-    private int gameMinusNut;
-
     EventParam eventParam = new EventParam();
 
     float maxN = 100;
-
 
     void Start()
     {
         EventManager.StartListening("FEED", Feed);
         InvokeRepeating("StedMinus", 1f, 1f);
-
     }
 
     void Update()
@@ -34,7 +26,7 @@ public class Nutrient : MonoBehaviour
         UpdateNutrient();
     }
 
-    // 영양소 업데이트
+    // 영양소 UI 업데이트
     void UpdateNutrient()
     {
         nutrientBars[(int)NutrientE.HUNGRY].fillAmount = GameManager.instance.hungry / maxN;
@@ -48,19 +40,14 @@ public class Nutrient : MonoBehaviour
         _nutrientBars[(int)NutrientE.SLEEP].fillAmount = GameManager.instance.sleep / maxN;
     }
 
+    // 꾸준히 줄어드는 영양소
     void StedMinus()
     {
         ChangeNut(NutrientE.HUNGRY, -0.1f);
-        if(GameManager.instance.isLamp)
-        {
-            ChangeNut(NutrientE.SLEEP, -0.1f);
-        }
-        else
-        {
-            ChangeNut(NutrientE.SLEEP, 0.1f);
-        }
+        ChangeNut(NutrientE.SLEEP, -0.1f);
     }
 
+    // 미니게임 시 차감 필수요소
     public void GoGameMinusNut()
     {
         ChangeNut(NutrientE.HUNGRY, -10f);
@@ -70,7 +57,7 @@ public class Nutrient : MonoBehaviour
     }
 
 
-    // 영양소 증가
+    // 영양소 증가감소 함수
     private void ChangeNut(NutrientE n, float v)
     {
         if (n == NutrientE.HUNGRY)
@@ -88,23 +75,17 @@ public class Nutrient : MonoBehaviour
         else if (n == NutrientE.SLEEP)
         {
             GameManager.instance.sleep += v;
+            if(GameManager.instance.sleep < 0)
+            {
+                GameManager.instance.NextDay();
+            }
         }
     }
 
+    // 밥주기
     private void Feed(EventParam eventParam)
     {
         ChangeNut(eventParam.nutParam, eventParam.intParam);
-    }
-
-    private void LampOff()
-    {
-        GameManager.instance.isLamp = !GameManager.instance.isLamp;
-        LampChangeImage();
-    }
-
-    public void LampChangeImage()
-    {
-        lampOffImage.SetActive(!GameManager.instance.isLamp);
     }
 
     private void OnDestroy()
