@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SwitchOffGame : MonoBehaviour
@@ -21,12 +23,14 @@ public class SwitchOffGame : MonoBehaviour
         return instance;
     }
 
-    [SerializeField, Header("ON 이미지")]
+    [Header("ON 이미지")]
     public Sprite onImage;
-    [SerializeField, Header("OFF 이미지")]
+    [Header("OFF 이미지")]
     public Sprite offImage;
     
     [SerializeField, Header("시작 화면")]
+    GameObject startGameScene;
+    [SerializeField, Header("메인 화면")]
     GameObject mainGameScene;
     [SerializeField, Header("오버 화면")]
     GameObject endScene;
@@ -37,18 +41,36 @@ public class SwitchOffGame : MonoBehaviour
     Text bestScoreText;
     [SerializeField]
     Text endScoreText;
+
+    [Header("Switch")]
+    [SerializeField]
+    GameObject allSwitch;
+    List<SwitchButtonScripts> switchButtons = new List<SwitchButtonScripts>();
+    List<int> offswitchs = new List<int>();
     
+
     [SerializeField, Header("제한시간 슬라이더")]
     Image timeSlider;
+    [SerializeField, Header("Slide Speed")]
+    float slideSpeed;
     [SerializeField, Header("MAX 제한시간")]
     float maxTime;
-    float iTime;
+    [SerializeField, Header("Def Gage")]
+    float curTime;
 
+    [SerializeField, Header("스위치 갯수")]
+    int switchConut;
+    int onCnt = 0;
+    int minusTimeVal = 5;
+
+   float level=1;
      int score;
      int bestScore;
 
     private void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Init();
         bestScore = PlayerPrefs.GetInt("SWITCHBESTSCORE", 0);
     }
 
@@ -57,63 +79,129 @@ public class SwitchOffGame : MonoBehaviour
         UpdateTime();
     }
 
-    private void UpdateTime()
+    // 초기화
+    private void Init()
     {
-        timeSlider.fillAmount = iTime / maxTime;
+        UpdateScene("START");
+        for (int i = 0; i < switchConut; i++)
+        {
+            switchButtons.Add(allSwitch.transform.GetChild(i).GetComponent<SwitchButtonScripts>());
+            offswitchs.Add(i);
+        }
     }
 
+    // 씬 바꾸기
+    void UpdateScene(string str)
+    {
+        startGameScene.SetActive(false);
+        mainGameScene.SetActive(false);
+        endScene.SetActive(false);
+        if (str=="START")
+        {
+            startGameScene.SetActive(true);
+        }
+        else if(str=="MAIN")
+        {
+            mainGameScene.SetActive(true);
+            
+        }
+        else if(str=="OVER")
+        {
+            endScene.SetActive(true);
+        }
+    }
+
+    //UI Update
+    public void UpdateScore()
+    {
+        scoreText.text = string.Format($"점수 : {score}");
+    }
+    private void UpdateTime()
+    {
+        timeSlider.fillAmount = Mathf.Lerp(timeSlider.fillAmount, curTime / maxTime, slideSpeed*Time.deltaTime);
+        if (timeSlider.fillAmount <= 0) EndGame();
+        else if (timeSlider.fillAmount > 1) curTime = 1; 
+    }
+
+    // Score, Slider value Change
     public void ScoreUp(int v)
     {
         score += v;
+        if(score%200==0)
+        {
+            level += 1;
+        }
         if (bestScore < score)
         {
             bestScore = score;
         }
         UpdateScore();
     }
-    
     public void TimeDown(int v)
     {
-        iTime -= v;
-        if (iTime <= 0) EndGame();
+        curTime -= v;
     }
 
+    // 시간 슬라이더 계속 줄이기
     private void MinusTime()
     {
-        iTime -= 1f;
-        if (iTime <= 0) EndGame();
+        curTime -= minusTimeVal * level;
     }
 
-    public void UpdateScore()
+    void RandomSwitch()
     {
-        scoreText.text = string.Format($"점수 : {score}");
+        //int ranCount = Random.Range(1, (offswitchs.Count)/2);
+        //Debug.Log(ranCount);
+        //for(int i=0;i<ranCount;i++)
+        {
+            //if (onCnt > switchConut/2) break;
+            onCnt++;
+            int ranNum = Random.Range(0, offswitchs.Count);
+            switchButtons[offswitchs[ranNum]].SwitchOn();
+            offswitchs.RemoveAt(ranNum);
+        }
+
     }
 
     public void StartGame()
     {
         ResetGame();
-        mainGameScene.SetActive(true);
-        endScene.SetActive(false);
+        UpdateScene("MAIN");
 
         InvokeRepeating("MinusTime", 1f, 1f);
+        RandomSwitch();
     }
+
+    void LevelUp()
+    {
+        level += 1f;
+        minusTimeVal += 1;
+    }
+
+    // 게임 오버 함수
     public void EndGame()
     {
         CancelInvoke("MinusTime");
         PlayerPrefs.SetInt("SWITCHBESTSCORE", bestScore);
-        endScene.SetActive(true);
-        mainGameScene.SetActive(false);
+        UpdateScene("OVER");
 
         bestScoreText.text = string.Format($"최고 점수 : {bestScore}");
         endScoreText.text = string.Format($"점수\n\n{score}");
-        
     }
 
+    // 게임 리셋
     void ResetGame()
     {
         score = 0;
-        iTime = maxTime;
+        curTime = maxTime;
         UpdateScore();
-
     }
+
+    public void OffButton(int num)
+    {
+        onCnt--;
+        offswitchs.Add(num);
+        RandomSwitch();
+    }
+
 }

@@ -28,8 +28,6 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         Vector2 currentPos = eventData.position;
         this.transform.position = currentPos;
-
-
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)

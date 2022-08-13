@@ -5,67 +5,82 @@ using UnityEngine.UI;
 
 public class SwitchButtonScripts : MonoBehaviour
 {
-    [SerializeField, Header("이미지")]
-    Image switchImage;
-
-    [SerializeField, Header("스위치 처음 켜지는 시간")]
-    float startMaxTime = 1f;
-    [SerializeField, Header("스위치 처음 켜지는 시간")]
-    float cancelMaxTime = 1f;
-
-    float cancelTime;
-    float startTime;
-
+    [SerializeField]
+    int num;
+    [SerializeField]
+    float offTime = 5;
+    
+    private Image switchImage;
     private bool isOn = false;
 
-    private void OnEnable()
+    private void Awake()
     {
-        SwitchReset();
-        SwitchOffGame.Instance().UpdateScore();
-        StartSwitch();
-    }
-
-    void StartSwitch()
-    {
-        startTime = Random.Range(1f, startMaxTime);
-        Invoke("SwitchOn", startTime);
-    }
-
-    void SwitchOn()
-    {
-        isOn = true;
-        switchImage.sprite = SwitchOffGame.Instance().onImage;
-        cancelTime = Random.Range(1f, cancelMaxTime);
-        Invoke("SwitchOff", cancelTime);
-    }
-
-    void SwitchOff()
-    {
-        CancelInvoke("SwitchOn");
-        switchImage.sprite = SwitchOffGame.Instance().offImage;
-        StartSwitch();
-        isOn = false;
-    }
-
-    public void IsClick()
-    {
-        Debug.Log(isOn);
-        if(isOn)
-        {
-            SwitchOffGame.Instance().ScoreUp(10);
-        }
-        else
-        {
-            SwitchOffGame.Instance().TimeDown(1);
-        }
-        SwitchOff();
+        switchImage = GetComponent<Image>();
+        //SwitchReset();
     }
 
     void SwitchReset()
     {
+        CancelInvoke("No");
         isOn = false;
-        CancelInvoke("SwitchOff");
-        CancelInvoke("SwitchOn");
         switchImage.sprite = SwitchOffGame.Instance().offImage;
     }
+
+    // 스위치 켜기
+    public void SwitchOn()
+    {
+        isOn = true;
+        switchImage.sprite = SwitchOffGame.Instance().onImage;
+        Invoke("No", offTime);
+    }
+
+    // 스위치 끄기
+    void SwitchOff()
+    {
+        CancelInvoke("No");
+        isOn = false;
+        switchImage.sprite = SwitchOffGame.Instance().offImage;
+        SwitchOffGame.Instance().OffButton(num);
+    }
+
+    // 버튼 클릭 시 판단
+    public void ClickMe()
+    {
+        TouchEffect();
+        if(isOn)
+        {
+            Correct();
+        }
+        else
+        {
+            Fail();
+        }
+        SwitchOff();
+    }
+
+    // 성공
+    void Correct()
+    {
+        SwitchOffGame.Instance().ScoreUp(20);
+        SwitchOffGame.Instance().TimeDown(-5);
+    }
+    // 실패
+    void Fail()
+    {
+            SwitchOffGame.Instance().TimeDown(30);
+    }
+    // 클릭 이펙트
+    void TouchEffect()
+    {
+
+    }
+    
+    // 놓쳤을 때
+    void No()
+    {
+        if (!isOn) return;
+        Fail();
+        SwitchOff();
+    }
+
 }
