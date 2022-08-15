@@ -15,48 +15,77 @@ public class DeliveryApp : MonoBehaviour
     Text menuName;
     [SerializeField, Header("메뉴 가격")]
     Text menuPrice;
+    
+    [SerializeField, Header("배달 알림")]
+    RectTransform popup;
+    [SerializeField, Header("배달 알림")]
+    Text popupText;
+    [SerializeField, Header("알림 이동위치")]
+    Vector2 nextpos;
+    Vector2 defPos;
 
     EventParam eventParam = new EventParam();
     string choiceFood="";
+    FoodE callFood;
+
+    List<string> menuNames = new List<string>();
+
+    private void Awake()
+    {
+        menuNames.Clear();
+        menuNames.Add("새우");
+        menuNames.Add("오징어");
+        menuNames.Add("물고기");
+    }
 
     public void ClickOnBuy(string food)
     {
         choiceFood = food;
         if(food == "SHRIMP")
         {
-            UpdateMenuUI(FoodE.SHRIMP);
+            callFood = FoodE.SHRIMP;
         }
         else if(food == "SQUID")
         {
-            UpdateMenuUI(FoodE.SQUID);
+            callFood = FoodE.SQUID;
         }
         else if(food == "FISH")
         {
-            UpdateMenuUI(FoodE.FISH);
+            callFood = FoodE.FISH;
         }
 
+        UpdateMenuUI();
     }
 
     public void YesBuy()
     {
         eventParam.stringParam = choiceFood;
         EventManager.TriggerEvent("BUYFOOD", eventParam);
+        defPos = popup.anchoredPosition;
+        popupText.text = string.Format($"주문하신 {menuNames[(int)callFood-1]}가 1분 뒤 도착 예정입니다.");
+        popup.anchoredPosition = nextpos;
+        Invoke("PopupOff", 1f);
     }
 
-    void UpdateMenuUI(FoodE food)
+    void PopupOff()
     {
-        menuImage.sprite = foodImage[(int)food-1];
-        menuPrice.text = string.Format($"{(int)food * 100}");
-        if(food == FoodE.SHRIMP)
+        popup.anchoredPosition = defPos;
+    }
+
+    void UpdateMenuUI()
+    {
+        menuImage.sprite = foodImage[(int)callFood-1];
+        menuPrice.text = string.Format($"{(int)callFood * 100}");
+        if(callFood == FoodE.SHRIMP)
         {
             menuName.text = string.Format("새우");
         }
-        if(food == FoodE.SQUID)
+        if(callFood == FoodE.SQUID)
         {
             menuName.text = string.Format("오징어");
 
         }
-        if(food == FoodE.FISH)
+        if(callFood == FoodE.FISH)
         {
             menuName.text = string.Format("생선");
         }
