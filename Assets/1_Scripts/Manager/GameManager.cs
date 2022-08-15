@@ -63,6 +63,29 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void UpNutrient(NutrientE nut, float v)
+    {
+        switch (nut)
+        {
+            case NutrientE.HUNGRY:
+                hungry += v;
+                break;
+            case NutrientE.CLEAN:
+                clean += v;
+                break;
+            case NutrientE.FUN:
+                fun += v;
+                break;
+            case NutrientE.SLEEP:
+                sleep += v;
+                if (GameManager.instance.sleep < 0)
+                {
+                    GameManager.instance.NextDay();
+                }
+                break;
+        }
+
+    }
     public void NextDay()
     {
         day++;

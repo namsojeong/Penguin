@@ -60,26 +60,7 @@ public class Nutrient : MonoBehaviour
     // 영양소 증가감소 함수
     private void ChangeNut(NutrientE n, float v)
     {
-        if (n == NutrientE.HUNGRY)
-        {
-            GameManager.instance.hungry += v;
-        }
-        else if (n == NutrientE.FUN)
-        {
-            GameManager.instance.fun += v;
-        }
-        else if (n == NutrientE.CLEAN)
-        {
-            GameManager.instance.clean += v;
-        }
-        else if (n == NutrientE.SLEEP)
-        {
-            GameManager.instance.sleep += v;
-            if(GameManager.instance.sleep < 0)
-            {
-                GameManager.instance.NextDay();
-            }
-        }
+            GameManager.instance.UpNutrient(n, v);
     }
 
     // 밥주기

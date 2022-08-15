@@ -7,8 +7,6 @@ public class HungryState : MonoBehaviour
 {
     [SerializeField, Header("갯수 텍스트")]
     Text[] countText;
-    [SerializeField, Header("다음 음식 버튼")]
-    Button[] nextFoodButton;
     [SerializeField, Header("음식")]
     GameObject[] food;
     [SerializeField, Header("음식")]
@@ -25,11 +23,6 @@ public class HungryState : MonoBehaviour
 
     EventParam eventParam = new EventParam();
 
-    private void Awake()
-    {
-        nextFoodButton[0].onClick.AddListener(() => NextFood("LEFT"));
-        nextFoodButton[1].onClick.AddListener(() => NextFood("RIGHT"));
-    }
     private void Start()
     {
         EventManager.StartListening("BUYFOOD", PlusFood);
@@ -79,22 +72,22 @@ public class HungryState : MonoBehaviour
         countText[2].text = string.Format($"{fishCount}");
     }
 
-    private void NextFood(string dir)
-    {
-        UpdateCount(eventParam);
-        food[nowFood].SetActive(false);
-        if (dir == "LEFT")
-        {
-            nowFood--;
-            if (nowFood < 0) nowFood = 0;
-        }
-        else
-        {
-            nowFood++;
-            if (nowFood > 2) nowFood = 2;
-        }
-        food[nowFood].SetActive(true);
-    }
+    //private void NextFood(string dir)
+    //{
+    //    UpdateCount(eventParam);
+    //    food[nowFood].SetActive(false);
+    //    if (dir == "LEFT")
+    //    {
+    //        nowFood--;
+    //        if (nowFood < 0) nowFood = 0;
+    //    }
+    //    else
+    //    {
+    //        nowFood++;
+    //        if (nowFood > 2) nowFood = 2;
+    //    }
+    //    food[nowFood].SetActive(true);
+    //}
     private void MinusFood(EventParam eventParam)
     {
         GetCnt();
