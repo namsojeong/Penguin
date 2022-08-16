@@ -16,6 +16,10 @@ public class UIM : MonoBehaviour
          
     }
 
+    private void Awake()
+    {
+        Time.timeScale = 0;
+    }
     private void Start()
     {
         SetText();
@@ -36,5 +40,7 @@ public class UIM : MonoBehaviour
     public void OnClickPlay()
     {
         panel.SetActive(false);
+        Time.timeScale = 1;
+
     }
 }

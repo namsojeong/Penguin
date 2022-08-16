@@ -9,6 +9,7 @@ TagManager:
   - PENGUIN
   - FxTemporaire
   - TRASH
+  - Col
   layers:
   - Default
   - TransparentFX
