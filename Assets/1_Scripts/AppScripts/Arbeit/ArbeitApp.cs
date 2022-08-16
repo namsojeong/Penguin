@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum ArbeitE
-{
-    PE,
-    STUDY,
-    CHARM
-}
-
 public class ArbeitApp : MonoBehaviour
 {
     [SerializeField, Header("알바 선택 버튼")]
     private Button[] arButton;
+
+    [SerializeField, Header("플레이 Panel")]
+    private GameObject playPanel;
+    [SerializeField, Header("일정 선택 Panel")]
+    private GameObject calendarPanel;
     
     [SerializeField, Header("알바 선택 버튼")]
     private Image[] calImage;
@@ -28,32 +26,78 @@ public class ArbeitApp : MonoBehaviour
     [SerializeField, Header("초기화 버튼")]
     private Button resetButton;
 
-    Queue<ArbeitE> arbietQ = new Queue<ArbeitE>();
+    Queue<AbilityE> arbietQ = new Queue<AbilityE>();
 
     int arMaxCnt = 3;
     int dayCnt = 5;
+    int nowCnt = 0;
 
     bool isFull = false;
+    bool isPlaying = false;
+
+    EventParam eventParam = new EventParam();
+
 
     private void Awake()
     {
-        arButton[0].onClick.AddListener(() => PushAr(ArbeitE.PE));
-        arButton[1].onClick.AddListener(() => PushAr(ArbeitE.STUDY));
-        arButton[2].onClick.AddListener(() => PushAr(ArbeitE.CHARM));
+        arButton[0].onClick.AddListener(() => PushAr(AbilityE.PE));
+        arButton[1].onClick.AddListener(() => PushAr(AbilityE.STUDY));
+        arButton[2].onClick.AddListener(() => PushAr(AbilityE.CHARM));
 
-        selectButton.onClick.AddListener(() => PlayArb());
+        selectButton.onClick.AddListener(() => StartArb());
         resetButton.onClick.AddListener(() => ResetArb());
     }
 
     private void Start()
     {
+        EventManager.StartListening("FinishArb", Finish);
+
         arbietQ.Clear();
+        IsPlay();
+        IsFull();
+    }
+    private void OnDestroy()
+    {
+        EventManager.StopListening("FinishArb", Finish);
     }
 
-    private void PushAr(ArbeitE ar)
+    void Finish(EventParam eventParam)
+    {
+        Debug.Log("Finish");
+        nowCnt++;
+        calImage[nowCnt - 1].sprite = defSprite;
+        if(nowCnt >=5)
+        {
+            isPlaying = false;
+            nowCnt = 0;
+            ResetArb();
+            IsPlay();
+        }
+        else
+        {
+            StartArb();
+        }
+        
+    }
+
+    void IsPlay()
+    {
+        if(isPlaying)
+        {
+            playPanel.SetActive(true);
+            calendarPanel.SetActive(false);
+        }
+        else
+        {
+            playPanel.SetActive(false);
+            calendarPanel.SetActive(true);
+        }
+    }
+
+    private void PushAr(AbilityE ar)
     {
         arbietQ.Enqueue(ar);
-        calImage[arbietQ.Count - 1].sprite = calSprite[(int)ar];
+        calImage[arbietQ.Count - 1].sprite = calSprite[(int)ar-1];
         IsFull();
     }
 
@@ -77,8 +121,6 @@ public class ArbeitApp : MonoBehaviour
 
     private void IsFull()
     {
-            Debug.Log($"날짜 {dayCnt}");
-        Debug.Log($"일정카운트 {arbietQ.Count}");
         if (dayCnt <= arbietQ.Count)
         {
             FullArb();
@@ -101,7 +143,12 @@ public class ArbeitApp : MonoBehaviour
         IsFull();
     }
 
-    private void PlayArb()
+    void StartArb()
     {
+        isPlaying = true;
+        IsPlay();
+        eventParam.abilityParam = arbietQ.Dequeue();
+        EventManager.TriggerEvent("PlayArb", eventParam);
     }
+
 }

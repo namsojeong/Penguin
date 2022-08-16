@@ -54,6 +54,7 @@ public struct EventParam
     public bool boolParam;
     public int intParam;
     public float floatParam;
+    public AbilityE abilityParam;
     public Color colorParam;
     public NutrientE nutParam;
 }
