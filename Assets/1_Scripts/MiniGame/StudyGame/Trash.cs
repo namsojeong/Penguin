@@ -9,30 +9,27 @@ public class Trash : MonoBehaviour
 
         private float mVelocity = 0f;
 
-        void Start()
-        {
-
-        }
+     
 
         void Update()
         {
-            Vector3 current = this.transform.position;
+            Vector3 current = gameObject.transform.position;
 
             mVelocity += gravity * Time.deltaTime;
 
             current.y -= mVelocity * Time.deltaTime;
-            this.transform.position = current;
+            gameObject.transform.position = current;
         }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if( collision.gameObject.tag == "Col")
+        if (collision.gameObject.tag == "Col")
         {
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
