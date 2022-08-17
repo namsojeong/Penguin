@@ -72,12 +72,27 @@ public class GameManager : MonoBehaviour
         {
             case NutrientE.HUNGRY:
                 hungry += v;
+                if (hungry <= 0)
+                {
+                    Debug.Log("배고파서 죽음");
+                    Dead();
+                }
                 break;
             case NutrientE.CLEAN:
                 clean += v;
+                if (clean <= 0)
+                {
+                    Debug.Log("더러워서 죽음");
+                    Dead();
+                }
                 break;
             case NutrientE.FUN:
                 fun += v;
+                if (fun <= 0)
+                {
+                    Debug.Log("노잼이라 죽음");
+                    Dead();
+                }
                 break;
             case NutrientE.SLEEP:
                 sleep += v;
@@ -99,10 +114,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Dead()
+    {
+        EndingSelect();
+    }
+
     private void EndingSelect()
     {
         // 수치 계산
-        AbilityE ab = AbilityE.PE;
+        AbilityE ab;
+        Debug.Log($"PE : {pe}  STUDY : {study}  CHARM : {charm}");
+        if (pe > study)
+        {
+            if (pe > charm) ab = AbilityE.PE;
+            else ab = AbilityE.CHARM;
+        }
+        else
+        {
+            if (study > charm) ab = AbilityE.STUDY;
+            else ab = AbilityE.CHARM;
+        }
         GoEnding(ab);
     }
     private void GoEnding(AbilityE ability)
