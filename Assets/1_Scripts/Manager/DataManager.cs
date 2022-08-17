@@ -17,10 +17,18 @@ public class SaveData
     public float fun;
     public float clean;
     public float sleep;
+    
+    //∏‘¿Ã
+    public int shrimp;
+    public int squid;
+    public int fish;
 
     // ¿Á»≠
     public int coin;
-    public bool isSleep;
+    public int day;
+    public int arbTime = 0;
+
+    public List<AbilityE> arbs;
 }
 
 public class DataManager : MonoBehaviour
@@ -59,8 +67,16 @@ public class DataManager : MonoBehaviour
             GameManager.instance.clean = 100;
             GameManager.instance.sleep = 100;
 
+            GameManager.instance.shrimpCount = 0;
+            GameManager.instance.squidCount = 0;
+            GameManager.instance.fishCount = 0;
+
+
+            GameManager.instance.arbTime = 0;
+            GameManager.instance.arbSprites.Clear();
+
             GameManager.instance.coin = 0;
-            GameManager.instance.isLamp = true;
+            GameManager.instance.day = 1;
             JsonSave();
         }
         else
@@ -80,8 +96,15 @@ public class DataManager : MonoBehaviour
                 GameManager.instance.clean = saveData.clean;
                 GameManager.instance.sleep = saveData.sleep;
 
+                GameManager.instance.shrimpCount = saveData.shrimp;
+                GameManager.instance.squidCount = saveData.squid;
+                GameManager.instance.fishCount = saveData.fish;
+
+                GameManager.instance.arbTime = saveData.arbTime;
+                GameManager.instance.arbSprites = saveData.arbs;
+
                 GameManager.instance.coin = saveData.coin;
-                GameManager.instance.isLamp = saveData.isSleep;
+                GameManager.instance.day = saveData.day;
             }
         }
     }
@@ -99,8 +122,15 @@ public class DataManager : MonoBehaviour
         saveData.clean = GameManager.instance.clean;
         saveData.sleep = GameManager.instance.sleep;
 
-        saveData.isSleep = GameManager.instance.isLamp;
+       saveData.shrimp = GameManager.instance.shrimpCount;
+        saveData.squid = GameManager.instance.squidCount;
+        saveData.fish = GameManager.instance.fishCount;
+
         saveData.coin = GameManager.instance.coin;
+        saveData.day = GameManager.instance.day;
+
+        saveData.arbTime = GameManager.instance.arbTime;
+        saveData.arbs = GameManager.instance.arbSprites;
 
         string json = JsonUtility.ToJson(saveData, true);
 

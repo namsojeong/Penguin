@@ -187,6 +187,8 @@ public class SwitchOffGame : MonoBehaviour
 
         bestScoreText.text = string.Format($"최고 점수 : {bestScore}");
         endScoreText.text = string.Format($"점수\n\n{score}");
+
+        GameManager.instance.UpAbility(AbilityE.PE, 10);
     }
 
     // 게임 리셋

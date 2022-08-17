@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/0_Scenes/Start.unity
     guid: 517c8f9c0a0af7944a69819c61f10a88
   - enabled: 1
+    path: Assets/0_Scenes/CutScene.unity
+    guid: 6e459d61706ba1e41a2e27c3d96a8e80
+  - enabled: 1
     path: Assets/0_Scenes/Main.unity
     guid: c3865ed5f4671264fb88d5bc7051bca5
   - enabled: 1
@@ -20,6 +23,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/APP/CHARMGame.unity
     guid: 1ac44bfdea22e574b9dc055e2a285b00
+  - enabled: 1
+    path: Assets/0_Scenes/Ending/EndPE.unity
+    guid: b0a456ac6e83ac74baf528264f86b57c
+  - enabled: 1
+    path: Assets/0_Scenes/Ending/EndSTUDY.unity
+    guid: 67f8e2ca21f5701449869089b5a32755
+  - enabled: 1
+    path: Assets/0_Scenes/Ending/EndCHARM.unity
+    guid: 69a0d2ab733ac2c41816c89007a5b237
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 87fd64a373440f441a21e626a581fcdf, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b211003390e85f94584f4eb21fad2a8e, type: 2}
