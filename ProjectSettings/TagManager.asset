@@ -7,6 +7,7 @@ TagManager:
   - NUTRIENT
   - TIME
   - PENGUIN
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - Camera
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Bullet
+  - Enemy
+  - Player
   - 
   - 
   - 
