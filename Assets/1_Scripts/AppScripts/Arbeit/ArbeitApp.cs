@@ -1,5 +1,8 @@
+using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +38,8 @@ public class ArbeitApp : MonoBehaviour
     bool isFull = false;
     bool isPlaying = false;
 
+    List<Sprite> setSprite = new List<Sprite>();
+
     EventParam eventParam = new EventParam();
 
 
@@ -44,21 +49,27 @@ public class ArbeitApp : MonoBehaviour
         arButton[1].onClick.AddListener(() => PushAr(AbilityE.STUDY));
         arButton[2].onClick.AddListener(() => PushAr(AbilityE.CHARM));
 
-        selectButton.onClick.AddListener(() => StartArb());
+        selectButton.onClick.AddListener(() => PlayArb());
         resetButton.onClick.AddListener(() => ResetArb());
     }
 
     private void Start()
     {
         EventManager.StartListening("FinishArb", Finish);
+        //EventManager.StartListening("PlusArb", GetArb);
 
-        arbietQ.Clear();
-        IsPlay();
-        IsFull();
+        ResetArb();
     }
     private void OnDestroy()
     {
         EventManager.StopListening("FinishArb", Finish);
+       // EventManager.StopListening("PlusArb", GetArb);
+    }
+
+    void OpenArb()
+    {
+        IsPlay();
+        IsFull();
     }
 
     void Finish(EventParam eventParam)
@@ -66,12 +77,9 @@ public class ArbeitApp : MonoBehaviour
         Debug.Log("Finish");
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
-        if(nowCnt >=5)
+        if(nowCnt >= 5)
         {
-            isPlaying = false;
-            nowCnt = 0;
             ResetArb();
-            IsPlay();
         }
         else
         {
@@ -79,7 +87,6 @@ public class ArbeitApp : MonoBehaviour
         }
         
     }
-
     void IsPlay()
     {
         if(isPlaying)
@@ -109,8 +116,6 @@ public class ArbeitApp : MonoBehaviour
         selectButton.interactable = true;
     }
 
-
-
     private void NotFullArb()
     {
         arButton[0].interactable = true;
@@ -136,19 +141,40 @@ public class ArbeitApp : MonoBehaviour
     private void ResetArb()
     {
         arbietQ.Clear();
+        isPlaying = false;
+        nowCnt = 0;
         for(int i=0;i<5;i++)
         {
             calImage[i].sprite = defSprite;
         }
+        IsPlay();
         IsFull();
     }
-
-    void StartArb()
+    void PlayArb()
     {
         isPlaying = true;
         IsPlay();
+        StartArb();
+    }
+    void StartArb()
+    {
         eventParam.abilityParam = arbietQ.Dequeue();
         EventManager.TriggerEvent("PlayArb", eventParam);
     }
 
+    //void GetArb(EventParam ep)
+    //{
+
+    //}
+
+    //public void SetArbs()
+    //{
+    //    int playing = isPlaying == true ? 1 : 0;
+    //    PlayerPrefs.SetInt("IsPlay", playing);
+    //    PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
+    //    for (int i=0;i<arbietQ.Count;i++)
+    //    {
+    //        GameManager.instance.arbSprites.Add(arbietQ.Dequeue());
+    //    }
+    //}
 }

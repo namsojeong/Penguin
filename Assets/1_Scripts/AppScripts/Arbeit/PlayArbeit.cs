@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ public class PlayArbeit : MonoBehaviour
 
     float maxPlaying = 100;
     float curPlaying = 0;
-    float barSpeed = 10;
+    float barSpeed = 20;
 
     EventParam eventParam = new EventParam();
 
@@ -29,31 +30,64 @@ public class PlayArbeit : MonoBehaviour
         SliderUpdate();
     }
 
+    // 슬라이더 바 UI 업데이트
     void SliderUpdate()
     {
-        arbBar.fillAmount = curPlaying / maxPlaying;
+        arbBar.fillAmount = Mathf.Lerp(arbBar.fillAmount, curPlaying / maxPlaying, Time.deltaTime*barSpeed);
     }
 
     void PlayingArb(EventParam eventParam)
     {
+        // 보상
         AbilityE curAr = eventParam.abilityParam;
-        Debug.Log(curAr);
         GameManager.instance.coin += 100;
         GameManager.instance.UpAbility(curAr, 10);
-        arbBar.fillAmount = 0;
-        curPlaying = 0;
-        InvokeRepeating("Working", 1f, 1f);
-    }
 
-    void Working()
+        // 작업 시작
+        WorkStart();
+    }
+    void WorkStart()
     {
-        Debug.Log(curPlaying);
-        curPlaying += 10;
-        if (curPlaying >= maxPlaying)
-        {
-            EventManager.TriggerEvent("FinishArb", eventParam);
-            CancelInvoke();
-        }
+        ResetBar();
+        StartCoroutine(Work());
     }
 
+    IEnumerator Work()
+    {
+        while (curPlaying <= maxPlaying)
+        {
+            yield return new WaitForSeconds(1f);
+            curPlaying += 10;
+        }
+        EventManager.TriggerEvent("FinishArb", eventParam);
+    }
+
+    void ResetBar()
+    {
+        curPlaying = 0;
+        arbBar.fillAmount = 0;
+    }
+
+    //void SettingTime()
+    //{
+    //    string lastTime = PlayerPrefs.GetString("SaveLastTime");
+    //    DateTime lastDateTime = DateTime.Parse(lastTime);
+    //    TimeSpan conpareTime = DateTime.Now - lastDateTime;
+    //    int sec = ((int)conpareTime.TotalSeconds)* 10;
+    //    int initPlaying = GameManager.instance.arbTime + sec;
+    //    eventParam.intParam = 0;
+    //    while (initPlaying >= maxPlaying)
+    //    {
+    //        eventParam.intParam++;
+    //        initPlaying -= maxPlaying;
+    //    }
+    //    EventManager.TriggerEvent("PlusArb", eventParam);
+    //    curPlaying = initPlaying;
+
+    //    Debug.Log(curPlaying);
+    //}
+    //public void QuitBack()
+    //{
+    //    GameManager.instance.SetArbTime(curPlaying);
+    //}
 }

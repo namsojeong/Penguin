@@ -22,12 +22,15 @@ public class GameManager : MonoBehaviour
     public int squidCount = 0;
     public int fishCount = 0;
 
+    public int arbTime = 0;
     public int coin = 0;
 
     public int day = 1;
     public int lastDay = 25;
 
     bool isFirst = true;
+
+    public List<AbilityE> arbSprites;
 
     private void Awake()
     {
@@ -128,4 +131,18 @@ public class GameManager : MonoBehaviour
         day = 1;
     }
 
+    public void SetArbTime(int t)
+    {
+        GameManager.instance.arbTime = t;
+    }
+
+    public void SetSpriteArb(List<AbilityE> arbs)
+    {
+        arbSprites = arbs;
+    }
+
+    public void SetLastTime()
+    {
+        PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
+    }
 }
