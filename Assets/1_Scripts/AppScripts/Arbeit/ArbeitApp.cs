@@ -58,12 +58,16 @@ public class ArbeitApp : MonoBehaviour
         EventManager.StartListening("FinishArb", Finish);
         //EventManager.StartListening("PlusArb", GetArb);
 
-        ResetArb();
     }
     private void OnDestroy()
     {
         EventManager.StopListening("FinishArb", Finish);
        // EventManager.StopListening("PlusArb", GetArb);
+    }
+
+    private void OnEnable()
+    {
+        ResetArb();
     }
 
     void OpenArb()
