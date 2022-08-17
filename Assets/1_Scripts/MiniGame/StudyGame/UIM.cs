@@ -11,18 +11,10 @@ public class UIM : MonoBehaviour
 
 
 
-    private void Update()
-    {
-         
-    }
-
-    private void Awake()
-    {
-        Time.timeScale = 0;
-    }
     private void Start()
     {
         SetText();
+        Time.timeScale = 0;
     }
 
     public void GetScore()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CreateTrash : MonoBehaviour
 {
-    public static CreateTrash Instance;
     public GameObject[] prefabs;
      
 
@@ -24,12 +23,7 @@ public class CreateTrash : MonoBehaviour
     
     void Start()
     {
-        Instance = this;
-
-
-
         StartCoroutine(SpawnTrah());
-
     }
 
     IEnumerator SpawnTrah()
@@ -37,7 +31,7 @@ public class CreateTrash : MonoBehaviour
         while(true)
         {
         Spawn();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1f);
         }
     }
 
