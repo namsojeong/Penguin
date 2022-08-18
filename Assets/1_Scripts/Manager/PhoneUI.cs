@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-using Newtonsoft.Json.Linq;
 
 public class PhoneUI : MonoBehaviour
 {
