@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [SerializeField]
+    int maxEnding;
 
     // ´É·Â
     public int art;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
     public int lastDay = 25;
 
     bool isFirst = true;
+    string fail="";
 
     public List<AbilityE> arbSprites;
 
@@ -134,12 +137,31 @@ public class GameManager : MonoBehaviour
             if (study > charm) ab = AbilityE.STUDY;
             else ab = AbilityE.CHARM;
         }
+        if (ab == AbilityE.CHARM)
+        {
+            if(charm < maxEnding)
+            {
+                fail = "Fail";
+            }
+            else
+                fail = "";
+        }
+        else if(ab == AbilityE.PE)
+        {
+            if (pe < maxEnding) fail = "Fail";
+            else fail = "";
+        }
+        else if(ab == AbilityE.STUDY)
+        {
+            if (study < maxEnding)  fail = "Fail";
+            else fail = "";
+        }
         GoEnding(ab);
     }
     private void GoEnding(AbilityE ability)
     {
         ResetVal();
-        SceneM.instance.ChangeScene("End"+ability);
+        SceneM.instance.ChangeScene("End"+ability+fail);
     }
 
     public void ResetVal()
