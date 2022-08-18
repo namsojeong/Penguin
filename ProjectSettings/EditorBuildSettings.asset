@@ -32,6 +32,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/Ending/EndCHARM.unity
     guid: 69a0d2ab733ac2c41816c89007a5b237
+  - enabled: 1
+    path: Assets/0_Scenes/Ending/EndPEFail.unity
+    guid: 58a3b7f11e1002441a199963c0ff160d
+  - enabled: 1
+    path: Assets/0_Scenes/Ending/EndSTUDYFail.unity
+    guid: c21b0e41a4bc63840b659566cd1d08c9
+  - enabled: 1
+    path: Assets/0_Scenes/Ending/EndCHARMFail.unity
+    guid: 73f6ed0d019e16d44a0f8bb64d1853fe
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 87fd64a373440f441a21e626a581fcdf, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b211003390e85f94584f4eb21fad2a8e, type: 2}
