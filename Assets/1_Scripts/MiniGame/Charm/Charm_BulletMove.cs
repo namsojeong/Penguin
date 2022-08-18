@@ -5,7 +5,7 @@ using UnityEngine;
 public class Charm_BulletMove : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 5f;
 
     private Charm_GameManager gameManager = null;
     void Start()

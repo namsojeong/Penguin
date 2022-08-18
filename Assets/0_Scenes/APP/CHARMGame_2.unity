@@ -487,7 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDelay: 0.2
   bulletPosition: {fileID: 953403796}
-  bulletPrefab: {fileID: 5368738629430715246, guid: 7bb223ab6af9d234aa7c6c588806272b, type: 3}
+  bulletPrefab: {fileID: 2999271584151340192, guid: b60d26a809f9bb24db61755e482a4940, type: 3}
   speed: 10
 --- !u!70 &1143206665
 CapsuleCollider2D:
@@ -560,7 +560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 539, y: -115.5}
+  m_AnchoredPosition: {x: 521, y: -173.19995}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184715220
@@ -639,7 +639,7 @@ MonoBehaviour:
   lifeText: {fileID: 905934674}
   life: 3
   enemyCroissant: {fileID: 1509462152236012730, guid: b54d5c1a1ff6f0648a5d8b1407bd6b60, type: 3}
-  enemyHotdog: {fileID: 2393815691012750571, guid: 70c54e6854d921449b7835433c9e4d18, type: 3}
+  enemyHotdog: {fileID: 4633412259051085166, guid: 9a5c28785c3b7854f8b1dfcdb35325f3, type: 3}
 --- !u!4 &1499040705
 Transform:
   m_ObjectHideFlags: 0

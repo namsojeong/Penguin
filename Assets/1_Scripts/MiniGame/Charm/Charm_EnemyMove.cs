@@ -6,10 +6,10 @@ public class Charm_EnemyMove : MonoBehaviour
 {
     [SerializeField]
     private int score = 10;
+   // [SerializeField]
+    private int hp = 3;
     [SerializeField]
-    private int hp = 2;
-    [SerializeField]
-    protected float speed = 10f;
+    protected float speed = 0.3f;
 
     private bool isDamaged = false;
     protected bool isDead = false;
@@ -29,12 +29,13 @@ public class Charm_EnemyMove : MonoBehaviour
     protected virtual void Update()
     {
         if (isDead) return;
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.down  * speed * Time.deltaTime);
        
         if (transform.position.y < gameManager.minPosition.y - 5f)
         {
-            
-            Destroy(gameObject);
+
+          
+            //Destroy(gameObject);
         }
     }
 
@@ -47,11 +48,14 @@ public class Charm_EnemyMove : MonoBehaviour
             Charm_BulletMove bullet = collision.GetComponent<Charm_BulletMove>();
             if (bullet != null)
             {
-                bullet.Despawn();
+               bullet.Despawn();
             }
             if (isDamaged) return;
             isDamaged = true;
             StartCoroutine(Damaged());
+
+            //Debug.Log(hp);
+
             if (hp <= 0)
             {
                 isDead = true;
@@ -59,16 +63,16 @@ public class Charm_EnemyMove : MonoBehaviour
                 gameManager.AddScore(score);
                 StartCoroutine(Dead());
             }
-            //Debug.Log("¿¨ ¿Ö ¾ÈµÅ");
+
         }
     }
 
     private IEnumerator Damaged()
     {
-        spriteRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
+        //spriteRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
         hp--;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
+        //spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
         isDamaged = false;
     }
 
@@ -77,6 +81,6 @@ public class Charm_EnemyMove : MonoBehaviour
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
       //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+       // Destroy(gameObject);
     }
 }

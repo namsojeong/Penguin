@@ -64,7 +64,17 @@ public class Charm_PlayerMove : MonoBehaviour
     {
         // 여기다가 사망 처리
         if (isDamaged) return;
-        StartCoroutine(Damaged());
+
+        if (collision.CompareTag("Enemy"))
+        {
+            StartCoroutine(Damaged());
+        }
+
+        if (collision.CompareTag("Bullet"))
+        {
+            
+        }
+
     }
 
     private bool isDamaged = false;
@@ -72,13 +82,14 @@ public class Charm_PlayerMove : MonoBehaviour
     private IEnumerator Damaged()
     {
      
-        if (!isDamaged)
+            if (!isDamaged)
         {
             isDamaged = true;
             gameManager.Dead();
             for (int i = 0; i < 3; i++)
             {
-               // spriteRenderer.enabled = false;
+              
+                spriteRenderer.enabled = false;
                 yield return new WaitForSeconds(0.2f);
                 spriteRenderer.enabled = true;
                 yield return new WaitForSeconds(0.2f);
