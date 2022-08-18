@@ -18,6 +18,8 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyCroissant;
     [SerializeField]
     private GameObject enemyHotdog;
+    [SerializeField]
+    private GameObject gameoverPannel;
 
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
@@ -44,8 +46,10 @@ public class Charm_GameManager : MonoBehaviour
         life--;
         if (life <= 0)
         {
-            // 게임오버 씬 불러오기
-            // SceneManager.LoadScene("GameOver");
+            Time.timeScale = 0;
+
+            gameoverPannel.SetActive(true);
+
             Debug.Log("끝입니다");
         }
         UpdateUI();

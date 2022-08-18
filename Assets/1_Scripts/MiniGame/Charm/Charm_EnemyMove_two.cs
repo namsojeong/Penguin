@@ -5,7 +5,7 @@ using UnityEngine;
 public class Charm_EnemyMove_two : Charm_EnemyMove
 {
     [SerializeField]
-    private GameObject bulletPrefab;
+    private GameObject bulletPrefab_two;
     [SerializeField]
     private float bulletDelay = 0.5f;
 
@@ -32,7 +32,7 @@ public class Charm_EnemyMove_two : Charm_EnemyMove
         {
             timer = 0f;
             // ÃÑ¾Ë »ý¼º
-            newBullet = Instantiate(bulletPrefab, transform);
+            newBullet = Instantiate(bulletPrefab_two, transform);
             // ºÎ¸ð ¾ø¾Ú
             newBullet.transform.SetParent(null);
 

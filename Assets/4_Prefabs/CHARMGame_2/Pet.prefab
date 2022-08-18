@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5681936161765659228
 Transform:
   m_ObjectHideFlags: 0
@@ -145,6 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
-  speed: 2
-  bulletPrefab: {fileID: 2596267435753101728, guid: 543f9de0b3d88ad4f99cd7446792570f, type: 3}
-  bulletDelay: 0.2
+  speed: 1
+  bulletPrefab_two: {fileID: 2596267435753101728, guid: 543f9de0b3d88ad4f99cd7446792570f, type: 3}
+  bulletDelay: 0.5

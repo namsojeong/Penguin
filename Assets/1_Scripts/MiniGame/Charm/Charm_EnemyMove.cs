@@ -35,7 +35,7 @@ public class Charm_EnemyMove : MonoBehaviour
         {
 
           
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -81,6 +81,6 @@ public class Charm_EnemyMove : MonoBehaviour
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
       //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
-       // Destroy(gameObject);
+       Destroy(gameObject);
     }
 }
