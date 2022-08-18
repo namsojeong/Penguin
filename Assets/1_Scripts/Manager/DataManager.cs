@@ -26,6 +26,9 @@ public class SaveData
     // ¿Á»≠
     public int coin;
     public int day;
+    public int arbTime = 0;
+
+    public List<AbilityE> arbs;
 }
 
 public class DataManager : MonoBehaviour
@@ -68,6 +71,10 @@ public class DataManager : MonoBehaviour
             GameManager.instance.squidCount = 0;
             GameManager.instance.fishCount = 0;
 
+
+            GameManager.instance.arbTime = 0;
+            GameManager.instance.arbSprites.Clear();
+
             GameManager.instance.coin = 0;
             GameManager.instance.day = 1;
             JsonSave();
@@ -92,6 +99,9 @@ public class DataManager : MonoBehaviour
                 GameManager.instance.shrimpCount = saveData.shrimp;
                 GameManager.instance.squidCount = saveData.squid;
                 GameManager.instance.fishCount = saveData.fish;
+
+                GameManager.instance.arbTime = saveData.arbTime;
+                GameManager.instance.arbSprites = saveData.arbs;
 
                 GameManager.instance.coin = saveData.coin;
                 GameManager.instance.day = saveData.day;
@@ -118,6 +128,9 @@ public class DataManager : MonoBehaviour
 
         saveData.coin = GameManager.instance.coin;
         saveData.day = GameManager.instance.day;
+
+        saveData.arbTime = GameManager.instance.arbTime;
+        saveData.arbs = GameManager.instance.arbSprites;
 
         string json = JsonUtility.ToJson(saveData, true);
 
