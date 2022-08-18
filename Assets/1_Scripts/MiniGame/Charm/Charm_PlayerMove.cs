@@ -71,6 +71,7 @@ public class Charm_PlayerMove : MonoBehaviour
 
     private IEnumerator Damaged()
     {
+     
         if (!isDamaged)
         {
             isDamaged = true;

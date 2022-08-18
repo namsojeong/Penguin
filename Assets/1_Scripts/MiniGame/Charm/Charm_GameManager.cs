@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Charm_GameManager : MonoBehaviour
 {
-    //[SerializeField]
-    //private Text scoreText = null;
-    //[SerializeField]
-    //private Text highScoreText = null;
-    //[SerializeField]
-    //private Text lifeText = null;
-    //[SerializeField]
-    //private int life = 3;
+    [SerializeField]
+    private Text scoreText = null;
+    [SerializeField]
+    private Text highScoreText = null;
+    [SerializeField]
+    private Text lifeText = null;
+    [SerializeField]
+    private int life = 3;
     [SerializeField]
     private GameObject enemyCroissant;
     [SerializeField]
@@ -41,13 +41,14 @@ public class Charm_GameManager : MonoBehaviour
 
     public void Dead()
     {
-        //life--;
-        //if (life <= 0)
-        //{
-        //    // 게임오버 씬 불러오기
-        //    SceneManager.LoadScene("GameOver");
-        //}
-        //UpdateUI();
+        life--;
+        if (life <= 0)
+        {
+            // 게임오버 씬 불러오기
+            // SceneManager.LoadScene("GameOver");
+            Debug.Log("끝입니다");
+        }
+        UpdateUI();
     }
 
     public void AddScore(int addScore)
@@ -63,9 +64,9 @@ public class Charm_GameManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        //lifeText.text = string.Format("LIFE\n{0}", life);
-        //scoreText.text = string.Format("SCORE\n{0}", score);
-        //highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
+        lifeText.text = string.Format("LIFE\n{0}", life);
+        scoreText.text = string.Format("SCORE\n{0}", score);
+        highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
 
     private IEnumerator SpawnCroissant()
