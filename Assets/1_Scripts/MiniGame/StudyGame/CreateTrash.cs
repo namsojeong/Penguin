@@ -42,8 +42,12 @@ public class CreateTrash : MonoBehaviour
 
     IEnumerator SpawnTrash()
     {
+        while(true)
+        {
         Spawn();
         yield return new WaitForSeconds(1f);
+
+        }
     }
 
 
