@@ -14,7 +14,7 @@ public class UIM : MonoBehaviour
     private void Start()
     {
         SetText();
-        Time.timeScale = 0;
+      //  Time.timeScale = 0;
     }
 
     public void GetScore()
