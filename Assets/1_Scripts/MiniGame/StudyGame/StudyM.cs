@@ -5,13 +5,12 @@ using UnityEngine;
 public class StudyM : MonoBehaviour
 {
         
-    public ObjectPool poolManager { get; private set; }
+    public PoolManager poolManager { get; private set; }
     void Start()
     {
-        poolManager = FindObjectOfType<ObjectPool>();
+        poolManager = FindObjectOfType<PoolManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

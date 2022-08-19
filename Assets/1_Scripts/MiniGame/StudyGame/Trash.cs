@@ -9,12 +9,11 @@ public class Trash : MonoBehaviour
 
         private float mVelocity = 0f;
 
-        public StudyM sm;
-
-        private void Start()
-      {
-        sm = GetComponent<StudyM>();
-         }
+    private PoolManager poolManager;
+        private void Awake()
+        {
+        poolManager = GetComponent<PoolManager>();
+        }
 
     void Update()
         {
@@ -31,13 +30,13 @@ public class Trash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Col")
         {
-        transform.SetParent(sm.poolManager.transform, false);
+        transform.SetParent(poolManager.transform, false);
         gameObject.SetActive(false);
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            transform.SetParent(sm.poolManager.transform, false);
+            transform.SetParent(poolManager.transform, false);
             gameObject.SetActive(false);
         }
     }

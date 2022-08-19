@@ -5,12 +5,13 @@ using UnityEngine;
 public class CreateTrash : MonoBehaviour
 {
     public GameObject[] prefabs;
-    public ObjectPool poolManager;
+    public PoolManager poolManager { get; private set; }
 
 
     void Start()
     {
         StartCoroutine(SpawnTrash());
+        poolManager = FindObjectOfType<PoolManager>();
     }
 
     public void Spawn()
