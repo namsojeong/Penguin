@@ -9,9 +9,14 @@ public class Trash : MonoBehaviour
 
         private float mVelocity = 0f;
 
-     
+        public StudyM sm;
 
-        void Update()
+        private void Start()
+      {
+        sm = GetComponent<StudyM>();
+         }
+
+    void Update()
         {
             Vector3 current = gameObject.transform.position;
 
@@ -26,13 +31,16 @@ public class Trash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Col")
         {
-            Destroy(gameObject);
+        transform.SetParent(sm.poolManager.transform, false);
+        gameObject.SetActive(false);
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            transform.SetParent(sm.poolManager.transform, false);
+            gameObject.SetActive(false);
         }
     }
+
 
 }
