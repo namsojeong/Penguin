@@ -26,12 +26,14 @@ public class CreateTrash : MonoBehaviour
 
         if (poolManager.transform.childCount > 0)
         {
+            Debug.Log("a");
             tr = poolManager.transform.GetChild(0).gameObject;
             tr.transform.SetParent(null);
             tr.SetActive(true);
         }
         else
         {
+            Debug.Log("b");
             tr  =  Instantiate(selectedPrefab, pos, Quaternion.identity);
         }
 

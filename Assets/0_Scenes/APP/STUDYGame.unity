@@ -1722,6 +1722,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391699637}
   m_CullTransparentMesh: 1
+--- !u!1 &1433323864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433323866}
+  - component: {fileID: 1433323865}
+  m_Layer: 0
+  m_Name: sm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1433323865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433323864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6627c6557a8aa04198e1ab7c1fdb493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1433323866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433323864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.9391375, y: 1.8630985, z: -3.6413722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1441236880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2286,7 @@ GameObject:
   - component: {fileID: 1869221318}
   - component: {fileID: 1869221317}
   m_Layer: 0
-  m_Name: Pool
+  m_Name: PoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2273,7 +2316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882624175
 GameObject:
@@ -2308,7 +2351,6 @@ MonoBehaviour:
   - {fileID: 8565488661553237746, guid: 30628c0fc1ab24649acd682009af6e1e, type: 3}
   - {fileID: 5117437944310674083, guid: 6589588085e19ad429d8a5f4b98c034f, type: 3}
   - {fileID: 1510718958489474921, guid: b80ee5339a745984aa817f283a9f9e3f, type: 3}
-  poolManager: {fileID: 0}
 --- !u!4 &1882624177
 Transform:
   m_ObjectHideFlags: 0
