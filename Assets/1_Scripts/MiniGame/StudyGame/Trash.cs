@@ -9,7 +9,7 @@ public class Trash : MonoBehaviour
 
         private float mVelocity = 0f;
 
-    private PoolManager poolManager;
+        private PoolManager poolManager;
         private void Awake()
         {
         poolManager = GetComponent<PoolManager>();
@@ -30,14 +30,16 @@ public class Trash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Col")
         {
-        transform.SetParent(poolManager.transform, false);
-        gameObject.SetActive(false);
+            //transform.SetParent(poolManager.transform, false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            transform.SetParent(poolManager.transform, false);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            //transform.SetParent(poolManager.transform, false);
+            //gameObject.SetActive(false);
         }
     }
 

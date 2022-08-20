@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateTrash : MonoBehaviour
 {
     public GameObject[] prefabs;
-    public PoolManager poolManager { get; private set; }
+    public PoolManager poolManager;
 
 
     void Start()
@@ -38,7 +38,7 @@ public class CreateTrash : MonoBehaviour
         }
 
         tr.transform.SetParent(null);
-        tr.transform.position =pos;
+      //  tr.transform.position =pos;
     }
 
 
