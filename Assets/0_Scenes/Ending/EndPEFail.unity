@@ -830,10 +830,41 @@ PlayableDirector:
     value: {fileID: 31650865}
   - key: {fileID: -334122265462865711, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
     value: {fileID: 1963436440}
+  - key: {fileID: -4127621378633911447, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1575725356133242090, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4877863380158297533, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2839316339859021845, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2290583829627076597, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7290129059522211929, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8121696291897466419, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8360036279371393831, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7862801866901864346, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4952461026051012965, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5082201969995622754, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7048637230974342665, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1794432949121061469, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 684199831213385620, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2038332949556245837, guid: 9422ab97de4b0a14fa35a36f322ac0c6, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 596a29e5e46afe94b8eb8b02374a5860: {fileID: 270731951}
     - c4a24096a6d8f3049bc4a57a9c52f4c7: {fileID: 97498111}
+    - 008d5d1ac00ae864d9a82b28d909b674: {fileID: 270731951}
 --- !u!4 &392450355
 Transform:
   m_ObjectHideFlags: 0
@@ -1161,6 +1192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef469cdaf866534fa17ef650dd494d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxEnding: 0
   art: 0
   pe: 0
   study: 0

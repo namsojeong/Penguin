@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public int lastDay = 25;
 
     bool isFirst = true;
-    string fail="";
 
     public List<AbilityE> arbSprites;
 
@@ -46,16 +45,12 @@ public class GameManager : MonoBehaviour
             isFirst = false;
         }
 
-        DontDestroyOnLoad(gameObject);
     }
 
     public void UpAbility(AbilityE ability, int v)
     {
         switch(ability)
         {
-            case AbilityE.ART:
-                art += v;
-                break;
             case AbilityE.PE:
                 pe += v;
                 break;
@@ -137,31 +132,25 @@ public class GameManager : MonoBehaviour
             if (study > charm) ab = AbilityE.STUDY;
             else ab = AbilityE.CHARM;
         }
+
         if (ab == AbilityE.CHARM)
         {
-            if(charm < maxEnding)
-            {
-                fail = "Fail";
-            }
-            else
-                fail = "";
+            if(charm < maxEnding)  ab = AbilityE.NONE;
         }
         else if(ab == AbilityE.PE)
         {
-            if (pe < maxEnding) fail = "Fail";
-            else fail = "";
+            if(pe < maxEnding) ab = AbilityE.NONE;
         }
         else if(ab == AbilityE.STUDY)
         {
-            if (study < maxEnding)  fail = "Fail";
-            else fail = "";
+            if(study < maxEnding) ab = AbilityE.NONE;
         }
         GoEnding(ab);
     }
     private void GoEnding(AbilityE ability)
     {
         ResetVal();
-        SceneM.instance.ChangeScene("End"+ability+fail);
+        SceneM.instance.ChangeScene("End"+ability);
     }
 
     public void ResetVal()
