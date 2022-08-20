@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum AbilityE
 {
-    ART = 0,
+    NONE = 0,
     PE,
     STUDY,
     CHARM

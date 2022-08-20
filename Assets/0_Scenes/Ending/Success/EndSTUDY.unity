@@ -464,6 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458591298}
   - component: {fileID: 458591297}
+  - component: {fileID: 458591299}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -497,6 +498,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &458591299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458591296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874d839ead0892c4c81dd334dad4069e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &607202105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1554549273}
   - component: {fileID: 1554549274}
+  - component: {fileID: 1554549275}
   m_Layer: 0
   m_Name: StudyCin
   m_TagString: Untagged
@@ -3114,6 +3128,8 @@ PlayableDirector:
     value: {fileID: 1496293199}
   - key: {fileID: 3645825711900765247, guid: 46ee210e2eaec274cbbb07a58c38c64d, type: 2}
     value: {fileID: 244480347}
+  - key: {fileID: 7224151571234504351, guid: 46ee210e2eaec274cbbb07a58c38c64d, type: 2}
+    value: {fileID: 1554549275}
   m_ExposedReferences:
     m_References:
     - 12ccde918361c1a4d8d476ce9a8befb4: {fileID: 428724997}
@@ -3123,6 +3139,36 @@ PlayableDirector:
     - 0d0736b1ed304434c92605fd5e8c2974: {fileID: 428724997}
     - e48c048c1e18c5f45b7bd3a357ae5b30: {fileID: 836616990}
     - 32f51a5c68aec2441acb5e4cb328980b: {fileID: 836616990}
+--- !u!114 &1554549275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554549272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 974758ee227c82943832ade230c9461f, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 458591299}
+          m_TargetAssemblyTypeName: SceneM, Assembly-CSharp
+          m_MethodName: ChangeScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Over
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1645690907
 GameObject:
   m_ObjectHideFlags: 0
