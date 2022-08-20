@@ -75,7 +75,7 @@ public class DataManager : MonoBehaviour
             GameManager.instance.arbTime = 0;
             GameManager.instance.arbSprites.Clear();
 
-            GameManager.instance.coin = 0;
+            GameManager.instance.coin = 100;
             GameManager.instance.day = 1;
             JsonSave();
         }
