@@ -2,37 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIM : MonoBehaviour
 {
-    public GameObject panel;
-    public Text text;
-    int score = 0;
+    public GameObject startpanel;
+
 
 
 
     private void Start()
     {
-        SetText();
-      //  Time.timeScale = 0;
+        Time.timeScale = 0;
+
+
     }
 
-    public void GetScore()
-    {
-        score += 100;
-        SetText();
-    }
 
-    public void SetText()
-    {
-        text.text = "Score : " + score.ToString();
-    }
 
 
     public void OnClickPlay()
     {
-        panel.SetActive(false);
+        startpanel.SetActive(false);
         Time.timeScale = 1;
+        Debug.Log("¿Ü¾ÊµÇ");
 
+    }
+
+    public void OnClickHome()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
