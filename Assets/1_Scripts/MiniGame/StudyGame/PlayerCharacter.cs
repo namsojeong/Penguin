@@ -8,12 +8,10 @@ public class PlayerCharacter : MonoBehaviour
     [Header("Player")]
     public int spd;
 
-    public GameObject overPanel;
 
     private Vector2 targetPosition = Vector2.zero;
     void Start()
     {
-        overPanel.SetActive(false);
     }
 
     void Update()
@@ -36,7 +34,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("GeneralWaste"))
         {
-            overPanel.SetActive(true);
+            UIM.instance.OverPenel();
             Time.timeScale = 0;
         }
 
