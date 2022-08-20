@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 458591298}
   - component: {fileID: 458591297}
   - component: {fileID: 458591299}
+  - component: {fileID: 458591300}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -510,6 +511,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874d839ead0892c4c81dd334dad4069e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &458591300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458591296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e2c09412e12348a35c5354fe1f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 716992585}
+  batteryText: {fileID: 901065486}
+  dayText: {fileID: 1760999515}
 --- !u!1 &607202105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,7 +3066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1554549273
 Transform:
   m_ObjectHideFlags: 0
