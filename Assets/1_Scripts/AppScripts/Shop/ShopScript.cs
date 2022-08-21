@@ -9,7 +9,7 @@ public class ShopScript : MonoBehaviour
 
     public GameObject[] randomItem;
 
-    public GameObject[] Item;
+   
     public int[] itemPrice;
 
     public AudioSource audioSource;
@@ -20,7 +20,7 @@ public class ShopScript : MonoBehaviour
 
 
 
-    public bool[] isBuyToItme;
+    
 
 
     void Start()
@@ -66,13 +66,30 @@ public class ShopScript : MonoBehaviour
 
         GameManager.instance.coin -= price;
 
-        bool isBuy = isBuyToItme[index];
-
-        isBuy = true;
-
-
     }
 
+
+    public bool Item1 = false;
+    public bool Item2 = false;
+    public bool Item3 = false;
+    public bool Item4 = false;
+
+   public void OnClickBuyButton1()
+    {
+        Item1 = true;
+    }
+    public void OnClickBuyButton2()
+    {
+        Item2 = true;
+    }
+    public void OnClickBuyButton3()
+    {
+        Item3= true;
+    }
+    public void OnClickBuyButton4()
+    {
+        Item4 = true;
+    }
 
 
 
