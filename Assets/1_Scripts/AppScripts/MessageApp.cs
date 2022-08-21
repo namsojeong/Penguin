@@ -30,7 +30,6 @@ public class MessageApp : MonoBehaviour
         messages.Add(4, "ÄµÅ©·¯½¬ Ã§¸°Áö ÇØºÃ¾î? ÄµÀ» ¹ß·Î ¹â´Â°Å¾ß!! ³Êµµ ÇØºÁ Àç¹Õ¾î");
     }
 
-
     void Chatting(AbilityE ability)
     {
         ranMin = (int)ability;
