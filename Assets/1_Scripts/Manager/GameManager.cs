@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public int fishCount = 0;
 
     public int arbTime = 0;
-    public int coin = 0;
+    public int coin = 100;
 
     public int day = 1;
     public int lastDay = 25;
@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
             ResetVal();
             isFirst = false;
         }
+
+        DontDestroyOnLoad(gameObject);
 
     }
 
