@@ -110,7 +110,8 @@ public class GameManager : MonoBehaviour
                     Debug.Log("배고파서 죽음");
                     Dead();
                 }
-                break;
+                else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
+                    break;
             case NutrientE.CLEAN:
                 CurrentUser.clean += v;
                 if (CurrentUser.clean <= 0)
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("더러워서 죽음");
                     Dead();
                 }
+                else if (CurrentUser.clean > 100) CurrentUser.clean = 100;
                 break;
             case NutrientE.FUN:
                 CurrentUser.fun += v;
@@ -126,6 +128,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("노잼이라 죽음");
                     Dead();
                 }
+                else if (CurrentUser.fun > 100) CurrentUser.fun = 100;
                 break;
             case NutrientE.SLEEP:
                 CurrentUser.sleep += v;
@@ -216,7 +219,7 @@ public class GameManager : MonoBehaviour
             currentRibbonItem.isGet = false;
             CurrentUser.items.Add(currentRibbonItem);
             Item currentGlassItem = new Item();
-            currentGlassItem.name = "어때 나 좀 지적인가? 안경";
+            currentGlassItem.name = "어때 나 좀 지적인가?";
             currentGlassItem.index = 1;
             currentGlassItem.price = 2000;
             currentGlassItem.isHave = false;
