@@ -42,7 +42,7 @@ public class Shop : MonoBehaviour
         CheckCoin();
         CheckHaveItem();
     }
-    private void CheckCoin()
+    public void CheckCoin()
     {
         coinText.text = string.Format($"COIN : {GameManager.instance.CurrentUser.coin}");
     }

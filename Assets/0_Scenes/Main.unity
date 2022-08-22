@@ -2973,6 +2973,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1060381702223854828}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CheckCoin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &923607294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23710,9 +23722,11 @@ MonoBehaviour:
   specialPanel: {fileID: 1342801589}
   nameText: {fileID: 392594173}
   itemImage: {fileID: 82646208}
+  buyButton: {fileID: 1060381702932660058}
   itemSprites:
   - {fileID: 21300000, guid: b895a352cd756b045bcf5e1eadfcdbd2, type: 3}
   - {fileID: 21300000, guid: e6a37796c225f134eafa0ce9515f581b, type: 3}
+  - {fileID: 21300000, guid: d26c6d750c6460e40b44842f742dbf3c, type: 3}
 --- !u!222 &1060381702744437682
 CanvasRenderer:
   m_ObjectHideFlags: 0
