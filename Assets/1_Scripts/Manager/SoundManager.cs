@@ -5,13 +5,25 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioSource audioBGMSource;
+    [SerializeField]
+    private AudioSource audioSFXSource;
+    [SerializeField]
+    private AudioSource audioClickSource;
     [SerializeField]
     private AudioClip callbell;
     [SerializeField]
     private AudioClip callok;
     [SerializeField]
     private AudioClip callno;
+    
+    [SerializeField]
+    private AudioClip clickClip;
+    [SerializeField]
+    private AudioClip bgmClip;
+    
+    [SerializeField]
+    private AudioClip[] sfx;
 
     void Start()
     {
@@ -24,21 +36,42 @@ public class SoundManager : MonoBehaviour
       
     }
 
+
+    // CALLING
     public void CallBell()
     {
-        audioSource.PlayOneShot(callbell);
+        SFXPlay(callbell);
     }
-
-
     public void CallOK()
     {
-        audioSource.PlayOneShot(callok);
+        SFXPlay(callok);
     }
-
     public void CallNO()
     {
-        audioSource.PlayOneShot(callno);
+        SFXPlay(callno);
     }
 
+
+    // SFX
+    public void SFXPlay(AudioClip clip)
+    {
+        audioSFXSource.PlayOneShot(clip);
+    }
+
+    // BGM
+    public void BGMStop()
+    {
+        audioBGMSource.Stop();
+    }
+    public void BGMStart()
+    {
+        audioBGMSource.Play();
+    }
+
+    // 터치 시 사운드
+    public void ClikSound()
+    {
+        audioClickSource.Play();
+    }
 
 }

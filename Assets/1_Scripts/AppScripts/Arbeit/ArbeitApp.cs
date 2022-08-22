@@ -31,7 +31,6 @@ public class ArbeitApp : MonoBehaviour
 
     Queue<AbilityE> arbietQ = new Queue<AbilityE>();
 
-    int arMaxCnt = 3;
     int dayCnt = 5;
     int nowCnt = 0;
 

@@ -1,62 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenInventory : MonoBehaviour
 {
-    public GameObject Item;
-    public GameObject Item1;
-    public GameObject Item2;
-    public GameObject Item3;
+    [SerializeField]
+    Button[] haveButton;
 
-    public GameObject closetPanel;
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    GameObject[] itemImage;
+    [SerializeField]
+    GameObject[] itemButton;
+    [SerializeField]
+    GameObject[] realHave;
+
     private void Awake()
     {
-        closetPanel.SetActive(false);
-        Item.SetActive(false);
-        Item1.SetActive(false);
-        Item2.SetActive(false);
-        Item3.SetActive(false);
-        
-    }
-    void Update()
-    {
-        CheckItem();
+        haveButton[0].onClick.AddListener(() => ClikWear(0));
+        haveButton[1].onClick.AddListener(() => ClikWear(1));
+        haveButton[2].onClick.AddListener(() => ClikWear(2));
+
     }
 
-    public void OnClickCharacter()
+    private void OnEnable()
     {
-        closetPanel.SetActive(true);
+        CheckHaveItem();
+    }
+    void CheckHaveItem()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            itemButton[i].SetActive(GameManager.instance.CurrentUser.items[i].isGet);
+            if (GameManager.instance.CurrentUser.items[i].isGet)
+            {
+                if (GameManager.instance.CurrentUser.items[i].isHave)
+                {
+                    haveButton[i].GetComponent<Image>().color = Color.red;
+                    ClikWear(i);
+                }
+                else
+                {
+                    haveButton[i].GetComponent<Image>().color = Color.white;
+                }
+            }
+
+
+        }
     }
 
-    private void CheckItem()
+    public void ClikWear(int index)
     {
-        if(ShopScript.instance.Item1 == true)
+        GameManager.instance.CurrentUser.items[index].isHave = !GameManager.instance.CurrentUser.items[index].isHave;
+        itemImage[index].SetActive(GameManager.instance.CurrentUser.items[index].isHave);
+        if (GameManager.instance.CurrentUser.items[index].isHave)
         {
-            Item.SetActive(true);
+            haveButton[index].GetComponent<Image>().color = Color.red;
+            realHave[index].SetActive(true);
         }
-
-
-        if (ShopScript.instance.Item2 == true)
+        else
         {
-
-            Item1.SetActive(true);
-        }
-
-        if (ShopScript.instance.Item3 == true)
-        {
-
-            Item2.SetActive(true);
-        }
-
-        if (ShopScript.instance.Item4 == true)
-        {
-
-            Item3.SetActive(true);
+            haveButton[index].GetComponent<Image>().color = Color.white;
+            realHave[index].SetActive(false);
         }
     }
 }

@@ -21,22 +21,22 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
     void CheckFeed()
     {
-        if (GameManager.instance.hungry >= 100)
+        if (GameManager.instance.CurrentUser.hungry >= 100)
         {
-            GameManager.instance.hungry = 100;
+            GameManager.instance.CurrentUser.hungry = 100;
             return;
         }
         if (itemName == "SHRIMP")
         {
-            if (GameManager.instance.shrimpCount <= 0) return;
+            if (GameManager.instance.CurrentUser.shrimpCnt <= 0) return;
         }
         else if (itemName == "SQUID")
         {
-            if (GameManager.instance.squidCount <= 0) return;
+            if (GameManager.instance.CurrentUser.squidCnt <= 0) return;
         }
         else if (itemName == "FISH")
         {
-            if (GameManager.instance.fishCount <= 0) return;
+            if (GameManager.instance.CurrentUser.fishCnt <= 0) return;
         }
         eventParam.stringParam = itemName;
         EventManager.TriggerEvent("USEFOOD", eventParam);

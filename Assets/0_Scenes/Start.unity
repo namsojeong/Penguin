@@ -301,10 +301,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1932284602}
-        m_TargetAssemblyTypeName: SceneM, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
+      - m_Target: {fileID: 1932284601}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: StartButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -801,22 +801,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnding: 0
-  art: 0
-  pe: 0
-  study: 0
-  charm: 0
-  hungry: 100
-  fun: 100
-  clean: 100
-  sleep: 100
-  shrimpCount: 0
-  squidCount: 0
-  fishCount: 0
-  arbTime: 0
-  coin: 0
-  day: 1
-  lastDay: 25
-  arbSprites: 
+  user:
+    art: 0
+    pe: 0
+    study: 0
+    charm: 0
+    hungry: 100
+    fun: 100
+    clean: 100
+    sleep: 100
+    shrimpCnt: 0
+    squidCnt: 0
+    fishCnt: 0
+    coin: 100
+    day: 1
+    arbTime: 0
+    isFirst: 1
+    items:
+    - index: 0
+      name: "\uC559\uC99D\uB9DE\uC740 \uB9AC\uBCF8"
+      price: 1000
+      isHave: 0
+      isGet: 0
+    - index: 1
+      name: "\uC5B4\uB54C \uC880 \uC9C0\uC801\uC778\uAC00?"
+      price: 2000
+      isHave: 0
+      isGet: 0
+    - index: 2
+      name: "\uC608\uC220\uAC00\uC758 \uC0C1\uC9D5"
+      price: 3000
+      isHave: 0
+      isGet: 0
+  item:
+    index: 0
+    name: 
+    price: 0
+    isHave: 0
+    isGet: 0
 --- !u!4 &1713975849
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713975847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.028599977, y: 0.19029999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -840,8 +862,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1932284603}
-  - component: {fileID: 1932284602}
   - component: {fileID: 1932284601}
+  - component: {fileID: 1932284602}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged

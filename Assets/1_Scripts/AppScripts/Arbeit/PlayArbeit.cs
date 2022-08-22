@@ -40,7 +40,8 @@ public class PlayArbeit : MonoBehaviour
     {
         // 보상
         AbilityE curAr = eventParam.abilityParam;
-        GameManager.instance.coin += 100;
+
+        GameManager.instance.PlusCoin(100);
         GameManager.instance.UpAbility(curAr, 10);
 
         // 작업 시작

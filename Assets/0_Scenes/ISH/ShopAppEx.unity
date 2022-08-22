@@ -431,12 +431,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a8ce321017a284a8415f37adb53dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 2532528563963810229, guid: fd33941c50248384c989de6ea96ea465, type: 3}
-  - {fileID: 4593962684216886846, guid: 6099da2bb740c354bb3373e3e48498dd, type: 3}
-  - {fileID: 1150564789428171304, guid: cd61ac2ab426e5e48a7f727adfc1971e, type: 3}
-  - {fileID: 9081712041190906054, guid: 0954e3789ac425045b669a75ff24b01e, type: 3}
-  itemPosition: {fileID: 1310571859}
+  randomItem: []
+  itemPrice: 
+  audioSource: {fileID: 0}
+  Item1: 0
+  Item2: 0
+  Item3: 0
+  Item4: 0
 --- !u!4 &1632550174
 Transform:
   m_ObjectHideFlags: 0
