@@ -14,7 +14,7 @@ public class PlayArbeit : MonoBehaviour
     float curPlaying = 0;
     float barSpeed = 20;
 
-    EventParam eventParam = new EventParam();
+    EventParam ep = new EventParam();
 
     private void Start()
     {
@@ -38,13 +38,8 @@ public class PlayArbeit : MonoBehaviour
 
     void PlayingArb(EventParam eventParam)
     {
-        // 보상
-        AbilityE curAr = eventParam.abilityParam;
-
-        GameManager.instance.PlusCoin(100);
-        GameManager.instance.UpAbility(curAr, 10);
-
         // 작업 시작
+        ep.abilityParam = eventParam.abilityParam;
         WorkStart();
     }
     void WorkStart()
@@ -60,7 +55,7 @@ public class PlayArbeit : MonoBehaviour
             yield return new WaitForSeconds(1f);
             curPlaying += 10;
         }
-        EventManager.TriggerEvent("FinishArb", eventParam);
+        EventManager.TriggerEvent("FinishArb", ep);
     }
 
     void ResetBar()

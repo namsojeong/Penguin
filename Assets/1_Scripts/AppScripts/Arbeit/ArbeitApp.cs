@@ -80,7 +80,13 @@ public class ArbeitApp : MonoBehaviour
         Debug.Log("Finish");
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
-        if(nowCnt >= 5)
+
+        // º¸»ó
+        AbilityE curAr = eventParam.abilityParam;
+        GameManager.instance.PlusCoin(100);
+        GameManager.instance.UpAbility(curAr, 10);
+
+        if (nowCnt >= 5)
         {
             ResetArb();
         }
