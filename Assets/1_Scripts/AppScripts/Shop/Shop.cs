@@ -40,12 +40,19 @@ public class Shop : MonoBehaviour
     private void OnEnable()
     {
         CheckCoin();
+        CheckHaveItem();
     }
     private void CheckCoin()
     {
         coinText.text = string.Format($"COIN : {GameManager.instance.CurrentUser.coin}");
     }
-
+    void CheckHaveItem()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            itemHave[i].SetActive(GameManager.instance.CurrentUser.items[i].isGet);
+        }
+    }
     private void BuyRibbon()
     {
         choiceItem = ItemTypeE.RIBBON;

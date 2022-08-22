@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private User user = null;
     public User CurrentUser { get { return user; } }
     public Item item = null;
+    public SpecialItem specialItem = null;
 
     private string SAVE_PATH = "";
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
@@ -229,7 +230,26 @@ public class GameManager : MonoBehaviour
             currentBeremoItem.isGet = false;
             CurrentUser.items.Add(currentBeremoItem);
         }
-        
+
+        // ½ºÆä¼È¾ÆÀÌÅÛ ¸®¼Â 
+        {
+            CurrentUser.specialItems.Clear();
+            SpecialItem specialDress = new SpecialItem();
+            specialDress.name = "°øÁÖ´Ô µå·¹½º";
+            specialDress.index = 0;
+            specialDress.isHave = false;
+            specialDress.isGet = false;
+            CurrentUser.specialItems.Add(specialDress);
+            
+            SpecialItem muscleItem = new SpecialItem();
+            muscleItem.name = "±ÙÀ° Â¯Â¯¸Ç";
+            muscleItem.index = 0;
+            muscleItem.isHave = false;
+            muscleItem.isGet = false;
+            CurrentUser.specialItems.Add(muscleItem);
+            
+        }
+
     }
 
     public void SetArbTime(int t)

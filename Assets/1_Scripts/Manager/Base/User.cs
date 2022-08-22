@@ -26,8 +26,10 @@ public class User
     public int coin = 100;
     public int day = 1;
     public int arbTime = 0;
+    public int ranPrice = 0;
 
     public bool isFirst = true;
 
     public List<Item> items = new List<Item>();
+    public List<SpecialItem> specialItems = new List<SpecialItem>();
 }
