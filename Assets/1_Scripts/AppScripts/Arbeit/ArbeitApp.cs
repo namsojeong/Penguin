@@ -81,6 +81,9 @@ public class ArbeitApp : MonoBehaviour
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
 
+        //¿Ã∆Â∆Æ
+        FinishEffect();
+
         // ∫∏ªÛ
         AbilityE curAr = eventParam.abilityParam;
         GameManager.instance.PlusCoin(100);
@@ -169,6 +172,11 @@ public class ArbeitApp : MonoBehaviour
     {
         eventParam.abilityParam = arbietQ.Dequeue();
         EventManager.TriggerEvent("PlayArb", eventParam);
+    }
+
+    void FinishEffect()
+    {
+
     }
 
     //void GetArb(EventParam ep)

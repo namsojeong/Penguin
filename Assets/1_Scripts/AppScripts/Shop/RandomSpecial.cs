@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class RandomSpecial : MonoBehaviour
 {
+    [SerializeField, Header("스페셜아이템 갯수")]
+    int specialItemCnt = 2;
+
     [SerializeField]
     Text priceText;
     [SerializeField]
     GameObject[] specialGet;
+
+    [SerializeField]
+    ParticleSystem allParticle;
 
 
     [SerializeField, Header("Special panel")]
@@ -23,7 +29,9 @@ public class RandomSpecial : MonoBehaviour
 
     [SerializeField]
     Sprite[] itemSprites;
-    int price;
+
+    int price = 0;
+
     private void Awake()
     {
         buyButton.onClick.AddListener(() => BuyRandom());
@@ -38,8 +46,17 @@ public class RandomSpecial : MonoBehaviour
         CantBuy();
     }
 
+    // 가진 코인으로 살 수 있는지 비교
     private void CantBuy()
     {
+        if(GameManager.instance.CurrentUser.isSpecialAll)
+        {
+            buyButton.interactable = false;
+            buyButton.image.color = Color.red;
+            priceText.text = string.Format("All Collect");
+            return;
+        }
+
         if (GameManager.instance.CurrentUser.coin < price)
         {
             buyButton.image.color = Color.red;
@@ -51,11 +68,14 @@ public class RandomSpecial : MonoBehaviour
             buyButton.interactable = true;
         }
     }
+
+    // 가격 UI 업데이트
     private void UpdatePrice()
     {
         priceText.text = string.Format($"{price} Coin");
-        
     }
+
+    // 뽑기 가격 증가
     private void UpPrice()
     {
         price = GameManager.instance.CurrentUser.ranPrice;
@@ -64,6 +84,7 @@ public class RandomSpecial : MonoBehaviour
         UpdatePrice();
     }
 
+    // 뽑기 구매
     public void BuyRandom()
     {
         if (GameManager.instance.CurrentUser.coin < price)
@@ -77,6 +98,7 @@ public class RandomSpecial : MonoBehaviour
         GetItem(itemIndex);
     }
 
+    // 랜덤 아이템 획득
     void GetItem(int i)
     {
         if (GameManager.instance.CurrentUser.specialItems[i].isGet)
@@ -86,13 +108,30 @@ public class RandomSpecial : MonoBehaviour
         }
         else
         {
+            int cnt = GameManager.instance.CurrentUser.specialCnt;
+            GameManager.instance.CurrentUser.specialCnt++;
+            cnt++;
             nameText.text = string.Format($"{GameManager.instance.CurrentUser.specialItems[i].name}");
             itemImage.sprite = itemSprites[i];
             GameManager.instance.CurrentUser.specialItems[i].isGet = true;
+            if (cnt == specialItemCnt)
+            {
+                GameManager.instance.CurrentUser.isSpecialAll = true;
+                buyButton.interactable = false;
+                buyButton.image.color = Color.red;
+                priceText.text = string.Format("All Collect");
+                AllCollectEffect();
+            }
+
         }
         specialPanel.SetActive(true);
-
         CantBuy();
+    }
 
+    // 다 모았을 때
+    void AllCollectEffect()
+    {
+        GameManager.instance.PlusCoin(10000);
+        allParticle.Play();
     }
 }

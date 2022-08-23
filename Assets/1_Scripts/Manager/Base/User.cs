@@ -27,8 +27,10 @@ public class User
     public int day = 1;
     public int arbTime = 0;
     public int ranPrice = 0;
+    public int specialCnt = 0;
 
     public bool isFirst = true;
+    public bool isSpecialAll = true;
 
     public List<Item> items = new List<Item>();
     public List<SpecialItem> specialItems = new List<SpecialItem>();
