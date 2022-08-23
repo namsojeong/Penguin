@@ -148,6 +148,7 @@ public class SwitchOffGame : MonoBehaviour
         curTime -= minusTimeVal * level;
     }
 
+    // 랜덤 버튼
     void RandomSwitch()
     {
         //int ranCount = Random.Range(1, (offswitchs.Count)/2);
@@ -163,6 +164,7 @@ public class SwitchOffGame : MonoBehaviour
 
     }
 
+    // 게임 시작
     public void StartGame()
     {
         ResetGame();
@@ -172,6 +174,7 @@ public class SwitchOffGame : MonoBehaviour
         RandomSwitch();
     }
 
+    // 난이도 올리기
     void LevelUp()
     {
         level += 1f;
@@ -205,5 +208,6 @@ public class SwitchOffGame : MonoBehaviour
         offswitchs.Add(num);
         RandomSwitch();
     }
+
 
 }

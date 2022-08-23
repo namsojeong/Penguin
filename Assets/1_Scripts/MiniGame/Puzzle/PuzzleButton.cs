@@ -17,8 +17,6 @@ public class PuzzleButton : MonoBehaviour
     Color _color;
     Button _button;
 
-    bool isNot = true;
-
     // 게임 판정 시 EventManager로 isNot이 False인지 체크 만약 True면 다시 반대로 신호줌
 
     private void Awake()

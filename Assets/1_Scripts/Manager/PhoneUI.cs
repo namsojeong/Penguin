@@ -23,6 +23,6 @@ public class PhoneUI : MonoBehaviour
     {
         timeText.text = string.Format(DateTime.Now.ToString("t"));
         batteryText.text = string.Format($"{(int)(SystemInfo.batteryLevel*100)} %");
-        dayText.text = string.Format($"Day {GameManager.instance.day}");
+        dayText.text = string.Format($"Day {GameManager.instance.CurrentUser.day}");
     }
 }

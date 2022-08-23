@@ -5,7 +5,17 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    
+    public void StartButton()
+    {
+        if(GameManager.instance.CurrentUser.isFirst)
+        {
+            SceneM.instance.ChangeScene("CutScene");
+        }
+        else
+        {
+            SceneM.instance.ChangeScene("Main");
+        }
+    }
     public void TimeOff()
     {
         Time.timeScale = 0.0f;

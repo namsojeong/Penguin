@@ -11,7 +11,6 @@ public class Nutrient : MonoBehaviour
     [SerializeField, Header("영양소2")]
     private Image[] _nutrientBars;
     
-    EventParam eventParam = new EventParam();
 
     float maxN = 100;
 
@@ -29,15 +28,15 @@ public class Nutrient : MonoBehaviour
     // 영양소 UI 업데이트
     void UpdateNutrient()
     {
-        nutrientBars[(int)NutrientE.HUNGRY].fillAmount = GameManager.instance.hungry / maxN;
-        nutrientBars[(int)NutrientE.FUN].fillAmount = GameManager.instance.fun / maxN;
-        nutrientBars[(int)NutrientE.CLEAN].fillAmount = GameManager.instance.clean / maxN;
-        nutrientBars[(int)NutrientE.SLEEP].fillAmount = GameManager.instance.sleep / maxN;
+        nutrientBars[(int)NutrientE.HUNGRY].fillAmount = GameManager.instance.CurrentUser.hungry / maxN;
+        nutrientBars[(int)NutrientE.FUN].fillAmount = GameManager.instance.CurrentUser.fun / maxN;
+        nutrientBars[(int)NutrientE.CLEAN].fillAmount = GameManager.instance.CurrentUser.clean / maxN;
+        nutrientBars[(int)NutrientE.SLEEP].fillAmount = GameManager.instance.CurrentUser.sleep / maxN;
         
-        _nutrientBars[(int)NutrientE.HUNGRY].fillAmount = GameManager.instance.hungry / maxN;
-        _nutrientBars[(int)NutrientE.FUN].fillAmount = GameManager.instance.fun / maxN;
-        _nutrientBars[(int)NutrientE.CLEAN].fillAmount = GameManager.instance.clean / maxN;
-        _nutrientBars[(int)NutrientE.SLEEP].fillAmount = GameManager.instance.sleep / maxN;
+        _nutrientBars[(int)NutrientE.HUNGRY].fillAmount = GameManager.instance.CurrentUser.hungry / maxN;
+        _nutrientBars[(int)NutrientE.FUN].fillAmount = GameManager.instance.CurrentUser.fun / maxN;
+        _nutrientBars[(int)NutrientE.CLEAN].fillAmount = GameManager.instance.CurrentUser.clean / maxN;
+        _nutrientBars[(int)NutrientE.SLEEP].fillAmount = GameManager.instance.CurrentUser.sleep / maxN;
     }
 
     // 꾸준히 줄어드는 영양소

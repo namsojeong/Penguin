@@ -31,7 +31,6 @@ public class ArbeitApp : MonoBehaviour
 
     Queue<AbilityE> arbietQ = new Queue<AbilityE>();
 
-    int arMaxCnt = 3;
     int dayCnt = 5;
     int nowCnt = 0;
 
@@ -81,7 +80,16 @@ public class ArbeitApp : MonoBehaviour
         Debug.Log("Finish");
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
-        if(nowCnt >= 5)
+
+        //ÀÌÆåÆ®
+        FinishEffect();
+
+        // º¸»ó
+        AbilityE curAr = eventParam.abilityParam;
+        GameManager.instance.PlusCoin(100);
+        GameManager.instance.UpAbility(curAr, 10);
+
+        if (nowCnt >= 5)
         {
             ResetArb();
         }
@@ -164,6 +172,11 @@ public class ArbeitApp : MonoBehaviour
     {
         eventParam.abilityParam = arbietQ.Dequeue();
         EventManager.TriggerEvent("PlayArb", eventParam);
+    }
+
+    void FinishEffect()
+    {
+
     }
 
     //void GetArb(EventParam ep)

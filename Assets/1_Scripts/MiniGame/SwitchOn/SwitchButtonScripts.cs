@@ -9,7 +9,12 @@ public class SwitchButtonScripts : MonoBehaviour
     int num;
     [SerializeField]
     float offTime = 5;
-    
+
+    [SerializeField, Header("이펙트")]
+    ParticleSystem failEffect;
+    [SerializeField, Header("이펙트")]
+    ParticleSystem correctEffect;
+
     private Image switchImage;
     private bool isOn = false;
 
@@ -46,7 +51,6 @@ public class SwitchButtonScripts : MonoBehaviour
     // 버튼 클릭 시 판단
     public void ClickMe()
     {
-        TouchEffect();
         if(isOn)
         {
             Correct();
@@ -55,6 +59,7 @@ public class SwitchButtonScripts : MonoBehaviour
         {
             Fail();
         }
+        TouchEffect();
         SwitchOff();
     }
 
@@ -69,10 +74,20 @@ public class SwitchButtonScripts : MonoBehaviour
     {
             SwitchOffGame.Instance().TimeDown(30);
     }
+
     // 클릭 이펙트
     void TouchEffect()
     {
-
+        if(isOn)
+        {
+            correctEffect.transform.position = transform.position;
+            correctEffect.Play();
+        }
+        else
+        {
+            failEffect.transform.position = transform.position;
+            failEffect.Play();
+        }
     }
     
     // 놓쳤을 때

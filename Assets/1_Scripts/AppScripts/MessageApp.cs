@@ -36,7 +36,6 @@ public class MessageApp : MonoBehaviour
         int ran = Random.Range(ranMin, cnt + 1);
         if(messages.TryGetValue(ranMin, out string v))
         {
-            Debug.Log(v);
             chat.text = string.Format(v);
         }
     }

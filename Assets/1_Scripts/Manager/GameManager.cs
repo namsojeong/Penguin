@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,61 +10,90 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int maxEnding;
 
-    // 능력
-    public int art;
-    public int pe;
-    public int study;
-    public int charm;
+    [SerializeField]
+    private User user = null;
+    public User CurrentUser { get { return user; } }
+    public Item item = null;
+    public SpecialItem specialItem = null;
 
-    // 영양소
-    public float hungry = 100;
-    public float fun = 100;
-    public float clean = 100;
-    public float sleep = 100;
-    public int shrimpCount = 0;
-    public int squidCount = 0;
-    public int fishCount = 0;
+    private string SAVE_PATH = "";
+    private readonly string SAVE_FILENAME = "/SaveFile.txt";
 
-    public int arbTime = 0;
-    public int coin = 0;
-
-    public int day = 1;
-    public int lastDay = 25;
-
-    bool isFirst = true;
-    string fail="";
-
-    public List<AbilityE> arbSprites;
+    int lastDay = 25;
 
     private void Awake()
     {
-        instance = this;
-        Time.timeScale = 1;
-
-        if(isFirst)
+        //해상도
         {
-            ResetVal();
-            isFirst = false;
+            Time.timeScale = 1;
+            Screen.SetResolution(1440, 2560, true);
+            instance = this;
+
+            //저장
+            SAVE_PATH = Application.persistentDataPath + "/Save";
+            if (!Directory.Exists(SAVE_PATH))
+            {
+                Directory.CreateDirectory(SAVE_PATH);
+            }
+            LoadFromJson();
+            InvokeRepeating("SaveToJson", 1f, 60f);
         }
 
+        if (CurrentUser.isFirst)
+        {
+            ResetVal();
+            CurrentUser.isFirst = false;
+        }
         DontDestroyOnLoad(gameObject);
+    }
+
+    //저장
+    private void LoadFromJson()
+    {
+        string json = "";
+        if (File.Exists(SAVE_PATH + SAVE_FILENAME))
+        {
+            json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
+            user = JsonUtility.FromJson<User>(json);
+        }
+        else
+        {
+            SaveToJson();
+            LoadFromJson();
+        }
+    }
+    public void SaveToJson()
+    {
+        SAVE_PATH = Application.persistentDataPath + "/Save";
+        if (user == null) return;
+        string json = JsonUtility.ToJson(user, true);
+        File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
+        PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
+
+    }
+
+    //종료 시 저장
+    private void OnApplicationQuit()
+    {
+        SaveToJson();
+    }
+    private void OnApplicationFocus(bool focus)
+    {
+        SaveToJson();
     }
 
     public void UpAbility(AbilityE ability, int v)
     {
         switch(ability)
         {
-            case AbilityE.ART:
-                art += v;
-                break;
             case AbilityE.PE:
-                pe += v;
+                CurrentUser.pe += v;
                 break;
             case AbilityE.STUDY:
-                study += v;
+                CurrentUser.study += v;
                 break;
             case AbilityE.CHARM:
-                charm += v;
+                CurrentUser.charm += v;
                 break;
         }
 
@@ -74,44 +104,46 @@ public class GameManager : MonoBehaviour
         switch (nut)
         {
             case NutrientE.HUNGRY:
-                hungry += v;
-                if (hungry <= 0)
+                CurrentUser.hungry += v;
+                if (CurrentUser.hungry <= 0)
                 {
                     Debug.Log("배고파서 죽음");
                     Dead();
                 }
-                break;
+                else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
+                    break;
             case NutrientE.CLEAN:
-                clean += v;
-                if (clean <= 0)
+                CurrentUser.clean += v;
+                if (CurrentUser.clean <= 0)
                 {
                     Debug.Log("더러워서 죽음");
                     Dead();
                 }
+                else if (CurrentUser.clean > 100) CurrentUser.clean = 100;
                 break;
             case NutrientE.FUN:
-                fun += v;
-                if (fun <= 0)
+                CurrentUser.fun += v;
+                if (CurrentUser.fun <= 0)
                 {
                     Debug.Log("노잼이라 죽음");
                     Dead();
                 }
+                else if (CurrentUser.fun > 100) CurrentUser.fun = 100;
                 break;
             case NutrientE.SLEEP:
-                sleep += v;
-                if (GameManager.instance.sleep < 0)
+                CurrentUser.sleep += v;
+                if (CurrentUser.sleep < 0)
                 {
-                    GameManager.instance.NextDay();
+                    NextDay();
                 }
                 break;
         }
-
     }
     public void NextDay()
     {
-        day++;
-        sleep = 100;
-        if(day>lastDay)
+        CurrentUser.day++;
+        CurrentUser.sleep = 100;
+        if(CurrentUser.day >lastDay)
         {
             EndingSelect();
         }
@@ -126,76 +158,131 @@ public class GameManager : MonoBehaviour
     {
         // 수치 계산
         AbilityE ab;
-        Debug.Log($"PE : {pe}  STUDY : {study}  CHARM : {charm}");
-        if (pe > study)
+        if (CurrentUser.pe > CurrentUser.study)
         {
-            if (pe > charm) ab = AbilityE.PE;
+            if (CurrentUser.pe > CurrentUser.charm) ab = AbilityE.PE;
             else ab = AbilityE.CHARM;
         }
         else
         {
-            if (study > charm) ab = AbilityE.STUDY;
+            if (CurrentUser.study > CurrentUser.charm) ab = AbilityE.STUDY;
             else ab = AbilityE.CHARM;
         }
+
         if (ab == AbilityE.CHARM)
         {
-            if(charm < maxEnding)
-            {
-                fail = "Fail";
-            }
-            else
-                fail = "";
+            if(CurrentUser.charm < maxEnding)  ab = AbilityE.NONE;
         }
         else if(ab == AbilityE.PE)
         {
-            if (pe < maxEnding) fail = "Fail";
-            else fail = "";
+            if(CurrentUser.pe < maxEnding) ab = AbilityE.NONE;
         }
         else if(ab == AbilityE.STUDY)
         {
-            if (study < maxEnding)  fail = "Fail";
-            else fail = "";
+            if(CurrentUser.study < maxEnding) ab = AbilityE.NONE;
         }
         GoEnding(ab);
     }
     private void GoEnding(AbilityE ability)
     {
         ResetVal();
-        SceneM.instance.ChangeScene("End"+ability+fail);
+        SceneM.instance.ChangeScene("End"+ability);
     }
 
     public void ResetVal()
     {
-        hungry = 100;
-        fun = 100;
-        clean = 100;
-        sleep = 100;
+        CurrentUser.hungry = 100;
+        CurrentUser.fun = 100;
+        CurrentUser.clean = 100;
+        CurrentUser.sleep = 100;
 
-        art = 0;
-        pe = 0;
-        study = 0;
-        charm = 0;
+        CurrentUser.art = 0;
+        CurrentUser.pe = 0;
+        CurrentUser.study = 0;
+        CurrentUser.charm = 0;
 
-        shrimpCount = 0;
-        squidCount = 0;
-        fishCount = 0;
+        CurrentUser.shrimpCnt = 1;
+        CurrentUser.squidCnt = 0;
+        CurrentUser.fishCnt = 0;
 
-        coin = 0;
-        day = 1;
+        CurrentUser.coin = 100;
+        CurrentUser.day = 1;
+
+        // 아이템 리셋 
+        {
+            CurrentUser.items.Clear();
+            Item currentRibbonItem = new Item();
+            currentRibbonItem.name = "앙증맞은 리본";
+            currentRibbonItem.index = 0;
+            currentRibbonItem.price = 1000;
+            currentRibbonItem.isHave = false;
+            currentRibbonItem.isGet = false;
+            CurrentUser.items.Add(currentRibbonItem);
+            Item currentGlassItem = new Item();
+            currentGlassItem.name = "어때 나 좀 지적인가?";
+            currentGlassItem.index = 1;
+            currentGlassItem.price = 2000;
+            currentGlassItem.isHave = false;
+            currentGlassItem.isGet = false;
+            CurrentUser.items.Add(currentGlassItem);
+            Item currentBeremoItem = new Item();
+            currentBeremoItem.name = "예술가의 상징";
+            currentBeremoItem.index = 2;
+            currentBeremoItem.price = 2000;
+            currentBeremoItem.isHave = false;
+            currentBeremoItem.isGet = false;
+            CurrentUser.items.Add(currentBeremoItem);
+        }
+
+        // 스페셜아이템 리셋 
+        {
+            CurrentUser.specialItems.Clear();
+            SpecialItem specialDress = new SpecialItem();
+            specialDress.name = "공주님 드레스";
+            specialDress.index = 0;
+            specialDress.isHave = false;
+            specialDress.isGet = false;
+            CurrentUser.specialItems.Add(specialDress);
+            
+            SpecialItem muscleItem = new SpecialItem();
+            muscleItem.name = "근육 짱짱맨";
+            muscleItem.index = 0;
+            muscleItem.isHave = false;
+            muscleItem.isGet = false;
+            CurrentUser.specialItems.Add(muscleItem);
+            
+        }
+
     }
 
     public void SetArbTime(int t)
     {
-        GameManager.instance.arbTime = t;
+        CurrentUser.arbTime = t;
     }
 
     public void SetSpriteArb(List<AbilityE> arbs)
     {
-        arbSprites = arbs;
+        //arbSprites = arbs;
     }
 
-    public void SetLastTime()
+    public void PlusCoin(int pCoin)
     {
-        PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
+        CurrentUser.coin += pCoin;
+    }
+
+    public void PlusItemCount(FoodE food, int cnt)
+    {
+        if (food == FoodE.FISH)
+        {
+            CurrentUser.fishCnt += cnt;
+        }
+        else if(food == FoodE.SHRIMP)
+        {
+            CurrentUser.shrimpCnt += cnt;
+        }
+        else if(food == FoodE.SQUID)
+        {
+            CurrentUser.squidCnt += cnt;
+        }
     }
 }

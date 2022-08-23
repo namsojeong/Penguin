@@ -10,6 +10,10 @@ public class DeliveryApp : MonoBehaviour
     
     [SerializeField, Header("음식 이미지")]
     Sprite[] foodImage;
+    [SerializeField, Header("코인")]
+    Text coinText;
+    [SerializeField, Header("비쌈")]
+    GameObject expensive;
     
     [SerializeField, Header("메뉴 이름")]
     Text menuName;
@@ -38,6 +42,10 @@ public class DeliveryApp : MonoBehaviour
         menuNames.Add("물고기");
     }
 
+    private void OnEnable()
+    {
+        coinText.text = string.Format($"COIN : {GameManager.instance.CurrentUser.coin}");
+    }
     public void ClickOnBuy(string food)
     {
         choiceFood = food;
@@ -59,17 +67,30 @@ public class DeliveryApp : MonoBehaviour
 
     public void YesBuy()
     {
-        eventParam.stringParam = choiceFood;
-        EventManager.TriggerEvent("BUYFOOD", eventParam);
-        defPos = popup.anchoredPosition;
-        popupText.text = string.Format($"주문하신 {menuNames[(int)callFood-1]}가 1분 뒤 도착 예정입니다.");
-        popup.anchoredPosition = nextpos;
-        Invoke("PopupOff", 1f);
+        if(GameManager.instance.CurrentUser.coin < (int)callFood * 100)
+        {
+            expensive.SetActive(true);
+            Invoke("ExpensiveOff", 2f);
+        }
+        else
+        {
+            eventParam.stringParam = choiceFood;
+            GameManager.instance.PlusCoin(-((int)callFood * 100));
+            EventManager.TriggerEvent("BUYFOOD", eventParam);
+            defPos = popup.anchoredPosition;
+            popupText.text = string.Format($"주문하신 {menuNames[(int)callFood - 1]}가 1분 뒤 도착 예정입니다.");
+            popup.anchoredPosition = nextpos;
+            Invoke("PopupOff", 1.5f);
+        }
     }
 
     void PopupOff()
     {
         popup.anchoredPosition = defPos;
+    }
+    void ExpensiveOff()
+    {
+        expensive.SetActive(false);
     }
 
     void UpdateMenuUI()

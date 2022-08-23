@@ -9,9 +9,14 @@ public class Trash : MonoBehaviour
 
         private float mVelocity = 0f;
 
-     
+        private PoolManager poolManager;
 
-        void Update()
+        private void Awake()
+        {
+        poolManager = GetComponent<PoolManager>();
+        }
+
+    void Update()
         {
             Vector3 current = gameObject.transform.position;
 
@@ -26,13 +31,22 @@ public class Trash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Col")
         {
-            Destroy(gameObject);
+            //transform.SetParent(poolManager.transform, false);
+            //gameObject.SetActive(false);
+            UIM.instance.OverPenel();
+
+            Time.timeScale = 0;
+
+            
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            //transform.SetParent(poolManager.transform, false);
+            //gameObject.SetActive(false);
         }
     }
+
 
 }
