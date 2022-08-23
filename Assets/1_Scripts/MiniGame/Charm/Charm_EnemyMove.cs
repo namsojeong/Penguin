@@ -30,6 +30,8 @@ public class Charm_EnemyMove : MonoBehaviour
     {
         if (isDead) return;
         transform.Translate(Vector2.down  * speed * Time.deltaTime);
+
+
        
         if (transform.position.y < gameManager.minPosition.y - 5f)
         {

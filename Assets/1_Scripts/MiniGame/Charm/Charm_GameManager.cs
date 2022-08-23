@@ -84,6 +84,9 @@ public class Charm_GameManager : MonoBehaviour
             randomDelay = Random.Range(0f, 1f);
 
             Instantiate(enemyCroissant, new Vector2(randomX, 6f), Quaternion.identity);
+
+           
+
             yield return new WaitForSeconds(0.2f);
             
             yield return new WaitForSeconds(randomDelay);
