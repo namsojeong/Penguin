@@ -7348,7 +7348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1060381701183067824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7392,7 +7392,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1060381701183067827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1060381702417448640}
+        m_TargetAssemblyTypeName: PoseButton, Assembly-CSharp
+        m_MethodName: OnClickPoseButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1060381701183067825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7409,7 +7421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 195, y: 320}
+  m_AnchoredPosition: {x: 1129, y: 210}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1060381701183067826
@@ -7433,7 +7445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20084,6 +20096,7 @@ GameObject:
   - component: {fileID: 1060381702417448636}
   - component: {fileID: 1060381702417448638}
   - component: {fileID: 1060381702417448639}
+  - component: {fileID: 1060381702417448640}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -20129,6 +20142,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1060381702417448640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060381702417448637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc0ee68362fc114c8c5379246ee1b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomalImage: {fileID: 1060381702417448639}
+  changeSprite:
+  - {fileID: 21300000, guid: 71576f9f0e4f2184db55982b4eeb8827, type: 3}
+  - {fileID: 21300000, guid: e6a37796c225f134eafa0ce9515f581b, type: 3}
+  - {fileID: 21300000, guid: b895a352cd756b045bcf5e1eadfcdbd2, type: 3}
+  - {fileID: 21300000, guid: f87f58975c349d14bb1f4374a0071527, type: 3}
 --- !u!1 &1060381702419507316
 GameObject:
   m_ObjectHideFlags: 0
@@ -23830,7 +23861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1060381702745901894
 CanvasRenderer:
   m_ObjectHideFlags: 0
