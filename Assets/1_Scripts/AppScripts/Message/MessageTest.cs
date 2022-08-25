@@ -43,10 +43,16 @@ public class MessageTest : MonoBehaviour
 
     public GameObject set;
 
+    public GameObject set2;
+
+    public GameObject finishButton2;
+
+    public GameObject TimeImg;
 
     private void Start()
     {
         StartMessage();
+        finishButton2.SetActive(false);
     }
 
     void Restart()
@@ -68,6 +74,10 @@ public class MessageTest : MonoBehaviour
         reNextButton2.SetActive(false);
 
         Chatting1();
+
+        set2.GetComponent<MessageTime>().enabled = false;
+
+        TimeImg.SetActive(false);
     }
 
     void Awake()
@@ -231,8 +241,10 @@ public class MessageTest : MonoBehaviour
     void Chatting1() //잡담
     {
         RandomNum = Random.Range(0, 40);
+       // reNextButton1true();
 
-     
+        Invoke("reNextButton1true", 1);
+
         chat1.text = string.Format(messages_1[RandomNum]);
 
         _chat1.SetActive(true);
@@ -241,19 +253,24 @@ public class MessageTest : MonoBehaviour
 
         // Chatting2();
 
+       
+    }
+
+    void reNextButton1true()
+    {
         reNextButton1.SetActive(true);
     }
 
     public void reNextButton_first()
     {
-        if (_chat1.activeSelf == true)
+        //if (_chat1.activeSelf == true)
            
 
-        if (_chat2.activeSelf == true)
-        {
-            reNextButton1.SetActive(false);
-            GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_True();
-        }
+        //if (_chat2.activeSelf == true)
+        //{
+        //    reNextButton1.SetActive(false);
+        //    GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_True();
+        //}
 
 
         //if (_chat3.activeSelf == true)
@@ -270,14 +287,18 @@ public class MessageTest : MonoBehaviour
       
         _chat2.SetActive(true);
 
+        set2.GetComponent<MessageTime>().enabled = true;
 
-        Invoke("Chatting3", 1);
+        Invoke("Chatting3", 60);
 
-       
+        TimeImg.SetActive(true);
     }
 
     void Chatting3() //환경상식
     {
+        TimeImg.SetActive(false);
+
+        set2.GetComponent<MessageTime>().enabled = false;
 
         RandomNum2 = Random.Range(0, 5);
 
@@ -285,15 +306,22 @@ public class MessageTest : MonoBehaviour
 
         _chat3.SetActive(true);
 
-        nextButton2.onClick.AddListener(Chatting4);
 
-        GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
 
+        //GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
+
+        Invoke("nextButton2_", 1);
+    }
+
+    void nextButton2_()
+    {
         reNextButton2.SetActive(true);
+        nextButton2.onClick.AddListener(Chatting4);
     }
 
     void Chatting4() //환경상식 대답
     {
+        TimeImg.SetActive(true);
 
         RandomNum3 = Random.Range(0, 2);
 
@@ -301,12 +329,17 @@ public class MessageTest : MonoBehaviour
 
         _chat4.SetActive(true);
 
-        Invoke("Chatting5", 1);
+        Invoke("Chatting5", 60);
 
+        set2.GetComponent<MessageTime>().enabled = true;
+      //  Debug.Log("시간 시작!");
     }
 
     void Chatting5() //환경상식 대답
     {
+        TimeImg.SetActive(false);
+
+        set2.GetComponent<MessageTime>().enabled = false;
 
         RandomNum4 = Random.Range(0, 2);
 
@@ -326,11 +359,20 @@ public class MessageTest : MonoBehaviour
 
         _chat6.SetActive(true);
 
-        finishButton.onClick.AddListener(MesaggeFinish);
+       
+
+        
+
+        Invoke("MesaggeFinish", 1);
     }
 
     void MesaggeFinish()
     {
+
+        finishButton2.SetActive(true);
+        finishButton.onClick.AddListener(MesaggeFinish);
+
+
         _chat1.SetActive(false);
         _chat2.SetActive(false);
         _chat3.SetActive(false);
@@ -339,25 +381,15 @@ public class MessageTest : MonoBehaviour
         _chat6.SetActive(false);
 
         Restart();
+
+
     }
 
 
     private void Update()
     {
 
-        if (set.activeSelf == true)
-        {
-            GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_True();
-           
-        }
-
-        if (set.activeSelf == false)
-        {
-            GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_False();
-          
-        }
     }
-
 }
 
 
