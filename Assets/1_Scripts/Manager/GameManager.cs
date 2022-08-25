@@ -209,6 +209,7 @@ public class GameManager : MonoBehaviour
         CurrentUser.day = 1;
 
         CurrentUser.isSpecialAll = false;
+        CurrentUser.isTryRan = false;
         CurrentUser.ranPrice = 5000;
 
         // 아이템 리셋 

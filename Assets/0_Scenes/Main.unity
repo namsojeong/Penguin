@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &35214977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1364,7 +1364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &361523932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,6 +1397,7 @@ MonoBehaviour:
     specialCnt: 0
     isFirst: 1
     isSpecialAll: 1
+    isTryRan: 1
     items:
     - index: 0
       name: "\uC559\uC99D\uB9DE\uC740 \uB9AC\uBCF8"
@@ -5780,6 +5781,30 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1060381702223854824}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1060381702636974418}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenUI
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1060381701402073646}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1060381702636974418}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenUI
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1904000741}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -21853,7 +21878,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 911305027e29d4949a0bb3294a750035, type: 3}
   - {fileID: 21300000, guid: bbf02da39047db947afbde779dd2a4d8, type: 3}
   - {fileID: 21300000, guid: bdd8a30fd9c26994b8cbe86a1efeb7fa, type: 3}
-  defSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  defSprite: {fileID: 21300000, guid: b2b665e0b60da3547b9750baf7a6e9b4, type: 3}
   selectButton: {fileID: 1060381702255705221}
   resetButton: {fileID: 1060381701784788741}
 --- !u!224 &1060381702213116813
@@ -27482,7 +27507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1060381702744437681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32952,6 +32977,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1060381701809555934}
     m_Modifications:
+    - target: {fileID: 4990364017767163581, guid: 39315daf8b7cffa4592fa86c38e09f2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8962012491047770377, guid: 39315daf8b7cffa4592fa86c38e09f2f, type: 3}
       propertyPath: m_RootOrder
       value: 2

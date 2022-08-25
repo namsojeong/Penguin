@@ -49,21 +49,30 @@ public class RandomSpecial : MonoBehaviour
     // 가진 코인으로 살 수 있는지 비교
     private void CantBuy()
     {
-        if(GameManager.instance.CurrentUser.isSpecialAll)
+        if (GameManager.instance.CurrentUser.isSpecialAll)
         {
             buyButton.interactable = false;
             buyButton.image.color = Color.red;
             priceText.text = string.Format("All Collect");
             return;
         }
-
+        if (!GameManager.instance.CurrentUser.isTryRan)
+        {
+            GameManager.instance.CurrentUser.isTryRan = true;
+            buyButton.interactable = true;
+            buyButton.image.color = Color.white;
+            priceText.text = string.Format("무료");
+            return;
+        }
         if (GameManager.instance.CurrentUser.coin < price)
         {
+            UpdatePrice();
             buyButton.image.color = Color.red;
             buyButton.interactable = false;
         }
         else
         {
+            UpdatePrice();
             buyButton.image.color = Color.white;
             buyButton.interactable = true;
         }
