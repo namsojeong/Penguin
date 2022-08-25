@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
 public class MessageTest : MonoBehaviour
 
 {
@@ -39,7 +38,24 @@ public class MessageTest : MonoBehaviour
     public Button nextButton2;
     public Button finishButton;
 
-    private void OnEnable()
+    public GameObject reNextButton1;
+    public GameObject reNextButton2;
+
+    public GameObject set;
+
+
+    private void Start()
+    {
+        StartMessage();
+    }
+
+    void Restart()
+    {
+        StartMessage();
+
+    }
+
+    public void StartMessage()
     {
         _chat1.SetActive(false);
         _chat2.SetActive(false);
@@ -48,8 +64,10 @@ public class MessageTest : MonoBehaviour
         _chat5.SetActive(false);
         _chat6.SetActive(false);
 
-        //스타트채팅 시간에 맞춰서 나오도록 하기
-        StartChatting();
+        reNextButton1.SetActive(false);
+        reNextButton2.SetActive(false);
+
+        Chatting1();
     }
 
     void Awake()
@@ -58,28 +76,28 @@ public class MessageTest : MonoBehaviour
         messages_1.Add("오느으른.. 펭찌의 기부니 좋앙!!><");
         messages_1.Add("(꼬르륵) 갑자기 ㅈ좀 배고푸지 아나? 힛");
         messages_1.Add("나 갑짜기 빙판에서ㅓ 뒤뚱 거리고 시퍼졌어!");
-        messages_1.Add("오늘 무슨 꿈 꾸었서? 설마아 펭찌 꿈 꾼고 아니야?!");
-        messages_1.Add("나눈 단순히 추운 지방에ㅔ 사눈 다리 짧은 조류가 아니이라구!");
-        messages_1.Add("이거 나 지짜 비밀인데에 쓴맛과 단맛을 느끼지 못한다?!");
-        messages_1.Add("펭귄은 어두운 곳에소.. 시력이 좋지 안타는 소문은 틀렸거든?");
-        messages_1.Add("이따아 펭찌랑 가치 바다로 크릴새우와 물고기 사냥가지 않을랭?");
-        messages_1.Add("나는 500m 이하의 기픈 바다로도 헤엄ㅁ칠 수도 있지롱 첨벙~");
-        messages_1.Add("‘레오퍼드바다표범’과 ‘범고래’는 너무 무소워.. 흐아앙");//10
+        messages_1.Add("잘 잤어? 설마아 펭찌 꿈 꾼고 아니야?!");
+        messages_1.Add("난 단순히 다리 짧은 조류가 아니이라구!");
+        messages_1.Add("이거 비밀인데에 난 쓴맛과 단맛을 느끼지 못한다?!");
+        messages_1.Add("나눈.. 어두운 곳에소도.. 시력이 좋다구우");
+        messages_1.Add("이따아 펭찌랑 가치 크릴새우 사냥가지 않을랭?");
+        messages_1.Add("난 500m 이하의 기픈 바다에서도 헤엄쳐 첨벙~");
+        messages_1.Add("‘레오퍼드바다표범’은 너무 무소워.. 흐아앙");//10
         messages_1.Add("남극에 있을 때애 범고래가 나는 너무 무서워써..");
-        messages_1.Add("나 오늘 뭐 먹었게~ 난 맛있는 거 먹어써! 너도 그렇겠지? 크크");
-        messages_1.Add("해가 떠서 누니 부신 겅가? 아니면 날 보고 웃어조서 그런 거까?");
-        messages_1.Add("감기는 언데나 조심해야행! 너가ㅏ 아프면 펭찌도 아푸니까..");
+        messages_1.Add("아이 냠냠냠~ 나 오늘 맛있는 거 먹어써!");
+        messages_1.Add("너가 날 보고 웃어조서 눈이 부신거까??");
+        messages_1.Add("감기 조심해야행! 너가ㅏ 아프면 펭찌도 아푸니까..");
         messages_1.Add("안농ㅇ! 오늘따라 몬가 더 이뽀보이네 히히");
         messages_1.Add("생선 가게에소 살 수 이따면 얼마나 조을까?");
         messages_1.Add("너 쩡말 별로야! 흥!! 내 마음소게 별ㄹ로,, 크크");
-        messages_1.Add("눈을 감는 시간이ㅣ 너무 아까오.. 널 보지 모타니까아~~");
+        messages_1.Add("눈을 감는 시간이 아까오.. 널 보지 모타니까아~~");
         messages_1.Add("손에 그 무ㅜ거운 짐 좀 내려놔아 ‘멋짐' 크크 ");
         messages_1.Add("안ㄴ녕~ 오늘 날씨는 오때앵? 맑았으면 조켔눈대");//20
         messages_1.Add("나 오늘 너 꿈 꾸어따? 크크 부끄럽넹");
         messages_1.Add("어서와! 마침 너에게 할 말이 이썼는데 크크");
         messages_1.Add("먼가 하루 하루 성장하고 이따는 느낌이 드러");
         messages_1.Add("펭찌는 멸종 위기종인건 알고 이찌..? 흑흑 슬푸다");
-        messages_1.Add("펭찌 첫사랑이 누구냐구..? 바로 지구야!! 난 지구를 따랑해");
+        messages_1.Add("펭찌 첫사랑이 누구냐구..? 바로 지구야!!");
         messages_1.Add("응? 내 키가 짜가보인다구? 내 키는 무려 60cm라구!");
         messages_1.Add("너도 환경 운동 함께하자! 그럼 지구가 더 깨끗해지꺼야!");
         messages_1.Add("내가 따랑하는 지구는 둥글지롱~ 둥글둥글~ ");
@@ -94,7 +112,7 @@ public class MessageTest : MonoBehaviour
         messages_1.Add("너 생각하고 이써는대 마침 왔네에?");
         messages_1.Add("어떠와! 항상 기다리구 이썼지롱");
         messages_1.Add("맛있는 걸 먹는건 언제나 행보케");
-        messages_1.Add("안농안넝안농~ 어떠와아아아아 크크");
+        messages_1.Add("안농안넝안농~ 어떠와아아아아 크크");//40
         messages_1.Add("오늘의 미세먼지는 갠차나?");
         
 
@@ -152,10 +170,10 @@ public class MessageTest : MonoBehaviour
         messages_3.Add("플라스틱 빨대는 재활용이 가능할까아아?");
 
         //--네번째, 환경 상식에 대한 대답--
-        messages_4.Add("그래?");
-        messages_4.Add("그렇구나");
-        messages_4.Add("아하!");
-        messages_4.Add("...?");
+        messages_4.Add("응!");
+        messages_4.Add("엉");
+        messages_4.Add("음음");
+        messages_4.Add("응~!");
         messages_4.Add("응응!");
         messages_4.Add("응~");
 
@@ -210,42 +228,58 @@ public class MessageTest : MonoBehaviour
         messages_6.Add("우리의 작은 실천이 지구를 지켜!");
     }
 
-    void StartChatting()
-    {
-        startButton.onClick.AddListener(Chatting1);
-    }
-
     void Chatting1() //잡담
     {
-       RandomNum = Random.Range(0, 40);
+        RandomNum = Random.Range(0, 40);
 
+     
         chat1.text = string.Format(messages_1[RandomNum]);
 
         _chat1.SetActive(true);
 
         nextButton1.onClick.AddListener(Chatting2);
-        
+
         // Chatting2();
+
+        reNextButton1.SetActive(true);
+    }
+
+    public void reNextButton_first()
+    {
+        if (_chat1.activeSelf == true)
+           
+
+        if (_chat2.activeSelf == true)
+        {
+            reNextButton1.SetActive(false);
+            GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_True();
+        }
+
+
+        //if (_chat3.activeSelf == true)
+        //    GameObject.Find("MessageScript").GetComponent<MessageTime>().Update();
     }
 
     void Chatting2() //잡담대답
     {
-
+       
         RandomNum1 = Random.Range(0, 2);
 
-        chat2.text = string.Format(messages_2[RandomNum1]);
-        //messages.RemoveAt(RandomNum1);
-        // NextButton.onClick.AddListener(Chatting3);
 
+        chat2.text = string.Format(messages_2[RandomNum1]);
+      
         _chat2.SetActive(true);
 
+
         Invoke("Chatting3", 1);
+
+       
     }
 
     void Chatting3() //환경상식
     {
 
-        RandomNum2 = Random.Range(0, 35);
+        RandomNum2 = Random.Range(0, 5);
 
         chat3.text = string.Format(messages_3[RandomNum2]);
 
@@ -253,7 +287,9 @@ public class MessageTest : MonoBehaviour
 
         nextButton2.onClick.AddListener(Chatting4);
 
-        //Chatting4();
+        GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
+
+        reNextButton2.SetActive(true);
     }
 
     void Chatting4() //환경상식 대답
@@ -277,7 +313,7 @@ public class MessageTest : MonoBehaviour
         chat5.text = string.Format(messages_5[RandomNum2]);
 
         _chat5.SetActive(true);
-        //NextButton.onClick.AddListener(Chatting6);
+     
         Invoke("Chatting6", 1);
     }
 
@@ -302,17 +338,26 @@ public class MessageTest : MonoBehaviour
         _chat5.SetActive(false);
         _chat6.SetActive(false);
 
-
+        Restart();
     }
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (set.activeSelf == true)
         {
-            Chatting6();
-            Debug.Log("된거");
+            GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_True();
+           
+        }
+
+        if (set.activeSelf == false)
+        {
+            GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_False();
+          
         }
     }
+
 }
 
 
