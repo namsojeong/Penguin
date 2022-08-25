@@ -18,6 +18,10 @@ public class CharacterLove : MonoBehaviour
     {
         loveButton.onClick.AddListener(() => Loving());
     }
+    private void Update()
+    {
+        loveButton.transform.position =  Camera.main.WorldToScreenPoint(transform.position);
+    }
     private void Loving()
     {
         if (isLoving) return;

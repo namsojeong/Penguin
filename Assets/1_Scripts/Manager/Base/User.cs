@@ -30,7 +30,8 @@ public class User
     public int specialCnt = 0;
 
     public bool isFirst = true;
-    public bool isSpecialAll = true;
+    public bool isSpecialAll = false;
+    public bool isTryRan = false;
 
     public List<Item> items = new List<Item>();
     public List<SpecialItem> specialItems = new List<SpecialItem>();
