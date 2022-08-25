@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &15420899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -672,13 +672,14 @@ GameObject:
   m_Component:
   - component: {fileID: 341516447}
   - component: {fileID: 341516446}
+  - component: {fileID: 341516448}
   m_Layer: 0
   m_Name: Cha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &341516446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f87f58975c349d14bb1f4374a0071527, type: 3}
+  m_Sprite: {fileID: 2376011871942912296, guid: 5dad97c9120404544928e189fda657a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -744,6 +745,22 @@ Transform:
   m_Father: {fileID: 708123514}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &341516448
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341516445}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c464fda0cc722ae40a254e11ade84a73, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c464fda0cc722ae40a254e11ade84a73, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &497239227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1006091526
 Transform:
   m_ObjectHideFlags: 0
@@ -2635,6 +2652,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1400425563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400425565}
+  - component: {fileID: 1400425564}
+  m_Layer: 0
+  m_Name: GameM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400425564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400425563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef469cdaf866534fa17ef650dd494d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnding: 0
+  user:
+    art: 0
+    pe: 0
+    study: 0
+    charm: 0
+    hungry: 100
+    fun: 100
+    clean: 100
+    sleep: 100
+    shrimpCnt: 0
+    squidCnt: 0
+    fishCnt: 0
+    coin: 100
+    day: 1
+    arbTime: 0
+    ranPrice: 0
+    specialCnt: 0
+    isFirst: 1
+    isSpecialAll: 1
+    items: []
+    specialItems: []
+  item:
+    index: 0
+    name: 
+    price: 0
+    isHave: 0
+    isGet: 0
+  specialItem:
+    index: 0
+    name: 
+    isHave: 0
+    isGet: 0
+--- !u!4 &1400425565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400425563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406472296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,13 +3114,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1620128077}
   - component: {fileID: 1620128076}
+  - component: {fileID: 1620128078}
   m_Layer: 0
   m_Name: IdolCha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1620128076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3068,7 +3162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: b895a352cd756b045bcf5e1eadfcdbd2, type: 3}
+  m_Sprite: {fileID: -939388090590991784, guid: 5dad97c9120404544928e189fda657a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3093,6 +3187,22 @@ Transform:
   m_Father: {fileID: 708123514}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1620128078
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620128075}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6ad5e227de1d7fb4e8457990c7a80030, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6ad5e227de1d7fb4e8457990c7a80030, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1642820110
 GameObject:
   m_ObjectHideFlags: 0
