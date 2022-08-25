@@ -17,6 +17,10 @@ public class Shop : MonoBehaviour
 
     [SerializeField, Header("ºñ½Ó")]
     GameObject expensive;
+    [SerializeField, Header("ºñ½Ó")]
+    GameObject appCanvas;
+    [SerializeField, Header("ºñ½Ó")]
+    GameObject cha;
 
     [SerializeField]
     Text coinText;
@@ -84,6 +88,8 @@ public class Shop : MonoBehaviour
         realBuyPanel.SetActive(false);
         if (GameManager.instance.CurrentUser.coin < GameManager.instance.CurrentUser.items[(int)choiceItem].price)
         {
+            appCanvas.SetActive(true);
+            cha.SetActive(true);
             expensive.SetActive(true);
             Invoke("ExpensiveOff", 2f);
         }

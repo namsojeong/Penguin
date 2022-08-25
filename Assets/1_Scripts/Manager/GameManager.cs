@@ -208,6 +208,9 @@ public class GameManager : MonoBehaviour
         CurrentUser.coin = 100;
         CurrentUser.day = 1;
 
+        CurrentUser.isSpecialAll = false;
+        CurrentUser.ranPrice = 5000;
+
         // 아이템 리셋 
         {
             CurrentUser.items.Clear();

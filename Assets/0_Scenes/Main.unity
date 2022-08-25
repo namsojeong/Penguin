@@ -1364,7 +1364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &361523932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10022,6 +10022,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884552783}
   m_CullTransparentMesh: 1
+--- !u!1 &1904000741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8962012491047770379, guid: 39315daf8b7cffa4592fa86c38e09f2f, type: 3}
+  m_PrefabInstance: {fileID: 8279953035267763259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924042535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7816507655188353000, guid: 39315daf8b7cffa4592fa86c38e09f2f, type: 3}
@@ -18422,6 +18427,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1060381702636974418}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: CloseUI
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1904000741}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1060381701824075939
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22013,6 +22030,8 @@ MonoBehaviour:
   itemName: {fileID: 2067136296}
   itemPrice: {fileID: 605376396}
   expensive: {fileID: 1290606510}
+  appCanvas: {fileID: 1060381701402073646}
+  cha: {fileID: 1904000741}
   coinText: {fileID: 1060381701212683352}
   itemBuyButton:
   - {fileID: 1060381703056683746}
@@ -32188,6 +32207,18 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1060381701402073646}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1060381702636974418}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenUI
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1904000741}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
