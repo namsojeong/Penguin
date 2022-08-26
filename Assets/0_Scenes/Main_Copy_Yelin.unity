@@ -1514,6 +1514,12 @@ MonoBehaviour:
   nextButton1: {fileID: 369795985}
   nextButton2: {fileID: 1608984485}
   finishButton: {fileID: 837434535}
+  reNextButton1: {fileID: 0}
+  reNextButton2: {fileID: 0}
+  set: {fileID: 0}
+  set2: {fileID: 0}
+  finishButton2: {fileID: 0}
+  TimeImg: {fileID: 0}
 --- !u!1 &1406672368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,22 +2618,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnding: 2000
-  art: 0
-  pe: 0
-  study: 0
-  charm: 0
-  hungry: 100
-  fun: 100
-  clean: 100
-  sleep: 100
-  shrimpCount: 0
-  squidCount: 0
-  fishCount: 0
-  arbTime: 0
-  coin: 0
-  day: 1
-  lastDay: 25
-  arbSprites: 
+  user:
+    art: 0
+    pe: 0
+    study: 0
+    charm: 0
+    hungry: 100
+    fun: 100
+    clean: 100
+    sleep: 100
+    shrimpCnt: 0
+    squidCnt: 0
+    fishCnt: 0
+    coin: 100
+    day: 1
+    arbTime: 0
+    ranPrice: 0
+    specialCnt: 0
+    isFirst: 1
+    isSpecialAll: 0
+    isTryRan: 0
+    items: []
+    specialItems: []
+  item:
+    index: 0
+    name: 
+    price: 0
+    isHave: 0
+    isGet: 0
+  specialItem:
+    index: 0
+    name: 
+    isHave: 0
+    isGet: 0
 --- !u!4 &1060381701165573261
 Transform:
   m_ObjectHideFlags: 0
@@ -2987,6 +3010,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 384010ff2a4a9a9469b15cdd6ee5b4ec, type: 3}
   - {fileID: 21300000, guid: 215696636e01fba469eb9f0f87a6f042, type: 3}
   - {fileID: 21300000, guid: ff943962bb7f0f54c9669f74bc668583, type: 3}
+  coinText: {fileID: 0}
+  expensive: {fileID: 0}
   menuName: {fileID: 1060381702428041779}
   menuPrice: {fileID: 1060381701681339555}
   popup: {fileID: 1060381701322107581}
@@ -14979,7 +15004,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b786050813853954898df95ca21106e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ranCoinText: {fileID: 1060381702212450090}
+  realBuyPanel: {fileID: 0}
+  itemImage: {fileID: 0}
+  itemName: {fileID: 0}
+  itemPrice: {fileID: 0}
+  expensive: {fileID: 0}
+  appCanvas: {fileID: 0}
+  cha: {fileID: 0}
+  coinText: {fileID: 0}
+  itemBuyButton: []
+  itemSprites: []
+  itemHave: []
 --- !u!222 &1060381702223854829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25896,10 +25931,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67badd70d3c1ac047abeaf6bea21badf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1060381703186709948}
+  audioBGMSource: {fileID: 0}
+  audioSFXSource: {fileID: 0}
+  audioClickSource: {fileID: 0}
   callbell: {fileID: 8300000, guid: 5a05ae6210a1dee439e41b22ca80559e, type: 3}
   callok: {fileID: 8300000, guid: 4d564f5336b29164c88c7910f20bef45, type: 3}
   callno: {fileID: 8300000, guid: 848055f475df3034eab7f1e60a0b1f89, type: 3}
+  clickClip: {fileID: 0}
+  bgmClip: {fileID: 0}
+  sfx: []
 --- !u!1 &1060381703204062314
 GameObject:
   m_ObjectHideFlags: 0

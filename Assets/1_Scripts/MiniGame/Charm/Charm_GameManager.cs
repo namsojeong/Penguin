@@ -20,6 +20,8 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyHotdog;
     [SerializeField]
     private GameObject gameoverPannel;
+    [SerializeField]
+    private Button gameoverButton;
 
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
@@ -49,9 +51,16 @@ public class Charm_GameManager : MonoBehaviour
             Time.timeScale = 0;
 
             gameoverPannel.SetActive(true);
+            
+
 
             Debug.Log("끝입니다");
+
+            
         }
+
+       
+
         UpdateUI();
     }
 
@@ -111,5 +120,16 @@ public class Charm_GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(randomDelay);
         }
+    }
+
+     void Update()
+    {
+        gameoverButton.onClick.AddListener(GameOver);
+    }
+
+    void GameOver()
+    {
+        SceneManager.LoadScene("Main");
+     
     }
 }
