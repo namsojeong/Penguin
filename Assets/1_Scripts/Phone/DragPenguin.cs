@@ -10,10 +10,17 @@ public class DragPenguin : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     float speed = 2f;
     
     Vector3 defaultPos;
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
    
     // 드래그 시작
     public void OnBeginDrag(PointerEventData eventData)
     {
+        anim.SetBool("isDrag", true);
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         defaultPos = Camera.main.ScreenToWorldPoint(mousePosition);
     }
@@ -42,6 +49,7 @@ public class DragPenguin : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     // 드래그 멈춤
     public void OnEndDrag(PointerEventData eventData)
     {
+        anim.SetBool("isDrag", false);
         defaultPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 0f, 0f));
         defaultPos.y = -5.7f;
         defaultPos.z = 0f;
