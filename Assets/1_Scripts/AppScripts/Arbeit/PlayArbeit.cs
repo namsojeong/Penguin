@@ -9,7 +9,7 @@ public class PlayArbeit : MonoBehaviour
 {
     [SerializeField]
     Image arbBar;
-
+    
     float maxPlaying = 100;
     float curPlaying = 0;
     float barSpeed = 20;
