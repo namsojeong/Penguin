@@ -16,7 +16,6 @@ public class CreateTrash : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject tr = null;
         int selection = Random.Range(0, prefabs.Length);
         GameObject selectedPrefab = prefabs[selection];
 
@@ -24,21 +23,8 @@ public class CreateTrash : MonoBehaviour
         pos.z = 0.0f;
 
 
-        if (poolManager.transform.childCount > 0)
-        {
-            Debug.Log("a");
-            tr = poolManager.transform.GetChild(0).gameObject;
-            tr.transform.SetParent(null);
-            tr.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("b");
-            tr  =  Instantiate(selectedPrefab, pos, Quaternion.identity);
-        }
+        Instantiate(selectedPrefab, pos, Quaternion.identity);
 
-        tr.transform.SetParent(null);
-      //  tr.transform.position =pos;
     }
 
 
