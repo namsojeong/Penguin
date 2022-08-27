@@ -22,6 +22,7 @@ public class Charm_EnemyMove : MonoBehaviour
     [SerializeField]
     private GameObject[] itemprefab;
 
+    
     protected virtual void Start()
     {
         gameManager = FindObjectOfType<Charm_GameManager>();

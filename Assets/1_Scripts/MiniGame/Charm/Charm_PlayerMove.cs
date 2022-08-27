@@ -18,7 +18,15 @@ public class Charm_PlayerMove : MonoBehaviour
     private SpriteRenderer spriteRenderer = null;
 
     [SerializeField]
-    private int attackLevel = 1;
+    private int maxAttackLevel = 1; //최대 공격 레벨
+    public int attackLevel = 1; //공격 레벨
+
+    public int AttackLevel
+    {
+        set => attackLevel = Mathf.Clamp(value, 1, maxAttackLevel);
+        
+        get => attackLevel;
+    }
 
     void Start()
     {
@@ -47,7 +55,7 @@ public class Charm_PlayerMove : MonoBehaviour
         }
     }
 
-    void AttackByLevel()
+    public void AttackByLevel()
     {
         GameObject bullet = null;
 
@@ -55,10 +63,12 @@ public class Charm_PlayerMove : MonoBehaviour
         {
             case 1 :
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                Debug.Log("1확인");
                 break;
             case 2 :
                 Instantiate(bulletPrefab, transform.position + Vector3.left * 0.2f, Quaternion.identity);
                 Instantiate(bulletPrefab, transform.position + Vector3.right * 0.2f, Quaternion.identity);
+                Debug.Log("2확인");
                 break;
             case 3:
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
@@ -66,6 +76,7 @@ public class Charm_PlayerMove : MonoBehaviour
                 bullet.GetComponent<Charm_Movement2D>().MoveTo(new Vector3(-0.2f, 1, 0));
                 bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 bullet.GetComponent<Charm_Movement2D>().MoveTo(new Vector3(0.2f, 1, 0));
+                Debug.Log("3확인");
                 break;
 
 
