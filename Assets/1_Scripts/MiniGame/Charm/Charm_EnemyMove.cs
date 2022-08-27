@@ -22,13 +22,14 @@ public class Charm_EnemyMove : MonoBehaviour
     [SerializeField]
     private GameObject[] itemprefab;
 
-    
+    private Charm_PlayerMove playermove;
     protected virtual void Start()
     {
         gameManager = FindObjectOfType<Charm_GameManager>();
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playermove = GetComponent<Charm_PlayerMove>();
     }
 
     protected virtual void Update()
@@ -98,9 +99,14 @@ public class Charm_EnemyMove : MonoBehaviour
     void SpawnItem()
     {
         int spawnItem = Random.Range(0, 100);
-        if(spawnItem < 10)
-        {
-            Instantiate(itemprefab[0], transform.position, Quaternion.identity);
-        }
+       
+
+       
+            if (spawnItem < 100)
+            {
+                Instantiate(itemprefab[0], transform.position, Quaternion.identity);
+            }
+        
+        
     }
 }
