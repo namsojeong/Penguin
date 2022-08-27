@@ -17,6 +17,9 @@ public class Charm_PlayerMove : MonoBehaviour
     private Charm_GameManager gameManager = null;
     private SpriteRenderer spriteRenderer = null;
 
+    [SerializeField]
+    private int attackLevel = 1;
+
     void Start()
     {
         gameManager = FindObjectOfType<Charm_GameManager>();
@@ -38,8 +41,34 @@ public class Charm_PlayerMove : MonoBehaviour
     {
         while (true)
         {
-           InstantiateOrSpawn();
+            AttackByLevel();
+           //InstantiateOrSpawn();
             yield return new WaitForSeconds(bulletDelay);
+        }
+    }
+
+    void AttackByLevel()
+    {
+        GameObject bullet = null;
+
+        switch(attackLevel)
+        {
+            case 1 :
+                Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                break;
+            case 2 :
+                Instantiate(bulletPrefab, transform.position + Vector3.left * 0.2f, Quaternion.identity);
+                Instantiate(bulletPrefab, transform.position + Vector3.right * 0.2f, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                bullet.GetComponent<Charm_Movement2D>().MoveTo(new Vector3(-0.2f, 1, 0));
+                bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                bullet.GetComponent<Charm_Movement2D>().MoveTo(new Vector3(0.2f, 1, 0));
+                break;
+
+
         }
     }
 

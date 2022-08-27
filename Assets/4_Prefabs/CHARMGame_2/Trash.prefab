@@ -120,6 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 10
   speed: 3
+  itemprefab:
+  - {fileID: 4778814965616126980, guid: 3c09b4095100e1b419b36a0a2e99f847, type: 3}
 --- !u!58 &-4609219280856548714
 CircleCollider2D:
   m_ObjectHideFlags: 0

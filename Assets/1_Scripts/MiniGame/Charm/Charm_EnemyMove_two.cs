@@ -16,6 +16,7 @@ public class Charm_EnemyMove_two : Charm_EnemyMove
     private GameObject newBullet = null;
     private Charm_PlayerMove player = null;
 
+   
     protected override void Start()
     {
         base.Start();

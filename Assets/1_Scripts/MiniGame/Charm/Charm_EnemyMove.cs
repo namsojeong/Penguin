@@ -18,6 +18,10 @@ public class Charm_EnemyMove : MonoBehaviour
     private Animator animator = null;
     private Collider2D col = null;
     private SpriteRenderer spriteRenderer = null;
+
+    [SerializeField]
+    private GameObject[] itemprefab;
+
     protected virtual void Start()
     {
         gameManager = FindObjectOfType<Charm_GameManager>();
@@ -84,5 +88,18 @@ public class Charm_EnemyMove : MonoBehaviour
       //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
        Destroy(gameObject);
+
+
+        //적 죽고 아이템 스폰
+        SpawnItem();
+    }
+
+    void SpawnItem()
+    {
+        int spawnItem = Random.Range(0, 100);
+        if(spawnItem < 10)
+        {
+            Instantiate(itemprefab[0], transform.position, Quaternion.identity);
+        }
     }
 }
