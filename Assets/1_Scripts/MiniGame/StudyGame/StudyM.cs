@@ -11,7 +11,10 @@ public class StudyM : MonoBehaviour
     private Text textScore = null;
     [SerializeField]
     private Text textHighScore = null;
-
+   
+    
+    public float difficult = 1;
+    public GameObject difficulttext;
 
 
     public int score = 0;
@@ -24,13 +27,63 @@ public class StudyM : MonoBehaviour
         instance = this;
 
         poolManager = FindObjectOfType<PoolManager>();
+        StartCoroutine(Difficult());
+
+        difficulttext.SetActive(false);
     }
 
     void Update()
     {
         
     }
-
+    IEnumerator Difficult()
+    {
+        yield return new WaitForSeconds(20f);
+        difficult = 1.5f;
+        for (int i = 0; i < 4; i++)
+        {
+            difficulttext.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            difficulttext.SetActive(false);
+            yield return new WaitForSeconds(.3f);
+        }
+        yield return new WaitForSeconds(20f);
+        difficult = 2f;
+        for (int i = 0; i < 4; i++)
+        {
+            difficulttext.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            difficulttext.SetActive(false);
+            yield return new WaitForSeconds(.3f);
+        }
+        yield return new WaitForSeconds(20f);
+        difficult = 2.5f;
+        for (int i = 0; i < 4; i++)
+        {
+            difficulttext.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            difficulttext.SetActive(false);
+            yield return new WaitForSeconds(.3f);
+        }
+        yield return new WaitForSeconds(20f);
+        difficult = 3f;
+        for (int i = 0; i < 4; i++)
+        {
+            difficulttext.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            difficulttext.SetActive(false);
+            yield return new WaitForSeconds(.3f);
+        }
+        yield return new WaitForSeconds(20f);
+        difficult = 3.5f;
+        for (int i = 0; i < 4; i++)
+        {
+            difficulttext.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            difficulttext.SetActive(false);
+            yield return new WaitForSeconds(.3f);
+        }
+    }
     public void AddScore()
     {
         score += 100;
