@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     public void StartButton()
     {
         if(GameManager.instance.CurrentUser.isFirst)
