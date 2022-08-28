@@ -29,6 +29,9 @@ public class ArbeitApp : MonoBehaviour
     [SerializeField, Header("초기화 버튼")]
     private Button resetButton;
 
+    [SerializeField]
+    AudioClip finishSound;
+
     Queue<AbilityE> arbietQ = new Queue<AbilityE>();
 
     int dayCnt = 5;
@@ -77,7 +80,6 @@ public class ArbeitApp : MonoBehaviour
 
     void Finish(EventParam eventParam)
     {
-        Debug.Log("Finish");
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
 
@@ -88,6 +90,7 @@ public class ArbeitApp : MonoBehaviour
         AbilityE curAr = eventParam.abilityParam;
         GameManager.instance.PlusCoin(100);
         GameManager.instance.UpAbility(curAr, 10);
+        SoundManager.instance.SFXPlay(finishSound);
 
         if (nowCnt >= 5)
         {

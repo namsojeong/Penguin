@@ -20,7 +20,7 @@ public class Trash1 : MonoBehaviour
     {
         Vector3 current = gameObject.transform.position;
 
-        mVelocity += gravity * Time.deltaTime;
+        mVelocity += gravity * Time.deltaTime * StudyM.instance.difficult;
 
         current.y -= mVelocity * Time.deltaTime;
         gameObject.transform.position = current;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance; 
+
+
     [SerializeField]
     private AudioSource audioBGMSource;
     [SerializeField]
@@ -25,17 +28,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip[] sfx;
 
-    void Start()
+    private void Awake()
     {
-       
+        instance = this;
     }
-
-    void Update()
-    {
-       
-      
-    }
-
 
     // CALLING
     public void CallBell()
@@ -55,6 +51,7 @@ public class SoundManager : MonoBehaviour
     // SFX
     public void SFXPlay(AudioClip clip)
     {
+        audioSFXSource.Stop();
         audioSFXSource.PlayOneShot(clip);
     }
 
@@ -71,6 +68,7 @@ public class SoundManager : MonoBehaviour
     // 터치 시 사운드
     public void ClikSound()
     {
+        audioClickSource.Stop();
         audioClickSource.Play();
     }
 

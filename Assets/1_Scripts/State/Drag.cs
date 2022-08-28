@@ -12,6 +12,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
     RectTransform rectTransform;
     [SerializeField] Canvas canvas;
+    [SerializeField] AudioClip eatSound;
     Vector2 defaultPos;
 
     private void Awake()
@@ -45,6 +46,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         eventParam.stringParam = itemName;
         EventManager.TriggerEvent("USEFOOD", eventParam);
         GameManager.instance.UpNutrient(NutrientE.HUNGRY, plusHungry);
+        SoundManager.instance.SFXPlay(eatSound);
     }
     public void OnDrag(PointerEventData eventData)
     {
