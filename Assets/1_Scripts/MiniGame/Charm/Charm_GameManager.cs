@@ -32,14 +32,16 @@ public class Charm_GameManager : MonoBehaviour
 
     void Awake()
     {
+        gameoverButton.onClick.AddListener(GameOver);
+
         minPosition = new Vector2(-2f, -4f);
         maxPosition = new Vector2(2f, 4f);
 
         poolManager = FindObjectOfType<Charm_PoolManager>();
 
         StartCoroutine(SpawnCroissant());
-       StartCoroutine(SpawnHotdog());
-        highScore = PlayerPrefs.GetInt("HIGHSCORE", 500);
+        StartCoroutine(SpawnHotdog());
+        highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
         UpdateUI();
     }
 
@@ -51,15 +53,7 @@ public class Charm_GameManager : MonoBehaviour
             Time.timeScale = 0;
 
             gameoverPannel.SetActive(true);
-            
-
-
-            Debug.Log("끝입니다");
-
-            
         }
-
-       
 
         UpdateUI();
     }
@@ -79,7 +73,7 @@ public class Charm_GameManager : MonoBehaviour
     {
         lifeText.text = string.Format("LIFE\n{0}", life);
         scoreText.text = string.Format("{0}", score);
-       // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
+        // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
 
     private IEnumerator SpawnCroissant()
@@ -94,11 +88,7 @@ public class Charm_GameManager : MonoBehaviour
 
             Instantiate(enemyCroissant, new Vector2(randomX, 6f), Quaternion.identity);
 
-           
-
-            yield return new WaitForSeconds(0.2f);
-            
-            yield return new WaitForSeconds(randomDelay);
+            yield return new WaitForSeconds(0.2f + randomDelay);
         }
     }
 
@@ -113,23 +103,15 @@ public class Charm_GameManager : MonoBehaviour
         {
             randomY = Random.Range(-4f, 4f);
             randomDelay = Random.Range(5f, 10f);
-            
-                Instantiate(enemyHotdog, new Vector2(5f, randomY), Quaternion.identity);
-                yield return new WaitForSeconds(0.2f);
-           
 
-            yield return new WaitForSeconds(randomDelay);
+            Instantiate(enemyHotdog, new Vector2(5f, randomY), Quaternion.identity);
+            yield return new WaitForSeconds(0.2f + randomDelay);
         }
-    }
-
-     void Update()
-    {
-        gameoverButton.onClick.AddListener(GameOver);
     }
 
     void GameOver()
     {
         SceneManager.LoadScene("Main");
-     
+
     }
 }
