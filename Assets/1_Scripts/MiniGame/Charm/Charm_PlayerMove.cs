@@ -19,7 +19,7 @@ public class Charm_PlayerMove : MonoBehaviour
 
     [SerializeField]
     private int maxAttackLevel = 3; //최대 공격 레벨
-    public int attackLevel = 1; //공격 레벨
+    public static int attackLevel = 1; //공격 레벨
 
     public int AttackLevel
     {
@@ -59,18 +59,18 @@ public class Charm_PlayerMove : MonoBehaviour
     public void AttackByLevel()
     {
 
-        GameObject bullet = null;
+       // GameObject bullet = null;
 
         switch(attackLevel)
         {
             case 1 :
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                Debug.Log(attackLevel);
+                //Debug.Log(attackLevel);
                 break;
             case 2 :
                 Instantiate(bulletPrefab, transform.position + Vector3.left * 0.2f, Quaternion.identity);
                 Instantiate(bulletPrefab, transform.position + Vector3.right * 0.2f, Quaternion.identity);
-                Debug.Log(attackLevel);
+                //Debug.Log(attackLevel);
 
                 
                 break;

@@ -22,7 +22,18 @@ public class Charm_EnemyMove : MonoBehaviour
     [SerializeField]
     private GameObject[] itemprefab;
 
+   // [SerializeField]
+    //private GameObject[] itemprefab;
+
     private Charm_PlayerMove playermove;
+
+    public static float countdownSeconds;
+
+    [SerializeField]
+    private GameObject explosionPrefab;
+    [SerializeField]
+    private GameObject explosionPrefab2;
+
     protected virtual void Start()
     {
         gameManager = FindObjectOfType<Charm_GameManager>();
@@ -37,14 +48,13 @@ public class Charm_EnemyMove : MonoBehaviour
         if (isDead) return;
         transform.Translate(Vector2.down  * speed * Time.deltaTime);
 
-
-       
         if (transform.position.y < gameManager.minPosition.y - 5f)
         {
-
-          
             Destroy(gameObject);
         }
+
+        if(countdownSeconds > -5)
+        countdownSeconds -= Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,6 +89,9 @@ public class Charm_EnemyMove : MonoBehaviour
     {
         //spriteRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
         hp--;
+
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
         yield return new WaitForSeconds(0.1f);
         //spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
         isDamaged = false;
@@ -87,26 +100,59 @@ public class Charm_EnemyMove : MonoBehaviour
     private IEnumerator Dead()
     {
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
-      //  animator.Play("Explosion");
-        yield return new WaitForSeconds(0.5f);
-       Destroy(gameObject);
 
-
-        //적 죽고 아이템 스폰
+        Instantiate(explosionPrefab2, transform.position, Quaternion.identity);
         SpawnItem();
+        //  animator.Play("Explosion");
+        yield return new WaitForSeconds(0.5f);
+
+
+        //파티클
+
+       
+
+        Destroy(gameObject);
+
+
+
+       
+
+
     }
 
     void SpawnItem()
     {
         int spawnItem = Random.Range(0, 100);
-       
 
-       
-            if (spawnItem < 100)
+        if (Charm_PlayerMove.attackLevel != 2)
+        {
+            if (spawnItem < 10)
             {
                 Instantiate(itemprefab[0], transform.position, Quaternion.identity);
             }
-        
-        
+
+            if (spawnItem < 100)
+            {
+                //Instantiate(itemprefab[1], transform.position, Quaternion.identity);
+            }
+
+        }
+       
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (countdownSeconds < 5)
+        {
+            Charm_PlayerMove.attackLevel = 1;
+        }
+
+        if (countdownSeconds > 5)
+        {
+            Charm_PlayerMove.attackLevel = 2;
+        }
+
+       // Debug.Log(countdownSeconds);        
     }
 }

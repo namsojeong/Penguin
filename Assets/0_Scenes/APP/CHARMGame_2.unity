@@ -889,7 +889,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2999271584151340192, guid: b60d26a809f9bb24db61755e482a4940, type: 3}
   speed: 10
   maxAttackLevel: 2
-  attackLevel: 1
 --- !u!70 &1143206665
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

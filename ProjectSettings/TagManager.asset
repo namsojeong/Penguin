@@ -9,6 +9,9 @@ TagManager:
   - Col
   - GeneralWaste
   - Recyclablewaste
+  - Bullet
+  - Enemy
+  - Item
   layers:
   - Default
   - TransparentFX
