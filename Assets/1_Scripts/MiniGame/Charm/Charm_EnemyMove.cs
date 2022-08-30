@@ -6,7 +6,6 @@ public class Charm_EnemyMove : MonoBehaviour
 {
     [SerializeField]
     private int score = 10;
-   // [SerializeField]
     private int hp = 3;
     [SerializeField]
     protected float speed = 0.3f;
@@ -33,6 +32,11 @@ public class Charm_EnemyMove : MonoBehaviour
     private GameObject explosionPrefab;
     [SerializeField]
     private GameObject explosionPrefab2;
+
+    public AudioSource mysfx;
+    public AudioClip paperSound;
+
+
 
     protected virtual void Start()
     {
@@ -95,11 +99,20 @@ public class Charm_EnemyMove : MonoBehaviour
 
     private IEnumerator Dead()
     {
+
+        //오디오
+        mysfx.PlayOneShot(paperSound);
+
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
 
         //파티클
         Instantiate(explosionPrefab2, transform.position, Quaternion.identity);
         SpawnItem();
+
+
+        
+        
+
         //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
 
@@ -115,9 +128,10 @@ public class Charm_EnemyMove : MonoBehaviour
 
         if (Charm_PlayerMove.attackLevel != 2)
         {
-            if (spawnItem < 10)
+            if (spawnItem < 5)
             {
                 Instantiate(itemprefab[0], transform.position, Quaternion.identity);
+               // mysfx.
             }
 
             if (spawnItem < 100)
