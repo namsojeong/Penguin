@@ -6,14 +6,20 @@ using UnityEngine.UI;
 public class PuzzleButton : MonoBehaviour
 {
     [SerializeField]
-    int num;
+    ColorSet num;
     [SerializeField]
     Color defaultColor;
+    [SerializeField]
+    Color falseColor;
 
     Text _text;
     Image _image;
     Color _color;
-    Button _button; 
+    Button _button;
+
+    bool isNot = true;
+
+    // 게임 판정 시 EventManager로 isNot이 False인지 체크 만약 True면 다시 반대로 신호줌
 
     private void Awake()
     {
@@ -32,32 +38,44 @@ public class PuzzleButton : MonoBehaviour
     void ResetButton()
     {
         _image.color = defaultColor;
+        _text.gameObject.SetActive(true);
     }
 
+    // 버튼 색 정하기
     void MyColorSet()
     {
-        _text.text = string.Format($"{num}");
-        switch(num)
+        _text.text = string.Format($"{(int)num}");
+        switch (num)
         {
-            case 1: {
-                _color = Color.red;
-                break;
+            case ColorSet.RED: {
+                    _color = Color.red;
+                    break;
                 }
-            case 2: {
-                _color = Color.yellow;
-                break;
+            case ColorSet.YELLOW: {
+                    _color = Color.yellow;
+                    break;
                 }
-            case 3: {
-                _color = Color.cyan;
-                break;
+            case ColorSet.CYAN: {
+                    _color = Color.cyan;
+                    break;
                 }
         }
     }
 
+    // 색깔퍼즐버튼 클릭
     public void ClickMe()
     {
-        Debug.Log("ㅁㄴㅇ");
-        _image.color = _color;
-        _text.gameObject.SetActive(false);
+        if (ArtGameManager.instance._color == _color)
+        {
+            _image.color = _color;
+            _text.gameObject.SetActive(false);
+        }
+        else
+        {
+            _text.gameObject.SetActive(true);
+            ArtGameManager.instance.HeartAttack();
+            _image.color = falseColor;
+            ArtGameManager.instance.isCorrect = false;
+        }
     }
 }
