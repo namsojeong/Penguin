@@ -22,8 +22,8 @@ public class Charm_EnemyMove : MonoBehaviour
     [SerializeField]
     private GameObject[] itemprefab;
 
-   // [SerializeField]
-    //private GameObject[] itemprefab;
+    [SerializeField]
+    private GameObject[] coinprefab;
 
     private Charm_PlayerMove playermove;
 
@@ -87,13 +87,11 @@ public class Charm_EnemyMove : MonoBehaviour
 
     private IEnumerator Damaged()
     {
-        //spriteRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
         hp--;
 
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(0.1f);
-        //spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
         isDamaged = false;
     }
 
@@ -101,25 +99,18 @@ public class Charm_EnemyMove : MonoBehaviour
     {
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
 
+        //파티클
         Instantiate(explosionPrefab2, transform.position, Quaternion.identity);
         SpawnItem();
         //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
 
 
-        //파티클
-
-       
-
         Destroy(gameObject);
-
-
-
-       
-
-
     }
 
+
+    //아이템 확률 스폰
     void SpawnItem()
     {
         int spawnItem = Random.Range(0, 100);
@@ -133,12 +124,21 @@ public class Charm_EnemyMove : MonoBehaviour
 
             if (spawnItem < 100)
             {
-                //Instantiate(itemprefab[1], transform.position, Quaternion.identity);
+               // Instantiate(coinprefab[0], transform.position, Quaternion.identity);
             }
-
         }
-       
+    }
 
+    void SpawnCoin()
+    {
+        int spawnItem = Random.Range(0, 100);
+
+       
+            if (spawnItem < 100)
+            {
+               
+            }
+        
     }
 
     private void FixedUpdate()
@@ -152,7 +152,6 @@ public class Charm_EnemyMove : MonoBehaviour
         {
             Charm_PlayerMove.attackLevel = 2;
         }
-
-       // Debug.Log(countdownSeconds);        
+     
     }
 }

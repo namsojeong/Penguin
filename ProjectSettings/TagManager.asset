@@ -12,6 +12,9 @@ TagManager:
   - Bullet
   - Enemy
   - Item
+  - NUTRIENT
+  - PENGUIN
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -48,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 397370683
     locked: 0

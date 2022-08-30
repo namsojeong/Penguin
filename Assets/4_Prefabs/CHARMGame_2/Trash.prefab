@@ -124,8 +124,9 @@ MonoBehaviour:
   itemprefab:
   - {fileID: 4778814965616126980, guid: 3c09b4095100e1b419b36a0a2e99f847, type: 3}
   - {fileID: 4778814965616126980, guid: 767bd20c48a7c4a4ab5c442b6eca5be6, type: 3}
-  explosionPrefab: {fileID: 1977898977775023588, guid: 392be66fb1dc0b548b51353c42470e29, type: 3}
-  explosionPrefab2: {fileID: 1977898977775023588, guid: a98c6be22b73a39409e40a1863dfcc20, type: 3}
+  coinprefab: []
+  explosionPrefab: {fileID: 100004, guid: fb7b0526ade434043b350a180d741cf3, type: 3}
+  explosionPrefab2: {fileID: 1750940742320366, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
 --- !u!58 &-4609219280856548714
 CircleCollider2D:
   m_ObjectHideFlags: 0
