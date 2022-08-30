@@ -94,20 +94,23 @@ public class Charm_GameManager : MonoBehaviour
 
     private IEnumerator SpawnHotdog()
     {
-        float randomY = 0f;
+      
+        float randomX = 0f;
         float randomDelay = 0f;
 
         yield return new WaitForSeconds(5f);
 
         while (true)
         {
-            randomY = Random.Range(-4f, 4f);
-            randomDelay = Random.Range(5f, 10f);
+            randomX = Random.Range(-2f, 2f);
+            randomDelay = Random.Range(1f, 2f);
 
-            Instantiate(enemyHotdog, new Vector2(5f, randomY), Quaternion.identity);
+            Instantiate(enemyHotdog, new Vector2(randomX,5f), Quaternion.identity);
             yield return new WaitForSeconds(0.2f + randomDelay);
         }
     }
+
+
 
     void GameOver()
     {

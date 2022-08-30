@@ -72,8 +72,6 @@ public class Charm_EnemyMove : MonoBehaviour
             isDamaged = true;
             StartCoroutine(Damaged());
 
-            //Debug.Log(hp);
-
             if (hp <= 0)
             {
                 isDead = true;

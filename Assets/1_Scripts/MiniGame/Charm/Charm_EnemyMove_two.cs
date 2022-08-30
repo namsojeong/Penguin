@@ -5,7 +5,7 @@ using UnityEngine;
 public class Charm_EnemyMove_two : Charm_EnemyMove
 {
     [SerializeField]
-    private GameObject bulletPrefab_two;
+   private GameObject bulletPrefab_two;
     [SerializeField]
     private float bulletDelay = 0.5f;
 
@@ -16,22 +16,31 @@ public class Charm_EnemyMove_two : Charm_EnemyMove
     private GameObject newBullet = null;
     private Charm_PlayerMove player = null;
 
-   
     protected override void Start()
     {
         base.Start();
         player = FindObjectOfType<Charm_PlayerMove>();
+
+        if(player == null)
+        {
+            Debug.Log("널인데요>?");
+        }
+
+       
     }
 
     protected override void Update()
     {
         if (isDead) return;
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
 
         timer += Time.deltaTime;
         if (timer >= bulletDelay)
         {
+
+
             timer = 0f;
+
             // 총알 생성
             newBullet = Instantiate(bulletPrefab_two, transform);
             // 부모 없앰

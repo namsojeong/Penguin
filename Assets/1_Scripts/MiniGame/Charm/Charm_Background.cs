@@ -16,7 +16,6 @@ public class Charm_Background : MonoBehaviour
         renderer = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         offset += Time.deltaTime * speed;
