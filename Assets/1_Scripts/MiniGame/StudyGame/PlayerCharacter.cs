@@ -19,8 +19,8 @@ public class PlayerCharacter : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            targetPosition.x = Mathf.Clamp(targetPosition.x, -1.6f, 1.6f);
-            targetPosition.y = Mathf.Clamp(targetPosition.y, -3.25f,-3.25f );
+            targetPosition.x = Mathf.Clamp(targetPosition.x, -3.61f, 1.6f);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, -3.61f, -3.61f );
             transform.localPosition = Vector2.MoveTowards(transform.localPosition, targetPosition, spd * Time.deltaTime);
         }
     }
