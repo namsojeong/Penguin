@@ -14,10 +14,10 @@ public class UIM : MonoBehaviour
 
     public GameObject scoret;
 
+    public GameObject peng;
+
 
     
-
-   
 
     private void Start()
     {
@@ -25,6 +25,9 @@ public class UIM : MonoBehaviour
         instance = this;
         Time.timeScale = 0;
         scoret.SetActive(false);
+
+        peng.SetActive(false);
+        startpanel.SetActive(true);
         
     }
 
@@ -35,6 +38,7 @@ public class UIM : MonoBehaviour
     {
         startpanel.SetActive(false);
         scoret.SetActive(true);
+        peng.SetActive(true);
         Time.timeScale = 1;
 
     }

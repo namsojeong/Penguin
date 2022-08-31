@@ -20,6 +20,8 @@ public class StudyM : MonoBehaviour
     public int score = 0;
     public int highScore = 0;
 
+    public Text overScoreT;
+
 
     public PoolManager poolManager { get; private set; }
     void Start()
@@ -30,6 +32,7 @@ public class StudyM : MonoBehaviour
         StartCoroutine(Difficult());
 
         difficulttext.SetActive(false);
+
     }
 
     void Update()
@@ -107,7 +110,11 @@ public class StudyM : MonoBehaviour
 
     }
 
-
+    public void OverText()
+    {
+        overScoreT.text = string.Format("Score " +
+            "{0}", score);   
+    }
    
     public void OnClickRestartButton()
     {

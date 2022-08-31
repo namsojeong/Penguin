@@ -14,16 +14,18 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource audioClickSource;
     [SerializeField]
+    private AudioSource audioPhoneUISource;
+
+    [SerializeField]
     private AudioClip callbell;
     [SerializeField]
     private AudioClip callok;
     [SerializeField]
     private AudioClip callno;
     
-    [SerializeField]
-    private AudioClip clickClip;
-    [SerializeField]
-    private AudioClip bgmClip;
+    [SerializeField] AudioClip clickClip;
+    [SerializeField] AudioClip bgmClip;
+    [SerializeField] AudioClip waterClikClip;
     
     [SerializeField]
     private AudioClip[] sfx;
@@ -47,6 +49,11 @@ public class SoundManager : MonoBehaviour
         SFXPlay(callno);
     }
 
+
+    public void PhoneUISound()
+    {
+        audioPhoneUISource.Play();
+    }
 
     // SFX
     public void SFXPlay(AudioClip clip)
