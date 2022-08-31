@@ -9,14 +9,11 @@ public class Charm_Background : MonoBehaviour
     private float speed=0.05f;
     private float offset;
 
-
-
     void Start()
     {
         renderer = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         offset += Time.deltaTime * speed;

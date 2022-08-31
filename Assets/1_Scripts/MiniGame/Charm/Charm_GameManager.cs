@@ -39,7 +39,7 @@ public class Charm_GameManager : MonoBehaviour
 
         poolManager = FindObjectOfType<Charm_PoolManager>();
 
-        StartCoroutine(SpawnCroissant());
+      //  StartCoroutine(SpawnCroissant());
         StartCoroutine(SpawnHotdog());
         highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
         UpdateUI();
@@ -71,43 +71,46 @@ public class Charm_GameManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        lifeText.text = string.Format("LIFE\n{0}", life);
+        lifeText.text = string.Format("LIFE : {0}", life);
         scoreText.text = string.Format("{0}", score);
         // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
 
-    private IEnumerator SpawnCroissant()
-    {
-        float randomX = 0f;
-        float randomDelay = 0f;
+    //private IEnumerator SpawnCroissant()
+    //{
+    //    float randomX = 0f;
+    //    float randomDelay = 0f;
 
-        while (true)
-        {
-            randomX = Random.Range(-2f, 2f);
-            randomDelay = Random.Range(0f, 1f);
+    //    while (true)
+    //    {
+    //        randomX = Random.Range(-2f, 2f);
+    //        randomDelay = Random.Range(0f, 1f);
 
-            Instantiate(enemyCroissant, new Vector2(randomX, 6f), Quaternion.identity);
+    //        Instantiate(enemyCroissant, new Vector2(randomX, 6f), Quaternion.identity);
 
-            yield return new WaitForSeconds(0.2f + randomDelay);
-        }
-    }
+    //        yield return new WaitForSeconds(0.2f + randomDelay);
+    //    }
+    //}
 
     private IEnumerator SpawnHotdog()
     {
-        float randomY = 0f;
+      
+        float randomX = 0f;
         float randomDelay = 0f;
 
         yield return new WaitForSeconds(5f);
 
         while (true)
         {
-            randomY = Random.Range(-4f, 4f);
-            randomDelay = Random.Range(5f, 10f);
+            randomX = Random.Range(-2f, 2f);
+            randomDelay = Random.Range(1f, 2f);
 
-            Instantiate(enemyHotdog, new Vector2(5f, randomY), Quaternion.identity);
+            Instantiate(enemyHotdog, new Vector2(randomX,5f), Quaternion.identity);
             yield return new WaitForSeconds(0.2f + randomDelay);
         }
     }
+
+
 
     void GameOver()
     {
