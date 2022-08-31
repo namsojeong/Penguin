@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
 
     int lastDay = 25;
+    EventParam eventParam = new EventParam();
 
     private void Awake()
     {
@@ -141,6 +142,7 @@ public class GameManager : MonoBehaviour
     }
     public void NextDay()
     {
+        EventManager.TriggerEvent("NextDay", eventParam);
         CurrentUser.day++;
         CurrentUser.sleep = 100;
         if(CurrentUser.day >lastDay)

@@ -6,7 +6,6 @@ public class Charm_EnemyMove : MonoBehaviour
 {
     [SerializeField]
     private int score = 10;
-   // [SerializeField]
     private int hp = 3;
     [SerializeField]
     protected float speed = 0.3f;
@@ -22,8 +21,8 @@ public class Charm_EnemyMove : MonoBehaviour
     [SerializeField]
     private GameObject[] itemprefab;
 
-   // [SerializeField]
-    //private GameObject[] itemprefab;
+    [SerializeField]
+    private GameObject[] coinprefab;
 
     private Charm_PlayerMove playermove;
 
@@ -33,6 +32,11 @@ public class Charm_EnemyMove : MonoBehaviour
     private GameObject explosionPrefab;
     [SerializeField]
     private GameObject explosionPrefab2;
+
+    public AudioSource mysfx;
+    public AudioClip sound;
+
+
 
     protected virtual void Start()
     {
@@ -72,12 +76,10 @@ public class Charm_EnemyMove : MonoBehaviour
             isDamaged = true;
             StartCoroutine(Damaged());
 
-            //Debug.Log(hp);
-
             if (hp <= 0)
             {
                 isDead = true;
-                col.enabled = false;
+               col.enabled = false;
                 gameManager.AddScore(score);
                 StartCoroutine(Dead());
             }
@@ -87,58 +89,69 @@ public class Charm_EnemyMove : MonoBehaviour
 
     private IEnumerator Damaged()
     {
-        //spriteRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
         hp--;
 
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(0.1f);
-        //spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
         isDamaged = false;
     }
 
     private IEnumerator Dead()
     {
+
+        //오디오
+        mysfx.PlayOneShot(sound);
+
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
 
+        //파티클
         Instantiate(explosionPrefab2, transform.position, Quaternion.identity);
         SpawnItem();
+
+
+        
+        
+
         //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
 
 
-        //파티클
-
-       
-
         Destroy(gameObject);
-
-
-
-       
-
 
     }
 
+
+    //아이템 확률 스폰
     void SpawnItem()
     {
         int spawnItem = Random.Range(0, 100);
 
         if (Charm_PlayerMove.attackLevel != 2)
         {
-            if (spawnItem < 10)
+            if (spawnItem < 5)
             {
                 Instantiate(itemprefab[0], transform.position, Quaternion.identity);
+               // mysfx.
             }
 
             if (spawnItem < 100)
             {
-                //Instantiate(itemprefab[1], transform.position, Quaternion.identity);
+               // Instantiate(coinprefab[0], transform.position, Quaternion.identity);
             }
-
         }
-       
+    }
 
+    void SpawnCoin()
+    {
+        int spawnItem = Random.Range(0, 100);
+
+       
+            if (spawnItem < 100)
+            {
+               
+            }
+        
     }
 
     private void FixedUpdate()
@@ -152,7 +165,6 @@ public class Charm_EnemyMove : MonoBehaviour
         {
             Charm_PlayerMove.attackLevel = 2;
         }
-
-       // Debug.Log(countdownSeconds);        
+     
     }
 }

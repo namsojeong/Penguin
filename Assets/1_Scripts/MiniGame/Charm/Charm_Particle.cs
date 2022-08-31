@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Charm_Particle : MonoBehaviour
@@ -11,7 +10,6 @@ public class Charm_Particle : MonoBehaviour
         particle = GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(particle.isPlaying == false)

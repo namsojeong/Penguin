@@ -21,6 +21,10 @@ public class Charm_PlayerMove : MonoBehaviour
     private int maxAttackLevel = 3; //최대 공격 레벨
     public static int attackLevel = 1; //공격 레벨
 
+    public ParticleSystem ps;
+
+    public SpriteRenderer background;
+
     public int AttackLevel
     {
         set => attackLevel = Mathf.Clamp(value, 1, maxAttackLevel);
@@ -65,25 +69,17 @@ public class Charm_PlayerMove : MonoBehaviour
         {
             case 1 :
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                //Debug.Log(attackLevel);
+                background.material.color = new Color(0.3f, 0.4f, 0.4f, 2f);
                 break;
             case 2 :
                 Instantiate(bulletPrefab, transform.position + Vector3.left * 0.2f, Quaternion.identity);
                 Instantiate(bulletPrefab, transform.position + Vector3.right * 0.2f, Quaternion.identity);
-                //Debug.Log(attackLevel);
+                ps.Emit(1);
 
-                
+                background.material.color = new Color(0.3f, 0.4f, 0.4f, 2.5f);
+
                 break;
-            //case 3:
-                //Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                //bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                //bullet.GetComponent<Charm_Movement2D>().MoveTo(new Vector3(-0.2f, 1, 0));
-                //bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                //bullet.GetComponent<Charm_Movement2D>().MoveTo(new Vector3(0.2f, 1, 0));
-                //Debug.Log("3확인");
-                //break;
-
-
+          
         }
     }
 
@@ -114,10 +110,6 @@ public class Charm_PlayerMove : MonoBehaviour
             StartCoroutine(Damaged());
         }
 
-        if (collision.CompareTag("Bullet"))
-        {
-            
-        }
 
     }
 
