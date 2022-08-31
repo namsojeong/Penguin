@@ -22,8 +22,6 @@ public class Charm_EnemyMove_two : Charm_EnemyMove
     {
         base.Start();
         player = FindObjectOfType<Charm_PlayerMove>();
-
-       
     }
 
     protected override void Update()

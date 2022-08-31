@@ -71,7 +71,7 @@ public class Charm_GameManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        lifeText.text = string.Format("LIFE\n{0}", life);
+        lifeText.text = string.Format("LIFE : {0}", life);
         scoreText.text = string.Format("{0}", score);
         // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
