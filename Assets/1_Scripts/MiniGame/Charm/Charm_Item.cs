@@ -17,13 +17,7 @@ public class Charm_Item : MonoBehaviour
         movement2D = GetComponent<Charm_Movement2D>();
 
         Destroy(gameObject, 2);
-        //float x = Random.Range(-1.0f, 1.0f);
-        //float y = Random.Range(1.0f, 1.0f);
-
-
-
-        // movement2D.MoveTo(new Vector3(x, y, 0));
-
+       
     }
 
     private void Update()
@@ -37,9 +31,6 @@ public class Charm_Item : MonoBehaviour
         {
             Use(collision.gameObject);
             Destroy(gameObject);
-
-           
-           
         }
     }
 
