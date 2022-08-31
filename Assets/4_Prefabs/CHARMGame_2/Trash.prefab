@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1509462152236012726}
   - component: {fileID: 1509462152236012725}
   - component: {fileID: 1509462152236012724}
-  - component: {fileID: 4304005060608380672}
   - component: {fileID: -4609219280856548714}
+  - component: {fileID: 4304005060608380672}
   - component: {fileID: -2210750632508695200}
   - component: {fileID: 3784342393431142447}
   m_Layer: 7
@@ -108,6 +108,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-4609219280856548714
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509462152236012730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11, y: -0.02}
+  serializedVersion: 2
+  m_Radius: 3.1319933
 --- !u!114 &4304005060608380672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,22 +146,6 @@ MonoBehaviour:
   explosionPrefab2: {fileID: 1750940742320366, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
   mysfx: {fileID: 3784342393431142447}
   paperSound: {fileID: 8300000, guid: 5e1533796ce15db42855eabd319fa927, type: 3}
---- !u!58 &-4609219280856548714
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509462152236012730}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: -0.02}
-  serializedVersion: 2
-  m_Radius: 3.1319933
 --- !u!114 &-2210750632508695200
 MonoBehaviour:
   m_ObjectHideFlags: 0

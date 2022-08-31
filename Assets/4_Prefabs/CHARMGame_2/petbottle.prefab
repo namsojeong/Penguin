@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8499840997274487061}
   - component: {fileID: -6113036268499917352}
   - component: {fileID: 960726620076128799}
-  - component: {fileID: 7066651907276864806}
   - component: {fileID: 7423129999848486710}
+  - component: {fileID: 2502542677343833666}
+  - component: {fileID: -4671926559350698274}
   m_Layer: 0
   m_Name: petbottle
   m_TagString: Enemy
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: ee525b15e0a1d994b89d601743a93c2f, type: 3}
   m_Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   m_FlipX: 0
@@ -133,27 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 14}
   m_EdgeRadius: 0
---- !u!114 &7066651907276864806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160120942331897830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dee558960abcbd43a8c4e06f36c250c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 20
-  speed: 8
-  itemprefab:
-  - {fileID: 4778814965616126980, guid: 3c09b4095100e1b419b36a0a2e99f847, type: 3}
-  coinprefab: []
-  explosionPrefab: {fileID: 1750940742320366, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
-  explosionPrefab2: {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
-  bulletPrefab_two: {fileID: 2596267435753101728, guid: 543f9de0b3d88ad4f99cd7446792570f, type: 3}
-  bulletDelay: 0.5
 --- !u!114 &7423129999848486710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,3 +148,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   moveDirection: {x: 0, y: 0, z: 0}
+--- !u!82 &2502542677343833666
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160120942331897830}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-4671926559350698274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160120942331897830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425ac931ed9b3fc4b87666b966202501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 30
+  speed: 8
+  itemprefab:
+  - {fileID: 4778814965616126980, guid: 3c09b4095100e1b419b36a0a2e99f847, type: 3}
+  - {fileID: 4778814965616126980, guid: 767bd20c48a7c4a4ab5c442b6eca5be6, type: 3}
+  coinprefab: []
+  explosionPrefab: {fileID: 100004, guid: fb7b0526ade434043b350a180d741cf3, type: 3}
+  explosionPrefab2: {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
+  mysfx: {fileID: 2502542677343833666}
+  sound: {fileID: 8300000, guid: 85dcbe2089997e349aab968814b82552, type: 3}

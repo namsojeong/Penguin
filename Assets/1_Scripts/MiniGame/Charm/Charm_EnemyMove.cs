@@ -34,7 +34,7 @@ public class Charm_EnemyMove : MonoBehaviour
     private GameObject explosionPrefab2;
 
     public AudioSource mysfx;
-    public AudioClip paperSound;
+    public AudioClip sound;
 
 
 
@@ -79,7 +79,7 @@ public class Charm_EnemyMove : MonoBehaviour
             if (hp <= 0)
             {
                 isDead = true;
-                col.enabled = false;
+               col.enabled = false;
                 gameManager.AddScore(score);
                 StartCoroutine(Dead());
             }
@@ -101,7 +101,7 @@ public class Charm_EnemyMove : MonoBehaviour
     {
 
         //¿Àµð¿À
-        mysfx.PlayOneShot(paperSound);
+        mysfx.PlayOneShot(sound);
 
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
 
@@ -118,6 +118,7 @@ public class Charm_EnemyMove : MonoBehaviour
 
 
         Destroy(gameObject);
+
     }
 
 

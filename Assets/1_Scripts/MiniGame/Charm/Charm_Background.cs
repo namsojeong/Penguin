@@ -9,8 +9,6 @@ public class Charm_Background : MonoBehaviour
     private float speed=0.05f;
     private float offset;
 
-
-
     void Start()
     {
         renderer = GetComponent<MeshRenderer>();

@@ -54,12 +54,12 @@ public class Charm_EnemyMove_two : Charm_EnemyMove
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Bullet")
-        {
-            //面倒?
-            Debug.Log("面倒");
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Bullet")
+    //    {
+    //        //面倒?
+    //        Debug.Log("面倒");
+    //    }
+    //}
 }
