@@ -16,6 +16,8 @@ public class UIM : MonoBehaviour
 
     public GameObject peng;
 
+    public GameObject col;
+
 
     
 
@@ -28,6 +30,8 @@ public class UIM : MonoBehaviour
 
         peng.SetActive(false);
         startpanel.SetActive(true);
+
+        col.SetActive(false);
         
     }
 
@@ -40,6 +44,7 @@ public class UIM : MonoBehaviour
         scoret.SetActive(true);
         peng.SetActive(true);
         Time.timeScale = 1;
+        col.SetActive(true);
 
     }
 
