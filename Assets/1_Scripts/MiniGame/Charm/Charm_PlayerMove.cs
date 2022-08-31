@@ -131,6 +131,7 @@ public class Charm_PlayerMove : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
             }
             isDamaged = false;
+           
         }
     }
 }
