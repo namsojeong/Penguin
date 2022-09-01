@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
         if(collision.gameObject.CompareTag("Recyclablewaste"))
         {
             StudyM.instance.AddScore();
-
+            StudyM.instance.OverText();
         }
         if(collision.gameObject.CompareTag("GeneralWaste"))
         {
