@@ -9,16 +9,18 @@ public class UIm : MonoBehaviour
     public GameObject botomButton;
     public GameObject App;
 
-    public GameObject Imgages;
+    public Image Imgages;
 
     public GameObject character;
 
     public GameObject state;
-    public List<GameObject> Image;
+    public List<Sprite> tutoimage;
+
+    int i =0;
     void Start()
     {
         Invoke("ImageOn", 3f);
-        Imgages.SetActive(false);
+        Imgages.gameObject.SetActive(false);
     }
 
     void Update()
@@ -35,18 +37,18 @@ public class UIm : MonoBehaviour
         App.SetActive(false);
         character.SetActive(false);
         state.SetActive(false);
-        Imgages.SetActive(true);
+        Imgages.gameObject.SetActive(true);
     }
 
     public void OnClickButton()
     {
-        for (int i = 0; i > 17; i++)
+        i++;
+        if(i+2 > tutoimage.Count)
         {
-            Imgages =  Image[i];
-            Debug.Log("1");
-        }
 
         SceneManager.LoadScene("Main");
+        }
+        Imgages.sprite = tutoimage[i];
     }
 
 }
