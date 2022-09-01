@@ -50,7 +50,7 @@ public class UIM : MonoBehaviour
 
     public void OnClickHome()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Main");
     }
 
 
@@ -62,6 +62,6 @@ public class UIM : MonoBehaviour
     public void OnClickReStart()
     {
         overPanel.SetActive(false);
-        Time.timeScale = 1;
+        SceneManager.LoadScene("STUDYGame");
     }
 }
