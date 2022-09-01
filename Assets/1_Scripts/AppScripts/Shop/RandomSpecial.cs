@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RandomSpecial : MonoBehaviour
 {
     [SerializeField, Header("Ω∫∆‰º»æ∆¿Ã≈€ ∞πºˆ")]
-    int specialItemCnt = 2;
+    int specialItemCnt;
 
     [SerializeField]
     Text priceText;

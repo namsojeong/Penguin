@@ -40,9 +40,9 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("SaveToJson", 1f, 60f);
         }
 
+            ResetVal();
         if (CurrentUser.isFirst)
         {
-            ResetVal();
             CurrentUser.isFirst = false;
         }
         DontDestroyOnLoad(gameObject);
@@ -227,14 +227,14 @@ public class GameManager : MonoBehaviour
             Item currentGlassItem = new Item();
             currentGlassItem.name = "어때 나 좀 지적인가?";
             currentGlassItem.index = 1;
-            currentGlassItem.price = 2000;
+            currentGlassItem.price = 1000;
             currentGlassItem.isHave = false;
             currentGlassItem.isGet = false;
             CurrentUser.items.Add(currentGlassItem);
             Item currentBeremoItem = new Item();
             currentBeremoItem.name = "예술가의 상징";
             currentBeremoItem.index = 2;
-            currentBeremoItem.price = 2000;
+            currentBeremoItem.price = 1000;
             currentBeremoItem.isHave = false;
             currentBeremoItem.isGet = false;
             CurrentUser.items.Add(currentBeremoItem);
@@ -244,18 +244,25 @@ public class GameManager : MonoBehaviour
         {
             CurrentUser.specialItems.Clear();
             SpecialItem specialDress = new SpecialItem();
-            specialDress.name = "공주님 드레스";
+            specialDress.name = "천사세트";
             specialDress.index = 0;
             specialDress.isHave = false;
             specialDress.isGet = false;
             CurrentUser.specialItems.Add(specialDress);
             
-            SpecialItem muscleItem = new SpecialItem();
-            muscleItem.name = "근육 짱짱맨";
-            muscleItem.index = 0;
-            muscleItem.isHave = false;
-            muscleItem.isGet = false;
-            CurrentUser.specialItems.Add(muscleItem);
+            SpecialItem babyItem = new SpecialItem();
+            babyItem.name = "응애 나 애기펭찌";
+            babyItem.index = 0;
+            babyItem.isHave = false;
+            babyItem.isGet = false;
+            CurrentUser.specialItems.Add(babyItem);
+            
+            SpecialItem catItem = new SpecialItem();
+            catItem.name = "야옹이세트";
+            catItem.index = 0;
+            catItem.isHave = false;
+            catItem.isGet = false;
+            CurrentUser.specialItems.Add(catItem);
             
         }
 
