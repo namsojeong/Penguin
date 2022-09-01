@@ -116,5 +116,8 @@ public class Charm_GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
 
+        Destroy(enemyCroissant);
+        Destroy(enemyHotdog);
+
     }
 }
