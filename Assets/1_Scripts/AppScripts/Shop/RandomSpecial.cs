@@ -143,4 +143,6 @@ public class RandomSpecial : MonoBehaviour
         GameManager.instance.PlusCoin(10000);
         allParticle.Play();
     }
+
+ 
 }
