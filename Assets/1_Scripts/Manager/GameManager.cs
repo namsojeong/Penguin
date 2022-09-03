@@ -40,10 +40,10 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("SaveToJson", 1f, 60f);
         }
 
-            ResetVal();
         if (CurrentUser.isFirst)
         {
             CurrentUser.isFirst = false;
+            ResetVal();
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -188,7 +188,8 @@ public class GameManager : MonoBehaviour
     private void GoEnding(AbilityE ability)
     {
         ResetVal();
-        SceneM.instance.ChangeScene("End"+ability);
+        eventParam.abilityParam = ability;
+        EventManager.TriggerEvent("GoEnding", eventParam);
     }
 
     public void ResetVal()
