@@ -34,6 +34,7 @@ public class Charm_PlayerMove : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         gameManager = FindObjectOfType<Charm_GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(Fire());
