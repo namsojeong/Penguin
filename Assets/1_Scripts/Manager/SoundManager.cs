@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance; 
+    public static SoundManager instance;
 
 
     [SerializeField]
@@ -15,11 +15,11 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioClickSource;
     [SerializeField]
     private AudioSource audioPhoneUISource;
-    
+
     [SerializeField] AudioClip clickClip;
     [SerializeField] AudioClip bgmClip;
     [SerializeField] AudioClip waterClikClip;
-    
+
     [SerializeField]
     private AudioClip[] sfx;
 
@@ -56,6 +56,12 @@ public class SoundManager : MonoBehaviour
     {
         audioClickSource.Stop();
         audioClickSource.Play();
+    }
+
+    public void SoundEffect()
+    {
+        audioSFXSource.Stop();
+        audioSFXSource.Play();
     }
 
 }
