@@ -25,6 +25,14 @@ public class Charm_PlayerMove : MonoBehaviour
 
     public SpriteRenderer background;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+
     public int AttackLevel
     {
         set => attackLevel = Mathf.Clamp(value, 1, maxAttackLevel);
@@ -71,11 +79,13 @@ public class Charm_PlayerMove : MonoBehaviour
             case 1 :
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 background.material.color = new Color(0.3f, 0.4f, 0.4f, 2f);
+                animator.SetBool("Love", false);
                 break;
             case 2 :
                 Instantiate(bulletPrefab, transform.position + Vector3.left * 0.2f, Quaternion.identity);
                 Instantiate(bulletPrefab, transform.position + Vector3.right * 0.2f, Quaternion.identity);
                 ps.Emit(1);
+                animator.SetBool("Love", true);
 
                 background.material.color = new Color(0.3f, 0.4f, 0.4f, 2.5f);
 

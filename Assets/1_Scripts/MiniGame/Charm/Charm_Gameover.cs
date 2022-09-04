@@ -14,9 +14,6 @@ public class Charm_Gameover : MonoBehaviour
         Restart.onClick.AddListener(Restart2);
         Main.onClick.AddListener(Main2);
 
-
-
-
     }
 
     void Update()
