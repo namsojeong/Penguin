@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
     }
+    
 
     // CALLING
     public void CallBell()
@@ -79,4 +81,12 @@ public class SoundManager : MonoBehaviour
         audioClickSource.Play();
     }
 
+    public void Soundeffect()
+    {
+        audioSFXSource.Stop();
+        audioSFXSource.Play();
+    }
+
+
+   
 }
