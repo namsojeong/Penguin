@@ -7,6 +7,12 @@ public class SwitchButtonScripts : MonoBehaviour
 {
     [SerializeField]
     int num;
+    [Header("성공 실패 시 시간")]
+    [SerializeField]
+    int correctTime;
+    [SerializeField]
+    int failTime;
+
     [SerializeField]
     float offTime = 5;
 
@@ -67,12 +73,12 @@ public class SwitchButtonScripts : MonoBehaviour
     void Correct()
     {
         SwitchOffGame.Instance().ScoreUp(20);
-        SwitchOffGame.Instance().TimeDown(-5);
+        SwitchOffGame.Instance().TimeDown(correctTime);
     }
     // 실패
     void Fail()
     {
-            SwitchOffGame.Instance().TimeDown(30);
+            SwitchOffGame.Instance().TimeDown(failTime);
     }
 
     // 클릭 이펙트

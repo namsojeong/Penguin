@@ -57,13 +57,15 @@ public class SwitchOffGame : MonoBehaviour
     float maxTime;
     [SerializeField, Header("Def Gage")]
     float curTime;
+    
 
     [SerializeField, Header("스위치 갯수")]
     int switchConut;
-    int onCnt = 0;
-    int minusTimeVal = 5;
+    [SerializeField, Header("시간 줄어드는 정도")]
+    float minusTimeVal;
 
    float level=1;
+    int onCnt = 0;
      int score;
      int bestScore;
 
@@ -120,7 +122,6 @@ public class SwitchOffGame : MonoBehaviour
     {
         timeSlider.fillAmount = Mathf.Lerp(timeSlider.fillAmount, curTime / maxTime, slideSpeed*Time.deltaTime);
         if (timeSlider.fillAmount <= 0) EndGame();
-        else if (timeSlider.fillAmount > 1) curTime = 1; 
     }
 
     // Score, Slider value Change
@@ -129,7 +130,7 @@ public class SwitchOffGame : MonoBehaviour
         score += v;
         if(score%200==0)
         {
-            level += 1;
+            LevelUp();
         }
         if (bestScore < score)
         {
@@ -140,6 +141,7 @@ public class SwitchOffGame : MonoBehaviour
     public void TimeDown(int v)
     {
         curTime -= v;
+        if(curTime>maxTime) curTime = maxTime; 
     }
 
     // 시간 슬라이더 계속 줄이기
@@ -177,8 +179,8 @@ public class SwitchOffGame : MonoBehaviour
     // 난이도 올리기
     void LevelUp()
     {
-        level += 1f;
-        minusTimeVal += 1;
+        level += 0.1f;
+        minusTimeVal += 0.3f;
     }
 
     // 게임 오버 함수

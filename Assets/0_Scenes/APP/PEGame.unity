@@ -554,6 +554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 4
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -1793,6 +1795,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 2
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -2581,6 +2585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 1
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -2627,6 +2633,7 @@ MonoBehaviour:
   maxTime: 100
   curTime: 100
   switchConut: 8
+  minusTimeVal: 3.5
 --- !u!4 &676274882
 Transform:
   m_ObjectHideFlags: 0
@@ -4016,6 +4023,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 7
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -4184,6 +4193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 6
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -5416,6 +5427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 5
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -7226,6 +7239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 0
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
@@ -7319,6 +7334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 3
+  correctTime: -15
+  failTime: 25
   offTime: 5
   failEffect: {fileID: 1292258429}
   correctEffect: {fileID: 907809548}
