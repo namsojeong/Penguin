@@ -18,10 +18,10 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyCroissant;
     [SerializeField]
     private GameObject enemyHotdog;
-    [SerializeField]
-    private GameObject gameoverPannel;
-    [SerializeField]
-    private Button gameoverButton;
+   // [SerializeField]
+    //private GameObject gameoverPannel;
+    //[SerializeField]
+   // private Button gameoverButton;
 
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
@@ -32,7 +32,7 @@ public class Charm_GameManager : MonoBehaviour
 
     void Awake()
     {
-        gameoverButton.onClick.AddListener(GameOver);
+      //  gameoverButton.onClick.AddListener(GameOver);
 
         minPosition = new Vector2(-2f, -4f);
         maxPosition = new Vector2(2f, 4f);
@@ -52,7 +52,8 @@ public class Charm_GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
 
-            gameoverPannel.SetActive(true);
+            SceneManager.LoadScene("CHARMGame_2_over");
+            // gameoverPannel.SetActive(true);
         }
 
         UpdateUI();

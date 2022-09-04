@@ -17,7 +17,6 @@ public class Charm_Item : MonoBehaviour
         movement2D = GetComponent<Charm_Movement2D>();
 
         Destroy(gameObject, 2);
-       
     }
 
     private void Update()

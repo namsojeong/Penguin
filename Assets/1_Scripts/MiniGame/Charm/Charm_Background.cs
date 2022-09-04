@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Charm_Background : MonoBehaviour
 {
-    private MeshRenderer renderer;
+    private MeshRenderer meshrenderer;
 
     private float speed=0.05f;
     private float offset;
 
     void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
+        meshrenderer = GetComponent<MeshRenderer>();
     }
 
     void Update()
     {
         offset += Time.deltaTime * speed;
-        renderer.material.mainTextureOffset = new Vector2(0, offset);
+        meshrenderer.material.mainTextureOffset = new Vector2(0, offset);
     }
 }
