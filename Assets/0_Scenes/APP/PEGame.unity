@@ -761,9 +761,6 @@ MonoBehaviour:
   audioSFXSource: {fileID: 372046107}
   audioClickSource: {fileID: 1749423787}
   audioPhoneUISource: {fileID: 0}
-  callbell: {fileID: 0}
-  callok: {fileID: 0}
-  callno: {fileID: 0}
   clickClip: {fileID: 8300000, guid: d7f1efa04aaff6d4eaff29af3b810f8a, type: 3}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 0}
@@ -1090,7 +1087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &339124181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2180,7 +2177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &577324972
 RectTransform:
   m_ObjectHideFlags: 0

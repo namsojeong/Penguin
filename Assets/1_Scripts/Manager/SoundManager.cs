@@ -16,13 +16,6 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioClickSource;
     [SerializeField]
     private AudioSource audioPhoneUISource;
-
-    [SerializeField]
-    private AudioClip callbell;
-    [SerializeField]
-    private AudioClip callok;
-    [SerializeField]
-    private AudioClip callno;
     
     [SerializeField] AudioClip clickClip;
     [SerializeField] AudioClip bgmClip;
@@ -36,20 +29,6 @@ public class SoundManager : MonoBehaviour
         instance = this;
     }
     
-
-    // CALLING
-    public void CallBell()
-    {
-        SFXPlay(callbell);
-    }
-    public void CallOK()
-    {
-        SFXPlay(callok);
-    }
-    public void CallNO()
-    {
-        SFXPlay(callno);
-    }
 
 
     public void PhoneUISound()
