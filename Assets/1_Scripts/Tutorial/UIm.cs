@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UIm : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource clickSource;
 
     public GameObject botomButton;
     public GameObject App;
@@ -23,12 +25,6 @@ public class UIm : MonoBehaviour
         Imgages.gameObject.SetActive(false);
     }
 
-    void Update()
-    {
-        
-    }
-
-
     private void ImageOn()
     {
         Debug.Log("d");
@@ -42,6 +38,7 @@ public class UIm : MonoBehaviour
 
     public void OnClickButton()
     {
+        ClickPassSound();
         i++;
         if(i+2 > tutoimage.Count)
         {
@@ -51,4 +48,9 @@ public class UIm : MonoBehaviour
         Imgages.sprite = tutoimage[i];
     }
 
+
+    public void ClickPassSound()
+    {
+        clickSource.Play();
+    }
 }
