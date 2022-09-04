@@ -35,6 +35,7 @@ public class OpenInventory : MonoBehaviour
         //½ºÆä¼È
         haveSpecialButton[0].onClick.AddListener(() => ClikWearSpecial(0));
         haveSpecialButton[1].onClick.AddListener(() => ClikWearSpecial(1));
+        haveSpecialButton[2].onClick.AddListener(() => ClikWearSpecial(2));
 
     }
 
@@ -72,7 +73,7 @@ public class OpenInventory : MonoBehaviour
     }
     void CheckHaveSpecialItem()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             sItemButton[i].SetActive(GameManager.instance.CurrentUser.specialItems[i].isGet);
             if (GameManager.instance.CurrentUser.specialItems[i].isGet)
