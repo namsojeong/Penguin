@@ -252,8 +252,6 @@ public class MessageTest : MonoBehaviour
         nextButton1.onClick.AddListener(Chatting2);
 
         // Chatting2();
-
-       
     }
 
     void reNextButton1true()
@@ -360,9 +358,6 @@ public class MessageTest : MonoBehaviour
         _chat6.SetActive(true);
 
        
-
-        
-
         Invoke("MesaggeFinish", 1);
     }
 
@@ -385,11 +380,6 @@ public class MessageTest : MonoBehaviour
 
     }
 
-
-    private void Update()
-    {
-
-    }
 }
 
 

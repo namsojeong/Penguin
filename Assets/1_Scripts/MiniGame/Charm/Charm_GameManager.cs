@@ -18,10 +18,10 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyCroissant;
     [SerializeField]
     private GameObject enemyHotdog;
-    [SerializeField]
-    private GameObject gameoverPannel;
-    [SerializeField]
-    private Button gameoverButton;
+   // [SerializeField]
+    //private GameObject gameoverPannel;
+    //[SerializeField]
+   // private Button gameoverButton;
 
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
@@ -32,14 +32,14 @@ public class Charm_GameManager : MonoBehaviour
 
     void Awake()
     {
-        gameoverButton.onClick.AddListener(GameOver);
+      //  gameoverButton.onClick.AddListener(GameOver);
 
         minPosition = new Vector2(-2f, -4f);
         maxPosition = new Vector2(2f, 4f);
 
         poolManager = FindObjectOfType<Charm_PoolManager>();
 
-      //  StartCoroutine(SpawnCroissant());
+        StartCoroutine(SpawnCroissant());
         StartCoroutine(SpawnHotdog());
         highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
         UpdateUI();
@@ -52,7 +52,8 @@ public class Charm_GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
 
-            gameoverPannel.SetActive(true);
+            SceneManager.LoadScene("CHARMGame_2_over");
+            // gameoverPannel.SetActive(true);
         }
 
         UpdateUI();
@@ -76,21 +77,21 @@ public class Charm_GameManager : MonoBehaviour
         // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
 
-    //private IEnumerator SpawnCroissant()
-    //{
-    //    float randomX = 0f;
-    //    float randomDelay = 0f;
+    private IEnumerator SpawnCroissant()
+    {
+        float randomX = 0f;
+        float randomDelay = 0f;
 
-    //    while (true)
-    //    {
-    //        randomX = Random.Range(-2f, 2f);
-    //        randomDelay = Random.Range(0f, 1f);
+        while (true)
+        {
+            randomX = Random.Range(-2f, 2f);
+            randomDelay = Random.Range(0f, 1f);
 
-    //        Instantiate(enemyCroissant, new Vector2(randomX, 6f), Quaternion.identity);
+            Instantiate(enemyCroissant, new Vector2(randomX, 6f), Quaternion.identity);
 
-    //        yield return new WaitForSeconds(0.2f + randomDelay);
-    //    }
-    //}
+            yield return new WaitForSeconds(0.2f + randomDelay);
+        }
+    }
 
     private IEnumerator SpawnHotdog()
     {
@@ -115,6 +116,9 @@ public class Charm_GameManager : MonoBehaviour
     void GameOver()
     {
         SceneManager.LoadScene("Main");
+
+        Destroy(enemyCroissant);
+        Destroy(enemyHotdog);
 
     }
 }

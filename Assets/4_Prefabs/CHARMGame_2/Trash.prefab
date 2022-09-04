@@ -145,7 +145,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 100004, guid: fb7b0526ade434043b350a180d741cf3, type: 3}
   explosionPrefab2: {fileID: 1750940742320366, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
   mysfx: {fileID: 3784342393431142447}
-  paperSound: {fileID: 8300000, guid: 5e1533796ce15db42855eabd319fa927, type: 3}
+  sound: {fileID: 8300000, guid: a0e736d3ebc409246a442594282f2aa9, type: 3}
 --- !u!114 &-2210750632508695200
 MonoBehaviour:
   m_ObjectHideFlags: 0
