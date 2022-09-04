@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 public class Charm_GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Text scoreText = null;
+    public Text scoreText = null;
+
+    public static int saveScore ;
+
     [SerializeField]
     private Text highScoreText = null;
     [SerializeField]
@@ -18,11 +21,7 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyCroissant;
     [SerializeField]
     private GameObject enemyHotdog;
-   // [SerializeField]
-    //private GameObject gameoverPannel;
-    //[SerializeField]
-   // private Button gameoverButton;
-
+   
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
     public Charm_PoolManager poolManager { get; private set; }
@@ -32,8 +31,7 @@ public class Charm_GameManager : MonoBehaviour
 
     void Awake()
     {
-      //  gameoverButton.onClick.AddListener(GameOver);
-
+        
         minPosition = new Vector2(-2f, -4f);
         maxPosition = new Vector2(2f, 4f);
 
@@ -41,7 +39,7 @@ public class Charm_GameManager : MonoBehaviour
 
         StartCoroutine(SpawnCroissant());
         StartCoroutine(SpawnHotdog());
-        highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
+        //highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
         UpdateUI();
     }
 
@@ -74,7 +72,10 @@ public class Charm_GameManager : MonoBehaviour
     {
         lifeText.text = string.Format("LIFE : {0}", life);
         scoreText.text = string.Format("{0}", score);
-        // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
+
+        saveScore = score;
+
+       // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
 
     private IEnumerator SpawnCroissant()
