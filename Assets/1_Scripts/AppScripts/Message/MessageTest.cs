@@ -49,6 +49,8 @@ public class MessageTest : MonoBehaviour
 
     public GameObject TimeImg;
 
+    public Button RewardButton;
+
     private void Start()
     {
         StartMessage();
@@ -57,7 +59,7 @@ public class MessageTest : MonoBehaviour
 
     void Restart()
     {
-        StartMessage();
+        RewardButton.onClick.AddListener(StartMessage);
 
     }
 
@@ -83,24 +85,24 @@ public class MessageTest : MonoBehaviour
     void Awake()
     {
         //--첫번째, 잡담--
-        messages_1.Add("오느으른.. 펭찌의 기부니 좋앙!!><");
-        messages_1.Add("(꼬르륵) 갑자기 ㅈ좀 배고푸지 아나? 힛");
+        messages_1.Add("오느으른.. 펭찌의 기부니 조앙!!><");
+        messages_1.Add("갑자기 ㅈ좀 배고푸지 아나? 힛");
         messages_1.Add("나 갑짜기 빙판에서ㅓ 뒤뚱 거리고 시퍼졌어!");
         messages_1.Add("잘 잤어? 설마아 펭찌 꿈 꾼고 아니야?!");
-        messages_1.Add("난 단순히 다리 짧은 조류가 아니이라구!");
+        messages_1.Add("난 단순히 다리 짤ㅂ은 조류가 아니이라구!");
         messages_1.Add("이거 비밀인데에 난 쓴맛과 단맛을 느끼지 못한다?!");
-        messages_1.Add("나눈.. 어두운 곳에소도.. 시력이 좋다구우");
+        messages_1.Add("나눈.. 어두운 곳에소도.. 시력이 조타구우");
         messages_1.Add("이따아 펭찌랑 가치 크릴새우 사냥가지 않을랭?");
         messages_1.Add("난 500m 이하의 기픈 바다에서도 헤엄쳐 첨벙~");
-        messages_1.Add("‘레오퍼드바다표범’은 너무 무소워.. 흐아앙");//10
-        messages_1.Add("남극에 있을 때애 범고래가 나는 너무 무서워써..");
+        messages_1.Add("레오퍼드바다표범은 너무 무소워.. 흐아앙");//10
+        messages_1.Add("남극에 있을 때애 범고래가 너무 무서워써..");
         messages_1.Add("아이 냠냠냠~ 나 오늘 맛있는 거 먹어써!");
         messages_1.Add("너가 날 보고 웃어조서 눈이 부신거까??");
         messages_1.Add("감기 조심해야행! 너가ㅏ 아프면 펭찌도 아푸니까..");
-        messages_1.Add("안농ㅇ! 오늘따라 몬가 더 이뽀보이네 히히");
+        messages_1.Add("안농ㅇ! 오늘따라 먼가 더 이뽀보이네 히히");
         messages_1.Add("생선 가게에소 살 수 이따면 얼마나 조을까?");
         messages_1.Add("너 쩡말 별로야! 흥!! 내 마음소게 별ㄹ로,, 크크");
-        messages_1.Add("눈을 감는 시간이 아까오.. 널 보지 모타니까아~~");
+        messages_1.Add("눈을 감는 시간이 아까오.. 널 보지 모타니까아");
         messages_1.Add("손에 그 무ㅜ거운 짐 좀 내려놔아 ‘멋짐' 크크 ");
         messages_1.Add("안ㄴ녕~ 오늘 날씨는 오때앵? 맑았으면 조켔눈대");//20
         messages_1.Add("나 오늘 너 꿈 꾸어따? 크크 부끄럽넹");
@@ -108,7 +110,7 @@ public class MessageTest : MonoBehaviour
         messages_1.Add("먼가 하루 하루 성장하고 이따는 느낌이 드러");
         messages_1.Add("펭찌는 멸종 위기종인건 알고 이찌..? 흑흑 슬푸다");
         messages_1.Add("펭찌 첫사랑이 누구냐구..? 바로 지구야!!");
-        messages_1.Add("응? 내 키가 짜가보인다구? 내 키는 무려 60cm라구!");
+        messages_1.Add("응? 펭찌 키가 짜가보인다구? 내 키는 무려 60cm라구!");
         messages_1.Add("너도 환경 운동 함께하자! 그럼 지구가 더 깨끗해지꺼야!");
         messages_1.Add("내가 따랑하는 지구는 둥글지롱~ 둥글둥글~ ");
         messages_1.Add("4월 25일은 무슨 날이게~ 바로오 세계 펭귄의 날이야! ");
@@ -141,7 +143,7 @@ public class MessageTest : MonoBehaviour
 
         //--세번째, 환경 상식 설명--
        
-        messages_3.Add("커피 한 잔울 버리면 마리야? 깨끗하개 만들기 위해");
+        messages_3.Add("커피 한 잔 버리면 마리야 깨끗하개 만들기 위해!");
         messages_3.Add("모오~든 사람들이 음식쑤레기를 절반만 줄여두");
         messages_3.Add("일회용품은 정말 쓰지 마라야게써!");
         messages_3.Add("음식물 쑤레기를 절약하는 것두 중요해");
@@ -150,7 +152,7 @@ public class MessageTest : MonoBehaviour
         messages_3.Add("사용하지 않눈 전등은 모두 모두 꺼버리자!");
         messages_3.Add("냉장고 문을 열구 닫을 때마다 지구가 아야한대애");
         messages_3.Add("엘레베이터 닫힘 버튼 누르는 걸 줄이는 거또");
-        messages_3.Add("대중교통을 사용하는 것두 마리야..!");
+        messages_3.Add("대중교통을 사용하는 것두 마리야..!"); //10
         messages_3.Add("만약 남극의 얼음이 모오두 녹아 버린다면?");
         messages_3.Add("펭찌는 부레옥잠을 실제로 한 번 보고시퍼!");
         messages_3.Add("요즘 비닐봉투를 많이 사용하지 아나?");
@@ -160,24 +162,24 @@ public class MessageTest : MonoBehaviour
         messages_3.Add("겨울에는 옷을 두껍게 입고 다니는건 잊지 않아찌?");
         messages_3.Add("혹시 나갈 때 급하다구 구냥 나가지마!");
         messages_3.Add("다들 에어컨을 왜 이러케 마니 쓰는고지?");
-        messages_3.Add("컴퓨터를 끄지 않는건 아니겠지?");
+        messages_3.Add("컴퓨터를 끄지 않는건 아니겠지?"); //20
         messages_3.Add("목욕할 때 욕조를 사용하눈 것 보다눈");
         messages_3.Add("뽀득뽀득! 비누칠 할 때는 마리야아");
         messages_3.Add("목욕한 물이 많ㅎ은데 구냥 버릴 때! 아깝지 아나?");
         messages_3.Add("그냥 아무 거나 막 사는 것 보다눈");
         messages_3.Add("어? 혹시 환경마크라는 거 알아? 응? 응??");
-        messages_3.Add("펭찌는 맨날 주머니에 손수건을 가지고 다니지 훗.");
+        messages_3.Add("펭찌는 맨날 주머니에 손수건을 가지고 다니지 훗."); //이거 기준으로 하자
         messages_3.Add("만년필을 사용해보는 건 어떨까아아?");
         messages_3.Add("자동차 경적 소음, 배기 소음을 줄이는거누");
-        messages_3.Add("음식물 쓰레기눈 쓰레기 속에 있는 작은 미생물을 이용해소");
-        messages_3.Add("펄럭펄럭~ 새로운 종이 1톤을 만들기 위해서눈");
+        messages_3.Add("음식물 쓰레기눈 쓰레기 속에 있는 미생물을 이용해소");
+        messages_3.Add("펄럭펄럭~ 새로운 종이 1톤을 만들기 위해서눈"); //30
         messages_3.Add("흙 속에 사는 지렁이, 달팽이와 같은 작은 동물드리");
         messages_3.Add("공기 오염의 가장 큰 이유눈 자동차의 배기가스와");
-        messages_3.Add("우리가 마싯게 먹구 버리는 과자 봉지눈 땅속에서 분해를 시켜야해!");
+        messages_3.Add("우리가 버리는 과자 봉지눈 땅속에서 분해를 시켜야해!");
         messages_3.Add("미세먼지가 심한 날, 콜록콜록 외출을 해야 할 경우에눈");
         messages_3.Add("건전지는 일반쓰레기로 버리면 토양을 오염시키구");
         messages_3.Add("치카치카하는 칫솔은 주기적으로 교체해줘야해");
-        messages_3.Add("플라스틱 빨대는 재활용이 가능할까아아?");
+        messages_3.Add("플라스틱 빨대는 재활용이 가능할까아아?"); //37
 
         //--네번째, 환경 상식에 대한 대답--
         messages_4.Add("응!");
@@ -197,11 +199,11 @@ public class MessageTest : MonoBehaviour
         messages_5.Add("그럼 지구가 방긋방긋 웃을 수 이뚤거야!");
         messages_5.Add("쪼오금씩만 줄여보는게 어떨까아아?");
         messages_5.Add("전기를 조금이라두 아낄 수 있는 방법이래");
-        messages_5.Add("대기 오염 배출을 줄일 수 있는 방법이라는 건 알구 이찌?");
-        messages_5.Add("도시나 낮은 평야는 모두 물 속에 잠겨 버리게 될꼬야");
-        messages_5.Add("부레옥잠은 살아있는 수질 정화장치라니! 너무 신기하지!");
+        messages_5.Add("대기 오염 배출을 줄일 수 있는 방법이양");
+        messages_5.Add("도시나 낮은 평야는 모두 물 속에 잠기게 될꼬야");
+        messages_5.Add("부레옥잠은 살아있는 수질 정화장치라니! 신기하지?");
         messages_5.Add("그보다 에코백을 사용하면 지구를 지킬 수 이써!");
-        messages_5.Add("대기오염 물질이랑 인공 불빛이 먼지층에 반사되어서 안 보이눈고야");
+        messages_5.Add("대기오염 물질이랑 인공 불빛이 먼지층에 반사되어소 구래");
         messages_5.Add("평화 목적에만 이용한다는 조약이야! 너무 행보케");
         messages_5.Add("물건을 아껴쓰는 습관을 길러보자구우우!");
         messages_5.Add("그리고 난방을 줄이고 실내 온도를 낮추우어보눈고야");
@@ -214,7 +216,7 @@ public class MessageTest : MonoBehaviour
         messages_5.Add("환경 친화적인 상품을 구매하는게 지구에게 더 좋겠지?");
         messages_5.Add("이왕 사는거 환경 마크가 붙어있는 상품을 이용하자");
         messages_5.Add("휴지에 대한 나의 작은 매너라까?");
-        messages_5.Add("왠지 만년필을 사용하는 사람은 멋진듯 크크.. 반하는 건 아니구");
+        messages_5.Add("왠지 만년필을 사용하는 사람은 멋진듯 크크.. ");
         messages_5.Add("소음 공해를 막을 수 있눈 저은 방법이지 후후");
         messages_5.Add("친환경 가스나 퇴비를 만드는 데 재활용할 수 이써");
         messages_5.Add("나무 24그루, 물 86톤이 피료하다니 믿을 수 업따구!");
@@ -278,7 +280,7 @@ public class MessageTest : MonoBehaviour
     void Chatting2() //잡담대답
     {
        
-        RandomNum1 = Random.Range(0, 2);
+        RandomNum1 = Random.Range(0, 5);
 
 
         chat2.text = string.Format(messages_2[RandomNum1]);
@@ -298,7 +300,7 @@ public class MessageTest : MonoBehaviour
 
         set2.GetComponent<MessageTime>().enabled = false;
 
-        RandomNum2 = Random.Range(0, 5);
+        RandomNum2 = Random.Range(0, 36);
 
         chat3.text = string.Format(messages_3[RandomNum2]);
 
@@ -321,7 +323,7 @@ public class MessageTest : MonoBehaviour
     {
         TimeImg.SetActive(true);
 
-        RandomNum3 = Random.Range(0, 2);
+        RandomNum3 = Random.Range(0, 5);
 
         chat4.text = string.Format(messages_4[RandomNum3]);
 
@@ -339,7 +341,7 @@ public class MessageTest : MonoBehaviour
 
         set2.GetComponent<MessageTime>().enabled = false;
 
-        RandomNum4 = Random.Range(0, 2);
+       // RandomNum4 = Random.Range(0, 2);
 
         chat5.text = string.Format(messages_5[RandomNum2]);
 
@@ -351,7 +353,7 @@ public class MessageTest : MonoBehaviour
     void Chatting6() //환경상식 대답
     {
 
-        RandomNum5 = Random.Range(0, 2);
+        RandomNum5 = Random.Range(0, 8);
 
         chat6.text = string.Format(messages_6[RandomNum5]);
 

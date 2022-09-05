@@ -41,25 +41,25 @@ public class MessageTime : MonoBehaviour
     }
 
     
-    public void AddRemainingtime()
-    {
-        countdownMinutes = 1;
-    }
+    //public void AddRemainingtime()
+    //{
+    //    countdownMinutes = 1;
+    //}
 
-    public void Remainingtime_True()
-    {
-        remainingtime.color = new Color(remainingtime.color.r, remainingtime.color.g, remainingtime.color.b, 1);
+    //public void Remainingtime_True()
+    //{
+    //    remainingtime.color = new Color(remainingtime.color.r, remainingtime.color.g, remainingtime.color.b, 1);
 
-    }
+    //}
 
-    public void Remainingtime_False()
-    {
+    //public void Remainingtime_False()
+    //{
 
 
-        remainingtime.color = new Color(remainingtime.color.r, remainingtime.color.g, remainingtime.color.b, 0);
+    //    remainingtime.color = new Color(remainingtime.color.r, remainingtime.color.g, remainingtime.color.b, 0);
 
      
-    }
+    //}
 
     private void Start()
     {
