@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     private string SAVE_PATH = "";
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
 
+    //메세지 타임 저장하기 위한 변수
+    public float MessageTime;
+
     int lastDay = 25;
     EventParam eventParam = new EventParam();
 
@@ -71,6 +74,8 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
         PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
 
+        //메세지
+        PlayerPrefs.SetFloat("SaveMessageTime", );
     }
 
     //종료 시 저장

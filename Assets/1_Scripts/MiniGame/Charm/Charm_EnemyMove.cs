@@ -148,12 +148,10 @@ public class Charm_EnemyMove : MonoBehaviour
     {
         int spawnItem = Random.Range(0, 100);
 
-       
             if (spawnItem < 100)
             {
                
             }
-        
     }
 
     private void FixedUpdate()
@@ -174,6 +172,5 @@ public class Charm_EnemyMove : MonoBehaviour
     {
         transform.SetParent(gameManager.poolManager.transform, false);
         gameObject.SetActive(false);
-
     }
 }

@@ -84,6 +84,8 @@ public class MessageTest : MonoBehaviour
 
     void Awake()
     {
+        
+
         //--첫번째, 잡담--
         messages_1.Add("오느으른.. 펭찌의 기부니 조앙!!><");
         messages_1.Add("갑자기 ㅈ좀 배고푸지 아나? 힛");
@@ -378,8 +380,6 @@ public class MessageTest : MonoBehaviour
         _chat6.SetActive(false);
 
         Restart();
-
-
     }
 
 }
