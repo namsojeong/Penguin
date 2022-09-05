@@ -106,7 +106,7 @@ public class StudyM : MonoBehaviour
         }
         textScore.text = string.Format("SCORE: {0}", score);
         textHighScore.text = string.Format("HIGHSCORE: {0}", highScore);
-
+        PlayerPrefs.SetInt("HIGHSCORE: ", highScore);
 
     }
 

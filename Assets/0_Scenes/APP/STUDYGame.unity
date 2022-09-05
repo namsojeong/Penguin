@@ -2432,7 +2432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1377985103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3758,9 +3758,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPoolData:
-    prefabs: []
+    prefabs:
+    - {fileID: 3434444416387390170, guid: 00c3691864b7b864bbe0dbc51ad700d0, type: 3}
+    - {fileID: 8020952026684132868, guid: 324e324b05e78f542aa8ffa35bd04ef9, type: 3}
+    - {fileID: 236472833609473532, guid: 96fcca64d8b151040b7ac33986e3b2b9, type: 3}
     prefabsCounts: 
-  objectPool: {fileID: 0}
+  objectPool: {fileID: 1869221316}
 --- !u!4 &1869221318
 Transform:
   m_ObjectHideFlags: 0
@@ -4478,9 +4481,6 @@ MonoBehaviour:
   audioSFXSource: {fileID: 1329774520}
   audioClickSource: {fileID: 177310722}
   audioPhoneUISource: {fileID: 0}
-  callbell: {fileID: 0}
-  callok: {fileID: 0}
-  callno: {fileID: 0}
   clickClip: {fileID: 0}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 0}
