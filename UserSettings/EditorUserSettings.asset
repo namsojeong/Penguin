@@ -5,56 +5,6 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
-    RecentlyUsedScenePath-0:
-      value: 224247031146460b323d0f271e264c5f33191c23222f6903382a1e36f1f37b1dece315c1c60812722c0ce6281d
-      flags: 0
-    RecentlyUsedScenePath-1:
-      value: 224247031146460b323d0f271e264c5f33191c23222f6903382a1e36f1f37b1dece306cca92f31352d1b
-      flags: 0
-    RecentlyUsedScenePath-2:
-      value: 224247031146460b323d0f271e264c5f33191c23222f6903382a1e36f1f37b1dece305ddd21e06722c0ce6281d
-      flags: 0
-    RecentlyUsedScenePath-3:
-<<<<<<< HEAD
-      value: 224247031146460b323d0f271e264c5f372728651f1c1314140e1c3ee7ae2136ebf32f
-      flags: 0
-    RecentlyUsedScenePath-4:
-      value: 224247031146460b323d0f271e264c5f372728650d1a12172c24187df7ee3d2cfb
-      flags: 0
-    RecentlyUsedScenePath-5:
-      value: 224247031146460b323d0f271e264c5f372728651c0d0131202c5326ece92021
-      flags: 0
-    RecentlyUsedScenePath-6:
-      value: 224247031146460b323d0f271e264c5f372728650f000702000e1c3ee7ae2136ebf32f
-      flags: 0
-    RecentlyUsedScenePath-7:
-      value: 224247031146460b323d0f271e264c5f372728650f000702000e1c3ee7df6676f7e93ffdfe
-=======
-      value: 224247031146460b323d0f271e264c5f372728650f000702000e1c3ee7ae2136ebf32f
-      flags: 0
-    RecentlyUsedScenePath-4:
-      value: 224247031146460b323d0f271e264c5f39011d38623d28393930
-      flags: 0
-    RecentlyUsedScenePath-5:
-      value: 224247031146460b323d0f271e264c5f3b161124623d28393930
-      flags: 0
-    RecentlyUsedScenePath-6:
-      value: 224247031146460b323d0f271e264c5f02020c253e21273c633c133af6f9
-      flags: 0
-    RecentlyUsedScenePath-7:
-      value: 224247031146460b323d0f271e264c5f372728651c0d0131202c5326ece92021
->>>>>>> main
-      flags: 0
-    RecentlyUsedScenePath-8:
-      value: 224247031146460b323d0f271e264c5f372728650f000702000e1c3ee7df6607edf133fba92f31352d1b
-      flags: 0
-    RecentlyUsedScenePath-9:
-<<<<<<< HEAD
-      value: 224247031146460b323d0f271e264c5f3b161124623d28393930
-=======
-      value: 224247031146460b323d0f271e264c5f372728650f000702000e1c3ee7df6676f7e93ffdfe
->>>>>>> main
-      flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0

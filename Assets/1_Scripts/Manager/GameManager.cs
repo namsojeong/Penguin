@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
 
         //메세지
-        PlayerPrefs.SetFloat("SaveMessageTime", );
+       // PlayerPrefs.SetFloat("SaveMessageTime", );
     }
 
     //종료 시 저장
