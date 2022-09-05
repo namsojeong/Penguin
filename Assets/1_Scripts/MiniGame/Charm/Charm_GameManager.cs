@@ -21,6 +21,8 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyCroissant;
     [SerializeField]
     private GameObject enemyHotdog;
+    [SerializeField]
+    private GameObject overPanel;
    
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
@@ -29,17 +31,23 @@ public class Charm_GameManager : MonoBehaviour
     private int score = 0;
     private int highScore = 0;
 
+    EventParam eventParam = new EventParam();
+
     void Awake()
     {
-        
+        poolManager = FindObjectOfType<Charm_PoolManager>();
+    }
+
+    private void OnEnable()
+    {
         minPosition = new Vector2(-2f, -4f);
         maxPosition = new Vector2(2f, 4f);
 
-        poolManager = FindObjectOfType<Charm_PoolManager>();
-
         StartCoroutine(SpawnCroissant());
         StartCoroutine(SpawnHotdog());
-        //highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
+
+        highScore = PlayerPrefs.GetInt("HIGHSCORE_CHARM", 0);
+
         UpdateUI();
     }
 
@@ -48,10 +56,12 @@ public class Charm_GameManager : MonoBehaviour
         life--;
         if (life <= 0)
         {
-            Time.timeScale = 0;
-
-            SceneManager.LoadScene("CHARMGame_2_over");
-            // gameoverPannel.SetActive(true);
+            StopAllCoroutines();
+            eventParam.intParam = score;
+            PlayerPrefs.SetInt("HIGHSCORE_CHARM", highScore);
+            PlayerPrefs.SetInt("SCORE_CHARM", score);
+            overPanel.SetActive(true);
+            gameObject.SetActive(false);
         }
 
         UpdateUI();
@@ -63,7 +73,6 @@ public class Charm_GameManager : MonoBehaviour
         if (score > highScore)
         {
             highScore = score;
-            PlayerPrefs.SetInt("HIGHSCORE", score);
         }
         UpdateUI();
     }
@@ -72,8 +81,6 @@ public class Charm_GameManager : MonoBehaviour
     {
         lifeText.text = string.Format("LIFE : {0}", life);
         scoreText.text = string.Format("{0}", score);
-
-        saveScore = score;
 
        // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
@@ -112,14 +119,9 @@ public class Charm_GameManager : MonoBehaviour
         }
     }
 
-
-
-    void GameOver()
+    void ResetGame()
     {
-        SceneManager.LoadScene("Main");
-
-        Destroy(enemyCroissant);
-        Destroy(enemyHotdog);
-
+        
     }
+
 }
