@@ -54,7 +54,9 @@ public class Charm_EnemyMove : MonoBehaviour
 
         if (transform.position.y < gameManager.minPosition.y - 5f)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+
+            DespawnEnemy();
         }
 
         if(countdownSeconds > -5)
@@ -166,5 +168,12 @@ public class Charm_EnemyMove : MonoBehaviour
             Charm_PlayerMove.attackLevel = 2;
         }
      
+    }
+
+    public void DespawnEnemy()
+    {
+        transform.SetParent(gameManager.poolManager.transform, false);
+        gameObject.SetActive(false);
+
     }
 }
