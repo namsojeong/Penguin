@@ -6,28 +6,52 @@ using UnityEngine.SceneManagement;
 
 public class Charm_Gameover : MonoBehaviour
 {
-    public Button Restart;
-    public Button Main;
+    [SerializeField]
+    GameObject manager;
+    [SerializeField]
+    GameObject mainBg;
+
+    [Header("¹öÆ° UI")]
+    [SerializeField]
+    Button restart;
+    [SerializeField]
+    Button main;
+
+    [Header("SCORE UI")]
+    [SerializeField]
+    Text scoreText;
+    [SerializeField]
+    Text highScoreText;
+
+    [SerializeField]
+    GameObject bg;
 
     void Start()
     {
-        Restart.onClick.AddListener(Restart2);
-        Main.onClick.AddListener(Main2);
-
+        restart.onClick.AddListener(()=>RestartButton());
+        main.onClick.AddListener(()=>GoMain());
     }
 
-    void Update()
+    private void OnEnable()
     {
-        
+        UpdateScoreUI();
     }
 
-    void Main2()
+    void RestartButton()
     {
-        SceneManager.LoadScene("Main");
+        mainBg.SetActive(true);
+        manager.SetActive(true);
     }
 
-    void Restart2()
+    void GoMain()
     {
-        SceneManager.LoadScene("CHARMGame_2");
+        SceneM.instance.ChangeScene("Main");
+    }
+
+    void UpdateScoreUI()
+    {
+        bg.SetActive(true);
+        scoreText.text = string.Format($"Score : {PlayerPrefs.GetInt("SCORE_CHARM", 0)}");
+        highScoreText.text = string.Format($"HighScore : {PlayerPrefs.GetInt("HIGHSCORE_CHARM", 0)}");
     }
 }
