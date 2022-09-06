@@ -20792,7 +20792,9 @@ MonoBehaviour:
   yesButton: {fileID: 1060381701213793961}
   breakButton: {fileID: 1060381702999607564}
   callList:
-  - {fileID: 8300000, guid: 42a31d6af87747b42bb2fe5dd0664bfc, type: 3}
+  - {fileID: 8300000, guid: ee77cd1e4b175b74da57a1f0815f54e5, type: 3}
+  - {fileID: 8300000, guid: 2ca4d19430b3be54e896b3f99a29595e, type: 3}
+  - {fileID: 8300000, guid: b0a6821533803234d90a92ac6a98ccfe, type: 3}
   callClickSource: {fileID: 923137091}
   callSource: {fileID: 753030856}
   yesPanel: {fileID: 1060381701953132500}

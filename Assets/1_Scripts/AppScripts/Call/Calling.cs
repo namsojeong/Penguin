@@ -67,6 +67,7 @@ public class Calling : MonoBehaviour
     public void NoCall()
     {
         ShutDownCalling();
+        
     }
 
     // CALLING
