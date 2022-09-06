@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,6 @@ public class GameManager : MonoBehaviour
 
     private string SAVE_PATH = "";
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
-
-    //메세지 타임 저장하기 위한 변수
-    public float MessageTime;
 
     int lastDay = 25;
     EventParam eventParam = new EventParam();
@@ -74,8 +72,14 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
         PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
 
-        //메세지
-       // PlayerPrefs.SetFloat("SaveMessageTime", );
+    }
+
+    void MessageTime()
+    {
+        string lastTime = PlayerPrefs.GetString("SaveLastTime");
+        DateTime lastDateTime = DateTime.Parse(lastTime);
+        TimeSpan conpareTime = DateTime.Now - lastDateTime;
+        CurrentUser.messageTime += (int)conpareTime.TotalSeconds;
     }
 
     //종료 시 저장
@@ -219,6 +223,8 @@ public class GameManager : MonoBehaviour
         CurrentUser.isSpecialAll = false;
         CurrentUser.isTryRan = false;
         CurrentUser.ranPrice = 5000;
+        CurrentUser.messageTime = 0;
+        CurrentUser.messaeging = false;
 
         // 아이템 리셋 
         {
@@ -303,5 +309,20 @@ public class GameManager : MonoBehaviour
         {
             CurrentUser.squidCnt += cnt;
         }
+    }
+
+    public void SetMessageTime(int times)
+    {
+        CurrentUser.messageTime=times;
+    }
+
+    public bool IsMessage()
+    {
+        return CurrentUser.messaeging;
+    }
+
+    public void IsNotMessage(bool bl)
+    {
+        CurrentUser.messaeging = bl;
     }
 }

@@ -63,6 +63,25 @@ public class MessageTest : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        IsState();
+    }
+
+    void IsState()
+    {
+        // 처음 메세지 창 열었을 때 메세지 타이머가 돌아가는 중인지 확인
+        if (GameManager.instance.IsMessage()) // 만약 돌고 있다면?
+        {
+            // 메세지 타이머가 돌아가고 있으면 켜야할 것 꺼야할 것
+        }
+        else
+        {
+            // 메세지 타이머가 돌아가지 않으면 켜야할 것 꺼야할 것
+
+        }
+    }
+
     public void StartMessage()
     {
         _chat1.SetActive(false);
@@ -382,6 +401,11 @@ public class MessageTest : MonoBehaviour
         Restart();
     }
 
+    public void GetBonus()
+    {
+        // 보상 코인
+        GameManager.instance.PlusCoin(100);
+    }
 }
 
 

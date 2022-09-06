@@ -10,29 +10,26 @@ public class MessageTime : MonoBehaviour
     private Text dateText;
 
     public int countdownMinutes = 1;
-    public float countdownSeconds;
+
+    private int time=60;
     [SerializeField]
     private Text remainingtime;
 
     private void OnEnable()
     {
         //countdown 초가 1이라고 저장되어 있다면?
-      //  countdownSeconds = 60;
         GetTime();
     }
 
     public void Update()
     {
-        countdownSeconds -= Time.deltaTime;
-        var span = new TimeSpan(0, 0, (int)countdownSeconds);
-
-        if (countdownSeconds > 0)
-            remainingtime.text = span.ToString(@"mm\:ss") + ("\n이후에 다시 와줘!");
+        Debug.Log(GameManager.instance.CurrentUser.messageTime);
     }
 
     private void Start()
     {
-        countdownSeconds = countdownMinutes * 60;
+        GetLoadTime();
+        InvokeRepeating("GoTime", 1f, 1f);
     }
 
     // 시간 나타내기
@@ -40,5 +37,39 @@ public class MessageTime : MonoBehaviour
     {
         dateText.text = string.Format(DateTime.Now.ToString("M"));
     }
-    
+
+    private void GetLoadTime()
+    {
+        // 남은 시간 가져오기
+        string lastTime = PlayerPrefs.GetString("SaveLastTime");
+        DateTime lastDateTime = DateTime.Parse(lastTime);
+        TimeSpan conpareTime = DateTime.Now - lastDateTime;
+        GameManager.instance.CurrentUser.messageTime -= (int)conpareTime.TotalSeconds;
+        time = GameManager.instance.CurrentUser.messageTime;
+        IsOverTime();
+    }
+
+    void GoTime()
+    {
+        time--;
+        IsOverTime();
+        GameManager.instance.SetMessageTime(time);
+    }
+
+    void IsOverTime()
+    {
+        if (time < 0)
+        {
+            //여기에다 보상 패널 띄워서 보상주는 코드 쓰기
+
+            time = 60;
+            GameManager.instance.IsNotMessage(false);
+            CancelInvoke();
+        }
+        else
+        {
+            GameManager.instance.IsNotMessage(true);
+            remainingtime.text = String.Format($"{time}" + "\n이후에 다시 와줘!");
+        }
+    }
 }
