@@ -30,6 +30,18 @@ public class SwitchButtonScripts : MonoBehaviour
         //SwitchReset();
     }
 
+    private void Start()
+    {
+        EventManager.StartListening("ResetSwitch", ResetSwitch);
+    }
+    private void OnDestroy()
+    {
+        EventManager.StopListening("ResetSwitch", ResetSwitch);
+    }
+    void ResetSwitch(EventParam eventParam)
+    {
+        SwitchReset();
+    }
     void SwitchReset()
     {
         CancelInvoke("No");
@@ -59,15 +71,14 @@ public class SwitchButtonScripts : MonoBehaviour
         if (isOn)
         {
             Correct();
-            SwitchOffGame.Instance().OffCorrectButton(num);
         }
         else
         {
             Fail();
-            SwitchOffGame.Instance().OffButton(num);
         }
         TouchEffect();
         SwitchOff();
+        SwitchOffGame.Instance().OffButton(num);
     }
 
     // ¼º°ø
@@ -103,6 +114,7 @@ public class SwitchButtonScripts : MonoBehaviour
         if (!isOn) return;
         Fail();
         SwitchOff();
+        SwitchOffGame.Instance().OffButton(num);
     }
 
 }
