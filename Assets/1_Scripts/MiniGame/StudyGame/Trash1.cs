@@ -9,12 +9,6 @@ public class Trash1 : MonoBehaviour
 
     private float mVelocity = 0f;
 
-    private PoolManager poolManager;
-
-    private void Awake()
-    {
-        poolManager = GetComponent<PoolManager>();
-    }
 
     void Update()
     {
@@ -31,8 +25,6 @@ public class Trash1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Col")
         {
-            //transform.SetParent(poolManager.transform, false);
-            //gameObject.SetActive(false);
 
 
             Destroy(gameObject);
@@ -42,8 +34,6 @@ public class Trash1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            //transform.SetParent(poolManager.transform, false);
-            //gameObject.SetActive(false);
         }
     }
 
