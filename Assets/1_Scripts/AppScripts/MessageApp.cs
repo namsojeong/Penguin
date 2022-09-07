@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Message
-{
-}
-
 public class MessageApp : MonoBehaviour
 {
     public Dictionary<int, string> messages = new Dictionary<int, string>(); 

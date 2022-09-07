@@ -7,28 +7,36 @@ using System;
 public class MessageTime : MonoBehaviour
 {
     [SerializeField]
+    GameObject rewardPanel;
+
+    [SerializeField]
     private Text dateText;
 
     public int countdownMinutes = 1;
 
-    private int time=60;
+    private int time=5;
+
     [SerializeField]
     private Text remainingtime;
+
 
     private void OnEnable()
     {
         //countdown 초가 1이라고 저장되어 있다면?
+        GetLoadTime();
         GetTime();
     }
-
-    public void Update()
-    {
-        Debug.Log(GameManager.instance.CurrentUser.messageTime);
-    }
-
     private void Start()
     {
-        GetLoadTime();
+        EventManager.StartListening("MessageTimer", StartTimer);
+    }
+    private void OnDestroy()
+    {
+        EventManager.StopListening("MessageTimer", StartTimer);
+    }
+
+    void StartTimer(EventParam eventParam)
+    {
         InvokeRepeating("GoTime", 1f, 1f);
     }
 
@@ -60,9 +68,10 @@ public class MessageTime : MonoBehaviour
     {
         if (time < 0)
         {
+            Debug.Log("보상받아랏");
             //여기에다 보상 패널 띄워서 보상주는 코드 쓰기
-
-            time = 60;
+            rewardPanel.SetActive(true);
+            time = 5;
             GameManager.instance.IsNotMessage(false);
             CancelInvoke();
         }
