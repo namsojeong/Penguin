@@ -23,7 +23,6 @@ public class StudyM : MonoBehaviour
     public Text overScoreT;
 
 
-   // public PoolManager poolManager { get; private set; }
     private void Awake()
     {
         highScore = PlayerPrefs.GetInt("HighScoreStudy", 0);
@@ -35,7 +34,6 @@ public class StudyM : MonoBehaviour
     {
         instance = this;
 
-       // poolManager = FindObjectOfType<PoolManager>();
         StartCoroutine(Difficult());
 
         difficulttext.SetActive(false);
@@ -121,13 +119,7 @@ public class StudyM : MonoBehaviour
 
     }
 
-    public void SaveScore()
-    {
-      //  PlayerPrefs.GetInt("HighScoreStudy", highScore);
-        Debug.Log("D");
-
-    }
-
+ 
     public void OverText()
     {
         overScoreT.text = string.Format("Score " +

@@ -8,11 +8,12 @@ public class PlayerCharacter : MonoBehaviour
     [Header("Player")]
     public int spd;
 
+    [SerializeField]
+    private GameObject paticle;
+    [SerializeField]
+    private GameObject paticleposition;
 
     private Vector2 targetPosition = Vector2.zero;
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -24,10 +25,6 @@ public class PlayerCharacter : MonoBehaviour
             transform.localPosition = Vector2.MoveTowards(transform.localPosition, targetPosition, spd * Time.deltaTime);
         }
     }
-    [SerializeField]
-    private GameObject paticle;
-    [SerializeField]
-    private GameObject paticleposition;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Recyclablewaste"))
@@ -41,7 +38,6 @@ public class PlayerCharacter : MonoBehaviour
         {
             UIM.instance.OverPenel();
             Time.timeScale = 0;
-            StudyM.instance.SaveScore();
         }
 
     }
