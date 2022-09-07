@@ -24,7 +24,10 @@ public class PlayerCharacter : MonoBehaviour
             transform.localPosition = Vector2.MoveTowards(transform.localPosition, targetPosition, spd * Time.deltaTime);
         }
     }
-
+    [SerializeField]
+    private GameObject paticle;
+    [SerializeField]
+    private GameObject paticleposition;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Recyclablewaste"))
@@ -32,7 +35,7 @@ public class PlayerCharacter : MonoBehaviour
             StudyM.instance.AddScore();
             SoundManager.instance.SoundEffect();
             StudyM.instance.OverText();
-       
+            Instantiate(paticle, paticleposition.transform.position, Quaternion.identity);
         }
         if(collision.gameObject.CompareTag("GeneralWaste"))
         {
