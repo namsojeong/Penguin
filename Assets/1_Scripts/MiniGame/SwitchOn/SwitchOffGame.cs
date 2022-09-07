@@ -207,6 +207,11 @@ public class SwitchOffGame : MonoBehaviour
     public void OffButton(int num)
     {
         onCnt--;
+    }
+    
+    public void OffCorrectButton(int num)
+    {
+        onCnt--;
         offswitchs.Add(num);
         RandomSwitch();
     }

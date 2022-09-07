@@ -51,19 +51,20 @@ public class SwitchButtonScripts : MonoBehaviour
         CancelInvoke("No");
         isOn = false;
         switchImage.sprite = SwitchOffGame.Instance().offImage;
-        SwitchOffGame.Instance().OffButton(num);
     }
 
     // 버튼 클릭 시 판단
     public void ClickMe()
     {
-        if(isOn)
+        if (isOn)
         {
             Correct();
+            SwitchOffGame.Instance().OffCorrectButton(num);
         }
         else
         {
             Fail();
+            SwitchOffGame.Instance().OffButton(num);
         }
         TouchEffect();
         SwitchOff();
@@ -78,13 +79,13 @@ public class SwitchButtonScripts : MonoBehaviour
     // 실패
     void Fail()
     {
-            SwitchOffGame.Instance().TimeDown(failTime);
+        SwitchOffGame.Instance().TimeDown(failTime);
     }
 
     // 클릭 이펙트
     void TouchEffect()
     {
-        if(isOn)
+        if (isOn)
         {
             correctEffect.transform.position = transform.position;
             correctEffect.Play();
@@ -95,7 +96,7 @@ public class SwitchButtonScripts : MonoBehaviour
             failEffect.Play();
         }
     }
-    
+
     // 놓쳤을 때
     void No()
     {
