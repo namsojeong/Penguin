@@ -21,8 +21,8 @@ public class Charm_GameManager : MonoBehaviour
     private GameObject enemyCroissant;
     [SerializeField]
     private GameObject enemyHotdog;
-    [SerializeField]
-    private GameObject overPanel;
+    //[SerializeField]
+    //private GameObject overPanel;
    
     public Vector2 minPosition { get; private set; }
     public Vector2 maxPosition { get; private set; }
@@ -60,7 +60,8 @@ public class Charm_GameManager : MonoBehaviour
             eventParam.intParam = score;
             PlayerPrefs.SetInt("HIGHSCORE_CHARM", highScore);
             PlayerPrefs.SetInt("SCORE_CHARM", score);
-            overPanel.SetActive(true);
+            SceneManager.LoadScene("CHARMGame_2_over");
+            // overPanel.SetActive(true);
             gameObject.SetActive(false);
         }
 
@@ -82,7 +83,6 @@ public class Charm_GameManager : MonoBehaviour
         lifeText.text = string.Format("LIFE : {0}", life);
         scoreText.text = string.Format("{0}", score);
 
-       // highScoreText.text = string.Format("HIGHSCORE\n{0}", highScore);
     }
 
     private IEnumerator SpawnCroissant()
@@ -103,7 +103,6 @@ public class Charm_GameManager : MonoBehaviour
 
     private IEnumerator SpawnHotdog()
     {
-      
         float randomX = 0f;
         float randomDelay = 0f;
 

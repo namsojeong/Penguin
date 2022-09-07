@@ -36,8 +36,6 @@ public class Charm_EnemyMove : MonoBehaviour
     public AudioSource mysfx;
     public AudioClip sound;
 
-
-
     protected virtual void Start()
     {
         gameManager = FindObjectOfType<Charm_GameManager>();
@@ -54,8 +52,6 @@ public class Charm_EnemyMove : MonoBehaviour
 
         if (transform.position.y < gameManager.minPosition.y - 5f)
         {
-            //Destroy(gameObject);
-
             DespawnEnemy();
         }
 
@@ -110,19 +106,13 @@ public class Charm_EnemyMove : MonoBehaviour
         //파티클
         Instantiate(explosionPrefab2, transform.position, Quaternion.identity);
         SpawnItem();
-
-
         
-        
-
         //  animator.Play("Explosion");
         yield return new WaitForSeconds(0.5f);
-
 
         Destroy(gameObject);
 
     }
-
 
     //아이템 확률 스폰
     void SpawnItem()
@@ -165,7 +155,6 @@ public class Charm_EnemyMove : MonoBehaviour
         {
             Charm_PlayerMove.attackLevel = 2;
         }
-     
     }
 
     public void DespawnEnemy()

@@ -1564,8 +1564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d91fc6daa738b48816951338dc322c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1499040703}
-  mainBg: {fileID: 2135886644}
   restart: {fileID: 1812574152}
   main: {fileID: 2103358291}
   scoreText: {fileID: 1050400095}
@@ -7174,7 +7172,6 @@ GameObject:
   - component: {fileID: 1143206666}
   - component: {fileID: 1143206665}
   - component: {fileID: 1143206667}
-  - component: {fileID: 1143206668}
   - component: {fileID: 1143206669}
   m_Layer: 5
   m_Name: Player
@@ -7319,21 +7316,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   moveDirection: {x: 0, y: 0, z: 0}
---- !u!111 &1143206668
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143206661}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &1143206669
 Animator:
   serializedVersion: 3
@@ -8302,7 +8284,6 @@ MonoBehaviour:
   life: 3
   enemyCroissant: {fileID: 1509462152236012730, guid: b54d5c1a1ff6f0648a5d8b1407bd6b60, type: 3}
   enemyHotdog: {fileID: 5160120942331897830, guid: 3b98ff841734fb84b9337cbcc8c43275, type: 3}
-  overPanel: {fileID: 788872578}
 --- !u!4 &1499040705
 Transform:
   m_ObjectHideFlags: 0
@@ -8508,7 +8489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1648508832
 MonoBehaviour:
   m_ObjectHideFlags: 0

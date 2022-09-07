@@ -43,6 +43,6 @@ public class Charm_BulletMove : MonoBehaviour
     {
         transform.SetParent(gameManager.poolManager.transform, false);
         gameObject.SetActive(false);
-       
+        //Destroy(gameObject);
     }
 }

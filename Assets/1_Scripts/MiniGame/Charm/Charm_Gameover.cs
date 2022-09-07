@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Charm_Gameover : MonoBehaviour
 {
-    [SerializeField]
-    GameObject manager;
-    [SerializeField]
-    GameObject mainBg;
+   // [SerializeField]
+    //GameObject manager;
+    //[SerializeField]
+    //GameObject mainBg;
 
     [Header("¹öÆ° UI")]
     [SerializeField]
@@ -23,35 +23,53 @@ public class Charm_Gameover : MonoBehaviour
     [SerializeField]
     Text highScoreText;
 
-    [SerializeField]
-    GameObject bg;
+    //[SerializeField]
+    // GameObject bg;
+
+    int scoreT = 0;
+    int highscoreT = 0;
 
     void Start()
     {
+        scoreT = PlayerPrefs.GetInt("SCORE_CHARM", 0);
+        highscoreT = PlayerPrefs.GetInt("HIGHSCORE_CHARM", 0);
+
+        Debug.Log(highscoreT);
+
         restart.onClick.AddListener(()=>RestartButton());
         main.onClick.AddListener(()=>GoMain());
+
+        UpdateScoreUI();
     }
 
     private void OnEnable()
+    {
+       
+    }
+
+    private void Update()
     {
         UpdateScoreUI();
     }
 
     void RestartButton()
     {
-        mainBg.SetActive(true);
-        manager.SetActive(true);
+        //mainBg.SetActive(true);
+        //manager.SetActive(true);
+
+        SceneManager.LoadScene("CHARMGame_2");
     }
 
     void GoMain()
     {
-        SceneM.instance.ChangeScene("Main");
+        //SceneM.instance.ChangeScene("Main");
+        SceneManager.LoadScene("main");
     }
 
     void UpdateScoreUI()
     {
-        bg.SetActive(true);
-        scoreText.text = string.Format($"Score : {PlayerPrefs.GetInt("SCORE_CHARM", 0)}");
-        highScoreText.text = string.Format($"HighScore : {PlayerPrefs.GetInt("HIGHSCORE_CHARM", 0)}");
+       
+        scoreText.text = string.Format($"Score : {scoreT}");
+        highScoreText.text = string.Format($"HighScore : {highscoreT}");
     }
 }
