@@ -34,7 +34,7 @@ public class Trash : MonoBehaviour
             //transform.SetParent(poolManager.transform, false);
             //gameObject.SetActive(false);
             UIM.instance.OverPenel();
-
+            StudyM.instance.SaveScore();
             Time.timeScale = 0;
 
             
