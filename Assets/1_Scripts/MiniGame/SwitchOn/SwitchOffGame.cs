@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -90,6 +91,13 @@ public class SwitchOffGame : MonoBehaviour
             switchButtons.Add(allSwitch.transform.GetChild(i).GetComponent<SwitchButtonScripts>());
             offswitchs.Add(i);
         }
+        score = 0;
+        level = 1;
+        minusTimeVal = 3.5f;
+        bestScore = PlayerPrefs.GetInt("SWITCHBESTSCORE", 0);
+        score = 0;
+        curTime = maxTime;
+        UpdateScore();
     }
 
     // 씬 바꾸기
@@ -199,22 +207,14 @@ public class SwitchOffGame : MonoBehaviour
     // 게임 리셋
     void ResetGame()
     {
-        score = 0;
-        curTime = maxTime;
-        UpdateScore();
+        Init();
     }
 
     public void OffButton(int num)
     {
         onCnt--;
-    }
-    
-    public void OffCorrectButton(int num)
-    {
-        onCnt--;
         offswitchs.Add(num);
         RandomSwitch();
     }
-
-
+    
 }
