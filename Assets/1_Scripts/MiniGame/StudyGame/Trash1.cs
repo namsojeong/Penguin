@@ -42,6 +42,7 @@ public class Trash1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            StudyM.instance.SaveScore();
             //transform.SetParent(poolManager.transform, false);
             //gameObject.SetActive(false);
         }

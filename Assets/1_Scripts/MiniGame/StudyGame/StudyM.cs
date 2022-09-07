@@ -23,12 +23,19 @@ public class StudyM : MonoBehaviour
     public Text overScoreT;
 
 
-    public PoolManager poolManager { get; private set; }
+   // public PoolManager poolManager { get; private set; }
+    private void Awake()
+    {
+        highScore = PlayerPrefs.GetInt("HighScoreStudy", 0);
+
+
+        UpdateUI();
+    }
     void Start()
     {
         instance = this;
 
-        poolManager = FindObjectOfType<PoolManager>();
+       // poolManager = FindObjectOfType<PoolManager>();
         StartCoroutine(Difficult());
 
         difficulttext.SetActive(false);
@@ -93,7 +100,8 @@ public class StudyM : MonoBehaviour
         if (score > highScore)
         {
             highScore = score;
-            PlayerPrefs.SetInt("HIGHSCORE: ", highScore);
+            PlayerPrefs.SetInt("HighScoreStudy", highScore);
+            Debug.Log("a");
         }
         UpdateUI();
     }
@@ -104,9 +112,19 @@ public class StudyM : MonoBehaviour
         {
             score = 0;
         }
+        if(score == 0)
+        {
+        }
         textScore.text = string.Format("SCORE: {0}", score);
-        textHighScore.text = string.Format("HIGHSCORE: {0}", highScore);
-        PlayerPrefs.SetInt("HIGHSCORE: ", highScore);
+        textHighScore.text = string.Format($"HIGHSCORE:{highScore}");
+       
+
+    }
+
+    public void SaveScore()
+    {
+      //  PlayerPrefs.GetInt("HighScoreStudy", highScore);
+        Debug.Log("D");
 
     }
 
@@ -114,6 +132,7 @@ public class StudyM : MonoBehaviour
     {
         overScoreT.text = string.Format("Score " +
             "{0}", score);   
+        textHighScore.text = string.Format($"HIGHSCORE:{highScore}");
     }
    
     public void OnClickRestartButton()

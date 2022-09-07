@@ -32,11 +32,13 @@ public class PlayerCharacter : MonoBehaviour
             StudyM.instance.AddScore();
             SoundManager.instance.SoundEffect();
             StudyM.instance.OverText();
+       
         }
         if(collision.gameObject.CompareTag("GeneralWaste"))
         {
             UIM.instance.OverPenel();
             Time.timeScale = 0;
+            StudyM.instance.SaveScore();
         }
 
     }
