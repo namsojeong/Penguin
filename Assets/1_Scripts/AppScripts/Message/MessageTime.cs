@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using JetBrains.Annotations;
 
 public class MessageTime : MonoBehaviour
 {
+    [SerializeField]
+    int defaultTime = 30;
     [SerializeField]
     GameObject rewardPanel;
 
@@ -14,30 +17,34 @@ public class MessageTime : MonoBehaviour
 
     public int countdownMinutes = 1;
 
-    private int time=5;
+    private int time = 5;
 
     [SerializeField]
     private Text remainingtime;
 
+    [SerializeField]
+    Button lastButton;
+
 
     private void OnEnable()
     {
-        //countdown 초가 1이라고 저장되어 있다면?
-        GetLoadTime();
         GetTime();
+        if (GameManager.instance.IsMessage())
+        {
+            GetLoadTime();
+        }
+        InvokeRepeating("GoTime", 0f, 1f);
     }
-    private void Start()
+    
+    void StartTimer()
     {
-        EventManager.StartListening("MessageTimer", StartTimer);
-    }
-    private void OnDestroy()
-    {
-        EventManager.StopListening("MessageTimer", StartTimer);
+        ResetTimer();
+        GameManager.instance.IsNotMessage(true);
     }
 
-    void StartTimer(EventParam eventParam)
+    void ResetTimer()
     {
-        InvokeRepeating("GoTime", 1f, 1f);
+        time = defaultTime;
     }
 
     // 시간 나타내기
@@ -60,6 +67,7 @@ public class MessageTime : MonoBehaviour
     void GoTime()
     {
         time--;
+        remainingtime.text = String.Format($"{time}초" + "\n이후에 다시 와줘!");
         IsOverTime();
         GameManager.instance.SetMessageTime(time);
     }
@@ -68,17 +76,15 @@ public class MessageTime : MonoBehaviour
     {
         if (time < 0)
         {
-            Debug.Log("보상받아랏");
             //여기에다 보상 패널 띄워서 보상주는 코드 쓰기
-            rewardPanel.SetActive(true);
-            time = 5;
             GameManager.instance.IsNotMessage(false);
+            rewardPanel.SetActive(true);
+            ResetTimer();
             CancelInvoke();
         }
         else
         {
             GameManager.instance.IsNotMessage(true);
-            remainingtime.text = String.Format($"{time}" + "\n이후에 다시 와줘!");
         }
     }
 }

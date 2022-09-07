@@ -301,9 +301,6 @@ MonoBehaviour:
   audioSFXSource: {fileID: 1059463601}
   audioClickSource: {fileID: 330725484}
   audioPhoneUISource: {fileID: 700651498}
-  callbell: {fileID: 8300000, guid: 5a05ae6210a1dee439e41b22ca80559e, type: 3}
-  callok: {fileID: 8300000, guid: 4d564f5336b29164c88c7910f20bef45, type: 3}
-  callno: {fileID: 8300000, guid: 848055f475df3034eab7f1e60a0b1f89, type: 3}
   clickClip: {fileID: 8300000, guid: e78073ea085f22c4a9a9dafa627828c1, type: 3}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 8300000, guid: d7f1efa04aaff6d4eaff29af3b810f8a, type: 3}
@@ -1096,7 +1093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &993970988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1114,8 +1111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372, y: -1162}
-  m_SizeDelta: {x: 677.4576, y: 179.5333}
+  m_AnchoredPosition: {x: 470.86414, y: 1186}
+  m_SizeDelta: {x: 415.0017, y: 108.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993970989
 MonoBehaviour:
@@ -1479,6 +1476,8 @@ MonoBehaviour:
     isFirst: 1
     isSpecialAll: 1
     isTryRan: 0
+    messageTime: 30
+    messaeging: 0
     items:
     - index: 0
       name: "\uC559\uC99D\uB9DE\uC740 \uB9AC\uBCF8"

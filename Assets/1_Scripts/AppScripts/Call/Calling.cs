@@ -45,6 +45,7 @@ public class Calling : MonoBehaviour
 
     public void BreakCall()
     {
+        callSource.Stop();
         yesPanel.SetActive(false);
         calling.SetActive(true);
         ShutDownCalling();

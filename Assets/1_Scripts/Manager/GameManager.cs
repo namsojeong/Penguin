@@ -38,13 +38,13 @@ public class GameManager : MonoBehaviour
                 Directory.CreateDirectory(SAVE_PATH);
             }
             LoadFromJson();
-            InvokeRepeating("SaveToJson", 1f, 60f);
+            InvokeRepeating("SaveToJson", 1f, 1f);
         }
 
         if (CurrentUser.isFirst)
         {
-            CurrentUser.isFirst = false;
             ResetVal();
+            CurrentUser.isFirst = false;
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour
         CurrentUser.isSpecialAll = false;
         CurrentUser.isTryRan = false;
         CurrentUser.ranPrice = 5000;
-        CurrentUser.messageTime = 0;
+        CurrentUser.messageTime = 30;
         CurrentUser.messaeging = false;
 
         // 아이템 리셋 

@@ -1880,7 +1880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &361523932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,7 +1914,7 @@ MonoBehaviour:
     isFirst: 1
     isSpecialAll: 1
     isTryRan: 1
-    messageTime: 0
+    messageTime: 31
     messaeging: 0
     items:
     - index: 0
@@ -4438,13 +4438,14 @@ GameObject:
   - component: {fileID: 709700395}
   - component: {fileID: 709700397}
   - component: {fileID: 709700396}
+  - component: {fileID: 709700398}
   m_Layer: 5
   m_Name: TimeImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &709700395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4505,6 +4506,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709700394}
   m_CullTransparentMesh: 1
+--- !u!114 &709700398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709700394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c805b3deb631c5c459e856ffc03db1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultTime: 31
+  rewardPanel: {fileID: 1049843410}
+  dateText: {fileID: 1276973822}
+  countdownMinutes: 1
+  remainingtime: {fileID: 422577266}
+  lastButton: {fileID: 1493319505}
 --- !u!1 &713020995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4710,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1191208184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MessageTest, Assembly-CSharp
         m_MethodName: GetBonus
         m_Mode: 1
@@ -7811,7 +7830,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1191208184}
+      - m_Target: {fileID: 1060381702058115232}
         m_TargetAssemblyTypeName: MessageTest, Assembly-CSharp
         m_MethodName: GetBonus
         m_Mode: 1
@@ -8423,7 +8442,7 @@ RectTransform:
   - {fileID: 1032740661}
   - {fileID: 1938776041}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8505,7 +8524,7 @@ RectTransform:
   - {fileID: 1099490049}
   - {fileID: 1837691357}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8915,71 +8934,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1191208182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1191208183}
-  - component: {fileID: 1191208184}
-  - component: {fileID: 1191208185}
-  m_Layer: 5
-  m_Name: MessageScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1191208183
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191208182}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 146.59595}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1191208184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191208182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5f6ccfdfabd8c45bdb10744b89676d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1191208185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191208182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c805b3deb631c5c459e856ffc03db1bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rewardPanel: {fileID: 1049843410}
-  dateText: {fileID: 1276973822}
-  countdownMinutes: 1
-  remainingtime: {fileID: 422577266}
 --- !u!1 &1195549677
 GameObject:
   m_ObjectHideFlags: 0
@@ -9745,7 +9699,7 @@ RectTransform:
   - {fileID: 181372997}
   - {fileID: 370112573}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11455,7 +11409,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1191208184}
+      - m_Target: {fileID: 1060381702058115232}
         m_TargetAssemblyTypeName: MessageTest, Assembly-CSharp
         m_MethodName: StartTimer
         m_Mode: 1
@@ -12379,7 +12333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15624,7 +15578,7 @@ RectTransform:
   - {fileID: 1060381702322949389}
   - {fileID: 1060381702653480223}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18428,7 +18382,6 @@ RectTransform:
   - {fileID: 565948510}
   - {fileID: 1060381702058115231}
   - {fileID: 1049843411}
-  - {fileID: 1191208183}
   - {fileID: 1060381701179013917}
   - {fileID: 1060381702066326851}
   - {fileID: 1060381702213116813}
@@ -24640,6 +24593,7 @@ GameObject:
   - component: {fileID: 1060381702058115231}
   - component: {fileID: 1060381702058115201}
   - component: {fileID: 1060381702058115230}
+  - component: {fileID: 1060381702058115232}
   m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
@@ -24702,6 +24656,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 47.596}
   m_SizeDelta: {x: 1443.1829, y: 2290}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1060381702058115232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060381702058115228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5f6ccfdfabd8c45bdb10744b89676d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerPanel: {fileID: 709700394}
+  buttons:
+  - {fileID: 2012349969}
+  - {fileID: 473595518}
+  - {fileID: 2045965669}
+  - {fileID: 84056855}
+  - {fileID: 1464504267}
+  - {fileID: 1933848493}
+  lastButton: {fileID: 1493319505}
 --- !u!1 &1060381702066326848
 GameObject:
   m_ObjectHideFlags: 0
@@ -24768,7 +24743,7 @@ RectTransform:
   - {fileID: 1060381701897766782}
   - {fileID: 1060381703207982552}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25926,7 +25901,7 @@ RectTransform:
   - {fileID: 1060381701176910574}
   - {fileID: 1060381701706406419}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31261,7 +31236,7 @@ RectTransform:
   - {fileID: 1060381703115073506}
   - {fileID: 50256108}
   m_Father: {fileID: 1060381701402073682}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -46,6 +46,13 @@ public class MessageTest : MonoBehaviour
     //public Button RewardButton;
 
 
+    [SerializeField]
+    GameObject timerPanel;
+    [SerializeField]
+    GameObject[] buttons;
+    [SerializeField]
+    Button lastButton;
+
     EventParam eventParam = new EventParam();
     private void OnEnable()
     {
@@ -58,11 +65,20 @@ public class MessageTest : MonoBehaviour
         if (GameManager.instance.IsMessage()) // 만약 돌고 있다면?
         {
             // 메세지 타이머가 돌아가고 있으면 켜야할 것 꺼야할 것
+            for(int i=0; i < buttons.Length; i++)
+            {
+                buttons[i].gameObject.SetActive(true);
+            }
+            timerPanel.SetActive(true);
         }
         else
         {
             // 메세지 타이머가 돌아가지 않으면 켜야할 것 꺼야할 것
-
+            for (int i = 1; i < buttons.Length; i++)
+            {
+                buttons[i].gameObject.SetActive(false);
+            }
+            timerPanel.SetActive(false);
         }
     }
 
@@ -70,12 +86,19 @@ public class MessageTest : MonoBehaviour
     {
         // 보상 코인
         GameManager.instance.PlusCoin(100);
+        for(int i=1;i<buttons.Length;i++)
+        {
+            buttons[i].gameObject.SetActive(false);
+        }
+        timerPanel.SetActive(false);
+        lastButton.interactable = true;
     }
 
     public void StartTimer()
     {
         // 타이머 시작
-        EventManager.TriggerEvent("MessageTimer", eventParam);
+        lastButton.interactable = false;
+        timerPanel.SetActive(true);
     }
 
 

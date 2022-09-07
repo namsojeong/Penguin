@@ -33,7 +33,7 @@ public class User
     public bool isSpecialAll = false;
     public bool isTryRan = false;
 
-    public int messageTime = 0;
+    public int messageTime = 30;
     public bool messaeging = false;
 
     public List<Item> items = new List<Item>();
