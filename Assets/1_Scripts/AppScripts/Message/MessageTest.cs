@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class MessageTest : MonoBehaviour
 {
+    [SerializeField]
+    GameObject timerPanel;
+    [SerializeField]
+    GameObject[] buttons;
+    [SerializeField]
+    Button lastButton;
+
     public Text chat1;
     public Text chat2;
     public Text chat3;
     public Text chat4;
     public Text chat5;
     public Text chat6;
-
-    public GameObject _chat1;
-    public GameObject _chat2;
-    public GameObject _chat3;
-    public GameObject _chat4;
-    public GameObject _chat5;
-    public GameObject _chat6;
 
     List<string> messages_1 = new List<string>();
     List<string> messages_2 = new List<string>();
@@ -27,85 +27,9 @@ public class MessageTest : MonoBehaviour
     List<string> messages_6 = new List<string>();
 
     private int RandomNum1, RandomNum2, RandomNum3, RandomNum4, RandomNum5;
-    public Button startButton;
-    public Button nextButton1;
-    public Button nextButton2;
-    public Button finishButton;
-
-    public GameObject reNextButton1;
-    public GameObject reNextButton2;
-
-    public GameObject set;
-
-    public GameObject set2;
-
-    public GameObject finishButton2;
-
-    public GameObject TimeImg;
-
-    public Button RewardButton;
-
-
-    [SerializeField]
-    GameObject timerPanel;
-    [SerializeField]
-    GameObject[] buttons;
-    [SerializeField]
-    Button lastButton;
-
-    EventParam eventParam = new EventParam();
-    private void OnEnable()
-    {
-        IsState();
-    }
-
-    void IsState()
-    {
-        // 처음 메세지 창 열었을 때 메세지 타이머가 돌아가는 중인지 확인
-        if (GameManager.instance.IsMessage()) // 만약 돌고 있다면?
-        {
-            // 메세지 타이머가 돌아가고 있으면 켜야할 것 꺼야할 것
-            for(int i=0; i < buttons.Length; i++)
-            {
-                buttons[i].gameObject.SetActive(true);
-            }
-            timerPanel.SetActive(true);
-        }
-        else
-        {
-            // 메세지 타이머가 돌아가지 않으면 켜야할 것 꺼야할 것
-            for (int i = 1; i < buttons.Length; i++)
-            {
-                buttons[i].gameObject.SetActive(false);
-            }
-            timerPanel.SetActive(false);
-        }
-    }
-
-    public void GetBonus()
-    {
-        // 보상 코인
-        GameManager.instance.PlusCoin(100);
-        for(int i=1;i<buttons.Length;i++)
-        {
-            buttons[i].gameObject.SetActive(false);
-        }
-        timerPanel.SetActive(false);
-        lastButton.interactable = true;
-    }
-
-    public void StartTimer()
-    {
-        // 타이머 시작
-        lastButton.interactable = false;
-        timerPanel.SetActive(true);
-    }
-
 
     void Awake()
     {
-
-
         //--첫번째, 잡담--
         messages_1.Add("오느으른.. 펭찌의 기부니 조앙!!><");
         messages_1.Add("갑자기 ㅈ좀 배고푸지 아나? 힛");
@@ -261,163 +185,102 @@ public class MessageTest : MonoBehaviour
         messages_6.Add("펭찌는 내 얘기를 들어줘서 너무 고마워");
         messages_6.Add("우리의 작은 실천이 지구를 지켜!");
     }
-    private void Start()
+
+
+    EventParam eventParam = new EventParam();
+    private void OnEnable()
     {
-        
-        StartMessage();
-        finishButton2.SetActive(false);
+        IsState();
     }
 
-    void Restart()
+    void IsState()
     {
-        RewardButton.onClick.AddListener(StartMessage);
-
+        // 처음 메세지 창 열었을 때 메세지 타이머가 돌아가는 중인지 확인
+        if (GameManager.instance.IsMessage()) // 만약 돌고 있다면?
+        {
+            // 메세지 타이머가 돌아가고 있으면 켜야할 것 꺼야할 것
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].gameObject.SetActive(true);
+            }
+            timerPanel.SetActive(true);
+        }
+        else
+        {
+            // 메세지 타이머가 돌아가지 않으면 켜야할 것 꺼야할 것
+            for (int i = 1; i < buttons.Length; i++)
+            {
+                buttons[i].gameObject.SetActive(false);
+            }
+            timerPanel.SetActive(false);
+        }
+                Chatting();
     }
-    public void StartMessage()
+
+    public void GetBonus()
     {
-        _chat1.SetActive(false);
-        _chat2.SetActive(false);
-        _chat3.SetActive(false);
-        _chat4.SetActive(false);
-        _chat5.SetActive(false);
-        _chat6.SetActive(false);
-
-        //Chatting1();
-
-        TimeImg.SetActive(false);
+        // 보상 코인
+        GameManager.instance.PlusCoin(100);
+        for (int i = 1; i < buttons.Length; i++)
+        {
+            buttons[i].gameObject.SetActive(false);
+        }
+        timerPanel.SetActive(false);
+        lastButton.interactable = true;
     }
 
-    void Chatting1() //첫번째 채팅 : 펭찌의 잡담
+    public void StartTimer()
+    {
+        // 타이머 시작
+        lastButton.interactable = false;
+        timerPanel.SetActive(true);
+    }
+
+    private void Chatting()
     {
         RandomNum1 = Random.Range(0, 40);
         chat1.text = string.Format(messages_1[RandomNum1]);
-
-        
-
-        // reNextButton1true();
-
-        Invoke("reNextButton1true", 1);
-
-        _chat1.SetActive(true);
-
-        nextButton1.onClick.AddListener(Chatting2);
-
-        // Chatting2();
-    }
-
-    void reNextButton1true()
-    {
-        reNextButton1.SetActive(true);
-    }
-
-    public void reNextButton_first()
-    {
-        //if (_chat1.activeSelf == true)
-
-
-        //if (_chat2.activeSelf == true)
-        //{
-        //    reNextButton1.SetActive(false);
-        //    GameObject.Find("MessageScript").GetComponent<MessageTime>().Remainingtime_True();
-        //}
-
-
-        //if (_chat3.activeSelf == true)
-        //    GameObject.Find("MessageScript").GetComponent<MessageTime>().Update();
-    }
-
-    void Chatting2() //두번째 채팅 : 유저의 대답
-    {
-
         RandomNum2 = Random.Range(0, 5);
-
-
         chat2.text = string.Format(messages_2[RandomNum2]);
-
-        _chat2.SetActive(true);
-
-        set2.GetComponent<MessageTime>().enabled = true;
-
-        Invoke("Chatting3", 60);
-
-        TimeImg.SetActive(true);
-    }
-
-    void Chatting3() //세번째 채팅 : 펭찌의 환경상식 설명
-    {
-        TimeImg.SetActive(false);
-
         RandomNum3 = Random.Range(0, 36);
-
         chat3.text = string.Format(messages_3[RandomNum3]);
-
-        _chat3.SetActive(true);
-
-        //GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
-
-        Invoke("nextButton2_", 1);
-    }
-
-    void nextButton2_()
-    {
-        reNextButton2.SetActive(true);
-        nextButton2.onClick.AddListener(Chatting4);
-    }
-
-    void Chatting4() //세번째 채팅 : 유저의 환경상식 대답
-    {
-        TimeImg.SetActive(true);
-
         RandomNum4 = Random.Range(0, 5);
-
         chat4.text = string.Format(messages_4[RandomNum4]);
-
-        _chat4.SetActive(true);
-
-        Invoke("Chatting5", 60);
-
-    }
-
-    void Chatting5() //네번째 채팅 :  펭찌의 환경상식 설명 두번째 (펭찌의 환경상식 설명 첫번째와 랜덤값이 동일해야함.)
-    {
-        TimeImg.SetActive(false);
-
         chat5.text = string.Format(messages_5[RandomNum2]);
-
-        _chat5.SetActive(true);
-
-        Invoke("Chatting6", 1);
-    }
-
-    void Chatting6() //다섯번째 채팅 :  펭찌의 작별인사
-    {
-
         RandomNum5 = Random.Range(0, 8);
-
         chat6.text = string.Format(messages_6[RandomNum5]);
 
-        _chat6.SetActive(true);
 
-
-        Invoke("MesaggeFinish", 1);
+        //if(n==1)
+        //{
+        //    RandomNum1 = Random.Range(0, 40);
+        //    chat1.text = string.Format(messages_1[RandomNum1]);
+        //}
+        //else if(n==2)
+        //{
+        //    RandomNum2 = Random.Range(0, 5);
+        //    chat2.text = string.Format(messages_2[RandomNum2]);
+        //}
+        //{
+        //    RandomNum3 = Random.Range(0, 36);
+        //    chat3.text = string.Format(messages_3[RandomNum3]);
+        //}
+        //else if(n==4)
+        //{
+        //    RandomNum4 = Random.Range(0, 5);
+        //    chat4.text = string.Format(messages_4[RandomNum4]);
+        //}
+        //else if(n==5)
+        //{
+        //    chat5.text = string.Format(messages_5[RandomNum2]);
+        //}
+        //else if(n==6)
+        //{
+        //    RandomNum5 = Random.Range(0, 8);
+        //    chat6.text = string.Format(messages_6[RandomNum5]);
+        //}
     }
 
-    void MesaggeFinish()
-    {
-
-        finishButton2.SetActive(true);
-        finishButton.onClick.AddListener(MesaggeFinish);
-
-
-        _chat1.SetActive(false);
-        _chat2.SetActive(false);
-        _chat3.SetActive(false);
-        _chat4.SetActive(false);
-        _chat5.SetActive(false);
-        _chat6.SetActive(false);
-
-        Restart();
-    }
 }
 
 

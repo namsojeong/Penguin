@@ -1595,6 +1595,8 @@ MonoBehaviour:
     isFirst: 1
     isSpecialAll: 1
     isTryRan: 1
+    messageTime: 30
+    messaeging: 0
     items:
     - index: 0
       name: "\uC559\uC99D\uB9DE\uC740 \uB9AC\uBCF8"
@@ -8072,28 +8074,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5f6ccfdfabd8c45bdb10744b89676d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerPanel: {fileID: 0}
+  buttons: []
+  lastButton: {fileID: 0}
   chat1: {fileID: 2145367521}
   chat2: {fileID: 1465213878}
   chat3: {fileID: 953720170}
   chat4: {fileID: 653056413}
   chat5: {fileID: 307189321}
   chat6: {fileID: 1465524063}
-  _chat1: {fileID: 2012349969}
-  _chat2: {fileID: 473595518}
-  _chat3: {fileID: 2045965669}
-  _chat4: {fileID: 84056855}
-  _chat5: {fileID: 1464504267}
-  _chat6: {fileID: 1933848493}
-  startButton: {fileID: 498335822}
-  nextButton1: {fileID: 1060770466}
-  nextButton2: {fileID: 1493319505}
-  finishButton: {fileID: 713316052}
-  reNextButton1: {fileID: 1060770464}
-  reNextButton2: {fileID: 1493319503}
-  set: {fileID: 1060381702058115228}
-  set2: {fileID: 1191208182}
-  finishButton2: {fileID: 713316050}
-  TimeImg: {fileID: 709700394}
 --- !u!114 &1191208185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8106,11 +8095,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c805b3deb631c5c459e856ffc03db1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTime: 30
+  rewardPanel: {fileID: 0}
   dateText: {fileID: 1276973822}
-  transmissiontime: {fileID: 1164399286}
   countdownMinutes: 1
-  countdownSeconds: 0
   remainingtime: {fileID: 422577266}
+  lastButton: {fileID: 0}
 --- !u!1 &1208396701
 GameObject:
   m_ObjectHideFlags: 0
@@ -34528,9 +34518,6 @@ MonoBehaviour:
   audioSFXSource: {fileID: 1407580156}
   audioClickSource: {fileID: 1802573101}
   audioPhoneUISource: {fileID: 2006890977}
-  callbell: {fileID: 8300000, guid: 5a05ae6210a1dee439e41b22ca80559e, type: 3}
-  callok: {fileID: 8300000, guid: 4d564f5336b29164c88c7910f20bef45, type: 3}
-  callno: {fileID: 8300000, guid: 848055f475df3034eab7f1e60a0b1f89, type: 3}
   clickClip: {fileID: 8300000, guid: e78073ea085f22c4a9a9dafa627828c1, type: 3}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 8300000, guid: d7f1efa04aaff6d4eaff29af3b810f8a, type: 3}

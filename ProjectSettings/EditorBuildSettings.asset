@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/0_Scenes/CutScene.unity
     guid: 6e459d61706ba1e41a2e27c3d96a8e80
   - enabled: 1
+    path: Assets/0_Scenes/tutorial.unity
+    guid: e2d3804eb28e39f4b9ab09f4aef8de68
+  - enabled: 1
     path: Assets/0_Scenes/Main.unity
     guid: c3865ed5f4671264fb88d5bc7051bca5
   - enabled: 1
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/APP/STUDYGame.unity
     guid: 66f7c3cbe2b7e544c911123cca3af6a2
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/0_Scenes/APP/CHARMGame_2.unity
     guid: 070db72a963a1eb459912e4cda81d027
