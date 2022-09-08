@@ -1553,7 +1553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &361523932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7356,7 +7356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 508.63, y: 671}
+  m_AnchoredPosition: {x: 508.63, y: 850}
   m_SizeDelta: {x: 305.78, y: 180.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367071629
@@ -10204,6 +10204,49 @@ Transform:
   m_Father: {fileID: 1060381703186709946}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1884163966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884163968}
+  - component: {fileID: 1884163967}
+  m_Layer: 0
+  m_Name: MainManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1884163967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884163966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109f55a4ccf50764f9f7a965ddc4a98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1884163968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884163966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884552783
 GameObject:
   m_ObjectHideFlags: 0
@@ -11830,6 +11873,7 @@ MonoBehaviour:
   itemName: SHRIMP
   canvas: {fileID: 1060381702448277812}
   eatSound: {fileID: 8300000, guid: e12d2af0f05659b4cb18aacda3704c6f, type: 3}
+  eatAnim: {fileID: 1060381702586039801}
 --- !u!224 &1060381701211143622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14445,7 +14489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.38, y: 666}
+  m_AnchoredPosition: {x: 14.38, y: 845}
   m_SizeDelta: {x: 411.95, y: 176.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1060381701411598052
@@ -18777,6 +18821,7 @@ MonoBehaviour:
   itemName: SQUID
   canvas: {fileID: 1060381702448277812}
   eatSound: {fileID: 8300000, guid: e12d2af0f05659b4cb18aacda3704c6f, type: 3}
+  eatAnim: {fileID: 1060381702586039801}
 --- !u!224 &1060381701868543913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21312,6 +21357,7 @@ MonoBehaviour:
   itemName: FISH
   canvas: {fileID: 1060381702448277812}
   eatSound: {fileID: 8300000, guid: e12d2af0f05659b4cb18aacda3704c6f, type: 3}
+  eatAnim: {fileID: 1060381702586039801}
 --- !u!222 &1060381702182127499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22308,7 +22354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC54C\uBC14 \uC774\uB984\n\uC2DC\uAE09 : 100Coin"
+  m_Text: "\uB304\uC2A4 \uAC15\uC0AC \uC54C\uBC14\uD558\uAE30\n\uC2DC\uAE09 : 100Coin"
 --- !u!224 &1060381702254685366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22325,7 +22371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.17, y: 675.8}
+  m_AnchoredPosition: {x: -437.17, y: 854.8}
   m_SizeDelta: {x: 440.18, y: 204.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1060381702254685367
@@ -25369,6 +25415,7 @@ GameObject:
   - component: {fileID: 1060381702586039803}
   - component: {fileID: 1060381702586039805}
   - component: {fileID: 1060381702586039802}
+  - component: {fileID: 1060381702586039801}
   m_Layer: 5
   m_Name: Cha
   m_TagString: PENGUIN
@@ -25376,6 +25423,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &1060381702586039801
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060381702586039800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 507a92b2cb7382f48aa60601fb7d6969, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1060381702586039802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27245,7 +27311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC54C\uBC14 \uC774\uB984\n\uC2DC\uAE09 : 100Coin"
+  m_Text: "\uC9C0\uC2DD\uC778 \uB2F5\uBCC0\uB2EC\uAE30\n\uC2DC\uAE09 : 100Coin"
 --- !u!224 &1060381702747110859
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32098,7 +32164,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC54C\uBC14 \uC774\uB984\n\uC2DC\uAE09 : 100Coin"
+  m_Text: "\uD5EC\uC2A4\uC7A5 \uCCAD\uC18C\uD558\uAE30\n\uC2DC\uAE09 : 100Coin"
 --- !u!1 &1060381703263375480
 GameObject:
   m_ObjectHideFlags: 0
