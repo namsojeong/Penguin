@@ -47,7 +47,7 @@ public class MessageTest : MonoBehaviour
 
     public GameObject finishButton2;
 
-    public GameObject TimeImg;
+    //public GameObject TimeImg;
 
     private void Start()
     {
@@ -77,7 +77,7 @@ public class MessageTest : MonoBehaviour
 
         set2.GetComponent<MessageTime>().enabled = false;
 
-        TimeImg.SetActive(false);
+       // TimeImg.SetActive(false);
     }
 
     void Awake()
@@ -282,21 +282,20 @@ public class MessageTest : MonoBehaviour
        
         RandomNum1 = Random.Range(0, 2);
 
-
         chat2.text = string.Format(messages_2[RandomNum1]);
       
         _chat2.SetActive(true);
 
         set2.GetComponent<MessageTime>().enabled = true;
 
-        Invoke("Chatting3", 60);
+        Invoke("Chatting3", 1);
 
-        TimeImg.SetActive(true);
+        //TimeImg.SetActive(true);
     }
 
     void Chatting3() //환경상식
     {
-        TimeImg.SetActive(false);
+        //TimeImg.SetActive(false);
 
         set2.GetComponent<MessageTime>().enabled = false;
 
@@ -305,8 +304,6 @@ public class MessageTest : MonoBehaviour
         chat3.text = string.Format(messages_3[RandomNum2]);
 
         _chat3.SetActive(true);
-
-
 
         //GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
 
@@ -321,7 +318,7 @@ public class MessageTest : MonoBehaviour
 
     void Chatting4() //환경상식 대답
     {
-        TimeImg.SetActive(true);
+        //TimeImg.SetActive(true);
 
         RandomNum3 = Random.Range(0, 2);
 
@@ -329,7 +326,7 @@ public class MessageTest : MonoBehaviour
 
         _chat4.SetActive(true);
 
-        Invoke("Chatting5", 60);
+        Invoke("Chatting5", 1);
 
         set2.GetComponent<MessageTime>().enabled = true;
       //  Debug.Log("시간 시작!");
@@ -337,7 +334,7 @@ public class MessageTest : MonoBehaviour
 
     void Chatting5() //환경상식 대답
     {
-        TimeImg.SetActive(false);
+        //TimeImg.SetActive(false);
 
         set2.GetComponent<MessageTime>().enabled = false;
 
@@ -359,19 +356,13 @@ public class MessageTest : MonoBehaviour
 
         _chat6.SetActive(true);
 
-       
-
-        
-
         Invoke("MesaggeFinish", 1);
     }
 
     void MesaggeFinish()
     {
-
-        finishButton2.SetActive(true);
+        //finishButton2.SetActive(true);
         finishButton.onClick.AddListener(MesaggeFinish);
-
 
         _chat1.SetActive(false);
         _chat2.SetActive(false);
@@ -381,8 +372,6 @@ public class MessageTest : MonoBehaviour
         _chat6.SetActive(false);
 
         Restart();
-
-
     }
 
 

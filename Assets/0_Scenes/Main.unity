@@ -33943,7 +33943,6 @@ MonoBehaviour:
   set: {fileID: 8988147320180934499}
   set2: {fileID: 8217780518951609097}
   finishButton2: {fileID: 8217780519714705709}
-  TimeImg: {fileID: 8217780519710043349}
 --- !u!224 &8217780518951609096
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35426,7 +35425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &8217780519714705705
 CanvasRenderer:
   m_ObjectHideFlags: 0
