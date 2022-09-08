@@ -630,6 +630,8 @@ MonoBehaviour:
     isFirst: 1
     isSpecialAll: 1
     isTryRan: 0
+    messageTime: 30
+    messaeging: 0
     items: []
     specialItems: []
   item:

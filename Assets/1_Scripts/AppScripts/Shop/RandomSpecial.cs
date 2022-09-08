@@ -35,6 +35,8 @@ public class RandomSpecial : MonoBehaviour
     private void Awake()
     {
         buyButton.onClick.AddListener(() => BuyRandom());
+
+        price = GameManager.instance.CurrentUser.ranPrice;
     }
 
     private void Start()

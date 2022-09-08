@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
                 if (CurrentUser.hungry <= 0)
                 {
                     Debug.Log("¹è°íÆÄ¼­ Á×À½");
-                    Dead();
+                    FailEnding();
                 }
                 else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
                     break;
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
                 if (CurrentUser.clean <= 0)
                 {
                     Debug.Log("´õ·¯¿ö¼­ Á×À½");
-                    Dead();
+                    FailEnding();
                 }
                 else if (CurrentUser.clean > 100) CurrentUser.clean = 100;
                 break;
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
                 if (CurrentUser.fun <= 0)
                 {
                     Debug.Log("³ëÀëÀÌ¶ó Á×À½");
-                    Dead();
+                    FailEnding();
                 }
                 else if (CurrentUser.fun > 100) CurrentUser.fun = 100;
                 break;
@@ -194,6 +194,11 @@ public class GameManager : MonoBehaviour
         }
         GoEnding(ab);
     }
+
+    public void FailEnding()
+    {
+        GoEnding(AbilityE.NONE);
+    }
     private void GoEnding(AbilityE ability)
     {
         ResetVal();
@@ -222,7 +227,8 @@ public class GameManager : MonoBehaviour
 
         CurrentUser.isSpecialAll = false;
         CurrentUser.isTryRan = false;
-        CurrentUser.ranPrice = 5000;
+        CurrentUser.ranPrice = 0;
+        CurrentUser.specialCnt = 0;
         CurrentUser.messageTime = 30;
         CurrentUser.messaeging = false;
 
