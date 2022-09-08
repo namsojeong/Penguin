@@ -15,10 +15,10 @@ public class ArbeitApp : MonoBehaviour
     private GameObject playPanel;
     [SerializeField, Header("일정 선택 Panel")]
     private GameObject calendarPanel;
-    
+
     [SerializeField, Header("알바 선택 버튼")]
     private Image[] calImage;
-    
+
     [SerializeField, Header("알바 선택 버튼")]
     private Sprite[] calSprite;
     [SerializeField, Header("Default 일정 Sprite ")]
@@ -64,7 +64,7 @@ public class ArbeitApp : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.StopListening("FinishArb", Finish);
-       // EventManager.StopListening("PlusArb", GetArb);
+        // EventManager.StopListening("PlusArb", GetArb);
     }
 
     private void OnEnable()
@@ -83,8 +83,6 @@ public class ArbeitApp : MonoBehaviour
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
 
-        //이펙트
-        FinishEffect();
 
         // 보상
         AbilityE curAr = eventParam.abilityParam;
@@ -94,17 +92,21 @@ public class ArbeitApp : MonoBehaviour
 
         if (nowCnt >= 5)
         {
+            //여기야 서혀낭!!!!!!! 전부 다 끝났을 떄는  FinishEffect 함수에다가 하면 돼!!
+            FinishEffect();
             ResetArb();
         }
         else
         {
+            //여기야 서혀낭!!!!!!! 하나 끝났을 때는 여기야! FinishOneEffect 함수에다가 하면 돼!!
+            FinishOneEffect();
             StartArb();
         }
-        
+
     }
     void IsPlay()
     {
-        if(isPlaying)
+        if (isPlaying)
         {
             playPanel.SetActive(true);
             calendarPanel.SetActive(false);
@@ -119,7 +121,7 @@ public class ArbeitApp : MonoBehaviour
     private void PushAr(AbilityE ar)
     {
         arbietQ.Enqueue(ar);
-        calImage[arbietQ.Count - 1].sprite = calSprite[(int)ar-1];
+        calImage[arbietQ.Count - 1].sprite = calSprite[(int)ar - 1];
         IsFull();
     }
 
@@ -158,7 +160,7 @@ public class ArbeitApp : MonoBehaviour
         arbietQ.Clear();
         isPlaying = false;
         nowCnt = 0;
-        for(int i=0;i<5;i++)
+        for (int i = 0; i < 5; i++)
         {
             calImage[i].sprite = defSprite;
         }
@@ -178,6 +180,10 @@ public class ArbeitApp : MonoBehaviour
     }
 
     void FinishEffect()
+    {
+
+    }
+    void FinishOneEffect()
     {
 
     }
