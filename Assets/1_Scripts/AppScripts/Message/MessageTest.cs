@@ -112,7 +112,7 @@ public class MessageTest : MonoBehaviour
         messages_1.Add("내가 따랑하는 지구는 둥글지롱~ 둥글둥글~ ");
         messages_1.Add("4월 25일은 바로오 세계 펭귄의 날이야!");
         messages_1.Add("무리를 지어 생활하는 것울 이즌지는 오래야");//30
-        messages_1.Add("빙하에서 살고 있눈 옴마..아빠ㅏ..눈 잘 계실까?");
+        messages_1.Add("빙하에서 살고 있눈 옴마아빠ㅏ..눈 잘 계실까?");
         messages_1.Add("남극에소 바닷 속 포식짜 때메 사냥을 모태써");
         messages_1.Add("펭찌는 커서 용감한 펭귄이 되구시포!");
         messages_1.Add("펭찌가 널 조아하는 이유는 412가지야! 몬지는 비밀");
@@ -122,6 +122,18 @@ public class MessageTest : MonoBehaviour
         messages_1.Add("어떠와! 항상 기다리구 이썼지롱");
         messages_1.Add("맛있는 걸 먹는건 언제나 행보케");
         messages_1.Add("안농안넝안농~ 어떠와아아아아 크크");//40
+        messages_1.Add("오늘 펭찌 오땡? 오늘도 언제나처럼 귀엽찌!!!!");
+        messages_1.Add("난 언젠가 우주로 가서 지구를 보고 말테얍!");
+        messages_1.Add("나랑 문자하는게 재미있어서 또 왔구나!");
+        messages_1.Add("메인화면에서 날 건드리면 너무 간지러워");
+        messages_1.Add("메인화면에서 날 위로 올리면 붕 떠 있는 기분이야");
+        messages_1.Add("전화 한 번씩 해줘~! 나 심심하단 말이양");
+        messages_1.Add("펭찌는 하루종일 기다리고 있어엉");
+        messages_1.Add("25일이 되면 어떤 일이 일어날지 정말 궁금해!");
+        messages_1.Add("펭찌의 뜻이 뭔지 알아? 바로... 비밀~");
+        messages_1.Add("지구가 깨끗하면 펭찌는 정말 행보케~ ");//50
+
+        //49
 
 
         //--두번쨰, 잡담에 대한 대답--
@@ -136,6 +148,8 @@ public class MessageTest : MonoBehaviour
         messages_2.Add("응?");
         messages_2.Add("응!");
         messages_2.Add("하하");
+
+        //10
 
         //--세번째, 환경 상식 설명--
 
@@ -176,23 +190,31 @@ public class MessageTest : MonoBehaviour
         messages_3.Add("건전지는 일반쓰레기로 버리면 토양을 오염시키구");
         messages_3.Add("치카치카하는 칫솔은 주기적으로 교체해줘야해");
         messages_3.Add("플라스틱 빨대는 재활용이 가능할까아아?"); //37
-        messages_3.Add("홈화면에서 날 끌어당기면 내 몸이 제멋대로");
-        messages_3.Add("홈화면에서 날 터치하면 간지럽다고");
-        messages_3.Add("25일이 되면 난 어떻게 살고 있을까?");
-        messages_3.Add("날 배고프게 하지 말아줘..!!");
-        messages_3.Add("전화를 하면 내 목소리를 들을 수 있어");
-        messages_3.Add("카메라로 우리의 추억을 간직해보자~!");
-        messages_3.Add("오늘은 뭐를 먹어볼까!!");
+        messages_3.Add("홈화면에소 날 끌어당기묘눈 내 몸이 제멋대로");
+        messages_3.Add("홈화면에소 날 터치하면 간지럽따구");
+        messages_3.Add("25일이 되면 난 어떻게 살고 있우까?");
+        messages_3.Add("펭찌를 배고프ㅡ게 하지 말아조...");
+        messages_3.Add("전화룰 하묘누 펭찌 목소리를 들을 수 이쏘");
+        messages_3.Add("카메라루 우리의 추억울 간직해보짜~!");
+        messages_3.Add("오늘은 뭐를 먹어볼까!! 추천 좀 해조!");
         messages_3.Add("갤러리에서 어떤 추억을 꺼내서 봐볼까?");
+
+        //45
 
 
         //--네번째, 환경 상식에 대한 대답--
         messages_4.Add("응!");
-        messages_4.Add("엉");
+        messages_4.Add("어엉");
         messages_4.Add("음음");
         messages_4.Add("응~!");
         messages_4.Add("응응!");
         messages_4.Add("오호라!");
+        messages_4.Add("그래그래");
+        messages_4.Add("그래");
+        messages_4.Add("응");
+        messages_4.Add("응응ㅎㅎ");
+
+        //10
 
         //--다섯번째, 환경 상식 세부 설명 (환경상식 설명 랜덤값과 똑같이 할 것!)--
         messages_5.Add("무려 깨끗한 물 19통이 필요하대!");
@@ -232,15 +254,14 @@ public class MessageTest : MonoBehaviour
         messages_5.Add("토양 속 물을 오염시키니까 폐건전지 수거함에 버리쟝");
         messages_5.Add("근데 이걸 어디에다 버리냐구? 일반쓰레기야!");
         messages_5.Add("노노 아니징 바로! 일반쓰레기에 넣어야지 헤헤헤");
-
         messages_5.Add("홈화면에서 날 끌어당기면 내 몸이 제멋대로");
         messages_5.Add("근데 왠지 모르게 기분은 조타 크크...");
         messages_5.Add("매일 밤 자기 전에 생각하게 돼..");
         messages_5.Add("언제나 배부른 상태를 유지해줬으면 좋겠어.");
-        messages_5.Add("나와 같이 통화하장~~");
+        messages_5.Add("나와 같이 통화하장~~ 나 정말 심심해");
         messages_5.Add("가장 이뿐 포즈를 취해주기 약속!");
-        messages_5.Add("배달의 만족에서 사와주면 안댕?");
-        messages_5.Add("추억이 미니게임 처럼 되어있짜아?");
+        messages_5.Add("그거 배달의 만족에서 사와주면 안댕?");
+        messages_5.Add("어라 근데 추억이 미니게임 처럼 되어있짜나?");
 
         //--여섯번째, 작별인사--
 
@@ -253,7 +274,6 @@ public class MessageTest : MonoBehaviour
         messages_6.Add("그럼 환경을 지키러 가볼까?");
         messages_6.Add("펭찌 얘기를 들어줘서 고마오");
         messages_6.Add("작은 실천이 지구를 지켜!");
-
         messages_6.Add("빠빠");
         messages_6.Add("다음에 다시 왕");
         messages_6.Add("크크");
@@ -266,11 +286,13 @@ public class MessageTest : MonoBehaviour
         messages_6.Add("구럼 빠빠잉~");
         messages_6.Add("그럼 빠빠잉~");
         messages_6.Add("구럼 빠빠잉~");
+
+        //20
     }
 
     void Chatting1() //잡담
     {
-        RandomNum = Random.Range(0, 40);
+        RandomNum = Random.Range(0, 49);
         // reNextButton1true();
 
         Invoke("reNextButton1true", 1);
@@ -310,7 +332,7 @@ public class MessageTest : MonoBehaviour
     void Chatting2() //잡담대답
     {
 
-        RandomNum1 = Random.Range(0, 2);
+        RandomNum1 = Random.Range(0, 10);
 
         chat2.text = string.Format(messages_2[RandomNum1]);
 
@@ -329,11 +351,13 @@ public class MessageTest : MonoBehaviour
 
         set2.GetComponent<MessageTime>().enabled = false;
 
-        RandomNum2 = Random.Range(0, 5);
+        RandomNum2 = Random.Range(0, 45);
 
         chat3.text = string.Format(messages_3[RandomNum2]);
 
         _chat3.SetActive(true);
+
+       // Debug.Log(RandomNum2);
 
         //GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
 
@@ -350,7 +374,7 @@ public class MessageTest : MonoBehaviour
     {
         //TimeImg.SetActive(true);
 
-        RandomNum3 = Random.Range(0, 2);
+        RandomNum3 = Random.Range(0, 10);
 
         chat4.text = string.Format(messages_4[RandomNum3]);
 
@@ -368,7 +392,6 @@ public class MessageTest : MonoBehaviour
 
         set2.GetComponent<MessageTime>().enabled = false;
 
-        RandomNum4 = Random.Range(0, 2);
 
         chat5.text = string.Format(messages_5[RandomNum2]);
 
@@ -380,7 +403,7 @@ public class MessageTest : MonoBehaviour
     void Chatting6() //환경상식 대답
     {
 
-        RandomNum5 = Random.Range(0, 2);
+        RandomNum5 = Random.Range(0, 20);
 
         chat6.text = string.Format(messages_6[RandomNum5]);
 
