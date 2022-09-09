@@ -22,6 +22,8 @@ public class JumpGameManager : MonoBehaviour
     Text scoreText_i;
     [SerializeField]
     GameObject newScore;
+    [SerializeField]
+    GameObject realPlayButton;
 
 
     int score = 0;
@@ -30,7 +32,6 @@ public class JumpGameManager : MonoBehaviour
     private void Start()
     {
         EventManager.StartListening("JumpGame_Over", GameOver);
-
         highScore = PlayerPrefs.GetInt("JumpGame_HIGHSCORE", 0);
         ChangeScene("START");
     }
@@ -41,14 +42,22 @@ public class JumpGameManager : MonoBehaviour
 
     public void Play()
     {
+        Time.timeScale = 0;
         ResetGame();
         ChangeScene("MAIN");
+    }
+
+    public void RealPlay()
+    {
+        Time.timeScale = 1;
+        realPlayButton.SetActive(false);
         PoolManager.instance.SpawnPlay();
         InvokeRepeating("ScoreUP", 1f, 1f);
     }
 
     void ResetGame()
     {
+        realPlayButton.SetActive(true);
         score = 0;
         UpdateUIInGame();
         newScore.SetActive(false);

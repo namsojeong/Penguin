@@ -199,7 +199,7 @@ public class ArbeitApp : MonoBehaviour
         string str = "È¹µæ ½ºÅÈ\n";
         if (arbCnt[0]>=1)
         {
-            str += "Ã¼·Â +" + arbCnt[0] * 10+"\n";
+            str += "¿îµ¿ +" + arbCnt[0] * 10+"\n";
         }
         if(arbCnt[1]>=1)
         {

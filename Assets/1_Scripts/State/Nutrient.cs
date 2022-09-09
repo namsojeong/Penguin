@@ -17,6 +17,7 @@ public class Nutrient : MonoBehaviour
     void Start()
     {
         EventManager.StartListening("FEED", Feed);
+        EventManager.StartListening("MiniGame", GoGameMinusNut);
         InvokeRepeating("StedMinus", 1f, 1f);
     }
 
@@ -47,7 +48,7 @@ public class Nutrient : MonoBehaviour
     }
 
     // 미니게임 시 차감 필수요소
-    public void GoGameMinusNut()
+    private void GoGameMinusNut(EventParam eventParam)
     {
         ChangeNut(NutrientE.HUNGRY, -10f);
         ChangeNut(NutrientE.FUN, +10f);
@@ -71,5 +72,6 @@ public class Nutrient : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.StopListening("FEED", Feed);
+        EventManager.StopListening("MiniGame", GoGameMinusNut);
     }
 }
