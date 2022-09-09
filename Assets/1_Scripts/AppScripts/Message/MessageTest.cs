@@ -1,4 +1,3 @@
-
 using System.Collections;
 
 using System.Collections.Generic;
@@ -32,7 +31,7 @@ public class MessageTest : MonoBehaviour
     List<string> messages_5 = new List<string>();
     List<string> messages_6 = new List<string>();
 
-    private int RandomNum, RandomNum1, RandomNum2, RandomNum3, RandomNum4, RandomNum5 ;
+    private int RandomNum, RandomNum1, RandomNum2, RandomNum3, RandomNum4, RandomNum5;
     public Button startButton;
     public Button nextButton1;
     public Button nextButton2;
@@ -77,11 +76,12 @@ public class MessageTest : MonoBehaviour
 
         set2.GetComponent<MessageTime>().enabled = false;
 
-       // TimeImg.SetActive(false);
+        // TimeImg.SetActive(false);
     }
 
     void Awake()
     {
+        //--첫번째, 잡담--
         messages_1.Add("오느으른.. 펭찌의 기부니 조앙!!><");
         messages_1.Add("갑자기 ㅈ좀 배고푸지 아나? 힛");
         messages_1.Add("나 갑짜기 빙판에서ㅓ 뒤뚱 거리고 시퍼졌어!");
@@ -268,10 +268,10 @@ public class MessageTest : MonoBehaviour
         messages_6.Add("구럼 빠빠잉~");
     }
 
-    void Chatting1() //���
+    void Chatting1() //잡담
     {
         RandomNum = Random.Range(0, 40);
-       // reNextButton1true();
+        // reNextButton1true();
 
         Invoke("reNextButton1true", 1);
 
@@ -283,7 +283,7 @@ public class MessageTest : MonoBehaviour
 
         // Chatting2();
 
-       
+
     }
 
     void reNextButton1true()
@@ -294,7 +294,7 @@ public class MessageTest : MonoBehaviour
     public void reNextButton_first()
     {
         //if (_chat1.activeSelf == true)
-           
+
 
         //if (_chat2.activeSelf == true)
         //{
@@ -307,13 +307,13 @@ public class MessageTest : MonoBehaviour
         //    GameObject.Find("MessageScript").GetComponent<MessageTime>().Update();
     }
 
-    void Chatting2() //�����
+    void Chatting2() //잡담대답
     {
-       
+
         RandomNum1 = Random.Range(0, 2);
 
         chat2.text = string.Format(messages_2[RandomNum1]);
-      
+
         _chat2.SetActive(true);
 
         set2.GetComponent<MessageTime>().enabled = true;
@@ -323,23 +323,65 @@ public class MessageTest : MonoBehaviour
         //TimeImg.SetActive(true);
     }
 
-    void Chatting3() //ȯ����
+    void Chatting3() //환경상식
     {
-        RandomNum1 = Random.Range(0, 40);
-        chat1.text = string.Format(messages_1[RandomNum1]);
+        //TimeImg.SetActive(false);
 
-        RandomNum2 = Random.Range(0, 10);
-        chat2.text = string.Format(messages_2[RandomNum2]);
+        set2.GetComponent<MessageTime>().enabled = false;
 
-        RandomNum3 = Random.Range(0, 44);
-        chat3.text = string.Format(messages_3[RandomNum3]);
+        RandomNum2 = Random.Range(0, 5);
 
-        RandomNum4 = Random.Range(0, 5);
-        chat4.text = string.Format(messages_4[RandomNum4]);
+        chat3.text = string.Format(messages_3[RandomNum2]);
 
-        chat5.text = string.Format(messages_5[RandomNum3]);
+        _chat3.SetActive(true);
 
-        RandomNum5 = Random.Range(0, 8);
+        //GameObject.Find("MessageScript").GetComponent<MessageTime>().AddRemainingtime();
+
+        Invoke("nextButton2_", 1);
+    }
+
+    void nextButton2_()
+    {
+        reNextButton2.SetActive(true);
+        nextButton2.onClick.AddListener(Chatting4);
+    }
+
+    void Chatting4() //환경상식 대답
+    {
+        //TimeImg.SetActive(true);
+
+        RandomNum3 = Random.Range(0, 2);
+
+        chat4.text = string.Format(messages_4[RandomNum3]);
+
+        _chat4.SetActive(true);
+
+        Invoke("Chatting5", 1);
+
+        set2.GetComponent<MessageTime>().enabled = true;
+        //  Debug.Log("시간 시작!");
+    }
+
+    void Chatting5() //환경상식 대답
+    {
+        //TimeImg.SetActive(false);
+
+        set2.GetComponent<MessageTime>().enabled = false;
+
+        RandomNum4 = Random.Range(0, 2);
+
+        chat5.text = string.Format(messages_5[RandomNum2]);
+
+        _chat5.SetActive(true);
+
+        Invoke("Chatting6", 1);
+    }
+
+    void Chatting6() //환경상식 대답
+    {
+
+        RandomNum5 = Random.Range(0, 2);
+
         chat6.text = string.Format(messages_6[RandomNum5]);
 
         _chat6.SetActive(true);
@@ -368,5 +410,3 @@ public class MessageTest : MonoBehaviour
 
     }
 }
-
-
