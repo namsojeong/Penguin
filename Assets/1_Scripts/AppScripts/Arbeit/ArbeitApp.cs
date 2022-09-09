@@ -101,17 +101,11 @@ public class ArbeitApp : MonoBehaviour
 
         if (nowCnt >= 5)
         {
-            //¿©±â¾ß ¼­Çô³¶!!!!!!! ÀüºÎ ´Ù ³¡³µÀ» ‹š´Â  FinishEffect ÇÔ¼ö¿¡´Ù°¡ ÇÏ¸é µÅ!!
-           // overpanel.SetActive(true);
             FinishEffect();
-          //  getCoinT.text = string.Format($"È¹µæ ÄÚÀÎ: {nowCnt*100} ");
-           // getstatsT.text = string.Format($"È¹µæ ½ºÅÈ: {curAr} {nowCnt * 10} ");
             ResetArb();
         }
         else
         {
-            //¿©±â¾ß ¼­Çô³¶!!!!!!! ÇÏ³ª ³¡³µÀ» ¶§´Â ¿©±â¾ß! FinishOneEffect ÇÔ¼ö¿¡´Ù°¡ ÇÏ¸é µÅ!!
-            
             FinishOneEffect();
             StartArb();
         }
@@ -196,8 +190,17 @@ public class ArbeitApp : MonoBehaviour
 
     void FinishEffect()
     {
-
+        overpanel.SetActive(true);
+        getCoinT.text = string.Format($"È¹µæ ÄÚÀÎ: {nowCnt * 100} ");
+        getstatsT.text = string.Format($"È¹µæ ½ºÅÈ:  {nowCnt * 10} ");
+        Invoke("OffEffct", 1f);
     }
+
+    void OffEffct()
+    {
+        overpanel.SetActive(false);
+    }
+
     void FinishOneEffect()
     {
 

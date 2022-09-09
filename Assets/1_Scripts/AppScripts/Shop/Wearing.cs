@@ -23,7 +23,7 @@ public class Wearing : MonoBehaviour
     }
     void CheckHaveSpecialItem()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             specialItems[i].SetActive(GameManager.instance.CurrentUser.specialItems[i].isHave);
         }
