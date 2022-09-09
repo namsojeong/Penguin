@@ -1275,7 +1275,7 @@ MonoBehaviour:
     m_Start: 20.733333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 6406098892949156275}
-    m_Duration: 44.21666666666667
+    m_Duration: 26.126221917383376
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6387348246525029976}
     m_EaseInDuration: 0
@@ -1368,7 +1368,7 @@ MonoBehaviour:
     m_Start: 13.7
     m_ClipIn: 0
     m_Asset: {fileID: 6442447087873303761}
-    m_Duration: 51.25
+    m_Duration: 33.15955525071671
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6347490476204554193}
     m_EaseInDuration: 0
@@ -2940,7 +2940,7 @@ MonoBehaviour:
     m_Start: 24.4
     m_ClipIn: 0
     m_Asset: {fileID: 7815550819011222700}
-    m_Duration: 40.550000000000004
+    m_Duration: 22.45955525071671
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1864860170248237937}
     m_EaseInDuration: 0
@@ -3183,7 +3183,7 @@ MonoBehaviour:
     m_Start: 16.833333333333332
     m_ClipIn: 0
     m_Asset: {fileID: 8515002743732288464}
-    m_Duration: 48.116666666666674
+    m_Duration: 30.026221917383378
     m_TimeScale: 1
     m_ParentTrack: {fileID: -570868999868346969}
     m_EaseInDuration: 0
@@ -3544,7 +3544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 64.88333333333334
+  m_Time: 45.1
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 974758ee227c82943832ade230c9461f, type: 2}
@@ -3617,7 +3617,7 @@ MonoBehaviour:
     m_Start: 28.05
     m_ClipIn: 0
     m_Asset: {fileID: 7349487880321604772}
-    m_Duration: 36.900000000000006
+    m_Duration: 18.80955525071671
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3821261731843633727}
     m_EaseInDuration: 0
@@ -3710,7 +3710,7 @@ MonoBehaviour:
     m_Start: 32.38333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -7902015657279109786}
-    m_Duration: 32.56666666666667
+    m_Duration: 14.476221917383377
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4159254862212503541}
     m_EaseInDuration: 0
@@ -4228,7 +4228,7 @@ MonoBehaviour:
     m_Start: 10.116666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 5348850015297582761}
-    m_Duration: 54.833333333333336
+    m_Duration: 36.74288858405004
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8116638255973556080}
     m_EaseInDuration: 0

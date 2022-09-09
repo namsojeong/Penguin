@@ -90,7 +90,7 @@ public class RandomSpecial : MonoBehaviour
     private void UpPrice()
     {
         price = GameManager.instance.CurrentUser.ranPrice;
-        price += 10000;
+        price += 5000;
         GameManager.instance.CurrentUser.ranPrice = price;
         UpdatePrice();
     }

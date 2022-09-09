@@ -7,6 +7,8 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 {
     [SerializeField]
     string itemName;
+    [SerializeField]
+    GameObject fish;
 
     EventParam eventParam = new EventParam();
 
@@ -20,7 +22,11 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         rectTransform = GetComponent<RectTransform>();
     }
-
+    
+    void OnEnable()
+    {
+        EndEat();
+    }
     void CheckFeed()
     {
         int plusHungry = 0;
@@ -46,9 +52,16 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         }
         eventParam.stringParam = itemName;
         eatAnim.SetTrigger("Eat");
+        fish.SetActive(false);
+        Invoke("EndEat", 1.5f);
         EventManager.TriggerEvent("USEFOOD", eventParam);
         GameManager.instance.UpNutrient(NutrientE.HUNGRY, plusHungry);
         SoundManager.instance.SFXPlay(eatSound);
+    }
+
+    void EndEat()
+    {
+        fish.SetActive(true);
     }
     public void OnDrag(PointerEventData eventData)
     {

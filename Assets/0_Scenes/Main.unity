@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1140454313}
   m_Horizontal: 0
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -12772,6 +12772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: SHRIMP
+  fish: {fileID: 1060381702143471638}
   canvas: {fileID: 1060381702448277812}
   eatSound: {fileID: 8300000, guid: e12d2af0f05659b4cb18aacda3704c6f, type: 3}
   eatAnim: {fileID: 1060381702586039801}
@@ -19720,6 +19721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: SQUID
+  fish: {fileID: 1060381702143471638}
   canvas: {fileID: 1060381702448277812}
   eatSound: {fileID: 8300000, guid: e12d2af0f05659b4cb18aacda3704c6f, type: 3}
   eatAnim: {fileID: 1060381702586039801}
@@ -22225,6 +22227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: FISH
+  fish: {fileID: 1060381702143471638}
   canvas: {fileID: 1060381702448277812}
   eatSound: {fileID: 8300000, guid: e12d2af0f05659b4cb18aacda3704c6f, type: 3}
   eatAnim: {fileID: 1060381702586039801}
@@ -26290,6 +26293,7 @@ GameObject:
   - component: {fileID: 1060381702586039805}
   - component: {fileID: 1060381702586039802}
   - component: {fileID: 1060381702586039801}
+  - component: {fileID: 1060381702586039804}
   m_Layer: 5
   m_Name: Cha
   m_TagString: PENGUIN
@@ -26336,7 +26340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3231537456725316070, guid: 93e51f2f1b5e5084d8ab6ab3621f1c24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f87f58975c349d14bb1f4374a0071527, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26368,6 +26372,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 81}
   m_SizeDelta: {x: 676.5704, y: 676.5704}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1060381702586039804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060381702586039800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff88bcba758f6244eab917318e633567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &1060381702586039805
 CanvasRenderer:
   m_ObjectHideFlags: 0

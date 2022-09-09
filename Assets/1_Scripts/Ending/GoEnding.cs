@@ -28,6 +28,11 @@ public class GoEnding : MonoBehaviour
     void ReadyEnding(EventParam eventParam)
     {
         ab = eventParam.abilityParam;
+        if(!eventParam.boolParam)
+        {
+            GoEnd();
+            return;
+        }
         dayText.text = string.Format($"25 day");
         endPanel.SetActive(true);
 

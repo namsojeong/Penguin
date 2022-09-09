@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviour
                 CurrentUser.hungry += v;
                 if (CurrentUser.hungry <= 0)
                 {
-                    Debug.Log("¹è°íÆÄ¼­ Á×À½");
                     FailEnding();
                 }
                 else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
@@ -126,7 +125,6 @@ public class GameManager : MonoBehaviour
                 CurrentUser.clean += v;
                 if (CurrentUser.clean <= 0)
                 {
-                    Debug.Log("´õ·¯¿ö¼­ Á×À½");
                     FailEnding();
                 }
                 else if (CurrentUser.clean > 100) CurrentUser.clean = 100;
@@ -135,7 +133,6 @@ public class GameManager : MonoBehaviour
                 CurrentUser.fun += v;
                 if (CurrentUser.fun <= 0)
                 {
-                    Debug.Log("³ëÀëÀÌ¶ó Á×À½");
                     FailEnding();
                 }
                 else if (CurrentUser.fun > 100) CurrentUser.fun = 100;
@@ -192,16 +189,17 @@ public class GameManager : MonoBehaviour
         {
             if (CurrentUser.study < maxEnding) ab = AbilityE.NONE;
         }
-        GoEnding(ab);
+        GoEnding(ab, true);
     }
 
     public void FailEnding()
     {
-        GoEnding(AbilityE.NONE);
+        GoEnding(AbilityE.NONE, false);
     }
-    private void GoEnding(AbilityE ability)
+    private void GoEnding(AbilityE ability, bool isCor)
     {
         ResetVal();
+        eventParam.boolParam = isCor;
         eventParam.abilityParam = ability;
         EventManager.TriggerEvent("GoEnding", eventParam);
     }
@@ -334,7 +332,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsOkayPlay()
     {
-        if (CurrentUser.hungry <= 15 || CurrentUser.clean <= 15)
+        if (CurrentUser.hungry <= 15 || CurrentUser.clean <= 15 || CurrentUser.sleep <= 15)
             return false;
         else
             return true;
