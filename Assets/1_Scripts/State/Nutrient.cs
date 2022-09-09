@@ -52,8 +52,8 @@ public class Nutrient : MonoBehaviour
     {
         ChangeNut(NutrientE.HUNGRY, -10f);
         ChangeNut(NutrientE.FUN, +10f);
-        ChangeNut(NutrientE.CLEAN, -7f);
-        ChangeNut(NutrientE.SLEEP, -5f);
+        ChangeNut(NutrientE.CLEAN, -10f);
+        ChangeNut(NutrientE.SLEEP, -10f);
     }
 
 

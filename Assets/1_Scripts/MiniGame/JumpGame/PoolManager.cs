@@ -16,6 +16,7 @@ public class PoolManager : MonoBehaviour
     int spawnCnt;
 
     Coroutine spawnC;
+    float spawnSpeed = 4.5f;
 
 
     private void Awake()
@@ -45,9 +46,11 @@ public class PoolManager : MonoBehaviour
     //적 풀링 실행
     public IEnumerator PoolSpawn()
     {
-        float randomDelay = Random.Range(2, 5f);
+        float randomDelay = 5f;
         while (true)
         {
+            randomDelay = Random.Range(2, spawnSpeed);
+            if(spawnSpeed>2f)  spawnSpeed -= 0.003f;
             InstanceObj();
             yield return new WaitForSeconds(randomDelay);
         }

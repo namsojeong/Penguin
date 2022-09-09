@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void UpAbility(AbilityE ability, int v)
     {
-        switch(ability)
+        switch (ability)
         {
             case AbilityE.PE:
                 CurrentUser.pe += v;
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
                     FailEnding();
                 }
                 else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
-                    break;
+                break;
             case NutrientE.CLEAN:
                 CurrentUser.clean += v;
                 if (CurrentUser.clean <= 0)
@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
         EventManager.TriggerEvent("NextDay", eventParam);
         CurrentUser.day++;
         CurrentUser.sleep = 100;
-        if(CurrentUser.day >lastDay)
+        if (CurrentUser.day > lastDay)
         {
             EndingSelect();
         }
@@ -182,15 +182,15 @@ public class GameManager : MonoBehaviour
 
         if (ab == AbilityE.CHARM)
         {
-            if(CurrentUser.charm < maxEnding)  ab = AbilityE.NONE;
+            if (CurrentUser.charm < maxEnding) ab = AbilityE.NONE;
         }
-        else if(ab == AbilityE.PE)
+        else if (ab == AbilityE.PE)
         {
-            if(CurrentUser.pe < maxEnding) ab = AbilityE.NONE;
+            if (CurrentUser.pe < maxEnding) ab = AbilityE.NONE;
         }
-        else if(ab == AbilityE.STUDY)
+        else if (ab == AbilityE.STUDY)
         {
-            if(CurrentUser.study < maxEnding) ab = AbilityE.NONE;
+            if (CurrentUser.study < maxEnding) ab = AbilityE.NONE;
         }
         GoEnding(ab);
     }
@@ -267,21 +267,21 @@ public class GameManager : MonoBehaviour
             specialDress.isHave = false;
             specialDress.isGet = false;
             CurrentUser.specialItems.Add(specialDress);
-            
+
             SpecialItem babyItem = new SpecialItem();
             babyItem.name = "览局 唱 局扁齐骂";
             babyItem.index = 0;
             babyItem.isHave = false;
             babyItem.isGet = false;
             CurrentUser.specialItems.Add(babyItem);
-            
+
             SpecialItem catItem = new SpecialItem();
             catItem.name = "具克捞技飘";
             catItem.index = 0;
             catItem.isHave = false;
             catItem.isGet = false;
             CurrentUser.specialItems.Add(catItem);
-            
+
         }
 
     }
@@ -307,11 +307,11 @@ public class GameManager : MonoBehaviour
         {
             CurrentUser.fishCnt += cnt;
         }
-        else if(food == FoodE.SHRIMP)
+        else if (food == FoodE.SHRIMP)
         {
             CurrentUser.shrimpCnt += cnt;
         }
-        else if(food == FoodE.SQUID)
+        else if (food == FoodE.SQUID)
         {
             CurrentUser.squidCnt += cnt;
         }
@@ -319,7 +319,7 @@ public class GameManager : MonoBehaviour
 
     public void SetMessageTime(int times)
     {
-        CurrentUser.messageTime=times;
+        CurrentUser.messageTime = times;
     }
 
     public bool IsMessage()
@@ -330,5 +330,13 @@ public class GameManager : MonoBehaviour
     public void IsNotMessage(bool bl)
     {
         CurrentUser.messaeging = bl;
+    }
+
+    public bool IsOkayPlay()
+    {
+        if (CurrentUser.hungry <= 15 || CurrentUser.clean <= 15)
+            return false;
+        else
+            return true;
     }
 }

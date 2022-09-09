@@ -15,6 +15,7 @@ TagManager:
   - NUTRIENT
   - PENGUIN
   - FxTemporaire
+  - WALL
   layers:
   - Default
   - TransparentFX

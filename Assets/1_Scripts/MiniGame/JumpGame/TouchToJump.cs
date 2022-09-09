@@ -33,7 +33,7 @@ public class TouchToJump : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isDamage) return;
+        if (isDamage||collision.collider.tag=="WALL") return;
         life--;
         lifeImage[life].SetActive(false);
         if (life <= 0)
