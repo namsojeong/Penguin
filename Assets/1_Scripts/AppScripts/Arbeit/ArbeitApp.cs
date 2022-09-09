@@ -49,6 +49,7 @@ public class ArbeitApp : MonoBehaviour
     bool isPlaying = false;
 
     List<Sprite> setSprite = new List<Sprite>();
+    int[] arbCnt = { 0, 0, 0 }; 
 
     EventParam eventParam = new EventParam();
 
@@ -92,7 +93,6 @@ public class ArbeitApp : MonoBehaviour
         nowCnt++;
         calImage[nowCnt - 1].sprite = defSprite;
 
-
         // º¸»ó
         AbilityE curAr = eventParam.abilityParam;
         GameManager.instance.PlusCoin(100);
@@ -131,6 +131,7 @@ public class ArbeitApp : MonoBehaviour
     {
         arbietQ.Enqueue(ar);
         calImage[arbietQ.Count - 1].sprite = calSprite[(int)ar - 1];
+        arbCnt[(int)ar-1]++;
         IsFull();
     }
 
@@ -166,6 +167,9 @@ public class ArbeitApp : MonoBehaviour
 
     private void ResetArb()
     {
+        arbCnt[0] = 0;
+        arbCnt[1] = 0;
+        arbCnt[2] = 0;
         arbietQ.Clear();
         isPlaying = false;
         nowCnt = 0;
@@ -192,7 +196,20 @@ public class ArbeitApp : MonoBehaviour
     {
         overpanel.SetActive(true);
         getCoinT.text = string.Format($"È¹µæ ÄÚÀÎ: {nowCnt * 100} ");
-        getstatsT.text = string.Format($"È¹µæ ½ºÅÈ:  {nowCnt * 10} ");
+        string str = "È¹µæ ½ºÅÈ\n";
+        if (arbCnt[0]>=1)
+        {
+            str += "Ã¼·Â +" + arbCnt[0] * 10+"\n";
+        }
+        if(arbCnt[1]>=1)
+        {
+            str += "Áö½Ä +" + arbCnt[1] * 10+"\n";
+        }
+        if(arbCnt[2]>=1)
+        {
+            str += "¸Å·Â +" + arbCnt[2] * 10;
+        }
+        getstatsT.text = string.Format(str);
         Invoke("OffEffct", 1f);
     }
 
@@ -206,19 +223,4 @@ public class ArbeitApp : MonoBehaviour
 
     }
 
-    //void GetArb(EventParam ep)
-    //{
-
-    //}
-
-    //public void SetArbs()
-    //{
-    //    int playing = isPlaying == true ? 1 : 0;
-    //    PlayerPrefs.SetInt("IsPlay", playing);
-    //    PlayerPrefs.SetString("SaveLastTime", System.DateTime.Now.ToString());
-    //    for (int i=0;i<arbietQ.Count;i++)
-    //    {
-    //        GameManager.instance.arbSprites.Add(arbietQ.Dequeue());
-    //    }
-    //}
 }
