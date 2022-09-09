@@ -8,6 +8,8 @@ public class TouchToJump : MonoBehaviour
     float jumpPower;
     [SerializeField]
     GameObject[] lifeImage;
+    [SerializeField]
+    AudioClip damageSound;
 
 
     Rigidbody2D rigid;
@@ -35,6 +37,7 @@ public class TouchToJump : MonoBehaviour
     {
         if (isDamage||collision.collider.tag=="WALL") return;
         life--;
+        SoundManager.instance.SFXPlay(damageSound);
         lifeImage[life].SetActive(false);
         if (life <= 0)
         {
