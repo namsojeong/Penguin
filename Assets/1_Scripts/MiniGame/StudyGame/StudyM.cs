@@ -99,7 +99,6 @@ public class StudyM : MonoBehaviour
         {
             highScore = score;
             PlayerPrefs.SetInt("HighScoreStudy", highScore);
-            Debug.Log("a");
         }
         UpdateUI();
     }

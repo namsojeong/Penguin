@@ -32,6 +32,14 @@ public class ArbeitApp : MonoBehaviour
     [SerializeField]
     AudioClip finishSound;
 
+
+    [SerializeField, Header("알바 후 패널")]
+    private GameObject overpanel;
+    [SerializeField]
+    private Text getCoinT;
+    [SerializeField]
+    private Text getstatsT;
+
     Queue<AbilityE> arbietQ = new Queue<AbilityE>();
 
     int dayCnt = 5;
@@ -53,6 +61,7 @@ public class ArbeitApp : MonoBehaviour
 
         selectButton.onClick.AddListener(() => PlayArb());
         resetButton.onClick.AddListener(() => ResetArb());
+        overpanel.SetActive(false);
     }
 
     private void Start()
@@ -93,15 +102,21 @@ public class ArbeitApp : MonoBehaviour
         if (nowCnt >= 5)
         {
             //여기야 서혀낭!!!!!!! 전부 다 끝났을 떄는  FinishEffect 함수에다가 하면 돼!!
+           // overpanel.SetActive(true);
             FinishEffect();
+          //  getCoinT.text = string.Format($"획득 코인: {nowCnt*100} ");
+           // getstatsT.text = string.Format($"획득 스탯: {curAr} {nowCnt * 10} ");
             ResetArb();
         }
         else
         {
             //여기야 서혀낭!!!!!!! 하나 끝났을 때는 여기야! FinishOneEffect 함수에다가 하면 돼!!
+            
             FinishOneEffect();
             StartArb();
         }
+
+
 
     }
     void IsPlay()
