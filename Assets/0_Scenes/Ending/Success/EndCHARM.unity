@@ -3307,6 +3307,8 @@ MonoBehaviour:
     isFirst: 1
     isSpecialAll: 1
     isTryRan: 0
+    messageTime: 30
+    messaeging: 0
     items: []
     specialItems: []
   item:
@@ -4372,7 +4374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2111738669
 Transform:
   m_ObjectHideFlags: 0
