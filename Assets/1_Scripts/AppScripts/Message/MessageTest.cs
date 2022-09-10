@@ -208,11 +208,11 @@ public class MessageTest : MonoBehaviour
         messages_4.Add("음음");
         messages_4.Add("응~!");
         messages_4.Add("응응!");
-        messages_4.Add("오호라!");
+        messages_4.Add("오호");
         messages_4.Add("그래그래");
         messages_4.Add("그래");
         messages_4.Add("응");
-        messages_4.Add("응응ㅎㅎ");
+        messages_4.Add("오오");
 
         //10
 
@@ -233,28 +233,28 @@ public class MessageTest : MonoBehaviour
         messages_5.Add("대기오염 물질이랑 불빛이 반사되어소 구래");
         messages_5.Add("평화 목적에만 이용한다는 조약이야! 너무 행보케");
         messages_5.Add("물건을 아껴쓰는 습관을 길러보자구우우!");
-        messages_5.Add("그리고 난방을 줄이고 실내 온도를 낮추어보눈고야");
+        messages_5.Add("그리고 난방을 줄이구 실내 온도를 낮추는구야");
         messages_5.Add("외출 시에는 반드시 소등했눈지 확인은 필수라구");
         messages_5.Add("부채나 선풍기가 있는데 마리양! 나 좀 슬포..");
         messages_5.Add("컴퓨터 안 쓸 때눈 전원 끄는 습관을 가지자");
         messages_5.Add("샤워기를 사용하눈게 더 좋대! 꼭 기억하깅!");
         messages_5.Add("수도꼭지를 꼭 꼭 잠가주자! 수도꼭지가 울자낭..");
-        messages_5.Add("세탁이나 청소용으루 재사용하는 방법은 알구있나아?");
-        messages_5.Add("환경 친화적인 상품을 구매하는게 지구에게 더 좋겠지?");
-        messages_5.Add("이왕 사는거 환경 마크가 붙어있는 상품을 이용하자");
+        messages_5.Add("세탁, 청소용으루 재사용하는 방법은 알구있나아?");
+        messages_5.Add("환경 친화적인 상품은 지구에게 더 좋겠지?");
+        messages_5.Add("이왕 사는고 환경 마크 상품을 이용하자");
         messages_5.Add("휴지에 대한 나의 작은 매너라까?");
         messages_5.Add("왠지 만년필을 사용하는 사람은 멋진듯 크크.. ");
         messages_5.Add("소음 공해를 막을 수 있눈 저은 방법이지 후후");
-        messages_5.Add("친환경 가스나 퇴비를 만드는 데 재활용할 수 이써");
-        messages_5.Add("나무 24그루, 물 86톤이 피료하다니 믿을 수 업따구!");
-        messages_5.Add("흙을 깨끗하게 만들어소 생활에 도움을 주고 이떠요.");
-        messages_5.Add("우리에게 필요한 물건을 만두는 공장의 매연 때무니에여");
-        messages_5.Add("근데 걸리는 시간은 무려 450년이나 걸린다구 해여");
+        messages_5.Add("친환경 가스나 퇴비로 재활용할 수 이써");
+        messages_5.Add("나무 24그루, 물 86톤이 필요하다닝 말도안댕!");
+        messages_5.Add("흙을 깨끗하게 만들어소 생활에 도움을 준대애");
+        messages_5.Add("필요한 물건을 만드눈 공장의 매연 때무니에여");
+        messages_5.Add("근데 걸리는 시간은 450년이나 걸린다구 해여");
         messages_5.Add("꼭 꼭 마스크를 착용해여! 이거 진짜 약속이야!");
-        messages_5.Add("토양 속 물을 오염시키니까 폐건전지 수거함에 버리쟝");
+        messages_5.Add("토양 속 물도 오염되니까 폐건전지 수거함에 버령");
         messages_5.Add("근데 이걸 어디에다 버리냐구? 일반쓰레기야!");
         messages_5.Add("노노 아니징 바로! 일반쓰레기에 넣어야지 헤헤헤");
-        messages_5.Add("홈화면에서 날 끌어당기면 내 몸이 제멋대로");
+        messages_5.Add("붕붕 뜨는 기분이야! 기분 탓이겠지?");
         messages_5.Add("근데 왠지 모르게 기분은 조타 크크...");
         messages_5.Add("매일 밤 자기 전에 생각하게 돼..");
         messages_5.Add("언제나 배부른 상태를 유지해줬으면 좋겠어.");
@@ -265,7 +265,7 @@ public class MessageTest : MonoBehaviour
 
         //--여섯번째, 작별인사--
 
-        messages_6.Add("그럼 잘가!");
+        messages_6.Add("구럼 잘가!");
         messages_6.Add("빠잉");
         messages_6.Add("좋은 하루 보냉!");
         messages_6.Add("나중에 다시 와줘!");
@@ -274,7 +274,7 @@ public class MessageTest : MonoBehaviour
         messages_6.Add("그럼 환경을 지키러 가볼까?");
         messages_6.Add("펭찌 얘기를 들어줘서 고마오");
         messages_6.Add("작은 실천이 지구를 지켜!");
-        messages_6.Add("빠빠");
+        messages_6.Add("빠빠ㅣ");
         messages_6.Add("다음에 다시 왕");
         messages_6.Add("크크");
         messages_6.Add("안뇽");
