@@ -5,6 +5,25 @@ using UnityEngine.UI;
 
 public class AudioSetManager : MonoBehaviour
 {
+    #region Singleton
+    private static AudioSetManager _instance = null;
+
+    public static AudioSetManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<AudioSetManager>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject("AudioSetManager ").AddComponent<AudioSetManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+    #endregion
     [SerializeField]
     private AudioSource audioBGMSource;
     [SerializeField]
@@ -26,6 +45,8 @@ public class AudioSetManager : MonoBehaviour
     }
     private void SetVolume()
     {
+        audioBGMSource.pitch = 1f;
+
         backVol = PlayerPrefs.GetFloat(ConstantManager.VOL_BACK, 1f);
         BGMSlider.value = backVol;
 
