@@ -7,15 +7,12 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 {
     [SerializeField]
     string itemName;
-    [SerializeField]
-    GameObject fish;
 
     EventParam eventParam = new EventParam();
 
     RectTransform rectTransform;
     [SerializeField] Canvas canvas;
     [SerializeField] AudioClip eatSound;
-    [SerializeField] Animator eatAnim;
     Vector2 defaultPos;
 
     private void Awake()
@@ -23,10 +20,6 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         rectTransform = GetComponent<RectTransform>();
     }
     
-    void OnEnable()
-    {
-        EndEat();
-    }
     void CheckFeed()
     {
         int plusHungry = 0;
@@ -51,22 +44,13 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
             plusHungry = 20;
         }
         eventParam.stringParam = itemName;
-        eatAnim.SetTrigger("Eat");
-        fish.SetActive(false);
-        Invoke("EndEat", 1.5f);
         EventManager.TriggerEvent("USEFOOD", eventParam);
         GameManager.Instance.UpNutrient(NutrientE.HUNGRY, plusHungry);
         SoundManager.instance.SFXPlay(eatSound);
     }
 
-    void EndEat()
-    {
-        fish.SetActive(true);
-    }
     public void OnDrag(PointerEventData eventData)
     {
-        // 이전 이동과 비교해서 얼마나 이동했는지를 보여줌
-        // 캔버스의 스케일과 맞춰야 하기 때문에
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
