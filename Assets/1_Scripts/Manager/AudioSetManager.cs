@@ -24,6 +24,7 @@ public class AudioSetManager : MonoBehaviour
         }
     }
     #endregion
+
     [SerializeField]
     private AudioSource audioBGMSource;
     [SerializeField]
@@ -37,7 +38,6 @@ public class AudioSetManager : MonoBehaviour
 
     public Slider BGMSlider;
     public Slider FXSlider;
-
 
     private void Start()
     {

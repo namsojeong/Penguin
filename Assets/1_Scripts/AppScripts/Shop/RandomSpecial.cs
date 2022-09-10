@@ -36,7 +36,7 @@ public class RandomSpecial : MonoBehaviour
     {
         buyButton.onClick.AddListener(() => BuyRandom());
 
-        price = GameManager.instance.CurrentUser.ranPrice;
+        price = GameManager.Instance.CurrentUser.ranPrice;
     }
 
     private void Start()
@@ -51,22 +51,22 @@ public class RandomSpecial : MonoBehaviour
     // 가진 코인으로 살 수 있는지 비교
     private void CantBuy()
     {
-        if (GameManager.instance.CurrentUser.isSpecialAll)
+        if (GameManager.Instance.CurrentUser.isSpecialAll)
         {
             buyButton.interactable = false;
             buyButton.image.color = Color.red;
             priceText.text = string.Format("All Collect");
             return;
         }
-        if (!GameManager.instance.CurrentUser.isTryRan)
+        if (!GameManager.Instance.CurrentUser.isTryRan)
         {
-            GameManager.instance.CurrentUser.isTryRan = true;
+            GameManager.Instance.CurrentUser.isTryRan = true;
             buyButton.interactable = true;
             buyButton.image.color = Color.white;
             priceText.text = string.Format("무료");
             return;
         }
-        if (GameManager.instance.CurrentUser.coin < price)
+        if (GameManager.Instance.CurrentUser.coin < price)
         {
             UpdatePrice();
             buyButton.image.color = Color.red;
@@ -89,22 +89,22 @@ public class RandomSpecial : MonoBehaviour
     // 뽑기 가격 증가
     private void UpPrice()
     {
-        price = GameManager.instance.CurrentUser.ranPrice;
+        price = GameManager.Instance.CurrentUser.ranPrice;
         price += 5000;
-        GameManager.instance.CurrentUser.ranPrice = price;
+        GameManager.Instance.CurrentUser.ranPrice = price;
         UpdatePrice();
     }
 
     // 뽑기 구매
     public void BuyRandom()
     {
-        if (GameManager.instance.CurrentUser.coin < price)
+        if (GameManager.Instance.CurrentUser.coin < price)
         {
             return;
         }
-        GameManager.instance.PlusCoin(-price);
+        GameManager.Instance.PlusCoin(-price);
         UpPrice();
-        int maxRan = GameManager.instance.CurrentUser.specialItems.Count;
+        int maxRan = GameManager.Instance.CurrentUser.specialItems.Count;
         int itemIndex = Random.Range(0, maxRan);
         GetItem(itemIndex);
     }
@@ -112,22 +112,22 @@ public class RandomSpecial : MonoBehaviour
     // 랜덤 아이템 획득
     void GetItem(int i)
     {
-        if (GameManager.instance.CurrentUser.specialItems[i].isGet)
+        if (GameManager.Instance.CurrentUser.specialItems[i].isGet)
         {
             nameText.text = string.Format("꽝 !");
-            itemImage.sprite = itemSprites[GameManager.instance.CurrentUser.specialItems.Count];
+            itemImage.sprite = itemSprites[GameManager.Instance.CurrentUser.specialItems.Count];
         }
         else
         {
-            int cnt = GameManager.instance.CurrentUser.specialCnt;
-            GameManager.instance.CurrentUser.specialCnt++;
+            int cnt = GameManager.Instance.CurrentUser.specialCnt;
+            GameManager.Instance.CurrentUser.specialCnt++;
             cnt++;
-            nameText.text = string.Format($"{GameManager.instance.CurrentUser.specialItems[i].name}");
+            nameText.text = string.Format($"{GameManager.Instance.CurrentUser.specialItems[i].name}");
             itemImage.sprite = itemSprites[i];
-            GameManager.instance.CurrentUser.specialItems[i].isGet = true;
+            GameManager.Instance.CurrentUser.specialItems[i].isGet = true;
             if (cnt == specialItemCnt)
             {
-                GameManager.instance.CurrentUser.isSpecialAll = true;
+                GameManager.Instance.CurrentUser.isSpecialAll = true;
                 buyButton.interactable = false;
                 buyButton.image.color = Color.red;
                 priceText.text = string.Format("All Collect");
@@ -142,7 +142,7 @@ public class RandomSpecial : MonoBehaviour
     // 다 모았을 때
     void AllCollectEffect()
     {
-        GameManager.instance.PlusCoin(10000);
+        GameManager.Instance.PlusCoin(10000);
         allParticle.Play();
     }
 

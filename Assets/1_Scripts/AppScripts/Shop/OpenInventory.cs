@@ -55,10 +55,10 @@ public class OpenInventory : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            itemButton[i].SetActive(GameManager.instance.CurrentUser.items[i].isGet);
-            if (GameManager.instance.CurrentUser.items[i].isGet)
+            itemButton[i].SetActive(GameManager.Instance.CurrentUser.items[i].isGet);
+            if (GameManager.Instance.CurrentUser.items[i].isGet)
             {
-                if (GameManager.instance.CurrentUser.items[i].isHave)
+                if (GameManager.Instance.CurrentUser.items[i].isHave)
                 {
                     haveButton[i].GetComponent<Image>().color = Color.red;
                     itemImage[i].SetActive(true);
@@ -75,10 +75,10 @@ public class OpenInventory : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            sItemButton[i].SetActive(GameManager.instance.CurrentUser.specialItems[i].isGet);
-            if (GameManager.instance.CurrentUser.specialItems[i].isGet)
+            sItemButton[i].SetActive(GameManager.Instance.CurrentUser.specialItems[i].isGet);
+            if (GameManager.Instance.CurrentUser.specialItems[i].isGet)
             {
-                if (GameManager.instance.CurrentUser.specialItems[i].isHave)
+                if (GameManager.Instance.CurrentUser.specialItems[i].isHave)
                 {
                     haveSpecialButton[i].GetComponent<Image>().color = Color.red;
                     sItemImage[i].SetActive(true);
@@ -94,25 +94,25 @@ public class OpenInventory : MonoBehaviour
 
     public void ClikWear(int index)
     {
-        if (GameManager.instance.CurrentUser.items[index].isHave)
+        if (GameManager.Instance.CurrentUser.items[index].isHave)
         {
-            GameManager.instance.CurrentUser.items[index].isHave = false;
+            GameManager.Instance.CurrentUser.items[index].isHave = false;
             haveButton[index].GetComponent<Image>().color = Color.white;
             realHave[index].SetActive(false);
         }
         else
         {
-            GameManager.instance.CurrentUser.items[index].isHave = true;
+            GameManager.Instance.CurrentUser.items[index].isHave = true;
             haveButton[index].GetComponent<Image>().color = Color.red;
             realHave[index].SetActive(true);
         }
-        itemImage[index].SetActive(GameManager.instance.CurrentUser.items[index].isHave);
+        itemImage[index].SetActive(GameManager.Instance.CurrentUser.items[index].isHave);
     }
     public void ClikWearSpecial(int index)
     {
-        GameManager.instance.CurrentUser.specialItems[index].isHave = !GameManager.instance.CurrentUser.specialItems[index].isHave;
-        sItemImage[index].SetActive(GameManager.instance.CurrentUser.specialItems[index].isHave);
-        if (GameManager.instance.CurrentUser.specialItems[index].isHave)
+        GameManager.Instance.CurrentUser.specialItems[index].isHave = !GameManager.Instance.CurrentUser.specialItems[index].isHave;
+        sItemImage[index].SetActive(GameManager.Instance.CurrentUser.specialItems[index].isHave);
+        if (GameManager.Instance.CurrentUser.specialItems[index].isHave)
         {
             haveSpecialButton[index].GetComponent<Image>().color = Color.red;
             sRealHave[index].SetActive(true);

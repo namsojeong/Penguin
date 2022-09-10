@@ -18,14 +18,14 @@ public class Wearing : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            items[i].SetActive(GameManager.instance.CurrentUser.items[i].isHave);
+            items[i].SetActive(GameManager.Instance.CurrentUser.items[i].isHave);
         }
     }
     void CheckHaveSpecialItem()
     {
         for (int i = 0; i < 3; i++)
         {
-            specialItems[i].SetActive(GameManager.instance.CurrentUser.specialItems[i].isHave);
+            specialItems[i].SetActive(GameManager.Instance.CurrentUser.specialItems[i].isHave);
         }
     }
 }

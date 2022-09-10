@@ -32,7 +32,7 @@ public class DragSoap : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDrag
         rectTransform.anchoredPosition = defaultPos;
         if ((eventData.position.x >= 582 && eventData.position.x <= 910) && (eventData.position.y >= 1100 && eventData.position.y <= 1510))
         {
-            GameManager.instance.UpNutrient(NutrientE.CLEAN, 10);
+            GameManager.Instance.UpNutrient(NutrientE.CLEAN, 10);
             SoundManager.instance.SFXPlay(bubbleSound);
             bubbleParticle.Play();
         }

@@ -95,8 +95,8 @@ public class ArbeitApp : MonoBehaviour
 
         // º¸»ó
         AbilityE curAr = eventParam.abilityParam;
-        GameManager.instance.PlusCoin(100);
-        GameManager.instance.UpAbility(curAr, 10);
+        GameManager.Instance.PlusCoin(100);
+        GameManager.Instance.UpAbility(curAr, 10);
         SoundManager.instance.SFXPlay(finishSound);
 
         if (nowCnt >= 5)

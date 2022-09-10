@@ -11,7 +11,7 @@ public class GalleryApp : MonoBehaviour
     public void GoMiniGame(string str)
     {
         SoundManager.instance.ClikSound();
-        if(!GameManager.instance.IsOkayPlay())
+        if(!GameManager.Instance.IsOkayPlay())
         {
             warning.SetActive(true);
             Invoke("CantPlay", 2f);
@@ -21,22 +21,22 @@ public class GalleryApp : MonoBehaviour
         bool isCharm = false;
         if(str=="PE")
         {
-            GameManager.instance.UpAbility(AbilityE.PE, 10);
+            GameManager.Instance.UpAbility(AbilityE.PE, 10);
         }
         else if(str=="STUDY")
         {
-            GameManager.instance.UpAbility(AbilityE.STUDY, 10);
+            GameManager.Instance.UpAbility(AbilityE.STUDY, 10);
 
         }
         else if(str=="CHARM")
         {
-            GameManager.instance.UpAbility(AbilityE.CHARM, 10);
+            GameManager.Instance.UpAbility(AbilityE.CHARM, 10);
             isCharm = true;
         }
         else if(str=="JUMP")
         {
             int ranAb = Random.Range(0, 3);
-            GameManager.instance.UpAbility((AbilityE)ranAb, 10);
+            GameManager.Instance.UpAbility((AbilityE)ranAb, 10);
         }
         if(isCharm)
         SceneM.instance.ChangeScene("CHARMGame_2");

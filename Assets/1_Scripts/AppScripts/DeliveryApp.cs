@@ -44,7 +44,7 @@ public class DeliveryApp : MonoBehaviour
 
     private void OnEnable()
     {
-        coinText.text = string.Format($"COIN : {GameManager.instance.CurrentUser.coin}");
+        coinText.text = string.Format($"COIN : {GameManager.Instance.CurrentUser.coin}");
     }
     public void ClickOnBuy(string food)
     {
@@ -67,7 +67,7 @@ public class DeliveryApp : MonoBehaviour
 
     public void YesBuy()
     {
-        if(GameManager.instance.CurrentUser.coin < (int)callFood * 100)
+        if(GameManager.Instance.CurrentUser.coin < (int)callFood * 100)
         {
             expensive.SetActive(true);
             Invoke("ExpensiveOff", 2f);
@@ -75,7 +75,7 @@ public class DeliveryApp : MonoBehaviour
         else
         {
             eventParam.stringParam = choiceFood;
-            GameManager.instance.PlusCoin(-((int)callFood * 100));
+            GameManager.Instance.PlusCoin(-((int)callFood * 100));
             EventManager.TriggerEvent("BUYFOOD", eventParam);
             defPos = popup.anchoredPosition;
             popupText.text = string.Format($"주문하신 {menuNames[(int)callFood - 1]}가 1분 뒤 도착 예정입니다.");

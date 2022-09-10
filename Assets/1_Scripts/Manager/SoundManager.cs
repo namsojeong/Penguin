@@ -4,8 +4,25 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
+    #region Singleton
+    private static SoundManager _instance = null;
 
+    public static SoundManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<SoundManager>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject("SoundManager").AddComponent<SoundManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+    #endregion
 
     [SerializeField]
     private AudioSource audioBGMSource;
@@ -19,14 +36,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip clickClip;
     [SerializeField] AudioClip bgmClip;
     [SerializeField] AudioClip waterClikClip;
-
-    [SerializeField]
-    private AudioClip[] sfx;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
 
     public void PhoneUISound()

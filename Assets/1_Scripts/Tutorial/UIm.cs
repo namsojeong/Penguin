@@ -9,36 +9,17 @@ public class UIm : MonoBehaviour
     AudioSource clickSource;
 
     public GameObject botomButton;
-    public GameObject App;
 
     public Image Imgages;
 
-    public GameObject character;
-
-    public GameObject state;
     public List<Sprite> tutoimage;
 
     int i =0;
-    void Start()
-    {
-        Invoke("ImageOn", 3f);
-        Imgages.gameObject.SetActive(false);
-    }
 
-    private void ImageOn()
-    {
-        Debug.Log("d");
-       //new WaitForSeconds(3f);
-        botomButton.SetActive(false);
-        App.SetActive(false);
-        character.SetActive(false);
-        state.SetActive(false);
-        Imgages.gameObject.SetActive(true);
-    }
 
     public void OnClickButton()
     {
-        ClickPassSound();
+        clickSource.Play();
         i++;
         if(i+2 > tutoimage.Count)
         {
@@ -49,8 +30,4 @@ public class UIm : MonoBehaviour
     }
 
 
-    public void ClickPassSound()
-    {
-        clickSource.Play();
-    }
 }

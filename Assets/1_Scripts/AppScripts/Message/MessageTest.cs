@@ -428,8 +428,4 @@ public class MessageTest : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-
-    }
 }

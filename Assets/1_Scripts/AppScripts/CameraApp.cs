@@ -120,7 +120,6 @@ public class CameraApp : MonoBehaviour
 
         if (succeeded)
         {
-            Debug.Log($"Screen Shot Saved : {totalPath}");
             lastSavedPath = totalPath; // 최근 경로에 저장
         }
 

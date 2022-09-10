@@ -34,8 +34,6 @@ public class Charm_Gameover : MonoBehaviour
         scoreT = PlayerPrefs.GetInt("SCORE_CHARM", 0);
         highscoreT = PlayerPrefs.GetInt("HIGHSCORE_CHARM", 0);
 
-        Debug.Log(highscoreT);
-
         restart.onClick.AddListener(()=>RestartButton());
         main.onClick.AddListener(()=>GoMain());
 

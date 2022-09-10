@@ -7,7 +7,25 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    #region Singleton
+    private static GameManager _instance = null;
+
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameManager>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject("GameManager").AddComponent<GameManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+    #endregion
     [SerializeField]
     int maxEnding;
 
@@ -29,7 +47,6 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
             Screen.SetResolution(1440, 2560, true);
-            instance = this;
 
             //¿˙¿Â
             SAVE_PATH = Application.persistentDataPath + "/Save";

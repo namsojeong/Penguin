@@ -30,24 +30,24 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     void CheckFeed()
     {
         int plusHungry = 0;
-        if (GameManager.instance.CurrentUser.hungry >= 100)
+        if (GameManager.Instance.CurrentUser.hungry >= 100)
         {
-            GameManager.instance.CurrentUser.hungry = 100;
+            GameManager.Instance.CurrentUser.hungry = 100;
             return;
         }
         if (itemName == "SHRIMP")
         {
-            if (GameManager.instance.CurrentUser.shrimpCnt <= 0) return;
+            if (GameManager.Instance.CurrentUser.shrimpCnt <= 0) return;
             plusHungry = 10;
         }
         else if (itemName == "SQUID")
         {
-            if (GameManager.instance.CurrentUser.squidCnt <= 0) return;
+            if (GameManager.Instance.CurrentUser.squidCnt <= 0) return;
             plusHungry = 15;
         }
         else if (itemName == "FISH")
         {
-            if (GameManager.instance.CurrentUser.fishCnt <= 0) return;
+            if (GameManager.Instance.CurrentUser.fishCnt <= 0) return;
             plusHungry = 20;
         }
         eventParam.stringParam = itemName;
@@ -55,7 +55,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         fish.SetActive(false);
         Invoke("EndEat", 1.5f);
         EventManager.TriggerEvent("USEFOOD", eventParam);
-        GameManager.instance.UpNutrient(NutrientE.HUNGRY, plusHungry);
+        GameManager.Instance.UpNutrient(NutrientE.HUNGRY, plusHungry);
         SoundManager.instance.SFXPlay(eatSound);
     }
 

@@ -5,15 +5,28 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    #region Singleton
+    private static UIManager _instance = null;
 
-    private void Awake()
+    public static UIManager instance
     {
-        instance = this;
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<UIManager>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject("UIManager").AddComponent<UIManager>();
+                }
+            }
+            return _instance;
+        }
     }
+    #endregion
     public void StartButton()
     {
-        if(GameManager.instance.CurrentUser.isFirst)
+        if(GameManager.Instance.CurrentUser.isFirst)
         {
             SceneM.instance.ChangeScene("CutScene");
         }

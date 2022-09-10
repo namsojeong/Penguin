@@ -5,12 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class SceneM : MonoBehaviour
 {
-    public static SceneM instance;
+    #region Singleton
+    private static SceneM _instance = null;
 
-    private void Awake()
+    public static SceneM instance
     {
-        instance = this;
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<SceneM>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject("SceneM").AddComponent<SceneM>();
+                }
+            }
+            return _instance;
+        }
     }
+    #endregion
+
     public void ChangeScene(string scene)
     {
         SceneManager.LoadScene(scene);
