@@ -3075,7 +3075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bGM: {fileID: 63346011}
   Click: {fileID: 1956003504}
-  fxs: {fileID: 1344244194}
+  fxs: {fileID: 1329774520}
 --- !u!4 &1096655104
 Transform:
   m_ObjectHideFlags: 0
@@ -4606,13 +4606,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioBGMSource: {fileID: 63346011}
-  audioSFXSource: {fileID: 1344244194}
+  audioSFXSource: {fileID: 1329774520}
   audioClickSource: {fileID: 1956003504}
   audioPhoneUISource: {fileID: 1420174334}
   clickClip: {fileID: 8300000, guid: e78073ea085f22c4a9a9dafa627828c1, type: 3}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 8300000, guid: d7f1efa04aaff6d4eaff29af3b810f8a, type: 3}
-  sfx: []
 --- !u!4 &1710218174
 Transform:
   m_ObjectHideFlags: 0
@@ -6297,7 +6296,6 @@ MonoBehaviour:
   clickClip: {fileID: 0}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 8300000, guid: d7f1efa04aaff6d4eaff29af3b810f8a, type: 3}
-  sfx: []
 --- !u!4 &2086368013
 Transform:
   m_ObjectHideFlags: 0

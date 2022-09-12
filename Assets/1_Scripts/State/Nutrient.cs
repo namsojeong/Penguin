@@ -44,7 +44,7 @@ public class Nutrient : MonoBehaviour
     void StedMinus()
     {
         ChangeNut(NutrientE.HUNGRY, -0.1f);
-        ChangeNut(NutrientE.SLEEP, -0.1f);
+        ChangeNut(NutrientE.SLEEP, -0.5f);
     }
 
     // 미니게임 시 차감 필수요소
