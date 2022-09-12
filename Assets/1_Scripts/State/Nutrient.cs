@@ -45,12 +45,14 @@ public class Nutrient : MonoBehaviour
     {
         ChangeNut(NutrientE.HUNGRY, -0.1f);
         ChangeNut(NutrientE.SLEEP, -0.5f);
+        ChangeNut(NutrientE.FUN, -0.5f);
+        ChangeNut(NutrientE.CLEAN, -0.05f);
     }
 
     // 미니게임 시 차감 필수요소
     private void GoGameMinusNut(EventParam eventParam)
     {
-        ChangeNut(NutrientE.HUNGRY, -10f);
+        ChangeNut(NutrientE.HUNGRY, -5f);
         ChangeNut(NutrientE.FUN, +10f);
         ChangeNut(NutrientE.CLEAN, -10f);
         ChangeNut(NutrientE.SLEEP, -10f);

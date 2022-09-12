@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
                 {
                     FailEnding();
                 }
+                else if (CurrentUser.hungry <= 30) EventManager.TriggerEvent("SoHungry", eventParam);
                 else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
                 break;
             case NutrientE.CLEAN:

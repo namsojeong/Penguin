@@ -9,6 +9,8 @@ public class CharacterLove : MonoBehaviour
     //GameObject penguin;
     [SerializeField]
     GameObject heartEffect;
+    [SerializeField]
+    AudioClip loveAudio;
 
     [SerializeField]
     Button loveButton;
@@ -27,6 +29,7 @@ public class CharacterLove : MonoBehaviour
         if (isLoving) return;
         isLoving = true;
         heartEffect.transform.position = transform.position;
+        SoundManager.instance.SFXPlay(loveAudio);
         heartEffect.SetActive(true);
         Invoke("HeartEffectOff", 1f);
     }
