@@ -41,8 +41,8 @@ public class Charm_BulletMove : MonoBehaviour
 
     public void Despawn()
     {
-        transform.SetParent(gameManager.poolManager.transform, false);
-        gameObject.SetActive(false);
-        //Destroy(gameObject);
+        //transform.SetParent(gameManager.poolManager.transform, false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
