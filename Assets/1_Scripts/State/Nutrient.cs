@@ -44,8 +44,8 @@ public class Nutrient : MonoBehaviour
     void StedMinus()
     {
         ChangeNut(NutrientE.HUNGRY, -0.1f);
-        ChangeNut(NutrientE.SLEEP, -0.5f);
-        ChangeNut(NutrientE.FUN, -0.5f);
+        ChangeNut(NutrientE.SLEEP, -0.4f);
+        ChangeNut(NutrientE.FUN, -0.05f);
         ChangeNut(NutrientE.CLEAN, -0.05f);
     }
 

@@ -59,9 +59,9 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("SaveToJson", 1f, 1f);
         }
 
-            ResetVal();
         if (CurrentUser.isFirst)
         {
+            ResetVal();
             CurrentUser.isFirst = false;
         }
         DontDestroyOnLoad(gameObject);
