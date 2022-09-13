@@ -59,9 +59,9 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("SaveToJson", 1f, 1f);
         }
 
+            ResetVal();
         if (CurrentUser.isFirst)
         {
-            ResetVal();
             CurrentUser.isFirst = false;
         }
         DontDestroyOnLoad(gameObject);
@@ -250,8 +250,7 @@ public class GameManager : MonoBehaviour
         CurrentUser.day = 1;
 
         CurrentUser.isSpecialAll = false;
-        CurrentUser.isTryRan = false;
-        CurrentUser.ranPrice = 0;
+        CurrentUser.ranPrice = 1000;
         CurrentUser.specialCnt = 0;
         CurrentUser.messageTime = 30;
         CurrentUser.messaeging = false;
