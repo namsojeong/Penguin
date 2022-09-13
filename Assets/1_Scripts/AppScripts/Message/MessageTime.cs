@@ -9,10 +9,39 @@ public class MessageTime : MonoBehaviour
     [SerializeField]
     private Text dateText;
 
+    [SerializeField]
+    RectTransform messagePopup;
+
+    [SerializeField, Header("알림 이동위치")]
+    Vector2 nextpos;
+    Vector2 defPos;
+
+    private void Start()
+    {
+        EventManager.StartListening("MessageUp", MessagePopUp);
+    }
+    private void OnDestroy()
+    {
+        
+        EventManager.StopListening("MessageUp", MessagePopUp);
+    }
+
+    void MessagePopUp(EventParam eventParam)
+    {
+        defPos = messagePopup.anchoredPosition;
+        messagePopup.anchoredPosition = nextpos;
+        Invoke("PopupOff", 1.5f);
+    }
+
+    void PopupOff()
+    {
+        messagePopup.anchoredPosition = defPos;
+    }
+
     //[SerializeField]
     //private Text transmissiontime;
 
-    
+
 
     //public int countdownMinutes = 1;
     //public float countdownSeconds;

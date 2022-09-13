@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
 
     int lastDay = 25;
+    bool isCor = false;
     EventParam eventParam = new EventParam();
 
     private void Awake()
@@ -161,6 +162,13 @@ public class GameManager : MonoBehaviour
                 {
                     NextDay();
                 }
+                else if (CurrentUser.sleep < 20)
+                {
+                    if (isCor) return;
+                    isCor = true;
+                    EventManager.TriggerEvent("MessageUp", eventParam);
+                }
+                else if (CurrentUser.sleep >= 20) isCor = false;
                 break;
         }
     }

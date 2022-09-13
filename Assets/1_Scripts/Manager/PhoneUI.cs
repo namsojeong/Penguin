@@ -13,6 +13,7 @@ public class PhoneUI : MonoBehaviour
     [SerializeField]
     private Text dayText;
 
+
     private void Update()
     {
         GetTime();
@@ -25,4 +26,5 @@ public class PhoneUI : MonoBehaviour
         batteryText.text = string.Format($"{(int)(SystemInfo.batteryLevel*100)} %");
         dayText.text = string.Format($"Day {GameManager.Instance.CurrentUser.day}");
     }
+
 }
