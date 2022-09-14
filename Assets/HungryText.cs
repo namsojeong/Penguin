@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class HungryText : MonoBehaviour
 {
-    float fEndPos = -684f;
-    Vector3 startPos;
+    [SerializeField]
+    RectTransform hungryPopup;
+
+    [SerializeField, Header("알림 이동위치")]
+    Vector2 nextpos;
+    Vector2 defPos;
 
     private void Start()
     {
-        EventManager.StartListening("SoHungry", MoveOn);
-        startPos = transform.position;
+        EventManager.StartListening("SoHungry", HungryPopUp);
     }
     private void OnDestroy()
     {
-        EventManager.StopListening("SoHungry", MoveOn);
+        EventManager.StopListening("SoHungry", HungryPopUp);
     }
 
-    void MoveOn(EventParam eventParam)
+    void HungryPopUp(EventParam eventParam)
     {
-        StartCoroutine(LeftMove());
+        defPos = hungryPopup.anchoredPosition;
+        hungryPopup.anchoredPosition = nextpos;
+        Invoke("PopupOff", 1.5f);
     }
 
-    IEnumerator LeftMove()
+    void PopupOff()
     {
-        while (true)
-        {
-            transform.Translate(Vector2.left * Time.deltaTime * 100f);
-            if (transform.position.x <= fEndPos)
-            {
-                transform.position = startPos;
-                break;
-            }
-            yield return null;
-        }
+        hungryPopup.anchoredPosition = defPos;
     }
 }

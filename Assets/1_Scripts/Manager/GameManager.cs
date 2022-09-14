@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     private string SAVE_PATH = "";
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
+    bool isHungry = false;
 
     int lastDay = 25;
     bool isCor = false;
@@ -137,7 +138,12 @@ public class GameManager : MonoBehaviour
                 {
                     FailEnding();
                 }
-                else if (CurrentUser.hungry <= 30) EventManager.TriggerEvent("SoHungry", eventParam);
+                else if (CurrentUser.hungry <= 30 && !isHungry)
+                {
+                    isHungry = true;
+                    EventManager.TriggerEvent("SoHungry", eventParam);
+                }
+                else if (CurrentUser.hungry > 30) isHungry = false;
                 else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
                 break;
             case NutrientE.CLEAN:
