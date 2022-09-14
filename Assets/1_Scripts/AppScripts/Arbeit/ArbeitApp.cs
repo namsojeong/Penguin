@@ -90,7 +90,6 @@ public class ArbeitApp : MonoBehaviour
         tmiDict.Add(8, "TMI : 펭찌는 남극에서 비담이었다 비주얼담당");
         tmiDict.Add(9, "TMI : 펭찌의 이름은 펭귄찌질이에서 유래되었다라는 전설이 있다.");
         tmiDict.Add(10, "TMI : 펭찌는 눈사람 친구도 있다. 그 친구도 새로운 터전을 찾아 떠났다는 소문이 있다.");
-        tmiDict.Add(10, "TMI : 펭찌는 눈사람 친구도 있다. 그 친구도 새로운 터전을 찾아 떠났다는 소문이 있다.");
     }
 
     private void OnDestroy()
