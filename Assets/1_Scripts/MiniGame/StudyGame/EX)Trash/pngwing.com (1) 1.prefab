@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2063099281507234147}
   - component: {fileID: -384934046149934807}
   - component: {fileID: -6183960475548847829}
-  - component: {fileID: -7536194812863395762}
+  - component: {fileID: 2388190874314124324}
   m_Layer: 0
   m_Name: pngwing.com (1) 1
   m_TagString: Recyclablewaste
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8020952026684132868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b4d451bfe3c322c458dedc7d37d08684, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38a310b17893c284b96b5b68ac316f5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3370dd83b8296e644b47ec735e0f07e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &-7536194812863395762
-BoxCollider2D:
+--- !u!60 &2388190874314124324
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,12 +135,52 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 5.04}
+    oldSize: {x: 5.04, y: 8}
     newSize: {x: 8, y: 5.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.41, y: 4.32}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.55, y: -3}
+      - {x: 1.67, y: -2.95}
+      - {x: 1.74, y: -2.8899999}
+      - {x: 1.75, y: -2.85}
+      - {x: 1.75, y: 1.51}
+      - {x: 1.73, y: 1.5999999}
+      - {x: 1.56, y: 2.11}
+      - {x: 1.54, y: 2.1399999}
+      - {x: 1.48, y: 2.21}
+      - {x: 1.3299999, y: 2.3}
+      - {x: 1.17, y: 2.36}
+      - {x: 1.09, y: 2.37}
+      - {x: 0.85999995, y: 2.4199998}
+      - {x: 0.65999997, y: 2.45}
+      - {x: 0.5, y: 2.47}
+      - {x: 0.37, y: 2.48}
+      - {x: 0.16, y: 2.49}
+      - {x: -0.16, y: 2.49}
+      - {x: -0.37, y: 2.48}
+      - {x: -0.5, y: 2.47}
+      - {x: -0.65999997, y: 2.45}
+      - {x: -1.02, y: 2.3899999}
+      - {x: -1.1, y: 2.3799999}
+      - {x: -1.3399999, y: 2.3}
+      - {x: -1.48, y: 2.21}
+      - {x: -1.54, y: 2.1499999}
+      - {x: -1.5699999, y: 2.08}
+      - {x: -1.64, y: 1.87}
+      - {x: -1.76, y: 1.5}
+      - {x: -1.76, y: -2.85}
+      - {x: -1.75, y: -2.8799999}
+      - {x: -1.7099999, y: -2.9299998}
+      - {x: -1.4399999, y: -3.05}
+      - {x: -1.14, y: -3.11}
+      - {x: -0.7, y: -3.1499999}
+      - {x: -0.56, y: -3.1599998}
+      - {x: -0.22, y: -3.1799998}
+      - {x: 0.21, y: -3.1799998}
+      - {x: 0.69, y: -3.1499999}
+      - {x: 0.97999996, y: -3.12}
+      - {x: 1.36, y: -3.07}

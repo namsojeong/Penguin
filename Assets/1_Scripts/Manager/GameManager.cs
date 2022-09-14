@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        CurrentUser.isFirst = true;
+        //CurrentUser.isFirst = true;
         //ÇØ»óµµ
         {
             Time.timeScale = 1;
