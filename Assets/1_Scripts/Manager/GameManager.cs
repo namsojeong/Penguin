@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        CurrentUser.isFirst = true;
         //ÇØ»óµµ
         {
             Time.timeScale = 1;
@@ -60,10 +61,11 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("SaveToJson", 1f, 1f);
         }
 
+
         if (CurrentUser.isFirst)
         {
+            PlayerPrefs.DeleteAll();
             ResetVal();
-            CurrentUser.isFirst = false;
         }
         DontDestroyOnLoad(gameObject);
     }
