@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //CurrentUser.isFirst = true;
         //ÇØ»óµµ
         {
             Time.timeScale = 1;
@@ -62,6 +61,7 @@ public class GameManager : MonoBehaviour
         }
 
 
+        //CurrentUser.isFirst = true;
         if (CurrentUser.isFirst)
         {
             PlayerPrefs.DeleteAll();

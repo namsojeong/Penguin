@@ -25570,7 +25570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243, y: 589}
+  m_AnchoredPosition: {x: 413, y: 427}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1060381702417448637
@@ -25648,6 +25648,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b10a5625bf70a3c4e95dd43e270ad669, type: 3}
   - {fileID: 21300000, guid: efab4efdaa45c854dbfe45213ae96629, type: 3}
   - {fileID: 21300000, guid: f03601e15ae9d0f40970c6a9fc4acbb2, type: 3}
+  canvas: {fileID: 1060381701402073683}
 --- !u!1 &1060381702419507316
 GameObject:
   m_ObjectHideFlags: 0
@@ -38492,6 +38493,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 598261892}
+    - target: {fileID: 8689857199526257277, guid: 39315daf8b7cffa4592fa86c38e09f2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8962012491047770377, guid: 39315daf8b7cffa4592fa86c38e09f2f, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -111,7 +111,7 @@ public class ArbeitApp : MonoBehaviour
             randomTMI = UnityEngine.Random.Range(1, tmiDict.Count);
             tmiDict.TryGetValue(randomTMI, out string str);
             tmiText.text = String.Format(str);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(6f);
         }
     }
     

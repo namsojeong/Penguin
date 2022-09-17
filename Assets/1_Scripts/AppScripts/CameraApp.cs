@@ -13,8 +13,8 @@ public class CameraApp : MonoBehaviour
 
     //string path = @"C:\Github\Pen\ScreenShot\test.png";
 
-    public string folderName = "ScreenShots";
-    public string fileName = "MyScreenShot";
+    public string folderName = "WithPenggzzi";
+    public string fileName = "Pengzzi";
     public string extName = "png";
 
     private string RootPath
@@ -25,17 +25,16 @@ public class CameraApp : MonoBehaviour
             return Application.dataPath;
 #elif UNITY_ANDROID
             return $"/storage/emulated/0/DCIM/{Application.productName}/";
-            //return Application.persistentDataPath;
 #endif
         }
     }
 
-    private string FolderPath => $"{RootPath}/{folderName}";
-    private string TotalPath => $"{FolderPath}/{fileName}_{DateTime.Now.ToString("MMdd_HHmmss")}.{extName}";
+    private string folderPath => $"{RootPath}/{folderName}";
+    private string TotalPath => $"{folderPath}/{fileName}_{DateTime.Now.ToString("MMdd_HHmmss")}.{extName}";
 
     private string lastSavedPath;
 
-
+    #region ON/OFF
     public void OnCamera()
     {
         cameraAppObj[0].SetActive(true);
@@ -54,41 +53,39 @@ public class CameraApp : MonoBehaviour
         cameraAppObj[4].SetActive(true);
         cameraAppObj[5].SetActive(true);
     }
+    #endregion
 
-    public void TakePicture()
+    public void TakePictureAndCheck()
     {
-            CheckAndroidPermissionAndDo(Permission.ExternalStorageRead);
+        CheckPermission(Permission.ExternalStorageRead);
     }
-    private void CheckAndroidPermissionAndDo(string permission)
+    private void CheckPermission(string permission)
     {
         // 안드로이드 : 저장소 권한 확인하고 요청하기
         if (Permission.HasUserAuthorizedPermission(permission) == false)
         {
             PermissionCallbacks pCallbacks = new PermissionCallbacks();
-            pCallbacks.PermissionGranted += str => Debug.Log($"{str} 승인");
-            pCallbacks.PermissionGranted += _ => StartCoroutine(TakeScreenShotRoutine()); // 승인 시 기능 실행
+            pCallbacks.PermissionGranted += _ => StartCoroutine(TakePicture()); // 승인 시 기능 실행
 
-            pCallbacks.PermissionDenied += str => Debug.Log($"{str} 거절");
-
-            pCallbacks.PermissionDeniedAndDontAskAgain += str => Debug.Log($"{str} 거절 및 다시는 보기 싫음");
+            pCallbacks.PermissionDenied += str => Debug.Log($"거절");
 
             Permission.RequestUserPermission(permission, pCallbacks);
         }
         else
         {
-            StartCoroutine(TakeScreenShotRoutine()); // 바로 기능 실행
+            StartCoroutine(TakePicture());
         }
     }
 
-    private IEnumerator TakeScreenShotRoutine()
+    private IEnumerator TakePicture()
     {
         yield return new WaitForEndOfFrame();
-        CaptureScreenAndSave();
+        ChangeTextureAndSave();
     }
 
-    private void CaptureScreenAndSave()
+    private void ChangeTextureAndSave()
     {
-        string totalPath = TotalPath; // 프로퍼티 참조 시 시간에 따라 이름이 결정되므로 캐싱
+        string totalPath = TotalPath;
 
         Texture2D screenTex = new Texture2D(1440, 1440, TextureFormat.RGB24, false);
         Rect area = new Rect(0f, 900f, 1440, 1440);
@@ -100,30 +97,23 @@ public class CameraApp : MonoBehaviour
         try
         {
             // 폴더가 존재하지 않으면 새로 생성
-            if (Directory.Exists(FolderPath) == false)
-            {
-                Directory.CreateDirectory(FolderPath);
-            }
+            if (Directory.Exists(folderPath) == false)  Directory.CreateDirectory(folderPath);
 
-            // 스크린샷 저장
             File.WriteAllBytes(totalPath, screenTex.EncodeToPNG());
         }
         catch (Exception e)
         {
             succeeded = false;
-            Debug.LogWarning($"Screen Shot Save Failed : {totalPath}");
-            Debug.LogWarning(e);
+            Debug.LogWarning($"Screen Shot Save Failed : {totalPath}\n{e}");
         }
 
-        // 마무리 작업
-        Destroy(screenTex);
+        Destroy(screenTex);// 만든 텍스쳐 삭제
 
         if (succeeded)
         {
             lastSavedPath = totalPath; // 최근 경로에 저장
         }
 
-        // 갤러리 갱신
         RefreshAndroidGallery(totalPath);
     }
 
