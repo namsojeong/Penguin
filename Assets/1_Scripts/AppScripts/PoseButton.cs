@@ -9,7 +9,6 @@ public class PoseButton : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     public Image nomalImage;
     public Sprite[] changeSprite;
-
     public void ChangePose()
     {
         Array.shuffl(changeSprite);
@@ -25,6 +24,7 @@ public class PoseButton : MonoBehaviour, IDragHandler, IBeginDragHandler
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+    
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -57,5 +57,10 @@ public class PoseButton : MonoBehaviour, IDragHandler, IBeginDragHandler
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         defaultPos = rectTransform.anchoredPosition;
+    }
+
+    public void ChangeCamera()
+    {
+
     }
 }

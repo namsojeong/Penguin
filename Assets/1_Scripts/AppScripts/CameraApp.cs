@@ -34,27 +34,6 @@ public class CameraApp : MonoBehaviour
 
     private string lastSavedPath;
 
-    #region ON/OFF
-    public void OnCamera()
-    {
-        cameraAppObj[0].SetActive(true);
-        cameraAppObj[1].SetActive(true);
-        cameraAppObj[2].SetActive(false);
-        cameraAppObj[3].SetActive(false);
-        cameraAppObj[4].SetActive(false);
-        cameraAppObj[5].SetActive(false);
-    }
-    public void OnDownCamera()
-    {
-        cameraAppObj[0].SetActive(false);
-        cameraAppObj[1].SetActive(false);
-        cameraAppObj[2].SetActive(true);
-        cameraAppObj[3].SetActive(true);
-        cameraAppObj[4].SetActive(true);
-        cameraAppObj[5].SetActive(true);
-    }
-    #endregion
-
     public void TakePictureAndCheck()
     {
         CheckPermission(Permission.ExternalStorageRead);
@@ -110,9 +89,7 @@ public class CameraApp : MonoBehaviour
         Destroy(screenTex);// 만든 텍스쳐 삭제
 
         if (succeeded)
-        {
             lastSavedPath = totalPath; // 최근 경로에 저장
-        }
 
         RefreshAndroidGallery(totalPath);
     }
@@ -130,5 +107,25 @@ public class CameraApp : MonoBehaviour
 #endif
     }
 
+    #region ON/OFF
+    public void OnCamera()
+    {
+        cameraAppObj[0].SetActive(true);
+        cameraAppObj[1].SetActive(true);
+        cameraAppObj[2].SetActive(false);
+        cameraAppObj[3].SetActive(false);
+        cameraAppObj[4].SetActive(false);
+        cameraAppObj[5].SetActive(false);
+    }
+    public void OnDownCamera()
+    {
+        cameraAppObj[0].SetActive(false);
+        cameraAppObj[1].SetActive(false);
+        cameraAppObj[2].SetActive(true);
+        cameraAppObj[3].SetActive(true);
+        cameraAppObj[4].SetActive(true);
+        cameraAppObj[5].SetActive(true);
+    }
+    #endregion
 
 }
