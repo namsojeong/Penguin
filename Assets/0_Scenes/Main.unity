@@ -4029,7 +4029,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'TMI : '
+  m_Text: "TMI : \uD3AD\uCC0C\uB294 \uC694\uB9AC\uD558\uB2E4\uAC00 \uC774\uAE00\uB8E8\uAC00
+    \uD3ED\uBC1C\uD55C \uC801\uC774 \uC788\uB2E4."
 --- !u!222 &741535804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29082,7 +29083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1060381702745901894
 CanvasRenderer:
   m_ObjectHideFlags: 0
