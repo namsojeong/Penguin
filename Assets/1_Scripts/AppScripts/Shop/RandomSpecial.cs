@@ -58,14 +58,6 @@ public class RandomSpecial : MonoBehaviour
             priceText.text = string.Format("All Collect");
             return;
         }
-        if (!GameManager.Instance.CurrentUser.isTryRan)
-        {
-            GameManager.Instance.CurrentUser.isTryRan = true;
-            buyButton.interactable = true;
-            buyButton.image.color = Color.white;
-            priceText.text = string.Format("¹«·á");
-            return;
-        }
         if (GameManager.Instance.CurrentUser.coin < price)
         {
             UpdatePrice();

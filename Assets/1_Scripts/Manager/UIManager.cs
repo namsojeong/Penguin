@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     {
         if(GameManager.Instance.CurrentUser.isFirst)
         {
+            GameManager.Instance.CurrentUser.isFirst = false;
             SceneM.instance.ChangeScene("CutScene");
         }
         else

@@ -37,8 +37,10 @@ public class GameManager : MonoBehaviour
 
     private string SAVE_PATH = "";
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
+    bool isHungry = false;
 
     int lastDay = 25;
+    bool isCor = false;
     EventParam eventParam = new EventParam();
 
     private void Awake()
@@ -58,10 +60,12 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("SaveToJson", 1f, 1f);
         }
 
+
+        //CurrentUser.isFirst = true;
         if (CurrentUser.isFirst)
         {
+            PlayerPrefs.DeleteAll();
             ResetVal();
-            CurrentUser.isFirst = false;
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -136,6 +140,12 @@ public class GameManager : MonoBehaviour
                 {
                     FailEnding();
                 }
+                else if (CurrentUser.hungry <= 30 && !isHungry)
+                {
+                    isHungry = true;
+                    EventManager.TriggerEvent("SoHungry", eventParam);
+                }
+                else if (CurrentUser.hungry > 30) isHungry = false;
                 else if (CurrentUser.hungry > 100) CurrentUser.hungry = 100;
                 break;
             case NutrientE.CLEAN:
@@ -160,6 +170,13 @@ public class GameManager : MonoBehaviour
                 {
                     NextDay();
                 }
+                else if (CurrentUser.sleep < 20)
+                {
+                    if (isCor) return;
+                    isCor = true;
+                    EventManager.TriggerEvent("MessageUp", eventParam);
+                }
+                else if (CurrentUser.sleep >= 20) isCor = false;
                 break;
         }
     }
@@ -241,8 +258,7 @@ public class GameManager : MonoBehaviour
         CurrentUser.day = 1;
 
         CurrentUser.isSpecialAll = false;
-        CurrentUser.isTryRan = false;
-        CurrentUser.ranPrice = 0;
+        CurrentUser.ranPrice = 1000;
         CurrentUser.specialCnt = 0;
         CurrentUser.messageTime = 30;
         CurrentUser.messaeging = false;

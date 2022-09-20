@@ -26,12 +26,11 @@ public class User
     public int coin = 100;
     public int day = 1;
     public int arbTime = 0;
-    public int ranPrice = 0;
+    public int ranPrice = 1000;
     public int specialCnt = 0;
 
     public bool isFirst = true;
     public bool isSpecialAll = false;
-    public bool isTryRan = false;
 
     public int messageTime = 30;
     public bool messaeging = false;

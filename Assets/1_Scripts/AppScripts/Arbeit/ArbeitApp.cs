@@ -31,6 +31,8 @@ public class ArbeitApp : MonoBehaviour
 
     [SerializeField]
     AudioClip finishSound;
+    [SerializeField]
+    Text tmiText;
 
 
     [SerializeField, Header("알바 후 패널")]
@@ -49,8 +51,10 @@ public class ArbeitApp : MonoBehaviour
     bool isPlaying = false;
 
     List<Sprite> setSprite = new List<Sprite>();
-    int[] arbCnt = { 0, 0, 0 }; 
+    int[] arbCnt = { 0, 0, 0 };
 
+    Dictionary<int, string> tmiDict = new Dictionary<int, string>();
+    
     EventParam eventParam = new EventParam();
 
 
@@ -70,7 +74,24 @@ public class ArbeitApp : MonoBehaviour
         EventManager.StartListening("FinishArb", Finish);
         //EventManager.StartListening("PlusArb", GetArb);
 
+        ResetDict();
     }
+
+    void ResetDict()
+    {
+        tmiDict.Clear();
+        tmiDict.Add(1, "TMI : 펭찌의 성별은 개발자도 알지 못한다...");
+        tmiDict.Add(2, "TMI : 펭찌는 아샷추를 좋아한다. 물론 아이스티에 샷 추가");
+        tmiDict.Add(3, "TMI : 펭찌 아이템 중 안경은 도수가 없는 패션안경이다.");
+        tmiDict.Add(4, "TMI : 펭찌는 사실 노래 중 힙합을 좋아한다. 가끔 혼자 랩을 부르곤 한다");
+        tmiDict.Add(5, "TMI : 펭찌는 북극에 놀러 간 적이 있어 북극곰과 짱친을 먹었다.");
+        tmiDict.Add(6, "TMI : 펭찌는 요리하다가 이글루가 폭발한 적이 있다.");
+        tmiDict.Add(7, "TMI : 펭찌는 한때 3대 500을 친 리즈시절이 있다.");
+        tmiDict.Add(8, "TMI : 펭찌는 남극에서 비담이었다 비주얼담당");
+        tmiDict.Add(9, "TMI : 펭찌의 이름은 펭귄찌질이에서 유래되었다라는 전설이 있다.");
+        tmiDict.Add(10, "TMI : 펭찌는 눈사람 친구도 있다. 그 친구도 새로운 터전을 찾아 떠났다는 소문이 있다.");
+    }
+
     private void OnDestroy()
     {
         EventManager.StopListening("FinishArb", Finish);
@@ -81,6 +102,19 @@ public class ArbeitApp : MonoBehaviour
     {
         ResetArb();
     }
+
+    IEnumerator UpdateTMI()
+    {
+        int randomTMI = 0;
+        while(true)
+        {
+            randomTMI = UnityEngine.Random.Range(1, tmiDict.Count);
+            tmiDict.TryGetValue(randomTMI, out string str);
+            tmiText.text = String.Format(str);
+            yield return new WaitForSeconds(6f);
+        }
+    }
+    
 
     void OpenArb()
     {
@@ -110,8 +144,6 @@ public class ArbeitApp : MonoBehaviour
             StartArb();
         }
 
-
-
     }
     void IsPlay()
     {
@@ -119,11 +151,14 @@ public class ArbeitApp : MonoBehaviour
         {
             playPanel.SetActive(true);
             calendarPanel.SetActive(false);
+            tmiText.gameObject.SetActive(true);
+            StartCoroutine(UpdateTMI());
         }
         else
         {
             playPanel.SetActive(false);
             calendarPanel.SetActive(true);
+            tmiText.gameObject.SetActive(false);
         }
     }
 

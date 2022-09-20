@@ -31,6 +31,8 @@ public class AudioSetManager : MonoBehaviour
     private AudioSource audioSFXSource;
 
     [SerializeField]
+    private AudioSource audioPhoneSource;
+    [SerializeField]
     private AudioSource audioClickSource;
 
     private float backVol = 1;
@@ -70,6 +72,7 @@ public class AudioSetManager : MonoBehaviour
     {
         audioSFXSource.volume = FXSlider.value;
         audioClickSource.volume = FXSlider.value;
+        audioPhoneSource.volume = FXSlider.value;
 
         vfxVol = FXSlider.value;
         PlayerPrefs.SetFloat(ConstantManager.VOL_VFX, vfxVol);
