@@ -13537,7 +13537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1060381701176911120
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29346,7 +29346,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC9C0\uC2DD\uC778 \uB2F5\uBCC0\uB2EC\uAE30\n\uC2DC\uAE09 : 100Coin"
+  m_Text: "\uC9C0\uC2DDin\uAC04 \uB2F5\uBCC0\uB2EC\uAE30\n\uC2DC\uAE09 : 100Coin"
 --- !u!224 &1060381702747110859
 RectTransform:
   m_ObjectHideFlags: 0

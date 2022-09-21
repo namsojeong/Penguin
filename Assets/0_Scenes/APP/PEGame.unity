@@ -766,7 +766,6 @@ MonoBehaviour:
   clickClip: {fileID: 8300000, guid: d7f1efa04aaff6d4eaff29af3b810f8a, type: 3}
   bgmClip: {fileID: 0}
   waterClikClip: {fileID: 0}
-  sfx: []
 --- !u!4 &205096410
 Transform:
   m_ObjectHideFlags: 0
@@ -3308,7 +3307,7 @@ GameObject:
   - component: {fileID: 879840313}
   - component: {fileID: 879840312}
   m_Layer: 5
-  m_Name: Time
+  m_Name: dayTime
   m_TagString: TIME
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3366,7 +3365,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PM 12:00
+  m_Text: DAY 1
 --- !u!222 &879840313
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3478,7 +3477,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PEGame
+          m_StringArgument: Main
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &889240694
@@ -3774,6 +3773,7 @@ GameObject:
   - component: {fileID: 925578764}
   - component: {fileID: 925578763}
   - component: {fileID: 925578762}
+  - component: {fileID: 925578766}
   m_Layer: 5
   m_Name: PhoneUICanvas
   m_TagString: Untagged
@@ -3866,6 +3866,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &925578766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925578761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e2c09412e12348a35c5354fe1f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 1750685920}
+  batteryText: {fileID: 1416571790}
+  dayText: {fileID: 879840312}
 --- !u!1 &932398675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3897,6 +3912,7 @@ RectTransform:
   m_Children:
   - {fileID: 879840311}
   - {fileID: 1416571789}
+  - {fileID: 1750685918}
   m_Father: {fileID: 925578765}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5645,7 +5661,6 @@ MonoBehaviour:
     specialCnt: 0
     isFirst: 1
     isSpecialAll: 0
-    isTryRan: 0
     messageTime: 30
     messaeging: 0
     items: []
@@ -5947,6 +5962,85 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1750685917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750685918}
+  - component: {fileID: 1750685919}
+  - component: {fileID: 1750685920}
+  m_Layer: 5
+  m_Name: Time (2)
+  m_TagString: TIME
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1750685918
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750685917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 932398676}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -205, y: 0}
+  m_SizeDelta: {x: 501.5201, y: 137.68}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1750685919
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750685917}
+  m_CullTransparentMesh: 1
+--- !u!114 &1750685920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750685917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 58db98fbac96de84e91674ec7f1397f1, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: PM 12:00
 --- !u!1 &1767441931
 GameObject:
   m_ObjectHideFlags: 0

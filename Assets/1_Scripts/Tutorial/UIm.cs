@@ -8,8 +8,6 @@ public class UIm : MonoBehaviour
     [SerializeField]
     AudioSource clickSource;
 
-    public GameObject botomButton;
-
     public Image Imgages;
 
     public List<Sprite> tutoimage;
@@ -23,7 +21,6 @@ public class UIm : MonoBehaviour
         i++;
         if(i+2 > tutoimage.Count)
         {
-
         SceneManager.LoadScene("Main");
         }
         Imgages.sprite = tutoimage[i];

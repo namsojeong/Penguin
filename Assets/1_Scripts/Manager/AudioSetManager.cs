@@ -54,9 +54,6 @@ public class AudioSetManager : MonoBehaviour
 
         vfxVol = PlayerPrefs.GetFloat(ConstantManager.VOL_VFX, 1f);
         FXSlider.value = vfxVol;
-
-
-
     }
 
     public void BGMSoundSlider()
