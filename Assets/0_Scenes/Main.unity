@@ -21060,7 +21060,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1060381702745901897}
         m_TargetAssemblyTypeName: CameraApp, Assembly-CSharp
-        m_MethodName: TakePicture
+        m_MethodName: TakePictureAndCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
