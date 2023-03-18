@@ -16,6 +16,3 @@
 
 # 🎬 관련 영상
 https://www.youtube.com/watch?v=OjrC5VEqPkE&feature=emb_title
-
-# 💼 자세한 설명
-https://namsojeong.notion.site/cd349e867202426c8bd90aada3fae39f
